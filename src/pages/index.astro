@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ModeView from '../components/ModeView.astro';
 import SourceLinks from '../components/SourceLinks.astro';
-import { meta, sourcesFor, latestSourceDate } from '../data/meta';
+import { meta, sourcesFor, latestSourceDate, formatDate } from '../data/meta';
 const modes = Object.values(meta.modes);
 const capturedPros = meta.pros.filter(pro => pro.last && !pro.last.preReset);
 const historicalPros = meta.pros.filter(pro => pro.last?.preReset);
@@ -13,13 +13,13 @@ const orderedPros = [...capturedPros, ...historicalPros, ...meta.pros.filter(pro
 
   <section class="pro-section" aria-labelledby="pros-title">
     <div class="section-title"><h2 id="pros-title">What pros are running</h2></div>
-    <p class="section-note">No capture means none collected in this read, not non-use.</p>
+    <p class="section-note">No verified current pair means none collected in this read, not non-use. Four Nov 6 pair-level reports only.</p>
     <ol class="pro-list">
       {orderedPros.map(pro => (
         <li class:list={["pro-record", { "pre-reset": pro.last?.preReset, "no-capture": !pro.last }]}>
           {!pro.last ? (
-            <div class="empty-capture" aria-label={`${pro.name} · ${pro.team} · no S1 capture`}>
-              <div class="pro-identity"><span class="pro-order">{String(pro.order).padStart(2, '0')}</span><h3>{pro.name}</h3><span class="pro-team">· {pro.team}</span><span class="empty-capture-label">· no S1 capture</span></div>
+            <div class="empty-capture" aria-label={`${pro.name} · ${pro.team} · no verified current pair`}>
+              <div class="pro-identity"><span class="pro-order">{String(pro.order).padStart(2, '0')}</span><h3>{pro.name}</h3><span class="pro-team">· {pro.team}</span><span class="empty-capture-label">· no current pair</span></div>
               <div class="pro-links"><a href={pro.twitch} target="_blank" rel="noopener noreferrer">Twitch<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a><a href={pro.x} target="_blank" rel="noopener noreferrer">X<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a></div>
             </div>
           ) : (
@@ -34,11 +34,12 @@ const orderedPros = [...capturedPros, ...historicalPros, ...meta.pros.filter(pro
         </li>
       ))}
     </ol>
-    <details class="roster-details"><summary>20-player tournament roster · selection evidence<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p>{meta.rosterNote}</p><SourceLinks sources={sourcesFor(meta.rosterRosterSourceIds)} /></div></details>
+    <details class="historical-pairs"><summary>Pre-launch pair archive · 6 dated records · not Season 1 picks<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p>Sep/Oct pair evidence is retained for player history only. It no longer appears in the current pair table or count. Current-use exception required separate Nov 6 evidence.</p>{meta.historicalPros?.map(pro => <div class="historical-pair"><p><strong>{pro.name}</strong> · {pro.team}</p><p>{pro.last?.pair}</p><small><span class="evidence-flag">Pre-reset</span> Last confirmed {formatDate(pro.last?.date ?? '')}. {pro.last?.note} · <a href={sourcesFor(pro.last?.sourceIds ?? [])[0].url} target="_blank" rel="noopener noreferrer">Dated source ↗</a></small></div>)}</div></details>
+    <details class="roster-details"><summary>20-player tournament roster · selection evidence<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p>{meta.rosterNote}</p><p>Vision* for Lenun = Vision in the cited 2025 event; it is not asserted as his current Nov 6 organization.</p><SourceLinks sources={sourcesFor(meta.rosterRosterSourceIds)} /></div></details>
   </section>
 
   <section class="official-section" aria-labelledby="official-title"><div class="section-title"><h2 id="official-title">Known official changes</h2></div>
-    <ul class="official-list">{meta.officialChanges.map(change => <li>{change.text} <a href={sourcesFor(change.sourceIds)[0].url} target="_blank" rel="noopener noreferrer">Official S1 notes · Nov 5<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a></li>)}</ul>
+    <ul class="official-list">{meta.officialChanges.map(change => <li>{change.text} <a href={sourcesFor(change.sourceIds)[0].url} target="_blank" rel="noopener noreferrer">{sourcesFor(change.sourceIds)[0].label} · {sourcesFor(change.sourceIds)[0].date}<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a></li>)}</ul>
   </section>
-  {meta.changelog.map(entry => <details class="change-log"><summary>Changelog · {meta.changelog.length} entry · {entry.sourceIds.length} sources · latest {latestSourceDate(sourcesFor(entry.sourceIds))}<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p><strong>{entry.date} · {entry.title}</strong></p><p>{entry.text}</p><SourceLinks sources={sourcesFor(entry.sourceIds)} /></div></details>)}
+  <details class="change-log"><summary>Changelog · {meta.changelog.length} {meta.changelog.length === 1 ? "entry" : "entries"}<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content">{meta.changelog.map(entry => <section class="changelog-entry"><h3>{entry.date} · {entry.title}</h3><p>{entry.text}</p><h4>{entry.sourceIds.length} dated sources · latest {latestSourceDate(sourcesFor(entry.sourceIds))}</h4><SourceLinks sources={sourcesFor(entry.sourceIds)} /></section>)}</div></details>
 </Base>

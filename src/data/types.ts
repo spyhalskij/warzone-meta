@@ -1,5 +1,5 @@
-export type ModeKey = 'br' | 'res';
-export type Confidence = 'Established' | 'Emerging' | 'Testing' | 'Historical';
+export type ModeKey = "br" | "res";
+export type Confidence = "Established" | "Emerging" | "Testing" | "Historical";
 export interface Source {
   id: string;
   label: string;
@@ -8,7 +8,10 @@ export interface Source {
   url: string;
   note?: string;
 }
-export interface Attachment { slot: string; name: string; }
+export interface Attachment {
+  slot: string;
+  name: string;
+}
 export interface Observation {
   n: number;
   total: number;
@@ -19,6 +22,7 @@ export interface Observation {
   sourceIds: string[];
   caveat: string;
 }
+export interface BaselineCandidate { arm: string; owner: string; note: string; sourceIds: string[]; }
 export interface Build {
   owner: string;
   kind: string;
@@ -27,7 +31,12 @@ export interface Build {
   note: string;
   sourceIds: string[];
 }
-export interface TestResult { kind: 'CALC' | 'MEAS'; value: string; note: string; sourceIds: string[]; }
+export interface TestResult {
+  kind: "CALC" | "MEAS";
+  value: string;
+  note: string;
+  sourceIds: string[];
+}
 export interface MetaCard {
   id: string;
   role: string;
@@ -39,6 +48,13 @@ export interface MetaCard {
   preReset?: boolean;
   editable: string;
   unlock?: string;
+  legacy?: boolean;
+  archived?: boolean;
+  withdrawnOn?: string;
+  noteTitle?: string;
+  reflectCandidates?: boolean;
+  augment?: string;
+  candidates?: BaselineCandidate[];
   observed: Observation;
   build: Build | null;
   augment: string;
@@ -72,7 +88,10 @@ export interface Pro {
   youtube: string | null;
   last: ProCapture | null;
   season1Captured: boolean;
+  teamContext?: string;
   identityNote?: string;
+  streamNote?: { text: string; sourceIds: string[] };
+  legacyLabel?: string;
   sourceIds: string[];
 }
 export interface MetaData {
@@ -86,12 +105,27 @@ export interface MetaData {
   launch: string;
   evidenceCutoff: string;
   sources: Source[];
-  sample: { label: string; n: number; total: number; trackedTotal: number; note: string; sourceIds: string[]; };
+  sample: {
+    label: string;
+    n: number;
+    total: number;
+    trackedTotal: number;
+    note: string;
+    sourceIds: string[];
+  };
   calculationNote: string;
   modes: Record<ModeKey, GameMode>;
-  officialChanges: { text: string; sourceIds: string[]; }[];
-  changelog: { date: string; title: string; text: string; sourceIds: string[]; }[];
+  officialChanges: { text: string; sourceIds: string[] }[];
+  changelog: {
+    date: string;
+    title: string;
+    text: string;
+    sourceIds: string[];
+  }[];
   rosterNote: string;
   rosterRosterSourceIds: string[];
   pros: Pro[];
+  historicalPros?: Pro[];
+  auditStats?: Record<string, unknown>;
+  legacyPurge?: Record<string, unknown>;
 }

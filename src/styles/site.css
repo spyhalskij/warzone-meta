@@ -324,3 +324,110 @@ footer { padding-top:15px; }
 @media(min-width:900px) {
   .pro-record.no-capture { padding:9px 0; }
 }
+/* Current-game integrity gate: legacy and evidence caveats are visible without expanding details. */
+.visible-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.visible-tags .evidence-flag {
+  font-size: 12px;
+  padding: 3px 6px;
+  min-height: 26px;
+}
+.visible-tags .evidence-flag.legacy,
+.legacy-card .role-label {
+  color: #d1ac6a;
+}
+.visible-tags .evidence-flag.legacy {
+  border-color: #8a733d;
+  background: rgba(181, 137, 48, 0.07);
+}
+.legacy-card {
+  border-color: #77663d;
+}
+.unavailable-build {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.withdrawn-section {
+  margin-top: 22px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.withdrawn-section summary,
+.candidate-owner {
+  font-family: var(--names);
+  font-size: 14px;
+}
+.withdrawn-section summary {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--muted);
+  list-style: none;
+}
+.withdrawn-section summary::-webkit-details-marker {
+  display: none;
+}
+.withdrawn-section[open] .details-mark {
+  font-size: 0;
+}
+.withdrawn-section[open] .details-mark::after {
+  content: "−";
+}
+.withdrawn-list {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 16px;
+}
+.withdrawn-list h3 {
+  font-size: 20px;
+  margin: 0 0 7px;
+}
+.withdrawn-list p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 10px 0;
+}
+.withdrawn-list .source-links a {
+  font-size: 12px;
+}
+.withdrawn-list .source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.baseline-candidate {
+  border-top: 1px solid var(--line);
+  margin-top: 17px;
+}
+.baseline-candidate p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+/* 88px category column plus safe hyphen wrap avoids accidental one-letter breaks for MW4 cartridge names. */
+@media (max-width:600px) {
+  .attachment-list strong {overflow-wrap:break-word;word-break:normal;hyphens:auto;font-size:12.5px;}
+  .attachment-list li {min-height:44px;padding:8px 0;}
+}
+.historical-pairs {margin-top:10px;border-top:1px solid var(--line);}
+.historical-pairs > summary {min-height:44px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;color:var(--muted);font-size:13px;list-style:none;}
+.historical-pairs > summary::-webkit-details-marker {display:none;}
+.historical-pairs[open] .details-mark {font-size:0;}.historical-pairs[open] .details-mark::after{content:"−";}
+.historical-pair {display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:5px 12px;padding:12px 0;border-top:1px solid var(--line);font-size:13px;}
+.historical-pair p {margin:0;color:var(--muted);}
+.historical-pair small {grid-column:1/-1;color:var(--muted);line-height:1.55;}
+.historical-pair a {color:var(--muted);font-size:12px;}
+@media(max-width:399px) {
+  /* Full team remains in aria-label/roster details; prioritize exact player/date/link tap targets. */
+  .empty-capture .pro-team {display:none;}
+}
+.changelog-entry + .changelog-entry {border-top:1px solid var(--line);margin-top:20px;padding-top:16px;}
+.changelog-entry h3 {font-size:18px;margin:0 0 10px;}.changelog-entry > p {color:var(--muted);font-size:14px;line-height:1.65;}

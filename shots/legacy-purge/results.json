@@ -1,0 +1,140 @@
+{
+  "pass": true,
+  "base": "http://127.0.0.1:4323/warzone-meta/",
+  "viewport": 390,
+  "widths": [
+    320,
+    390,
+    1280
+  ],
+  "live": false,
+  "modes": {
+    "br": {
+      "current": [
+        "br-cronen",
+        "br-vel",
+        "br-voyak",
+        "br-kg7",
+        "br-han"
+      ],
+      "heights": [
+        {
+          "id": "br-cronen",
+          "height": 618
+        },
+        {
+          "id": "br-vel",
+          "height": 618
+        },
+        {
+          "id": "br-voyak",
+          "height": 434
+        },
+        {
+          "id": "br-kg7",
+          "height": 412
+        },
+        {
+          "id": "br-han",
+          "height": 654
+        }
+      ]
+    },
+    "res": {
+      "current": [
+        "res-pending"
+      ],
+      "heights": [
+        {
+          "id": "res-pending",
+          "height": 412
+        }
+      ]
+    }
+  },
+  "emptyRows": [
+    {
+      "name": "Anziety",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Bigman",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Cythe",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Echo1867",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Disrrpt",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Melvn",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Slappy",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Enkeo",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Gromalok",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "HalloWFR",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Newbz",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Dongy",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Almond",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Shifty",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Blazt",
+      "height": 45,
+      "linksHeight": 44
+    },
+    {
+      "name": "Lenun",
+      "height": 45,
+      "linksHeight": 44
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "badResponses": []
+}

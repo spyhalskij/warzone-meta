@@ -22,15 +22,18 @@ for (const mode of ['br', 'res']) {
     assert(['Established', 'Emerging', 'Testing', 'Historical'].includes(card.confidence), `${card.id}: invalid confidence`);
     assert(card.modeUnlabeled === true, `${card.id}: missing visible mode flag`);
     assert(card.summary.length <= 110, `${card.id}: summary exceeds 110 characters`);
+    assert(!card.legacy || card.build?.attachments.length === 0, `${card.id}: legacy legacy attachment list must not render as an editable recipe`);
+    if(card.confidence !== 'Historical') {assert(card.observed.date === meta.snapshotDate || !card.observed.date, `${card.id}: current card capture must be dated to current patch boundary`);}
     if (card.observed.date) assert(/^\d{4}-\d{2}-\d{2}$/.test(card.observed.date) && !Number.isNaN(Date.parse(`${card.observed.date}T00:00:00Z`)), `${card.id}: invalid ISO observed date`);
     assert(card.observed.names.length <= card.observed.total, `${card.id}: impossible observed names`);
+    assert(Number.isInteger(card.observed.n) && card.observed.total > 0 && card.observed.dateLabel && card.observed.caveat, `${card.id}: incomplete observation`);
     assert(card.observed.n > 0 || card.observed.display, `${card.id}: empty observation must explain its denominator`);
     const allCitations = [...card.sourceIds, ...card.observed.sourceIds, ...(card.build?.sourceIds ?? []), ...(card.test?.sourceIds ?? [])];
     assert(allCitations.every(id => card.sourceIds.includes(id)), `${card.id}: observation/build/test citation missing from card sourceIds`);
     for (const field of card.build?.attachments ?? []) assert(field.slot && !/^Attachment\s*\d*/i.test(field.slot), `${card.id}: generic numbered slot`);
     if (card.build) {
       assert(card.build.owner && card.build.kind && card.build.note && card.build.sourceIds.length, `${card.id}: incomplete build provenance`);
-      assert(card.build.attachments.length > 0, `${card.id}: empty attachment build`);
+      assert(card.build.attachments.length > 0 || card.legacy === true, `${card.id}: empty attachment build requires explicit Legacy`);
     }
     if (card.test) {
       assert(['CALC', 'MEAS'].includes(card.test.kind) && card.test.value && card.test.note, `${card.id}: incomplete test result`);
@@ -42,5 +45,6 @@ for (const pro of meta.pros) if (pro.last) {
   assert(pro.last.date && pro.last.pair && pro.last.note && pro.last.sourceIds.length, `${pro.id}: incomplete capture`);
   assert(pro.last.preReset === (pro.last.date < '2026-11-06'), `${pro.id}: incorrect pre-reset flag`);
 }
+for(const pro of meta.pros) if(pro.last) assert(pro.last.date === meta.snapshotDate, `${pro.id}: stale pro pair can't render as current`);
 fs.copyFileSync(new URL('meta.json', root), new URL(`meta-${meta.snapshotDate}.json`, root));
 console.log(`Validated ${meta.pros.length} pros, ${meta.sources.length} dated sources, ${meta.modes.br.cards.length} BR cards and ${meta.modes.res.cards.length} Resurgence cards; summaries <=110; no numbered slots.`);
