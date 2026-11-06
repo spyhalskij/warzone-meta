@@ -192,6 +192,22 @@
       "kind": "HISTORICAL",
       "date": "last confirmed Oct 2, 2026",
       "url": "https://kitted.gg/streamer/lenun"
+    },
+    {
+      "id": "kitted-iso",
+      "label": "Kitted ISO Nightshade / FLS · slot record",
+      "kind": "OBSERVED-USE",
+      "date": "page last updated Nov 3 · FLS page read Nov 6",
+      "url": "https://kitted.gg/loadout/iso-nightshade",
+      "note": "Explicitly names laser / magazine / muzzle / stock for FLS's four listed items; its page date differs from FLS's later player-page report."
+    },
+    {
+      "id": "kitted-kt3",
+      "label": "Kitted Voyak KT-3 · slot record",
+      "kind": "HISTORICAL · OBSERVED-USE",
+      "date": "Nov 6 · rolling panel",
+      "url": "https://kitted.gg/loadout/voyak-kt-3",
+      "note": "Slot-by-slot record including FLS; rolling panel includes mixed-freshness evidence."
     }
   ],
   "sample": {
@@ -219,7 +235,7 @@
           "role": "Long range · new platform",
           "weapon": "Cronen Osprey",
           "confidence": "Emerging",
-          "summary": "Fastest far-range result in JGOD's launch-day calculations, with one individually reported complete build. Editorial sources disagree on its tier.",
+          "summary": "Adriann’s full build; JGOD’s fastest far calculation. Only 1/17 observed.",
           "modeUnlabeled": true,
           "editable": "Editable Gunsmith",
           "unlock": "Battle Pass tier 16",
@@ -243,23 +259,23 @@
             "status": "Complete · 5 listed slots",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Muzzle",
                 "name": "FSS IS300 Heavy Silencer"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Barrel",
                 "name": "IO-556 TAC 18\""
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Optic",
                 "name": "Locus PX3 Canted Rifle Scope"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Magazine",
                 "name": "60 Round Mag"
               },
               {
-                "slot": "Attachment 5",
+                "slot": "Fire mods",
                 "name": "5.56 NATO High"
               }
             ],
@@ -286,14 +302,15 @@
             "wzl",
             "dexerto",
             "official"
-          ]
+          ],
+          "fullSummary": "Fastest far-range result in JGOD's launch-day calculations, with one individually reported complete build. Editorial sources disagree on its tier."
         },
         {
           "id": "br-vel",
           "role": "Close range · most modern use",
           "weapon": "VEL 46",
           "confidence": "Emerging",
-          "summary": "Most-observed new-platform SMG in Kitted's mixed-freshness panel. Observed adoption and calculated TTK leadership are different answers.",
+          "summary": "Five observed users; Hisoka’s four listed parts. Not the calculated TTK leader.",
           "modeUnlabeled": true,
           "editable": "Editable Gunsmith",
           "observed": {
@@ -320,23 +337,23 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Slot",
                 "name": "VLK LZR 7MW"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Stock",
                 "name": "Demo RXT Stock"
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Slot",
                 "name": "4.6mm Hollowpoint"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Magazine",
                 "name": "50 Round Mag"
               }
             ],
-            "note": "Hisoka's four listed items. Kitted's separate modal list mixes attachments across the five users and is not presented as one player's build.",
+            "note": "Hisoka's four listed items. Kitted's separate modal list mixes attachments across the five users and is not presented as one player's build. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
             "sourceIds": [
               "kitted-hisoka",
               "kitted-vel"
@@ -359,14 +376,15 @@
             "wzstats",
             "wzl",
             "official"
-          ]
+          ],
+          "fullSummary": "Most-observed new-platform SMG in Kitted's mixed-freshness panel. Observed adoption and calculated TTK leadership are different answers."
         },
         {
           "id": "br-han",
           "role": "Long support · accessible alternative",
           "weapon": "Han 86",
           "confidence": "Emerging",
-          "summary": "Stronger modern-AR adoption than Cronen in this panel and immediately unlockable, but its reported individual build is incomplete.",
+          "summary": "Immediate unlock with three observed users; Hisoka’s partial build, not consensus.",
           "modeUnlabeled": true,
           "editable": "Editable Gunsmith",
           "unlock": "Immediate unlock",
@@ -393,25 +411,26 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Slot",
                 "name": "SA H86 465MM"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Slot",
                 "name": "TZL-110 V1"
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Optic",
                 "name": "Slimline Elite"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Stock",
                 "name": "FR4 Retractable Stock"
               }
             ],
-            "note": "Hisoka's reported four-slot set. Slots are labeled where supplied in the saved source read; a fifth slot is deliberately absent.",
+            "note": "Hisoka's reported four-slot set. Slots are labeled where supplied in the saved source read; a fifth slot is deliberately absent. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
             "sourceIds": [
-              "kitted-hisoka"
+              "kitted-hisoka",
+              "kitted-han"
             ]
           },
           "augment": "No augment selection established. Sharpshooter is a separate long-range handling test candidate.",
@@ -431,14 +450,15 @@
             "jgod",
             "dexerto",
             "official"
-          ]
+          ],
+          "fullSummary": "Stronger modern-AR adoption than Cronen in this panel and immediately unlockable, but its reported individual build is incomplete."
         },
         {
           "id": "br-voyak",
           "role": "Retained legacy · historical context",
           "weapon": "Voyak KT-3",
           "confidence": "Historical",
-          "summary": "The rolling panel's most-observed retained legacy weapon, not an established Season 1 winner. Old attachments are context, not a current editable recipe.",
+          "summary": "Rolling panel’s most-used legacy gun; preset-only, with mixed-freshness evidence.",
           "modeUnlabeled": true,
           "preReset": true,
           "editable": "Preset / blueprint only · legacy Gunsmith locked",
@@ -446,18 +466,22 @@
             "n": 8,
             "total": 17,
             "names": [
-              "FLS",
               "Fifakill",
-              "6 additional panel users not enumerated in the saved read"
+              "GalaxyWZ",
+              "ScummN",
+              "JuicyJohns",
+              "Dongy",
+              "Krinkz",
+              "jboned",
+              "FLS"
             ],
             "date": "2026-11-06",
             "dateLabel": "FLS + Fifakill last reported",
             "sourceIds": [
-              "kitted-panel",
-              "kitted-fls",
-              "kitted-fifakill"
+              "kitted-kt3",
+              "kitted-panel"
             ],
-            "caveat": "The 8/17 rolling count includes mixed-freshness observations. Do not read it as an 8-player post-reset sample."
+            "caveat": "Eight names come from Kitted’s weapon page; the rolling panel includes mixed dates. This is not an eight-player post-reset sample."
           },
           "build": {
             "owner": "FLS",
@@ -465,23 +489,23 @@
             "status": "Pre-reset context · select a current preset instead",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Optic",
                 "name": "Redwell 30-S 2x"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Muzzle",
                 "name": "Monolithic Suppressor"
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Barrel",
                 "name": "17.6\" LTI Grav-4 Barrel"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Magazine",
                 "name": "Lineguard Casket Mag"
               },
               {
-                "slot": "Attachment 5",
+                "slot": "Fire mods",
                 "name": "7.62 Soviet FMJ"
               }
             ],
@@ -489,7 +513,8 @@
             "sourceIds": [
               "kitted-fls",
               "kitted-fifakill",
-              "official"
+              "official",
+              "kitted-kt3"
             ]
           },
           "augment": "Not established for a current legacy preset.",
@@ -500,15 +525,17 @@
             "kitted-method",
             "kitted-fls",
             "kitted-fifakill",
-            "official"
-          ]
+            "official",
+            "kitted-kt3"
+          ],
+          "fullSummary": "The rolling panel's most-observed retained legacy weapon, not an established Season 1 winner. Old attachments are context, not a current editable recipe."
         },
         {
           "id": "br-kg7",
           "role": "Sniper · editorial watch",
           "weapon": "KG-7 Vulcan",
           "confidence": "Testing",
-          "summary": "Two editorial role boards put KG-7 first; that is not current competitive-pro usage or a measured sniper consensus.",
+          "summary": "Two editorial boards rank KG-7 first; no current pro-use consensus was found.",
           "modeUnlabeled": true,
           "editable": "Editable build shown by editorial source",
           "observed": {
@@ -526,7 +553,7 @@
           "build": {
             "owner": "WarzoneLoadout editorial",
             "kind": "Editorial build · not pro-attributed",
-            "status": "Complete editorial list · no current pro capture",
+            "status": "5 listed slots · no pro capture",
             "attachments": [
               {
                 "slot": "Muzzle",
@@ -565,7 +592,8 @@
             "jgod",
             "official",
             "kitted-panel"
-          ]
+          ],
+          "fullSummary": "Two editorial role boards put KG-7 first; that is not current competitive-pro usage or a measured sniper consensus."
         }
       ]
     },
@@ -581,7 +609,7 @@
           "role": "Close range · provisional primary",
           "weapon": "VEL 46",
           "confidence": "Emerging",
-          "summary": "Provisional because it leads modern SMG use in the mixed-mode panel, not because Zodiac pick-rate evidence exists.",
+          "summary": "Provisional mixed-mode SMG choice; no measured Zodiac usage split exists.",
           "modeUnlabeled": true,
           "editable": "Editable Gunsmith",
           "observed": {
@@ -608,23 +636,23 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Slot",
                 "name": "VLK LZR 7MW"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Stock",
                 "name": "Demo RXT Stock"
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Slot",
                 "name": "4.6mm Hollowpoint"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Magazine",
                 "name": "50 Round Mag"
               }
             ],
-            "note": "Hisoka's four listed items, not Kitted's cross-player modal attachment list.",
+            "note": "Hisoka's four listed items, not Kitted's cross-player modal attachment list. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
             "sourceIds": [
               "kitted-hisoka",
               "kitted-vel"
@@ -647,14 +675,15 @@
             "wzstats",
             "wzl",
             "official"
-          ]
+          ],
+          "fullSummary": "Provisional because it leads modern SMG use in the mixed-mode panel, not because Zodiac pick-rate evidence exists."
         },
         {
           "id": "res-iso",
           "role": "Close range · paired-use watch",
           "weapon": "ISO Nightshade",
           "confidence": "Testing",
-          "summary": "An observed FLS pairing plus a faster calculated close TTK than VEL; one reported partial build is not a Zodiac recommendation.",
+          "summary": "FLS’s four-part build plus a 585 ms close calculation; mode remains unverified.",
           "modeUnlabeled": true,
           "editable": "Editable Gunsmith",
           "observed": {
@@ -669,7 +698,7 @@
               "kitted-fls",
               "kitted-panel"
             ],
-            "caveat": "The observed pairing is Voyak KT-3 + ISO Nightshade. Map and mode were not explicit in the source read."
+            "caveat": "The observed pairing is Voyak KT-3 + ISO Nightshade. Map and mode were not explicit in the source read. ISO weapon-page date differs from FLS’s later player-page report."
           },
           "build": {
             "owner": "FLS",
@@ -677,25 +706,26 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Laser",
                 "name": "OFL-S4.5"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Muzzle",
                 "name": "XRK Herder 40"
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Stock",
                 "name": "EXP G2-44 Stock"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Magazine",
                 "name": "40 Round Mag"
               }
             ],
-            "note": "Only four items appeared in the saved source read; unknown slot types are left as ‘Listed slot’ rather than guessed.",
+            "note": "Kitted explicitly names Laser, Muzzle, Stock and Magazine for this individual build. Its ISO page last updated Nov 3; FLS’s player page reports Nov 6.",
             "sourceIds": [
-              "kitted-fls"
+              "kitted-fls",
+              "kitted-iso"
             ]
           },
           "augment": "No observed augment captured. Breacher remains a test-only option for CQC handling.",
@@ -712,15 +742,17 @@
             "kitted-fls",
             "kitted-panel",
             "jgod",
-            "dexerto"
-          ]
+            "dexerto",
+            "kitted-iso"
+          ],
+          "fullSummary": "An observed FLS pairing plus a faster calculated close TTK than VEL; one reported partial build is not a Zodiac recommendation."
         },
         {
           "id": "res-striga",
           "role": "Close range · calculation leader",
           "weapon": "Wz.55 Striga",
           "confidence": "Testing",
-          "summary": "JGOD's fastest listed close-range calculation. No verified complete build from the tracked 20 was captured in this first pass.",
+          "summary": "JGOD’s fastest close calculation; no verified current individual build captured.",
           "modeUnlabeled": true,
           "editable": "Current platform · build not verified",
           "observed": {
@@ -750,14 +782,15 @@
             "jgod",
             "newbz-vod",
             "official"
-          ]
+          ],
+          "fullSummary": "JGOD's fastest listed close-range calculation. No verified complete build from the tracked 20 was captured in this first pass."
         },
         {
           "id": "res-han",
           "role": "Long support · accessible candidate",
           "weapon": "Han 86",
           "confidence": "Emerging",
-          "summary": "A provisional long-support option because of observed modern use and immediate access, without a measured Resurgence usage split.",
+          "summary": "Accessible long-support candidate; Hisoka’s partial build is not confirmed on Zodiac.",
           "modeUnlabeled": true,
           "editable": "Editable Gunsmith",
           "unlock": "Immediate unlock",
@@ -784,25 +817,26 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Slot",
                 "name": "SA H86 465MM"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Slot",
                 "name": "TZL-110 V1"
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Optic",
                 "name": "Slimline Elite"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Stock",
                 "name": "FR4 Retractable Stock"
               }
             ],
-            "note": "The same incomplete Hisoka record, with map and mode still unverified.",
+            "note": "The same incomplete Hisoka record, with map and mode still unverified. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
             "sourceIds": [
-              "kitted-hisoka"
+              "kitted-hisoka",
+              "kitted-han"
             ]
           },
           "augment": "Sharpshooter is an unproven handling test candidate, not an attachment or observed choice.",
@@ -821,14 +855,15 @@
             "kitted-han",
             "jgod",
             "official"
-          ]
+          ],
+          "fullSummary": "A provisional long-support option because of observed modern use and immediate access, without a measured Resurgence usage split."
         },
         {
           "id": "res-cronen",
           "role": "Long support · test alternative",
           "weapon": "Cronen Osprey",
           "confidence": "Emerging",
-          "summary": "A calculated far-range candidate with one complete individual build. No direct Zodiac capture or Resurgence adoption split exists.",
+          "summary": "Adriann’s full build and 748 ms far calculation; no direct Zodiac capture.",
           "modeUnlabeled": true,
           "editable": "Editable Gunsmith",
           "unlock": "Battle Pass tier 16",
@@ -852,23 +887,23 @@
             "status": "Complete · 5 listed slots",
             "attachments": [
               {
-                "slot": "Attachment 1",
+                "slot": "Muzzle",
                 "name": "FSS IS300 Heavy Silencer"
               },
               {
-                "slot": "Attachment 2",
+                "slot": "Barrel",
                 "name": "IO-556 TAC 18\""
               },
               {
-                "slot": "Attachment 3",
+                "slot": "Optic",
                 "name": "Locus PX3 Canted Rifle Scope"
               },
               {
-                "slot": "Attachment 4",
+                "slot": "Magazine",
                 "name": "60 Round Mag"
               },
               {
-                "slot": "Attachment 5",
+                "slot": "Fire mods",
                 "name": "5.56 NATO High"
               }
             ],
@@ -895,14 +930,15 @@
             "wzstats",
             "dexerto",
             "official"
-          ]
+          ],
+          "fullSummary": "A calculated far-range candidate with one complete individual build. No direct Zodiac capture or Resurgence adoption split exists."
         },
         {
           "id": "res-kg7",
           "role": "Sniper · unsettled watchlist",
           "weapon": "KG-7 Vulcan / Astaroth .57",
           "confidence": "Testing",
-          "summary": "Separate sniper candidates, not a merged build or a mode-specific winner. No current competitive-pro sniper-use consensus was found.",
+          "summary": "Separate sniper watch candidates; no pro-use consensus or verified Astaroth build.",
           "modeUnlabeled": true,
           "editable": "KG-7 editorial build shown · Astaroth build unverified",
           "observed": {
@@ -920,7 +956,7 @@
           "build": {
             "owner": "WarzoneLoadout editorial · KG-7 only",
             "kind": "Editorial build · not pro-attributed",
-            "status": "Astaroth build deliberately omitted",
+            "status": "5 listed slots · no pro capture",
             "attachments": [
               {
                 "slot": "Muzzle",
@@ -966,7 +1002,8 @@
             "jgod",
             "official",
             "kitted-panel"
-          ]
+          ],
+          "fullSummary": "Separate sniper candidates, not a merged build or a mode-specific winner. No current competitive-pro sniper-use consensus was found."
         }
       ]
     }
@@ -1048,9 +1085,9 @@
     {
       "id": "Anziety",
       "order": 1,
-      "name": "Anthony “Anziety” Moran",
+      "name": "Anziety",
       "team": "G2",
-      "result": "2026 EWC / WRS champion + Sony MVP",
+      "result": "Anthony “Anziety” Moran · 2026 EWC / WRS champion + Sony MVP",
       "x": "https://x.com/anzietywz",
       "twitch": "https://www.twitch.tv/anzietywz",
       "youtube": "https://www.youtube.com/@anzietywz",

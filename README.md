@@ -1,6 +1,6 @@
 # Warzone Meta
 
-A local-first, static, evidence-first Warzone Season 1 watchlist for Jack Spyhalski. Intended GitHub Pages URL: `https://spyhalskij.github.io/warzone-meta/`; **no remote repository is configured and nothing has been published**.
+A local-first, static, evidence-first Warzone Season 1 watchlist for Jack Spyhalski. Published at [spyhalskij.github.io/warzone-meta](https://spyhalskij.github.io/warzone-meta/).
 
 ## Run locally
 
@@ -14,7 +14,7 @@ npm run serve:test
 npm test
 ```
 
-`astro.config.mjs` uses `/warzone-meta/` as its base. The copied `.github/workflows/deploy.yml` is ready for a future GitHub Pages deployment, but is inert locally and must not be run until Jack approves the exact publishing action.
+`astro.config.mjs` uses `/warzone-meta/` as its base. `.github/workflows/deploy.yml` builds the static site and deploys it to GitHub Pages from `main`.
 
 ## Update the content, not the components
 
@@ -34,6 +34,10 @@ The official canonical Season 1 notes failed direct fetch during research. The s
 
 ## Verification
 
-`playwright/check.mjs` uses the installed Google Chrome binary through Playwright. It checks both switches, query/localStorage precedence and persistence, no-reload switching, exact card/roster counts, missing-build handling, 44 px controls, and no horizontal overflow at 320 / 390 / 1280 px. Full-page screenshots are saved to `shots/` for BR and Resurgence at 390 and 1280 px, plus BR at 320 px. `playwright/results.json` records the completed check output.
+`playwright/check.mjs` uses the installed Google Chrome binary through Playwright Chromium. It checks both switches, query/localStorage precedence and persistence, no-reload switching, exact card/roster counts, closed Evidence, 44–48px attachment rows, mobile map hiding, and no horizontal overflow at 320 / 390 / 1280px. `shots/r2/results.json` records the measurements and browser checks. Set `LIVE=1 SITE_BASE=https://spyhalskij.github.io/warzone-meta/` to verify the deployed site and save live R2 screenshots.
 
 The interface uses the supplied stats-site tokens (#0B0D10 / #12151A / #E8EAED / #9AA0A6), amber #F5A623 for selected and evidence states, condensed display type, mono tabular evidence values, 6 px radii and phone-first density. No imagery, taglines, promotional sections, external trackers, or official branding is added.
+
+## R2 presentation
+
+Cards keep build and measurement visible while detailed caveats and sources remain in closed native `<details>` evidence panels. Summaries are capped at 110 characters. Slot labels must come from cited records; unknown individual slots read `Slot`, never numbered attachments. Captures precede no-capture rows. The one-entry changelog remains a compact closing disclosure after the official-changes list. `shots/r2/results.json` records measured heights and browser checks.

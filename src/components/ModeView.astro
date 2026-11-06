@@ -1,35 +1,18 @@
 ---
 import type { GameMode, MetaData, MetaCard as MetaCardRecord } from '../data/types';
-import { sourcesFor } from '../data/meta';
+import { sourcesFor, latestSourceDate } from '../data/meta';
 import MetaCard from './MetaCard.astro';
 import SourceLinks from './SourceLinks.astro';
 interface Props { mode: GameMode; meta: MetaData; }
 const { mode, meta } = Astro.props;
 ---
 <section class="mode-content" data-mode-view={mode.id} aria-labelledby={`${mode.id}-title`}>
-  <div class="mode-heading">
-    <div>
-      <p class="eyebrow">{mode.fullLabel} · {mode.map}</p>
-      <h1 id={`${mode.id}-title`}>Season 1 watchlist</h1>
-    </div>
-    <div class="map-readout"><span>Map</span><strong>{mode.map}</strong></div>
-  </div>
+  <div class="mode-heading"><div><p class="eyebrow">{mode.fullLabel} · {mode.map}</p><h1 id={`${mode.id}-title`}>Season 1 watchlist</h1></div><div class="map-readout"><span>Map</span><strong>{mode.map}</strong></div></div>
   <p class="mode-note">{mode.headnote}</p>
-
-  <div class="section-title" id={`${mode.id}-roles`}>
-    <div><p class="eyebrow">Roles</p><h2>What to watch</h2></div>
-    <span>{mode.cards.length} cited records</span>
-  </div>
-  <div class="meta-grid">
-    {mode.cards.map((card: MetaCardRecord) => <MetaCard card={card} />)}
-  </div>
-
-  <section class="sample-section" aria-labelledby={`${mode.id}-sample-title`}>
-    <div>
-      <p class="eyebrow">Sample limits</p>
-      <h2 id={`${mode.id}-sample-title`}>{meta.sample.total} current records, not a population</h2>
-    </div>
-    <p>{meta.sample.note}</p>
-    <SourceLinks sources={sourcesFor(meta.sample.sourceIds)} />
-  </section>
+  <div class="section-title" id={`${mode.id}-roles`}><h2>What to watch</h2></div>
+  <div class="meta-grid">{mode.cards.map((card: MetaCardRecord) => <MetaCard card={card} />)}</div>
+  <details class="sample-section">
+    <summary><span>17/46 panel · not a population · {meta.sample.sourceIds.length} sources · latest {latestSourceDate(sourcesFor(meta.sample.sourceIds))}</span><span class="details-mark" aria-hidden="true">+</span></summary>
+    <div class="evidence-content"><p>{meta.sample.note}</p><SourceLinks sources={sourcesFor(meta.sample.sourceIds)} /></div>
+  </details>
 </section>

@@ -1,0 +1,74 @@
+{
+  "checks": "pass",
+  "live": false,
+  "base": "http://127.0.0.1:4323/warzone-meta/",
+  "widthsChecked": [
+    320,
+    390,
+    1280
+  ],
+  "brHeights": [
+    {
+      "id": "br-cronen",
+      "height": 546,
+      "detailsOpen": false
+    },
+    {
+      "id": "br-vel",
+      "height": 526,
+      "detailsOpen": false
+    },
+    {
+      "id": "br-han",
+      "height": 526,
+      "detailsOpen": false
+    },
+    {
+      "id": "br-voyak",
+      "height": 509,
+      "detailsOpen": false
+    },
+    {
+      "id": "br-kg7",
+      "height": 549,
+      "detailsOpen": false
+    }
+  ],
+  "resHeights": [
+    {
+      "id": "res-vel",
+      "height": 526,
+      "detailsOpen": false
+    },
+    {
+      "id": "res-iso",
+      "height": 502,
+      "detailsOpen": false
+    },
+    {
+      "id": "res-striga",
+      "height": 365,
+      "detailsOpen": false
+    },
+    {
+      "id": "res-han",
+      "height": 526,
+      "detailsOpen": false
+    },
+    {
+      "id": "res-cronen",
+      "height": 546,
+      "detailsOpen": false
+    },
+    {
+      "id": "res-kg7",
+      "height": 633,
+      "detailsOpen": false
+    }
+  ],
+  "meanBrHeight": 531,
+  "pageHeight": 5121,
+  "pageErrors": [],
+  "consoleErrors": [],
+  "badResponses": []
+}

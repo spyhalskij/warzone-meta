@@ -1,0 +1,227 @@
+{
+  "measure": {
+    "docH": 16269,
+    "scrollW": 390,
+    "topbar": {
+      "w": 390,
+      "h": 77,
+      "top": 0,
+      "left": 0
+    },
+    "brand": {
+      "fontSize": "25px",
+      "fontWeight": "600",
+      "lineHeight": "normal",
+      "color": "rgb(245, 166, 35)",
+      "fontFamily": "IBM Plex Sans Condensed"
+    },
+    "siteNameHidden": "none",
+    "segActive": {
+      "w": 155,
+      "h": 44,
+      "top": 16,
+      "left": 62,
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "16px",
+      "color": "rgb(11, 13, 16)",
+      "fontFamily": "IBM Plex Sans Condensed",
+      "bg": "rgb(245, 166, 35)",
+      "label": "BR · Hajin"
+    },
+    "segInactive": {
+      "w": 155,
+      "h": 44,
+      "top": 16,
+      "left": 219,
+      "label": "ResurgenceRes · Zodiac",
+      "color": "rgb(154, 160, 166)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "updated": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "21.7px",
+      "color": "rgb(232, 234, 237)",
+      "fontFamily": "IBM Plex Mono"
+    },
+    "launchNote": {
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "20.15px",
+      "color": "rgb(154, 160, 166)",
+      "fontFamily": "IBM Plex Mono"
+    },
+    "h1": {
+      "fontSize": "36px",
+      "fontWeight": "600",
+      "lineHeight": "36.72px",
+      "color": "rgb(232, 234, 237)",
+      "fontFamily": "IBM Plex Sans Condensed"
+    },
+    "modeNote": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "23.1px",
+      "color": "rgb(154, 160, 166)",
+      "fontFamily": "IBM Plex Sans",
+      "chars": 139
+    },
+    "eyebrow": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20.3px",
+      "color": "rgb(154, 160, 166)",
+      "fontFamily": "IBM Plex Mono"
+    },
+    "h2": {
+      "fontSize": "25px",
+      "fontWeight": "600",
+      "lineHeight": "27.5px",
+      "color": "rgb(232, 234, 237)",
+      "fontFamily": "IBM Plex Sans Condensed"
+    },
+    "card1": {
+      "h": 1635,
+      "role": {
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "20.3px",
+        "color": "rgb(154, 160, 166)",
+        "fontFamily": "IBM Plex Mono"
+      },
+      "weapon": {
+        "fontSize": "27px",
+        "fontWeight": "600",
+        "lineHeight": "29.7px",
+        "color": "rgb(232, 234, 237)",
+        "fontFamily": "IBM Plex Sans Condensed"
+      },
+      "confidence": {
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "16.25px",
+        "color": "rgb(245, 166, 35)",
+        "fontFamily": "IBM Plex Mono"
+      },
+      "summary": {
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "lineHeight": "24.75px",
+        "color": "rgb(232, 234, 237)",
+        "fontFamily": "IBM Plex Sans"
+      },
+      "notes": [
+        {
+          "class": "card-summary",
+          "chars": 146,
+          "lines": 4
+        },
+        {
+          "class": "evidence-note",
+          "chars": 126,
+          "lines": 3
+        },
+        {
+          "class": "evidence-note",
+          "chars": 110,
+          "lines": 3
+        },
+        {
+          "class": "evidence-note",
+          "chars": 95,
+          "lines": 2
+        },
+        {
+          "class": "counterpoint",
+          "chars": 159,
+          "lines": 5
+        }
+      ],
+      "flags": [
+        {
+          "text": "Mode-unlabeled",
+          "h": 28,
+          "w": 125
+        },
+        {
+          "text": "Editable Gunsmith",
+          "h": 28,
+          "w": 149
+        },
+        {
+          "text": "Battle Pass tier 16",
+          "h": 28,
+          "w": 164
+        }
+      ],
+      "attach": [
+        {
+          "h": 63,
+          "text": "Attachment 1FSS IS300 Heavy Silencer"
+        },
+        {
+          "h": 63,
+          "text": "Attachment 2IO-556 TAC 18\""
+        },
+        {
+          "h": 66,
+          "text": "Attachment 3Locus PX3 Canted Rifle Scope"
+        },
+        {
+          "h": 63,
+          "text": "Attachment 460 Round Mag"
+        },
+        {
+          "h": 63,
+          "text": "Attachment 55.56 NATO High"
+        }
+      ],
+      "sourceChars": 507,
+      "padding": "20px 16px",
+      "bg": "rgb(18, 21, 26)",
+      "border": "rgb(42, 46, 53)"
+    },
+    "cardHeights": [
+      1635,
+      1555,
+      1566,
+      1561,
+      1342
+    ],
+    "meanCardH": 1532,
+    "sectionY": {
+      "roles": 384,
+      "sample": 8297,
+      "pros": 8584,
+      "changelog": 14648,
+      "official": 15171
+    },
+    "proSampleH": [
+      233,
+      233,
+      233,
+      233,
+      254
+    ],
+    "emptyPros": 11,
+    "footer": {
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "21.45px",
+      "color": "rgb(154, 160, 166)",
+      "fontFamily": "IBM Plex Sans"
+    },
+    "pageBg": "rgba(0, 0, 0, 0)"
+  },
+  "resSeg": {
+    "active": "ResurgenceRes · Zodiac",
+    "inactive": "BR · Hajin",
+    "activeAria": "page"
+  },
+  "desk": {
+    "cols": "578px 578px",
+    "cardCount": 5,
+    "siteNameDisplay": "block"
+  }
+}

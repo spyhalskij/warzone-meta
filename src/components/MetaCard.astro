@@ -1,66 +1,37 @@
 ---
 import type { MetaCard, Attachment } from '../data/types';
-import { sourcesFor, formatDate } from '../data/meta';
+import { sourcesFor, formatDate, latestSourceDate, meta } from '../data/meta';
 import SourceLinks from './SourceLinks.astro';
 interface Props { card: MetaCard; }
 const { card } = Astro.props;
-const measurementLabel = card.test?.kind ?? 'CALC';
+const sources = sourcesFor([...card.sourceIds, ...(card.build?.sourceIds ?? []), ...(card.test?.sourceIds ?? [])]);
+const captureDate = card.observed.date ? formatDate(card.observed.date) : 'No capture';
+const flags = [card.modeUnlabeled && 'Mode-unlabeled', card.preReset && 'Pre-reset', card.editable, card.unlock].filter(Boolean) as string[];
+const hasUnknownSlots = card.build?.attachments.some((attachment: Attachment) => attachment.slot === 'Slot');
 ---
 <article class="meta-card" id={card.id} data-confidence={card.confidence}>
   <div class="card-heading">
-    <div>
-      <p class="role-label">{card.role}</p>
-      <h3>{card.weapon}</h3>
-    </div>
-    <span class={`confidence confidence-${card.confidence.toLowerCase()}`}>{card.confidence}</span>
-  </div>
-  <div class="flag-row">
-    {card.modeUnlabeled && <span class="evidence-flag">Mode-unlabeled</span>}
-    {card.preReset && <span class="evidence-flag">Includes pre-reset</span>}
-    <span class="evidence-flag neutral">{card.editable}</span>
-    {card.unlock && <span class="evidence-flag neutral">{card.unlock}</span>}
+    <div class="weapon-heading"><p class="role-label">{card.role}</p><h3>{card.weapon}</h3></div>
+    <span class={`confidence confidence-${card.confidence.toLowerCase()}`}>{card.confidence} · {card.sourceIds.length} src</span>
   </div>
   <p class="card-summary">{card.summary}</p>
-
-  <dl class="observation-strip">
-    <div>
-      <dt>Observed use</dt>
-      <dd>{card.observed.display ?? `${card.observed.n} / ${card.observed.total} panel`}</dd>
+  <section class="build-section" aria-label={`${card.weapon} build`}>
+    {card.build ? <>
+      <p class="build-owner"><span>{card.build.owner}</span><small>{card.build.status}</small></p>
+      <ol class="attachment-list">{card.build.attachments.map((attachment: Attachment) => <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>)}</ol>
+      {hasUnknownSlots && <p class="slot-note">“Slot” = category not supplied by a verified source.</p>}
+    </> : <p class="unavailable-build">No verified current individual build captured.</p>}
+    <div class="meta-strip"><span>{card.observed.display ?? `${card.observed.n}/${card.observed.total}`} · {captureDate} · {sources.length} src</span>
+      {card.test && <span class="calculation"><span class={`measure measure-${card.test.kind.toLowerCase()}`}>{card.test.kind}</span> {card.test.value}</span>}
     </div>
-    <div>
-      <dt>{card.observed.dateLabel}</dt>
-      <dd>{card.observed.date ? formatDate(card.observed.date.slice(0, 10)) : 'Not captured'}</dd>
-    </div>
-  </dl>
-  {card.observed.names.length > 0 && <p class="observed-names"><span>Named users</span>{card.observed.names.join(' · ')}</p>}
-  <p class="evidence-note">{card.observed.caveat}</p>
-
-  <section class="build-section" aria-labelledby={`${card.id}-build`}>
-    <div class="subsection-heading">
-      <h4 id={`${card.id}-build`}>Build</h4>
-      <span>{card.build?.kind ?? 'Not verified'}</span>
-    </div>
-    {card.build ? (
-      <>
-        <p class="build-owner">{card.build.owner}<span>{card.build.status}</span></p>
-        <ol class="attachment-list">
-          {card.build.attachments.map((attachment: Attachment) => (
-            <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>
-          ))}
-        </ol>
-        <p class="evidence-note">{card.build.note}</p>
-      </>
-    ) : (
-      <p class="unavailable-build">No complete individual current build was captured. No attachments are supplied or inferred.</p>
-    )}
+    <details class="evidence"><summary>Evidence · {sources.length} sources · latest {latestSourceDate(sources)}<span class="details-mark" aria-hidden="true">+</span></summary>
+      <div class="evidence-content"><div class="flag-row">{flags.map(flag => <span class="evidence-flag neutral">{flag}</span>)}</div>
+        <dl class="evidence-readout"><div><dt>{card.observed.dateLabel}</dt><dd>{captureDate}</dd></div><div><dt>Observed use</dt><dd>{card.observed.display ?? `${card.observed.n} / ${card.observed.total} panel`}</dd></div>{card.observed.names.length > 0 && <div><dt>Named users</dt><dd>{card.observed.names.join(' · ')}</dd></div>}</dl>{card.fullSummary && <p>{card.fullSummary}</p>}<p>{card.observed.caveat}</p>{card.build && <><h4>Build provenance</h4><p>{card.build.kind} · {card.build.owner} · {card.build.status}. {card.build.note}</p></>}
+        <h4>Augment</h4><p>{card.augment}</p>
+        <h4>Source disagreement</h4><p>{card.counterpoint}</p>
+        {card.test && <><h4>Calculation limits</h4><p>{card.test.note} {meta.calculationNote}</p></>}
+        <h4>Dated sources</h4><SourceLinks sources={sources} />
+      </div>
+    </details>
   </section>
-
-  <dl class="readout">
-    {card.test && <div><dt><span class={`measure measure-${measurementLabel.toLowerCase()}`}>{measurementLabel}</span> Calculated result</dt><dd>{card.test.value}</dd></div>}
-    {!card.test && <div><dt>Measured result</dt><dd>No validated current result</dd></div>}
-    <div><dt>Augment</dt><dd>{card.augment}</dd></div>
-  </dl>
-  {card.test && <p class="evidence-note">{card.test.note}</p>}
-  <p class="counterpoint"><span>Hold the disagreement</span>{card.counterpoint}</p>
-  <SourceLinks sources={sourcesFor(card.sourceIds)} />
 </article>

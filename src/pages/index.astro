@@ -2,71 +2,38 @@
 import Base from '../layouts/Base.astro';
 import ModeView from '../components/ModeView.astro';
 import SourceLinks from '../components/SourceLinks.astro';
-import { meta, sourcesFor } from '../data/meta';
+import { meta, sourcesFor, latestSourceDate } from '../data/meta';
 const modes = Object.values(meta.modes);
+const capturedPros = meta.pros.filter(pro => pro.last && !pro.last.preReset);
+const historicalPros = meta.pros.filter(pro => pro.last?.preReset);
+const orderedPros = [...capturedPros, ...historicalPros, ...meta.pros.filter(pro => !pro.last)];
 ---
 <Base>
   {modes.map(mode => <ModeView mode={mode} meta={meta} />)}
 
   <section class="pro-section" aria-labelledby="pros-title">
-    <div class="section-title">
-      <div><p class="eyebrow">20 performance-qualified players</p><h2 id="pros-title">What pros are running</h2></div>
-      <span>Actual captures only</span>
-    </div>
-    <p class="section-note">{meta.rosterNote}</p>
-    <SourceLinks sources={sourcesFor(meta.rosterRosterSourceIds)} label="Roster results" />
+    <div class="section-title"><h2 id="pros-title">What pros are running</h2></div>
+    <p class="section-note">No capture means none collected in this read, not non-use.</p>
     <ol class="pro-list">
-      {meta.pros.map(pro => (
-        <li class:list={["pro-record", { "pre-reset": pro.last?.preReset }]}>
-          <div class="pro-identity">
-            <span class="pro-order">{String(pro.order).padStart(2, '0')}</span>
-            <div>
-              <h3>{pro.name}</h3>
-              <p>{pro.team} <span aria-hidden="true">·</span> {pro.result}</p>
-              <div class="pro-links">
-                {pro.last && <a class="report-link" href={sourcesFor(pro.last.sourceIds)[0].url} target="_blank" rel="noopener noreferrer">{pro.last.preReset ? 'Historical report' : 'Latest reported build'}<span class="sr-only"> for {pro.name} (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a>}
-                <a href={pro.twitch} target="_blank" rel="noopener noreferrer">Twitch<span class="sr-only"> for {pro.name} (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a>
-                <a href={pro.x} target="_blank" rel="noopener noreferrer">X<span class="sr-only"> for {pro.name} (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a>
-              </div>
+      {orderedPros.map(pro => (
+        <li class:list={["pro-record", { "pre-reset": pro.last?.preReset, "no-capture": !pro.last }]}>
+          <div class="pro-identity"><span class="pro-order">{String(pro.order).padStart(2, '0')}</span><div><h3>{pro.name}</h3><p>{pro.team} · {pro.result}</p></div></div>
+          {!pro.last ? (
+            <div class="empty-capture"><span>no S1 capture</span><div class="pro-links"><a href={pro.twitch} target="_blank" rel="noopener noreferrer">Twitch<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a><a href={pro.x} target="_blank" rel="noopener noreferrer">X<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a></div></div>
+          ) : (
+            <div class="pro-capture"><strong>{pro.last.pair}</strong><span class:list={["evidence-flag", { neutral: pro.last.preReset }]}>{pro.last.preReset ? 'Pre-reset' : 'Mode-unlabeled'}</span>
+              <details class="pro-evidence"><summary>{pro.last.preReset ? 'Historical evidence' : 'Current evidence'}<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p>{pro.last.note}</p>{pro.identityNote && <p>{pro.identityNote}</p>}<SourceLinks sources={sourcesFor(pro.last.sourceIds)} /></div></details>
             </div>
-          </div>
-          <div class="pro-capture">
-            {pro.last ? (
-              <>
-                <div class="capture-heading">
-                  <strong>{pro.last.pair}</strong>
-                  <span class:list={["evidence-flag", { neutral: pro.last.preReset }]}>{pro.last.preReset ? 'Pre-reset' : 'Mode-unlabeled'}</span>
-                </div>
-                <p>{pro.last.note}</p>
-                <SourceLinks sources={sourcesFor(pro.last.sourceIds)} compact />
-              </>
-            ) : (
-              <>
-                <strong>No Season 1 capture yet</strong>
-                <p>No exact current Gunsmith / build evidence was collected in this read. Missing evidence is not evidence of non-use.</p>
-                {pro.identityNote && <p class="identity-note">{pro.identityNote}</p>}
-              </>
-            )}
-          </div>
+          )}
+          {pro.last && <div class="pro-links"><a class="report-link" href={sourcesFor(pro.last.sourceIds)[0].url} target="_blank" rel="noopener noreferrer">Report<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a><a href={pro.twitch} target="_blank" rel="noopener noreferrer">Twitch<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a><a href={pro.x} target="_blank" rel="noopener noreferrer">X<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a></div>}
         </li>
       ))}
     </ol>
+    <details class="roster-details"><summary>20-player tournament roster · selection evidence<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p>{meta.rosterNote}</p><SourceLinks sources={sourcesFor(meta.rosterRosterSourceIds)} /></div></details>
   </section>
 
-  <div class="closing-grid">
-    <section class="log-section" aria-labelledby="changelog-title">
-      <div class="section-title"><div><p class="eyebrow">Evidence log</p><h2 id="changelog-title">Changelog</h2></div><span>Only material changes</span></div>
-      <ol class="change-log">
-        {meta.changelog.map(entry => (
-          <li><time>{entry.date}</time><h3>{entry.title}</h3><p>{entry.text}</p><SourceLinks sources={sourcesFor(entry.sourceIds)} compact /></li>
-        ))}
-      </ol>
-    </section>
-    <section class="official-section" aria-labelledby="official-title">
-      <div class="section-title"><div><p class="eyebrow">Confirmed by patch notes</p><h2 id="official-title">Known official changes</h2></div></div>
-      <ul class="official-list">
-        {meta.officialChanges.map(change => <li>{change.text} <a href={sourcesFor(change.sourceIds)[0].url} target="_blank" rel="noopener noreferrer">Official S1 notes · Nov 5<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a></li>)}
-      </ul>
-    </section>
-  </div>
+  <section class="official-section" aria-labelledby="official-title"><div class="section-title"><h2 id="official-title">Known official changes</h2></div>
+    <ul class="official-list">{meta.officialChanges.map(change => <li>{change.text} <a href={sourcesFor(change.sourceIds)[0].url} target="_blank" rel="noopener noreferrer">Official S1 notes · Nov 5<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a></li>)}</ul>
+  </section>
+  {meta.changelog.map(entry => <details class="change-log"><summary>Changelog · {meta.changelog.length} entry · {entry.sourceIds.length} sources · latest {latestSourceDate(sourcesFor(entry.sourceIds))}<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p><strong>{entry.date} · {entry.title}</strong></p><p>{entry.text}</p><SourceLinks sources={sourcesFor(entry.sourceIds)} /></div></details>)}
 </Base>

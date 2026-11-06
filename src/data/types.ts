@@ -34,6 +34,7 @@ export interface MetaCard {
   weapon: string;
   confidence: Confidence;
   summary: string;
+  fullSummary?: string;
   modeUnlabeled: boolean;
   preReset?: boolean;
   editable: string;
