@@ -1,0 +1,48 @@
+{
+  "url": "https://spyhalskij.github.io/warzone-meta/",
+  "screenshots": [
+    "br-390-top.png",
+    "card-br-cronen-390.png",
+    "pros-390.png"
+  ],
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "dpr": 1
+  },
+  "chromium_checks": {
+    "390": "pass",
+    "1280": "pass",
+    "320_additional_overflow": "pass"
+  },
+  "type_check": "0 errors, 0 warnings, 0 hints",
+  "r1_mean_br_height": 1532,
+  "r1_page_height": 16269,
+  "pages_run": "42240062858",
+  "live_commit": "4c2ad4772b331918151e5c4097841073bce55fd6",
+  "pages_run_url": "https://github.com/spyhalskij/warzone-meta/actions/runs/42240062858",
+  "pages_status": "success",
+  "pages_deploy_deployment_id": 7603357843,
+  "pages_deploy_environment_url": "https://spyhalskij.github.io/warzone-meta/",
+  "last_modified_header_gmt": "Fri, 06 Nov 2026 15:10:51 GMT",
+  "last_modified_et": "Fri, 06 Nov 2026 10:10:51 ET",
+  "dist_css": "/warzone-meta/_astro/index.S3nY0-q8.css",
+  "all_citations_in_closed_default_panels": true,
+  "switch_script_unchanged_from_8a7a604": true,
+  "br_heights_390_px": [
+    546,
+    526,
+    526,
+    509,
+    549
+  ],
+  "res_heights_390_px": [
+    526,
+    502,
+    365,
+    526,
+    546,
+    633
+  ],
+  "page_height_1280_px": 5121
+}
