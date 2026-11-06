@@ -5,7 +5,8 @@ import meta from '../src/data/meta.json' with { type: 'json' };
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox'] });
 const base = process.env.SITE_BASE || 'http://127.0.0.1:4323/warzone-meta/';
 const out = 'shots/legacy-purge'; fs.mkdirSync(out, { recursive: true });
-const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
+const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
+const page = await context.newPage();
 const errors = [], consoleErrors = [], badResponses = [];
 page.on('pageerror', e => errors.push(String(e)));
 page.on('console', e => { if (e.type() === 'error') consoleErrors.push(e.text()); });
@@ -22,12 +23,17 @@ await page.setViewportSize({ width: 390, height: 844 });
 const active = () => page.locator('[data-mode-view]:visible');
 const modes = {};
 async function clipScreenshot(selector, path, disclosure = false) {
-  const loc = page.locator(selector).first(); if (disclosure) await loc.evaluate(e => e.open = true);
-  // Avoid letting the shared sticky header overlay an element screenshot. Clip page pixels after hiding unrelated fixed UI.
-  await page.addStyleTag({ content: '.topbar,.skip-link,.mode-switch{visibility:hidden!important;}' });
+  // Shot-only page: never hide controls in the context that exercises navigation.
+  const mode = await page.evaluate(() => document.documentElement.dataset.mode);
+  const shotPage = await page.context().newPage();
+  await shotPage.goto(`${base}?mode=${mode}`, { waitUntil: 'networkidle' });
+  await shotPage.waitForFunction(() => document.documentElement.dataset.appReady === 'true');
+  await shotPage.addStyleTag({ content: '.topbar,.skip-link,.mode-switch{display:none!important;}' });
+  const loc = shotPage.locator(selector).first(); if (disclosure) await loc.evaluate(e => e.open = true);
+  await loc.scrollIntoViewIfNeeded();
   const clip = await loc.evaluate(e => { const r = e.getBoundingClientRect(); return { x: Math.max(0, r.x - 5), y: r.y + scrollY - 5, width: r.width + 10, height: r.height + 10 }; });
-  await page.screenshot({ path, fullPage: true, clip });
-  await page.addStyleTag({ content: '.topbar,.skip-link,.mode-switch{visibility:visible!important;}' });
+  await shotPage.screenshot({ path, fullPage: true, clip });
+  await shotPage.close();
 }
 for (const [key, mode] of Object.entries(meta.modes)) {
   await page.goto(`${base}?mode=${key}`, { waitUntil: 'networkidle' });
@@ -50,7 +56,7 @@ for (const [key, mode] of Object.entries(meta.modes)) {
   }
   assert(heights.every(h => h.height <= 735));
   modes[key] = { current: current.map(c => c.id), heights };
-  await page.evaluate(() => scrollTo(0,0)); await page.screenshot({ path: `${out}/${key}-390-top.png`, fullPage: true });
+  await page.evaluate(() => scrollTo(0,0)); await page.addStyleTag({content:'.topbar,.skip-link{opacity:0!important;}'}); await page.screenshot({ path: `${out}/${key}-390-top.png`, fullPage: true }); await page.addStyleTag({ content: '.topbar,.skip-link{opacity:1!important;}' });
   await clipScreenshot(`#${current[0].id}`, `${out}/${key}-first-card-390.png`);
   if (key === 'res') {
     assert.equal(await active().locator('.attachment-list').count(), 0);
@@ -58,7 +64,7 @@ for (const [key, mode] of Object.entries(meta.modes)) {
     await clipScreenshot('.withdrawn-section', `${out}/res-audit-expanded-390.png`, true);
   } else {
     // Open details before useful evidence screenshots, not a title-only screenshot masquerading as expanded proof.
-    await clipScreenshot('#br-voyak', `${out}/legacy-evidence-expanded-390.png`, true);
+    await clipScreenshot('#br-voyak details.evidence', `${out}/legacy-evidence-expanded-390.png`, true);
   }
 }
 await page.goto(`${base}?mode=br`, { waitUntil: 'networkidle' });
@@ -77,9 +83,9 @@ for (const pro of meta.historicalPros) {
   assert(row.text.includes(pro.last.note));
   assert(row.source === meta.sources.find(s => s.id === pro.last.sourceIds[0]).url);
 }
+await page.locator('.historical-pairs').evaluate(e => e.open = false);
 await clipScreenshot('.pro-section', `${out}/pros-390.png`);
 await clipScreenshot('.historical-pairs', `${out}/prelaunch-pairs-expanded-390.png`, true);
-await page.locator('.historical-pairs').evaluate(e => e.open = false);
 await clipScreenshot('.change-log', `${out}/cleanup-changelog-390.png`, true);
 assert.equal(await page.locator('.change-log .changelog-entry').count(), 2);
 await page.locator('.change-log').evaluate(e => e.open = false);
@@ -91,7 +97,7 @@ await page.goto(base, { waitUntil: 'networkidle' }); assert.equal(await active()
 await page.goto(`${base}?mode=br`, { waitUntil: 'networkidle' }); assert.equal(await active().getAttribute('data-mode-view'), 'br');
 const withdrawn = await page.locator('[data-mode-view="res"] .withdrawn-section').count(); assert.equal(withdrawn, 1);
 await page.locator('.historical-pairs').evaluate(e => e.open = false);
-for (const text of ['VLK LZR 7MW', 'Demo RXT Stock', '4.6mm Hollowpoint', 'Monolithic Suppressor', 'Lineguard Casket Mag', '7.62 Soviet FMJ', 'OFL-S4.5']) assert(!((await active().locator('.meta-grid').innerText()).includes(text)), `stale ${text}`);
+for (const text of ['VLK LZR 7MW', 'Demo RXT Stock', '4.6mm Hollowpoint', 'Monolithic Suppressor', 'Lineguard Casket Mag', '7.62 Soviet FMJ', 'OFL-S4.5','MXR-17','CBRS-3','MPC-25','EGRT-17','Carbon 57','XM4','AN-94']) assert(!((await active().locator('.meta-grid').innerText()).includes(text)), `stale ${text}`);
 assert.equal(await page.locator('#br-voyak .attachment-list').count(), 0);
 assert((await active().locator('.sample-section summary').innerText()).startsWith('20/50 rolling panel'));
 assert.deepEqual(errors, []); assert.deepEqual(consoleErrors, []); assert.deepEqual(badResponses, []);

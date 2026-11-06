@@ -1,13 +1,13 @@
 {
   "pass": true,
-  "base": "http://127.0.0.1:4323/warzone-meta/",
+  "base": "https://spyhalskij.github.io/warzone-meta/",
   "viewport": 390,
   "widths": [
     320,
     390,
     1280
   ],
-  "live": false,
+  "live": true,
   "modes": {
     "br": {
       "current": [
