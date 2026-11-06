@@ -5,3 +5,5 @@ playwright/*
 !playwright/check.mjs
 *.log
 npm-audit.json
+
+!playwright/legacy-purge.mjs

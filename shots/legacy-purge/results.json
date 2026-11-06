@@ -36,7 +36,7 @@
         },
         {
           "id": "br-han",
-          "height": 654
+          "height": 646
         }
       ]
     },
@@ -52,6 +52,7 @@
       ]
     }
   },
+  "historicalPairCount": 6,
   "emptyRows": [
     {
       "name": "Anziety",
@@ -132,6 +133,32 @@
       "name": "Lenun",
       "height": 45,
       "linksHeight": 44
+    }
+  ],
+  "overflow": [
+    {
+      "width": 320,
+      "actual": {
+        "inner": 320,
+        "doc": 320,
+        "body": 320
+      }
+    },
+    {
+      "width": 390,
+      "actual": {
+        "inner": 390,
+        "doc": 390,
+        "body": 390
+      }
+    },
+    {
+      "width": 1280,
+      "actual": {
+        "inner": 1280,
+        "doc": 1280,
+        "body": 1280
+      }
     }
   ],
   "errors": [],
