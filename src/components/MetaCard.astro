@@ -1,0 +1,66 @@
+---
+import type { MetaCard, Attachment } from '../data/types';
+import { sourcesFor, formatDate } from '../data/meta';
+import SourceLinks from './SourceLinks.astro';
+interface Props { card: MetaCard; }
+const { card } = Astro.props;
+const measurementLabel = card.test?.kind ?? 'CALC';
+---
+<article class="meta-card" id={card.id} data-confidence={card.confidence}>
+  <div class="card-heading">
+    <div>
+      <p class="role-label">{card.role}</p>
+      <h3>{card.weapon}</h3>
+    </div>
+    <span class={`confidence confidence-${card.confidence.toLowerCase()}`}>{card.confidence}</span>
+  </div>
+  <div class="flag-row">
+    {card.modeUnlabeled && <span class="evidence-flag">Mode-unlabeled</span>}
+    {card.preReset && <span class="evidence-flag">Includes pre-reset</span>}
+    <span class="evidence-flag neutral">{card.editable}</span>
+    {card.unlock && <span class="evidence-flag neutral">{card.unlock}</span>}
+  </div>
+  <p class="card-summary">{card.summary}</p>
+
+  <dl class="observation-strip">
+    <div>
+      <dt>Observed use</dt>
+      <dd>{card.observed.display ?? `${card.observed.n} / ${card.observed.total} panel`}</dd>
+    </div>
+    <div>
+      <dt>{card.observed.dateLabel}</dt>
+      <dd>{card.observed.date ? formatDate(card.observed.date.slice(0, 10)) : 'Not captured'}</dd>
+    </div>
+  </dl>
+  {card.observed.names.length > 0 && <p class="observed-names"><span>Named users</span>{card.observed.names.join(' · ')}</p>}
+  <p class="evidence-note">{card.observed.caveat}</p>
+
+  <section class="build-section" aria-labelledby={`${card.id}-build`}>
+    <div class="subsection-heading">
+      <h4 id={`${card.id}-build`}>Build</h4>
+      <span>{card.build?.kind ?? 'Not verified'}</span>
+    </div>
+    {card.build ? (
+      <>
+        <p class="build-owner">{card.build.owner}<span>{card.build.status}</span></p>
+        <ol class="attachment-list">
+          {card.build.attachments.map((attachment: Attachment) => (
+            <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>
+          ))}
+        </ol>
+        <p class="evidence-note">{card.build.note}</p>
+      </>
+    ) : (
+      <p class="unavailable-build">No complete individual current build was captured. No attachments are supplied or inferred.</p>
+    )}
+  </section>
+
+  <dl class="readout">
+    {card.test && <div><dt><span class={`measure measure-${measurementLabel.toLowerCase()}`}>{measurementLabel}</span> Calculated result</dt><dd>{card.test.value}</dd></div>}
+    {!card.test && <div><dt>Measured result</dt><dd>No validated current result</dd></div>}
+    <div><dt>Augment</dt><dd>{card.augment}</dd></div>
+  </dl>
+  {card.test && <p class="evidence-note">{card.test.note}</p>}
+  <p class="counterpoint"><span>Hold the disagreement</span>{card.counterpoint}</p>
+  <SourceLinks sources={sourcesFor(card.sourceIds)} />
+</article>

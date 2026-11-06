@@ -1,0 +1,33 @@
+{
+  "name": "warzone-meta",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --host --port 4321",
+    "prebuild": "node scripts/build-data.mjs",
+    "predev": "node scripts/build-data.mjs",
+    "data": "node scripts/build-data.mjs",
+    "check": "astro check",
+    "precheck": "node scripts/build-data.mjs",
+    "test": "node playwright/check.mjs",
+    "serve:test": "node playwright/server.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.2.6",
+    "@fontsource/ibm-plex-sans": "^5.2.6",
+    "@fontsource/ibm-plex-sans-condensed": "^5.2.6",
+    "astro": "^7.4.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@playwright/test": "^1.65.0",
+    "typescript": "^5.9.3"
+  },
+  "postbuild": "node scripts/copy-fallback.mjs",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

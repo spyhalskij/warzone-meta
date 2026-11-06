@@ -1,0 +1,46 @@
+---
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
+import '@fontsource/ibm-plex-sans-condensed/latin-600.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '@fontsource/ibm-plex-mono/latin-600.css';
+import '../styles/site.css';
+import { meta } from '../data/meta';
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(base, Astro.site);
+---
+<!doctype html>
+<html lang="en" data-mode="br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0B0D10">
+  <meta name="description" content="An evidence-first, independently tracked Warzone Season 1 watchlist for Battle Royale and Resurgence.">
+  <title>Warzone Meta · Season 1 watchlist</title>
+  <link rel="canonical" href={canonical}>
+  <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml">
+  <script src={`${base}app.js`} defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to meta</a>
+  <header class="topbar">
+    <nav aria-label="Warzone meta views">
+      <div class="site-title">
+        <span class="brand-mark" aria-hidden="true">WM</span>
+        <div><span class="site-name">Warzone Meta</span><span class="site-patch">{meta.patch}</span></div>
+      </div>
+      <div class="mode-switch segment" role="group" aria-label="Game mode">
+        <a id="mode-br" class="segment-option switch-option" href={`${base}?mode=br`} data-mode-target="br" aria-current="page">BR<span class="mode-map"> · Hajin</span></a>
+        <a id="mode-res" class="segment-option switch-option" href={`${base}?mode=res`} data-mode-target="res" aria-label="Resurgence, Zodiac"><span class="mode-label-full">Resurgence</span><span class="mode-label-short">Res</span><span class="mode-map"> · Zodiac</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <header class="page-heading">
+      <p class="updated">Updated {meta.updatedLabel} · {meta.patch} <span class="launch-note">Launch-day evidence · cutoff {meta.evidenceCutoff}</span></p>
+    </header>
+    <slot />
+  </main>
+  <footer>Sources: Raven / official notes, Kitted, JGOD, WZStats, WarzoneLoadout, Dexerto · Researched {meta.researchedWindow} · Unofficial; not affiliated with Activision.</footer>
+</body>
+</html>

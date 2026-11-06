@@ -1,0 +1,17 @@
+---
+import type { Source } from '../data/types';
+interface Props { sources: Source[]; compact?: boolean; label?: string; }
+const { sources, compact = false, label = 'Sources' } = Astro.props;
+---
+<div class:list={["source-links", { compact }]}>
+  <span class="source-label">{label}</span>
+  <span class="source-items">
+    {sources.map((source: Source, index: number) => (
+      <span class="source-entry">
+        <a href={source.url} target="_blank" rel="noopener noreferrer" title={source.note ? `${source.kind} · ${source.note}` : source.kind}>
+          {source.label}<span class="source-date"> · {source.date}</span><span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+        </a>{index < sources.length - 1 && <span class="source-separator" aria-hidden="true"> / </span>}
+      </span>
+    ))}
+  </span>
+</div>
