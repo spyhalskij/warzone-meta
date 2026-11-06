@@ -1,7 +1,7 @@
 {
   "checks": "pass",
-  "live": false,
-  "base": "http://127.0.0.1:4323/warzone-meta/",
+  "live": true,
+  "base": "https://spyhalskij.github.io/warzone-meta/",
   "widthsChecked": [
     320,
     390,
@@ -70,5 +70,10 @@
   "pageHeight": 5121,
   "pageErrors": [],
   "consoleErrors": [],
-  "badResponses": []
+  "badResponses": [],
+  "liveCommit": "13aa0ecf064d41c9e0337ddfd7895f242cf6f986",
+  "pageHeight390": 7879,
+  "attachmentRowsDesktopPx": 44,
+  "disclosureChecks": "all cards: all observation/build/test source URLs in Evidence",
+  "verifiedAtET": "2026-11-06 10:20 ET"
 }
