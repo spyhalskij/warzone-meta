@@ -781,7 +781,8 @@
           "sourceIds": [
             "jgod",
             "newbz-vod",
-            "official"
+            "official",
+            "kitted-panel"
           ],
           "fullSummary": "JGOD's fastest listed close-range calculation. No verified complete build from the tracked 20 was captured in this first pass."
         },
