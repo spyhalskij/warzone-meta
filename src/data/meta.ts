@@ -2,6 +2,13 @@ import raw from './meta.json';
 import type { MetaData, Source } from './types';
 export const meta = raw as MetaData;
 export const sourceById = new Map<string, Source>(meta.sources.map(source => [source.id, source]));
+export const evidenceSourcesFor = (card: import('./types').MetaCard) => sourcesFor([
+  ...card.sourceIds,
+  ...card.observed.sourceIds,
+  ...(card.build?.sourceIds ?? []),
+  ...(card.test?.sourceIds ?? []),
+]);
+
 export const sourcesFor = (ids: string[]) => [...new Set(ids)].map(id => {
   const source = sourceById.get(id);
   if (!source) throw new Error(`Missing cited source: ${id}`);

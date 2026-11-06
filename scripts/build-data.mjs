@@ -25,6 +25,8 @@ for (const mode of ['br', 'res']) {
     if (card.observed.date) assert(/^\d{4}-\d{2}-\d{2}$/.test(card.observed.date) && !Number.isNaN(Date.parse(`${card.observed.date}T00:00:00Z`)), `${card.id}: invalid ISO observed date`);
     assert(card.observed.names.length <= card.observed.total, `${card.id}: impossible observed names`);
     assert(card.observed.n > 0 || card.observed.display, `${card.id}: empty observation must explain its denominator`);
+    const allCitations = [...card.sourceIds, ...card.observed.sourceIds, ...(card.build?.sourceIds ?? []), ...(card.test?.sourceIds ?? [])];
+    assert(allCitations.every(id => card.sourceIds.includes(id)), `${card.id}: observation/build/test citation missing from card sourceIds`);
     for (const field of card.build?.attachments ?? []) assert(field.slot && !/^Attachment\s*\d*/i.test(field.slot), `${card.id}: generic numbered slot`);
     if (card.build) {
       assert(card.build.owner && card.build.kind && card.build.note && card.build.sourceIds.length, `${card.id}: incomplete build provenance`);

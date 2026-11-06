@@ -1,10 +1,10 @@
 ---
 import type { MetaCard, Attachment } from '../data/types';
-import { sourcesFor, formatDate, latestSourceDate, meta } from '../data/meta';
+import { formatDate, latestSourceDate, evidenceSourcesFor, meta } from '../data/meta';
 import SourceLinks from './SourceLinks.astro';
 interface Props { card: MetaCard; }
 const { card } = Astro.props;
-const sources = sourcesFor([...card.sourceIds, ...(card.build?.sourceIds ?? []), ...(card.test?.sourceIds ?? [])]);
+const sources = evidenceSourcesFor(card);
 const captureDate = card.observed.date ? formatDate(card.observed.date) : 'No capture';
 const flags = [card.modeUnlabeled && 'Mode-unlabeled', card.preReset && 'Pre-reset', card.editable, card.unlock].filter(Boolean) as string[];
 const hasUnknownSlots = card.build?.attachments.some((attachment: Attachment) => attachment.slot === 'Slot');
