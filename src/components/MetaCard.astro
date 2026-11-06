@@ -21,7 +21,7 @@ const hasUnknownSlots = card.build?.attachments.some((attachment: Attachment) =>
       <ol class="attachment-list">{card.build.attachments.map((attachment: Attachment) => <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>)}</ol>
       {hasUnknownSlots && <p class="slot-note">“Slot” = category not supplied by a verified source.</p>}
     </> : <p class="unavailable-build">No verified current individual build captured.</p>}
-    <div class="meta-strip"><span>{card.observed.display ?? `${card.observed.n}/${card.observed.total}`} · {captureDate} · {sources.length} src</span>
+    <div class="meta-strip"><span>{card.observed.display ?? `${card.observed.n}/${card.observed.total}`} · {captureDate}</span>
       {card.test && <span class="calculation"><span class={`measure measure-${card.test.kind.toLowerCase()}`}>{card.test.kind}</span> {card.test.value}</span>}
     </div>
     <details class="evidence"><summary>Evidence · {sources.length} sources · latest {latestSourceDate(sources)}<span class="details-mark" aria-hidden="true">+</span></summary>

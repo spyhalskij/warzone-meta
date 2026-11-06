@@ -1,7 +1,7 @@
 {
   "checks": "pass",
-  "live": true,
-  "base": "https://spyhalskij.github.io/warzone-meta/",
+  "live": false,
+  "base": "http://127.0.0.1:4323/warzone-meta/",
   "widthsChecked": [
     320,
     390,
@@ -10,17 +10,17 @@
   "brHeights": [
     {
       "id": "br-cronen",
-      "height": 546,
+      "height": 517,
       "detailsOpen": false
     },
     {
       "id": "br-vel",
-      "height": 526,
+      "height": 473,
       "detailsOpen": false
     },
     {
       "id": "br-han",
-      "height": 526,
+      "height": 502,
       "detailsOpen": false
     },
     {
@@ -30,14 +30,14 @@
     },
     {
       "id": "br-kg7",
-      "height": 549,
+      "height": 532,
       "detailsOpen": false
     }
   ],
   "resHeights": [
     {
       "id": "res-vel",
-      "height": 526,
+      "height": 473,
       "detailsOpen": false
     },
     {
@@ -52,28 +52,91 @@
     },
     {
       "id": "res-han",
-      "height": 526,
+      "height": 473,
       "detailsOpen": false
     },
     {
       "id": "res-cronen",
-      "height": 546,
+      "height": 517,
       "detailsOpen": false
     },
     {
       "id": "res-kg7",
-      "height": 633,
+      "height": 615,
       "detailsOpen": false
     }
   ],
-  "meanBrHeight": 531,
-  "pageHeight": 5121,
+  "emptyProRows": [
+    {
+      "name": "Anziety",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Bigman",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Cythe",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Echo1867",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Spam / Logan",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Disrrpt",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Melvn",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Slappy",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Enkeo",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Almond",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    },
+    {
+      "name": "Blazt",
+      "height": 45,
+      "oneLine": true,
+      "linksHeight": 44
+    }
+  ],
+  "meanBrHeight": 507,
+  "pageHeight": 6751,
   "pageErrors": [],
   "consoleErrors": [],
-  "badResponses": [],
-  "liveCommit": "13aa0ecf064d41c9e0337ddfd7895f242cf6f986",
-  "pageHeight390": 7879,
-  "attachmentRowsDesktopPx": 44,
-  "disclosureChecks": "all cards: all observation/build/test source URLs in Evidence",
-  "verifiedAtET": "2026-11-06 10:20 ET"
+  "badResponses": []
 }

@@ -17,10 +17,15 @@ const orderedPros = [...capturedPros, ...historicalPros, ...meta.pros.filter(pro
     <ol class="pro-list">
       {orderedPros.map(pro => (
         <li class:list={["pro-record", { "pre-reset": pro.last?.preReset, "no-capture": !pro.last }]}>
-          <div class="pro-identity"><span class="pro-order">{String(pro.order).padStart(2, '0')}</span><div><h3>{pro.name}</h3><p>{pro.team} · {pro.result}</p></div></div>
           {!pro.last ? (
-            <div class="empty-capture"><span>no S1 capture</span><div class="pro-links"><a href={pro.twitch} target="_blank" rel="noopener noreferrer">Twitch<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a><a href={pro.x} target="_blank" rel="noopener noreferrer">X<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a></div></div>
+            <div class="empty-capture" aria-label={`${pro.name} · ${pro.team} · no S1 capture`}>
+              <div class="pro-identity"><span class="pro-order">{String(pro.order).padStart(2, '0')}</span><h3>{pro.name}</h3><span class="pro-team">· {pro.team}</span><span class="empty-capture-label">· no S1 capture</span></div>
+              <div class="pro-links"><a href={pro.twitch} target="_blank" rel="noopener noreferrer">Twitch<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a><a href={pro.x} target="_blank" rel="noopener noreferrer">X<span class="sr-only"> for {pro.name} (opens in a new tab)</span> ↗</a></div>
+            </div>
           ) : (
+            <div class="pro-identity"><span class="pro-order">{String(pro.order).padStart(2, '0')}</span><div><h3>{pro.name}</h3><p>{pro.team} · {pro.result}</p></div></div>
+          )}
+          {pro.last && (
             <div class="pro-capture"><strong>{pro.last.pair}</strong><span class:list={["evidence-flag", { neutral: pro.last.preReset }]}>{pro.last.preReset ? 'Pre-reset' : 'Mode-unlabeled'}</span>
               <details class="pro-evidence"><summary>{pro.last.preReset ? 'Historical evidence' : 'Current evidence'}<span class="details-mark" aria-hidden="true">+</span></summary><div class="evidence-content"><p>{pro.last.note}</p>{pro.identityNote && <p>{pro.identityNote}</p>}<SourceLinks sources={sourcesFor(pro.last.sourceIds)} /></div></details>
             </div>

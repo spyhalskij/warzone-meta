@@ -35,9 +35,29 @@ assert.equal(await page.locator('.launch-note').count(),0);
 assert.equal(await page.locator('.pro-record').count(),20);
 assert.equal(await page.locator('.pro-record.no-capture').count(),meta.pros.filter(p=>!p.last).length);
 assert.equal(await page.locator('.pro-record').first().locator('h3').innerText(),'FLS');
+for(const pro of meta.pros.filter(p=>p.last)){
+  const row=page.locator(`.pro-record:has(h3:text-is("${pro.name}"))`);
+  assert.equal(await row.locator('.pro-identity p').innerText(),`${pro.team} · ${pro.result}`,`${pro.name}: capture row retains its complete identity`);
+}
 assert.equal(await page.locator('.pro-record.no-capture').first().locator('h3').innerText(),'Anziety');
-assert.equal(await page.locator('.empty-capture').first().locator(':scope > span').innerText(),'no S1 capture');
+assert.equal(await page.locator('.empty-capture-label').first().innerText(),'· no S1 capture');
 assert.equal(await page.locator('.empty-capture').first().locator('a').count(),2);
+for(const pro of meta.pros.filter(p=>!p.last)){
+  const row=page.locator(`.pro-record.no-capture:has(h3:text-is("${pro.name}"))`);
+  const identity=(await row.locator('.pro-identity').innerText()).replace(/\s+/g,' ');
+  assert(identity.includes(`${String(pro.order).padStart(2,'0')} ${pro.name} · ${pro.team} · no S1 capture`));
+  assert(!identity.includes(pro.result),`${pro.name}: empty row must not include its tournament resume`);
+  const links=await row.locator('.pro-links a').evaluateAll(nodes=>nodes.map(a=>a.href));
+  assert.deepEqual(links,[pro.twitch,pro.x],`${pro.name}: both external links are retained`);
+}
+const expectedLabels={"VLK LZR 7MW":"Laser","4.6mm Hollowpoint":"Ammunition","SA H86 465MM":"Barrel","TZL-110 V1":"Muzzle","5.56 NATO High":"Ammunition","7.62 Soviet FMJ":"Ammunition"};
+for(const card of [...meta.modes.br.cards,...meta.modes.res.cards]){
+  for(const a of card.build?.attachments ?? [])assert.equal(await page.locator(`#${card.id} .attachment-list li`).filter({hasText:a.name}).locator('span').innerText(),a.slot,`${card.id}: ${a.name} slot`);
+  for(const [name,slot] of Object.entries(expectedLabels))if(card.build?.attachments.some(a=>a.name===name))assert.equal(card.build.attachments.find(a=>a.name===name).slot,slot);
+  const expectedMeta=`${card.observed.display ?? `${card.observed.n}/${card.observed.total}`} · ${card.observed.date === '2026-11-06' ? 'Nov 6' : 'No capture'}`;
+  assert.equal((await page.locator(`#${card.id} .meta-strip > span`).first().innerText()).replace(/\s+/g,' ').trim(),expectedMeta,`${card.id}: compact card meta strip`);
+}
+assert.equal(await page.locator('.slot-note').count(),0,'No unverified generic Slot labels remain');
 const heights=await collectHeights();
 for(const {id,height,detailsOpen} of heights){assert.equal(detailsOpen,false);assert(height<=700,`${id} is ${height}px, greater than 700px`);}
 for(const attachment of meta.modes.br.cards[0].build.attachments){assert.equal(await page.locator('#br-cronen .attachment-list strong').filter({hasText:attachment.name}).count(),1);}
@@ -75,20 +95,33 @@ await page.goto(base,{waitUntil:'networkidle'});
 assert.equal(await active().getAttribute('data-mode-view'),'res','localStorage should restore Resurgence');
 await page.goto(`${base}?mode=br`,{waitUntil:'networkidle'});
 assert.equal(await active().getAttribute('data-mode-view'),'br','query should win');
-for(const width of [320,390,1280])await checkOverflow(width);
+for(const width of [320,390,1280]){
+  await checkOverflow(width);
+  if(width!==1280){
+    const rows=await page.locator('.pro-record.no-capture').evaluateAll(nodes=>nodes.map(row=>({name:row.querySelector('h3').textContent,height:row.getBoundingClientRect().height,linksHeight:row.querySelector('.pro-links').getBoundingClientRect().height})));
+    for(const row of rows){assert(row.height<=56,`${row.name}: ${row.height}px empty-pro row exceeds 56px at ${width}`);assert(row.linksHeight>=44,`${row.name}: links must retain 44px targets at ${width}`);}
+  }
+}
+await page.setViewportSize({width:390,height:844});
+await checkOverflow(390);
+const emptyProRows=await page.locator('.pro-record.no-capture').evaluateAll(rows=>rows.map(row=>{const identity=row.querySelector('.pro-identity').getBoundingClientRect();const links=row.querySelector('.pro-links').getBoundingClientRect();const r=row.getBoundingClientRect();return {name:row.querySelector('h3').textContent,height:r.height,oneLine:Math.abs(r.top-links.top)<1 && identity.height<23,linksHeight:links.height};}));
+for(const row of emptyProRows){assert(row.oneLine,`${row.name}: links should share the identity line at 390`);}
+await page.setViewportSize({width:1280,height:900});
+assert.equal(await page.locator('[data-mode-view="br"] .map-readout').isVisible(),true);
+await page.evaluate(()=>scrollTo(0,0));
+await page.screenshot({path:'shots/r2/br-1280-top.png',fullPage:false});
+
 await page.setViewportSize({width:390,height:844});
 await checkOverflow(390);
 const mobileMapHidden=await page.locator('[data-mode-view="br"] .map-readout').isHidden();assert(mobileMapHidden);
 await page.evaluate(()=>scrollTo(0,0));
 await page.screenshot({path:'shots/r2/br-390-top.png'});
 await page.locator('#br-cronen').screenshot({path:'shots/r2/card-br-cronen-390.png'});
-await page.locator('.pro-section').scrollIntoViewIfNeeded();
-await page.screenshot({path:'shots/r2/pros-390.png'});
+await page.locator('.pro-record.no-capture').first().scrollIntoViewIfNeeded();
+await page.screenshot({path:'shots/r2/pros-empty-390.png'});
+await page.locator('.pro-section').screenshot({path:'shots/r2/pros-390.png'});
 await page.locator('.official-section').scrollIntoViewIfNeeded();
 await page.screenshot({path:'shots/r2/official-390.png'});
-await page.setViewportSize({width:1280,height:900});
-assert.equal(await page.locator('[data-mode-view="br"] .map-readout').isVisible(),true);
-await page.screenshot({path:'shots/r2/br-1280-top.png'});
 const allDetailsClosed=await page.locator('details').evaluateAll(ds=>ds.every(d=>!d.open));assert(allDetailsClosed,'All Evidence disclosures should default closed');
 assert.equal(await page.locator('.log-section').count(),0,'No one-entry changelog section');assert.equal(await page.locator('.change-log').count(),1,'Compact changelog disclosure is retained');
 assert.equal(await page.locator('.topbar .segment').count(),1,'Mode switch stays unchanged');
@@ -96,10 +129,10 @@ assert.equal(await page.locator('.launch-note').count(),0);
 assert.equal(await page.locator('.section-title > span').count(),0);
 const switchMarkup=await page.locator('.mode-switch').innerHTML();assert.equal(await page.locator('.mode-switch').evaluate(el=>el.getAttribute('aria-label')),'Game mode');
 const rows=await active().locator('.attachment-list li').evaluateAll(rows=>rows.map(row=>Math.round(row.getBoundingClientRect().height)));for(const height of rows)assert(height>=44 && height<=48,`Attachment row ${String(height)}px outside 44–48px`);
-const noCaptureHeight=await page.locator('.pro-record.no-capture').first().locator('.empty-capture > span').evaluate(el=>el.getBoundingClientRect().height);assert(noCaptureHeight<=22,'No-capture text should stay one line');assert((await page.locator('[data-mode-view="br"] .sample-section summary').innerText()).startsWith('17/46 panel · not a population · 2 sources · latest Nov 6'));
+assert((await page.locator('[data-mode-view="br"] .sample-section summary').innerText()).startsWith('17/46 panel · not a population · 2 sources · latest Nov 6'));
 assert(switchMarkup.includes('data-mode-target="br"') && switchMarkup.includes('data-mode-target="res"'), 'BR and Res controls remain');
 for(const target of ['br','res'])assert((await page.locator(`[data-mode-target="${target}"]`).evaluate(el=>el.getBoundingClientRect().height))>=44);
-const result={checks:'pass',live,base,widthsChecked:[320,390,1280],brHeights:heights,resHeights,meanBrHeight:Math.round(heights.reduce((sum,row)=>sum+row.height,0)/heights.length),pageHeight:await page.evaluate(()=>document.documentElement.scrollHeight),pageErrors:errors,consoleErrors,badResponses};
+const result={checks:'pass',live,base,widthsChecked:[320,390,1280],brHeights:heights,resHeights,emptyProRows,meanBrHeight:Math.round(heights.reduce((sum,row)=>sum+row.height,0)/heights.length),pageHeight:await page.evaluate(()=>document.documentElement.scrollHeight),pageErrors:errors,consoleErrors,badResponses};
 for(const {height} of resHeights)assert(height<=700);
 assert.deepEqual(errors,[]);assert.deepEqual(consoleErrors,[]);assert.deepEqual(badResponses,[]);
 fs.writeFileSync('shots/r2/results.json',JSON.stringify(result,null,2)+'\n');

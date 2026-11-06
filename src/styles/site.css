@@ -206,7 +206,7 @@ h3 { font-size:25px; }
 .build-owner { display:flex; flex-wrap:wrap; align-items:baseline; gap:5px 10px; font-size:14px; margin:0 0 6px; }
 .build-owner small { font-family:var(--names); font-size:13px; color:var(--muted); font-weight:400; }
 .slot-note { font-size:12px; line-height:1.5; color:var(--muted); margin:6px 0 0; }
-.attachment-list li { grid-template-columns:77px minmax(0,1fr); gap:7px; padding:10px 0; min-height:44px; }
+.attachment-list li { grid-template-columns:88px minmax(0,1fr); gap:7px; padding:10px 0; min-height:44px; }
 .attachment-list li > span,.attachment-list strong { font-size:13px; line-height:1.55; }
 .attachment-list strong { overflow-wrap:normal; }
 .meta-strip { display:flex; flex-wrap:wrap; gap:9px 14px; align-items:center; margin-top:12px; font-family:var(--stats); font-size:13px; line-height:1.55; font-variant-numeric:tabular-nums; }
@@ -288,4 +288,39 @@ footer { padding-top:15px; }
  .card-heading h3 { font-size:24px; }
  .pro-capture { padding-left:0; }
  .empty-capture { padding-left:0; }
+}
+
+/* R2.1 — no-capture rows are identity + status + links, not abbreviated resumes. */
+.pro-record.no-capture { display:block; padding:0; }
+.empty-capture .pro-identity { align-items:center; white-space:nowrap; }
+.empty-capture .pro-team,.empty-capture-label { color:var(--muted); font-size:13px; line-height:1.4; }
+.empty-capture-label { margin-left:7px; }
+.empty-capture .pro-team::before { content:"\00a0"; }
+.empty-capture-label::before { content:"\00a0"; }
+@media(max-width:599px) {
+  .empty-capture { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:44px; padding:0; font-size:13px; }
+  .empty-capture .pro-identity { flex:0 1 auto; gap:8px; min-width:0; }
+  .empty-capture .pro-order { font-size:14px; }
+  .empty-capture .pro-identity h3 { flex:0 0 auto; font-size:16px; }
+  .empty-capture .pro-team { flex:0 0 auto; font-size:12px; }
+  .empty-capture-label { flex:0 0 auto; margin-left:0; font-size:12px; }
+  .empty-capture .pro-links { flex:0 0 auto; gap:12px; padding:0; }
+  .empty-capture .pro-links a { color:var(--ink); }
+  .empty-capture .pro-links a { min-height:44px; font-size:12px; }
+}
+@media(min-width:600px) {
+  .pro-record.no-capture { padding:8px 0; }
+  .empty-capture { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:20px; padding:0; }
+  .empty-capture .pro-links { padding:0; }
+}
+@media(max-width:360px) {
+  .empty-capture .pro-identity { gap:6px; }
+  .empty-capture .pro-identity h3 { font-size:15px; }
+  .empty-capture .pro-team,.empty-capture-label,.empty-capture .pro-links a { font-size:11px; }
+  .empty-capture .pro-team { display:none; }
+  .empty-capture-label { white-space:normal; }
+  .empty-capture .pro-links { gap:7px; }
+}
+@media(min-width:900px) {
+  .pro-record.no-capture { padding:9px 0; }
 }

@@ -54,11 +54,27 @@
       "url": "https://kitted.gg/loadout/vel-46"
     },
     {
+      "id": "vel-types",
+      "label": "VEL attachment type reference",
+      "kind": "ATTACHMENT-TYPE",
+      "date": "read Nov 6",
+      "url": "https://codmunity.gg/loadout/warsz-vel-46-warzone-2-close-range",
+      "note": "Explicitly identifies VLK LZR 7MW as Laser and 4.6MM Hollowpoint as Ammunition; category reference only"
+    },
+    {
       "id": "kitted-cronen",
       "label": "Adriann · Kitted Cronen",
       "kind": "OBSERVED-USE",
       "date": "last confirmed Nov 6",
       "url": "https://kitted.gg/loadout/cronen-osprey"
+    },
+    {
+      "id": "cronen-ammo-type",
+      "label": "5.56 NATO High Velocity record",
+      "kind": "ATTACHMENT-TYPE",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/attachments/5-56-nato-high-velocity",
+      "note": "Explicit Ammunition category for the full-name variant; ownership and truncated Kitted name remain sourced separately"
     },
     {
       "id": "kitted-hisoka",
@@ -87,6 +103,22 @@
       "kind": "OBSERVED-USE",
       "date": "last confirmed Nov 6",
       "url": "https://kitted.gg/loadout/han-86"
+    },
+    {
+      "id": "han-barrel-type",
+      "label": "SA H86 465MM attachment record",
+      "kind": "ATTACHMENT-TYPE",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/attachments/sa-h86-465mm",
+      "note": "Explicit Barrel category; does not establish Hisoka’s usage or Kitted’s fire_mods label"
+    },
+    {
+      "id": "han-muzzle-type",
+      "label": "TZL-110 V1 attachment record",
+      "kind": "ATTACHMENT-TYPE",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/attachments/tzl-110-v1",
+      "note": "Explicit Muzzle category"
     },
     {
       "id": "jgod",
@@ -208,6 +240,14 @@
       "date": "Nov 6 · rolling panel",
       "url": "https://kitted.gg/loadout/voyak-kt-3",
       "note": "Slot-by-slot record including FLS; rolling panel includes mixed-freshness evidence."
+    },
+    {
+      "id": "vojak-ammo-type",
+      "label": "7.62 Soviet FMJ attachment record",
+      "kind": "ATTACHMENT-TYPE",
+      "date": "read Nov 6",
+      "url": "https://codmunity.gg/attachment/bo7/7-62-soviet-fmj",
+      "note": "Explicit FMJ Ammo description under the source’s Fire Mods grouping"
     }
   ],
   "sample": {
@@ -275,13 +315,14 @@
                 "name": "60 Round Mag"
               },
               {
-                "slot": "Fire mods",
+                "slot": "Ammunition",
                 "name": "5.56 NATO High"
               }
             ],
-            "note": "One player's exact reported set, not a cross-player modal build. Blueprint shown in evidence: Digital Drifter.",
+            "note": "One player's exact reported set, not a cross-player modal build. Blueprint shown in evidence: Digital Drifter. Display uses Ammunition only for the cited cartridge; Kitted’s exact “5.56 NATO High” text is retained because its fire_mods label differs from the reference’s Ammunition category for “5.56 NATO High Velocity.” No alternate attachment is asserted.",
             "sourceIds": [
-              "kitted-cronen"
+              "kitted-cronen",
+              "cronen-ammo-type"
             ]
           },
           "augment": "Sharpshooter is an in-match handling candidate, not an attachment; no outcome test captured.",
@@ -301,7 +342,8 @@
             "wzstats",
             "wzl",
             "dexerto",
-            "official"
+            "official",
+            "cronen-ammo-type"
           ],
           "fullSummary": "Fastest far-range result in JGOD's launch-day calculations, with one individually reported complete build. Editorial sources disagree on its tier."
         },
@@ -337,7 +379,7 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Slot",
+                "slot": "Laser",
                 "name": "VLK LZR 7MW"
               },
               {
@@ -345,7 +387,7 @@
                 "name": "Demo RXT Stock"
               },
               {
-                "slot": "Slot",
+                "slot": "Ammunition",
                 "name": "4.6mm Hollowpoint"
               },
               {
@@ -353,10 +395,11 @@
                 "name": "50 Round Mag"
               }
             ],
-            "note": "Hisoka's four listed items. Kitted's separate modal list mixes attachments across the five users and is not presented as one player's build. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
+            "note": "Hisoka's four listed items. Kitted's separate modal list mixes attachments across the five users and is not presented as one player's build. A separate verified VEL record supplies Laser and Ammunition categories; it does not change ownership of Hisoka’s four listed parts.",
             "sourceIds": [
               "kitted-hisoka",
-              "kitted-vel"
+              "kitted-vel",
+              "vel-types"
             ]
           },
           "augment": "No augment selected by this evidence. Breacher is a separate in-match test candidate for close quarters.",
@@ -375,7 +418,8 @@
             "jgod",
             "wzstats",
             "wzl",
-            "official"
+            "official",
+            "vel-types"
           ],
           "fullSummary": "Most-observed new-platform SMG in Kitted's mixed-freshness panel. Observed adoption and calculated TTK leadership are different answers."
         },
@@ -411,11 +455,11 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Slot",
+                "slot": "Barrel",
                 "name": "SA H86 465MM"
               },
               {
-                "slot": "Slot",
+                "slot": "Muzzle",
                 "name": "TZL-110 V1"
               },
               {
@@ -427,10 +471,12 @@
                 "name": "FR4 Retractable Stock"
               }
             ],
-            "note": "Hisoka's reported four-slot set. Slots are labeled where supplied in the saved source read; a fifth slot is deliberately absent. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
+            "note": "Hisoka's reported four-slot set. Attachment database records supply Barrel and Muzzle categories; only part categories come from those references, not a different player’s build. Kitted lists SA H86 as fire_mods, while its attachment record says Barrel; this discrepancy is retained in Evidence.",
             "sourceIds": [
               "kitted-hisoka",
-              "kitted-han"
+              "kitted-han",
+              "han-barrel-type",
+              "han-muzzle-type"
             ]
           },
           "augment": "No augment selection established. Sharpshooter is a separate long-range handling test candidate.",
@@ -449,7 +495,9 @@
             "kitted-han",
             "jgod",
             "dexerto",
-            "official"
+            "official",
+            "han-barrel-type",
+            "han-muzzle-type"
           ],
           "fullSummary": "Stronger modern-AR adoption than Cronen in this panel and immediately unlockable, but its reported individual build is incomplete."
         },
@@ -505,16 +553,17 @@
                 "name": "Lineguard Casket Mag"
               },
               {
-                "slot": "Fire mods",
+                "slot": "Ammunition",
                 "name": "7.62 Soviet FMJ"
               }
             ],
-            "note": "FLS's listed record, kept only to show prior use. Season 1 legacy weapons cannot be customized or build-shared. Fifakill has a distinct historical set; the two are not merged.",
+            "note": "FLS's listed record, kept only to show prior use. Season 1 legacy weapons cannot be customized or build-shared. Fifakill has a distinct historical set; the two are not merged. CODMunity identifies 7.62 Soviet FMJ as “FMJ Ammo”; the UI uses its descriptive Ammunition label, not a different game-slot claim.",
             "sourceIds": [
               "kitted-fls",
               "kitted-fifakill",
               "official",
-              "kitted-kt3"
+              "kitted-kt3",
+              "vojak-ammo-type"
             ]
           },
           "augment": "Not established for a current legacy preset.",
@@ -526,7 +575,8 @@
             "kitted-fls",
             "kitted-fifakill",
             "official",
-            "kitted-kt3"
+            "kitted-kt3",
+            "vojak-ammo-type"
           ],
           "fullSummary": "The rolling panel's most-observed retained legacy weapon, not an established Season 1 winner. Old attachments are context, not a current editable recipe."
         },
@@ -636,7 +686,7 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Slot",
+                "slot": "Laser",
                 "name": "VLK LZR 7MW"
               },
               {
@@ -644,7 +694,7 @@
                 "name": "Demo RXT Stock"
               },
               {
-                "slot": "Slot",
+                "slot": "Ammunition",
                 "name": "4.6mm Hollowpoint"
               },
               {
@@ -652,10 +702,11 @@
                 "name": "50 Round Mag"
               }
             ],
-            "note": "Hisoka's four listed items, not Kitted's cross-player modal attachment list. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
+            "note": "Hisoka's four listed items, not Kitted's cross-player modal attachment list. A separate verified VEL record supplies Laser and Ammunition categories; it does not change ownership of Hisoka’s four listed parts.",
             "sourceIds": [
               "kitted-hisoka",
-              "kitted-vel"
+              "kitted-vel",
+              "vel-types"
             ]
           },
           "augment": "Breacher is a separate CQC test candidate for Zodiac, not an observed selection or proven advantage.",
@@ -674,7 +725,8 @@
             "jgod",
             "wzstats",
             "wzl",
-            "official"
+            "official",
+            "vel-types"
           ],
           "fullSummary": "Provisional because it leads modern SMG use in the mixed-mode panel, not because Zodiac pick-rate evidence exists."
         },
@@ -818,11 +870,11 @@
             "status": "Partial · 4 listed slots; no invented fifth",
             "attachments": [
               {
-                "slot": "Slot",
+                "slot": "Barrel",
                 "name": "SA H86 465MM"
               },
               {
-                "slot": "Slot",
+                "slot": "Muzzle",
                 "name": "TZL-110 V1"
               },
               {
@@ -834,10 +886,12 @@
                 "name": "FR4 Retractable Stock"
               }
             ],
-            "note": "The same incomplete Hisoka record, with map and mode still unverified. “Slot” marks an individual item whose category was not supplied by a verified source; no mapping was inferred.",
+            "note": "The same incomplete Hisoka record, with map and mode still unverified. Attachment database records supply Barrel and Muzzle categories only, not player ownership. Kitted lists SA H86 as fire_mods, while its attachment record says Barrel; this discrepancy is retained in Evidence.",
             "sourceIds": [
               "kitted-hisoka",
-              "kitted-han"
+              "kitted-han",
+              "han-barrel-type",
+              "han-muzzle-type"
             ]
           },
           "augment": "Sharpshooter is an unproven handling test candidate, not an attachment or observed choice.",
@@ -855,7 +909,9 @@
             "kitted-hisoka",
             "kitted-han",
             "jgod",
-            "official"
+            "official",
+            "han-barrel-type",
+            "han-muzzle-type"
           ],
           "fullSummary": "A provisional long-support option because of observed modern use and immediate access, without a measured Resurgence usage split."
         },
@@ -904,13 +960,14 @@
                 "name": "60 Round Mag"
               },
               {
-                "slot": "Fire mods",
+                "slot": "Ammunition",
                 "name": "5.56 NATO High"
               }
             ],
-            "note": "One player's exact reported set, not a cross-player modal build.",
+            "note": "One player's exact reported set, not a cross-player modal build. Display uses Ammunition only for the cited cartridge; Kitted’s exact “5.56 NATO High” text is retained because its fire_mods label differs from the reference’s Ammunition category for “5.56 NATO High Velocity.” No alternate attachment is asserted.",
             "sourceIds": [
-              "kitted-cronen"
+              "kitted-cronen",
+              "cronen-ammo-type"
             ]
           },
           "augment": "No tested Zodiac augment choice established.",
@@ -931,7 +988,8 @@
             "wzstats",
             "dexerto",
             "official",
-            "kitted-panel"
+            "kitted-panel",
+            "cronen-ammo-type"
           ],
           "fullSummary": "A calculated far-range candidate with one complete individual build. No direct Zodiac capture or Resurgence adoption split exists."
         },
@@ -1064,7 +1122,7 @@
     {
       "date": "Nov 6, 2026",
       "title": "Season 1 launch baseline",
-      "text": "Captured the first Hajin / Zodiac watchlist across official patch notes, a rolling 17-player observed-use panel, JGOD's calculated launch-day tables, editorial role boards and a 20-player tournament-qualified roster. No material rank is claimed beyond the evidence.",
+      "text": "Captured the first Hajin / Zodiac watchlist across official patch notes, a rolling 17-player observed-use panel, JGOD's calculated launch-day tables, editorial role boards and a 20-player tournament-qualified roster. No material rank is claimed beyond the evidence. R2.1: empty-capture pros were compressed to one line, duplicate card-strip source counts were removed, and referenced attachment categories were clarified without altering owner/build provenance.",
       "sourceIds": [
         "official",
         "raven",
