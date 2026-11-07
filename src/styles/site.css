@@ -16,6 +16,7 @@
   --tag-agg: #C9A7E8;
   --tag-calc: #E79A6B;
   --tag-creator: #F0A3C2;
+  --tag-official: #8FB4C9;
   --plot: #181C19;
   --grid: #2E352F;
   --axis: #A3AB9F;
@@ -135,6 +136,7 @@ h3 { margin: 0; font-weight: 600; }
 .tag-agg { color: var(--tag-agg); }
 .tag-calc { color: var(--tag-calc); }
 .tag-creator { color: var(--tag-creator); }
+.tag-official { color: var(--tag-official); }
 .caveat-line, .build-unverified, .empty-role { font-size: 16px; line-height: 24px; color: var(--text); margin: 8px 0; }
 .sample-line { margin: 8px 0; }
 .build-section { margin-top: 12px; }

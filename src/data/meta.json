@@ -2,12 +2,12 @@
   "schemaVersion": 2,
   "project": "Warzone Meta",
   "snapshotDate": "2026-11-07",
-  "updatedLabel": "Nov 7, 2026 · morning ET",
-  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET",
+  "updatedLabel": "Nov 7, 2026 · late morning ET",
+  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET",
   "patch": "MW4 / Season 1",
   "season": "Hajin Conflict · Season 1",
   "launch": "Nov 6, 2026 · 12:00 a.m. ET",
-  "evidenceCutoff": "Nov 7, 2026 · morning ET",
+  "evidenceCutoff": "Nov 7, 2026 · late morning ET",
   "sources": [
     {
       "id": "official",
@@ -410,6 +410,54 @@
       "note": "Launch-week Mosin-Nagant gunsmith. Five attachments. Mode unverified."
     },
     {
+      "id": "kitted-nov7",
+      "label": "Kitted · rolling use panel",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 7 · 10:05 a.m. ET",
+      "url": "https://kitted.gg/meta/most-used-weapons",
+      "note": "0 of 22 pros on any MW4 sniper. No pro usage yet."
+    },
+    {
+      "id": "wzl-sniper",
+      "label": "CODMunity / WarzoneLoadout · sniper tier",
+      "kind": "AGG",
+      "date": "Nov 6",
+      "url": "https://warzoneloadout.games/warzone-meta/sniper",
+      "note": "KG-7 Vulcan is S tier #1 among snipers."
+    },
+    {
+      "id": "sportskeeda-kg7",
+      "label": "Sportskeeda · Season 1 meta loadouts",
+      "kind": "AGG",
+      "date": "read Nov 7",
+      "url": "https://www.sportskeeda.com/call-of-duty-game/best-mw4-warzone-meta-loadouts",
+      "note": "Among the three snipers, only the KG-7 Vulcan is considered meta."
+    },
+    {
+      "id": "wzhub-kg7",
+      "label": "CODMunity / WZHUB · KG-7 Vulcan",
+      "kind": "AGG",
+      "date": "Nov 6",
+      "url": "https://wzhub.gg/loadouts/mw4-kg-7-vulcan",
+      "note": "Long-range build. Gauge-12 Mono, Haebang RMT762 29\", TT G76-RP Stock, 7.62x54mmR High Velocity, KT76 Light Bolt. Optic not listed. Build code R04-3K9Y5-JTFYN-8S51. Mode not stated."
+    },
+    {
+      "id": "cbass-kg7",
+      "label": "Cbass via BestLoadout.com · KG-7 Vulcan",
+      "kind": "CREATOR",
+      "date": "Nov 6",
+      "url": "https://bestloadout.com/loadouts/sniper/kg-7-vulcan-one-shot-loadout-for-mw4-warzone",
+      "note": "Suppressed long-range variant. TT Solgae F7 in place of Gauge-12 Mono. Optic not listed. Mode not stated."
+    },
+    {
+      "id": "mypandaplay-kg7",
+      "label": "MyPandaPlay · Season 1 loadouts",
+      "kind": "AGG",
+      "date": "Nov 7",
+      "url": "https://mypandaplay.com/modern-warfare-4/guides/best-warzone-loadouts-season-1/",
+      "note": "CODMunity lists 1,347 m/s for the KG-7 long-range build."
+    },
+    {
       "id": "codmunity-ttk",
       "label": "CODMunity · Warzone TTK rankings",
       "kind": "CALC",
@@ -436,7 +484,7 @@
       "label": "BR",
       "fullLabel": "Battle Royale",
       "map": "Hajin",
-      "headnote": "Current MW4 candidates plus a clearly labeled legacy exception and official sniper baseline. Sources are mode-unlabeled; no match is constructed to fill a role.",
+      "headnote": "Current MW4 candidates plus a clearly labeled legacy exception. KG-7 Vulcan is the Testing long-range sniper pick; Mosin-Nagant is the medium-range alternative. A source that does not name a mode stays unlabeled.",
       "cards": [
         {
           "id": "br-cronen",
@@ -879,74 +927,191 @@
         },
         {
           "id": "br-kg7",
-          "role": "Sniper · no verified current pro pick",
-          "weapon": "No verified sniper build",
+          "role": "Sniper · Sniper Rifle · MW4",
+          "roleKey": "sniper",
+          "placement": "pick",
+          "evidenceTags": [
+            "CALC",
+            "AGG",
+            "PRO"
+          ],
+          "weapon": "KG-7 Vulcan",
           "confidence": "Testing",
-          "summary": "Role left unfilled. KG-7 and Astaroth editorial entries were removed, not repaired from defaults.",
+          "summary": "Long-range pick: 2-shot at all ranges, 75m one-shot per JGOD; tops aggregator sniper lists.",
           "modeUnlabeled": true,
-          "editable": "MW4 candidates only · no verified build",
+          "editable": "MW4 · Sniper Rifle · mode unverified",
           "observed": {
             "n": 0,
-            "total": 20,
+            "total": 22,
             "names": [],
-            "date": null,
-            "dateLabel": "No current tagged pro build",
-            "caveat": "No direct Season 1 complete pro build captured in this audit. In the 20-eligible rolling panel that is an evidence gap, not zero population use.",
+            "date": "2026-11-07",
+            "dateLabel": "Kitted panel · 10:05 a.m. ET",
+            "caveat": "No pro usage yet. 0 of 22 pros on any MW4 sniper at 10:05 a.m. ET on Nov 7. The pick rests on calculated data and aggregator consensus.",
             "sourceIds": [
-              "kitted-panel",
-              "kitted-method"
+              "kitted-nov7"
             ],
-            "display": "No verified S1 pro build · rolling n=20"
+            "display": "0/22 pros · no pro usage yet"
           },
           "build": null,
-          "test": null,
-          "counterpoint": "KG-7 remains a current MW4 gun and editorial watch; Astaroth .57 is a separate current gun. The former mixed gun/editorial entry predates launch and lacks a current individual or controlled-test source. Gauge-12 Mono was cleared by a second MW4 compatibility database rather than called fake. The official default is a baseline only—not a substitute for pro use or a meta winner.",
-          "sourceIds": [
-            "official",
-            "mw4-launch",
-            "raven",
-            "kitted-panel",
-            "kitted-method",
-            "kg7-types",
-            "kg7-gauge",
-            "wzstats",
-            "wzl",
-            "jgod"
-          ],
-          "fullSummary": "KG-7 remains a current MW4 gun and editorial watch; Astaroth .57 is a separate current gun. The former mixed gun/editorial entry predates launch and lacks a current individual or controlled-test source. Gauge-12 Mono was cleared by a second MW4 compatibility database rather than called fake. The official default is a baseline only—not a substitute for pro use or a meta winner.",
-          "reflectCandidates": true,
-          "noteTitle": "Candidate watching · no ranked winner",
-          "candidates": [
+          "builds": [
             {
-              "arm": "KG-7 Vulcan",
-              "owner": "Official Warzone default loadout",
-              "note": "7.62x54mmR High Velocity / XRK Clutch-LS / TT Solgae F7 / SZ Castaway / TT G76-RP Stock. Official notes list five strings without explicit per-slot labels beyond the loadout set; this baseline is current MW4 but has no pro or controlled S1 win-established proof. Gauge-12 Mono is separately MW4-compatible with KG-7; the editorial set is nevertheless archived as pre-launch.",
-              "sourceIds": [
-                "official",
-                "kg7-gauge",
-                "kg7-types",
-                "wzl"
+              "id": "kg7-codmunity",
+              "label": "KG-7 Build 1",
+              "sourceName": "CODMunity / WZHUB",
+              "url": "https://wzhub.gg/loadouts/mw4-kg-7-vulcan",
+              "date": "2026-11-06",
+              "dateBasis": "source page updated Nov 6",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": false,
+              "proUseReported": false,
+              "note": "Max velocity (CODMunity lists 1,347 m/s) and faster rechamber. Build code R04-3K9Y5-JTFYN-8S51.",
+              "attachments": [
+                {
+                  "slot": "Muzzle",
+                  "name": "Gauge-12 Mono",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Barrel",
+                  "name": "Haebang RMT762 29\"",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "TT G76-RP Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "7.62x54mmR High Velocity",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Bolt",
+                  "name": "KT76 Light Bolt",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": null,
+                  "status": "unknown"
+                }
               ]
             },
             {
-              "arm": "Astaroth .57",
-              "owner": "Testing-only candidate",
-              "note": "JGOD’s table says Unlimited but does not list the one-shot assumptions. Official notes remove knockdown from Astaroth .57. It stays a separate watch from KG-7.",
-              "sourceIds": [
-                "jgod",
-                "official"
+              "id": "kg7-cbass",
+              "label": "KG-7 Build 2",
+              "sourceName": "Cbass via BestLoadout.com",
+              "url": "https://bestloadout.com/loadouts/sniper/kg-7-vulcan-one-shot-loadout-for-mw4-warzone",
+              "date": "2026-11-06",
+              "dateBasis": "source page dated Nov 6",
+              "evidenceType": "CREATOR",
+              "mode": "unverified",
+              "complete": false,
+              "proUseReported": false,
+              "note": "Suppressed for long holds.",
+              "attachments": [
+                {
+                  "slot": "Muzzle",
+                  "name": "TT Solgae F7",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Barrel",
+                  "name": "Haebang RMT762 29\"",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "TT G76-RP Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "7.62x54mmR High Velocity",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Bolt",
+                  "name": "KT76 Light Bolt",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": null,
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "kg7-official",
+              "label": "KG-7 Build 3",
+              "sourceName": "Infinity Ward S1 notes",
+              "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-mw4-warzone-season-1-patch-notes",
+              "date": "2026-11-05",
+              "dateBasis": "S1 notes dated Nov 5",
+              "evidenceType": "OFFICIAL",
+              "mode": "BR",
+              "complete": true,
+              "proUseReported": false,
+              "note": "official default preset, not a pro-optimized build",
+              "attachments": [
+                {
+                  "slot": "Ammunition",
+                  "name": "7.62x54mmR High Velocity",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Laser",
+                  "name": "XRK Clutch-LS",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "TT Solgae F7",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": "SZ Castaway",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "TT G76-RP Stock",
+                  "status": "verified-current-catalog"
+                }
               ]
             }
           ],
-          "roleKey": "sniper",
-          "placement": "empty",
-          "evidenceTags": []
+          "test": {
+            "kind": "CALC",
+            "value": "2 STK all ranges · 1463 ms · 75m one-shot note",
+            "note": "JGOD Nov 6 base-gun calculation. The 75m figure is a one-shot note, not a measured full-plate range.",
+            "sourceIds": [
+              "jgod"
+            ]
+          },
+          "counterpoint": "WZStats ranks no sniper in its top five; no measured full-plate one-shot ranges yet.",
+          "sourceIds": [
+            "jgod",
+            "wzl-sniper",
+            "sportskeeda-kg7",
+            "kitted-nov7",
+            "wzhub-kg7",
+            "cbass-kg7",
+            "mypandaplay-kg7",
+            "official",
+            "wzstats"
+          ],
+          "fullSummary": "Long-range sniper pick on calculated data and aggregator consensus. JGOD’s Nov 6 calculation is 2 shots to kill at all ranges, 1463 ms, with a 75m one-shot note. CODMunity/WarzoneLoadout ranks it S tier #1 on Nov 6, and Sportskeeda treats only the KG-7 as meta. Kitted at 10:05 a.m. ET on Nov 7 shows 0 of 22 pros on any MW4 sniper, so there is no pro usage yet."
         },
         {
           "id": "br-mosin",
           "role": "Sniper · Marksman Rifle · MW4",
           "roleKey": "sniper",
-          "placement": "pick",
+          "placement": "alternative",
           "evidenceTags": [
             "PRO"
           ],
@@ -1017,7 +1182,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "whenToPick": "Medium-range quick-scoping; marksman rifle, not a long-range sniper."
         },
         {
           "id": "br-han",
@@ -1436,8 +1602,10 @@
           "id": "br-sniper",
           "key": "sniper",
           "label": "Sniper",
-          "pickId": "br-mosin",
-          "alternativeIds": []
+          "pickId": "br-kg7",
+          "alternativeIds": [
+            "br-mosin"
+          ]
         },
         {
           "id": "br-legacy",
@@ -1814,6 +1982,19 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 7, 2026 · late morning ET",
+      "title": "KG-7 Vulcan",
+      "text": "KG-7 Vulcan named BR long-range sniper pick (Testing); Mosin moved to alternative for medium-range quick-scoping.",
+      "sourceIds": [
+        "jgod",
+        "wzl-sniper",
+        "sportskeeda-kg7",
+        "kitted-nov7",
+        "wzhub-kg7",
+        "fifakill-mosin"
+      ]
+    },
     {
       "date": "Nov 7, 2026 · morning ET",
       "title": "Mosin-Nagant",

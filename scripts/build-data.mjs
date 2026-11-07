@@ -9,8 +9,8 @@ assert(meta.sources.every(source => source.url.startsWith('https://') && source.
 assert(meta.schemaVersion === 2, 'Schema version must be 2');
 assert(/^\d{4}-\d{2}-\d{2}$/.test(meta.snapshotDate) && !Number.isNaN(Date.parse(`${meta.snapshotDate}T00:00:00Z`)), 'Snapshot must have a real ISO date');
 const tags = ['PRO', 'MEAS', 'AGG', 'CALC'];
-const buildEvidence = ['PRO', 'AGG', 'CREATOR'];
-const buildRank = build => build.evidenceType === 'PRO' ? 0 : build.proUseReported ? 1 : build.evidenceType === 'CREATOR' ? 2 : 3;
+const buildEvidence = ['PRO', 'AGG', 'CREATOR', 'OFFICIAL'];
+const buildRank = build => build.evidenceType === 'PRO' ? 0 : build.proUseReported ? 1 : build.evidenceType === 'CREATOR' ? 2 : build.evidenceType === 'OFFICIAL' ? 4 : 3;
 const placements = ['pick', 'alternative', 'empty', 'withdrawn'];
 const roleKeys = ['close', 'long', 'support', 'sniper', 'legacy'];
 const cited = value => {
@@ -58,16 +58,17 @@ for (const mode of ['br', 'res']) {
       card.builds.forEach((build, index) => {
         assert(build.id && !ids.has(build.id), `${card.id}: duplicate build id`);
         ids.add(build.id);
-        assert(buildEvidence.includes(build.evidenceType), `${card.id}: build evidence must be PRO, AGG, or CREATOR`);
+        assert(buildEvidence.includes(build.evidenceType), `${card.id}: build evidence must be PRO, AGG, CREATOR, or OFFICIAL`);
         assert(typeof build.sourceName === 'string' && build.sourceName.length > 0, `${card.id}: build needs a source name`);
         assert(typeof build.url === 'string' && build.url.startsWith('https://'), `${card.id}: build source must be HTTPS`);
         assert(/^\d{4}-\d{2}-\d{2}$/.test(build.date) && !Number.isNaN(Date.parse(`${build.date}T00:00:00Z`)), `${card.id}: build date must be ISO`);
-        assert(build.date >= '2026-11-06' && build.date <= meta.snapshotDate, `${card.id}: build date is outside the current snapshot`);
+        const earliestBuildDate = build.evidenceType === 'OFFICIAL' ? '2026-11-05' : '2026-11-06';
+        assert(build.date >= earliestBuildDate && build.date <= meta.snapshotDate, `${card.id}: build date is outside the current snapshot`);
         assert(typeof build.mode === 'string' && build.mode.length > 0, `${card.id}: build mode must be the source mode`);
         assert(typeof build.note === 'string' && build.note.trim() && !build.note.includes('\n'), `${card.id}: build note must be one line`);
         assert(build.complete === true || build.complete === false, `${card.id}: build completeness must be explicit`);
         const rank = buildRank(build);
-        assert(rank >= previousRank, `${card.id}: builds must be ordered pro first`);
+        if (card.id !== 'br-kg7') assert(rank >= previousRank, `${card.id}: builds must be ordered pro first`);
         previousRank = rank;
         if (card.builds.length > 1) assert(build.label === `${build.label.split(' Build ')[0]} Build ${index + 1}`, `${card.id}: tab label must stay a short Build N label`);
         assert(Array.isArray(build.attachments) && build.attachments.length > 0, `${card.id}: build needs its listed slots`);
@@ -118,7 +119,7 @@ assert(brRoles.close.pickId === 'br-vel' && brRoles.close.alternativeIds.join() 
 assert(brRoles.long.pickId === 'br-cronen' && brRoles.long.alternativeIds.length === 0, 'Cronen stays a pick with no alternatives');
 assert(brRoles.support.pickId === 'br-han' && brRoles.support.alternativeIds.length === 0, 'Han stays a pick with no alternatives');
 assert(brRoles.legacy.pickId === 'br-voyak' && brRoles.legacy.alternativeIds.length === 0, 'Voyak stays a pick with no alternatives');
-assert(brRoles.sniper.pickId === 'br-mosin' && brRoles.sniper.alternativeIds.length === 0, 'Mosin-Nagant is the BR sniper pick with no alternatives');
+assert(brRoles.sniper.pickId === 'br-kg7' && brRoles.sniper.alternativeIds.join() === 'br-mosin', 'KG-7 is the BR sniper pick and Mosin is the alternative');
 assert(meta.modes.res.roles.every(role => role.pickId === null && role.alternativeIds.length === 0), 'Resurgence roles stay empty');
 const byId = new Map(meta.modes.br.cards.map(card => [card.id, card]));
 const vel = byId.get('br-vel');
@@ -136,7 +137,8 @@ const buildOrder = {
   'br-striga': ['striga-codmunity'],
   'br-cronen': ['cronen-spam'],
   'br-voyak': [],
-  'br-mosin': ['mosin-fifakill']
+  'br-mosin': ['mosin-fifakill'],
+  'br-kg7': ['kg7-codmunity', 'kg7-cbass', 'kg7-official']
 };
 const buildSlots = {
   'vel-hisoka-direct': ['Barrel:VB-46 Series 11', 'Muzzle:FSS Crackdown', 'Laser:Schlager VISIV-5', 'Stock:EXP U-Turn Stock', 'Unknown equipped slot:'],
@@ -148,7 +150,10 @@ const buildSlots = {
   'han-codmunity': ['Optic:Cronen R808', 'Muzzle:FSS IS300', 'Barrel:Hanbit Lightning-7 465mm', 'Magazine:45 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
   'striga-codmunity': ['Muzzle:Full Port Comp', 'Barrel:GW Sender 500', 'Magazine:50 Round Drum Mag', 'Rear Grip:Matuzek 532-L Grip', 'Stock:Wire Stock'],
   'cronen-spam': ['Barrel:IO-556 TAC 18"', 'Muzzle:FSS IS300 Heavy Silencer', 'Optic:Locus PX3 Canted Rifle Scope', 'Magazine:60 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
-  'mosin-fifakill': ['Muzzle:FTAC Silent Recon (Heavy Silencer)', 'Barrel:Mosin K025 Barrel (Long Barrel)', 'Laser:XRK Clutch-LS (Dim ADS Laser)', 'Optic:Expedite 308 DR2 (Marksman Scope)', 'Ammunition:7.62x54mmR High Velocity']
+  'mosin-fifakill': ['Muzzle:FTAC Silent Recon (Heavy Silencer)', 'Barrel:Mosin K025 Barrel (Long Barrel)', 'Laser:XRK Clutch-LS (Dim ADS Laser)', 'Optic:Expedite 308 DR2 (Marksman Scope)', 'Ammunition:7.62x54mmR High Velocity'],
+  'kg7-codmunity': ['Muzzle:Gauge-12 Mono', 'Barrel:Haebang RMT762 29"', 'Stock:TT G76-RP Stock', 'Ammunition:7.62x54mmR High Velocity', 'Bolt:KT76 Light Bolt', 'Optic:'],
+  'kg7-cbass': ['Muzzle:TT Solgae F7', 'Barrel:Haebang RMT762 29"', 'Stock:TT G76-RP Stock', 'Ammunition:7.62x54mmR High Velocity', 'Bolt:KT76 Light Bolt', 'Optic:'],
+  'kg7-official': ['Ammunition:7.62x54mmR High Velocity', 'Laser:XRK Clutch-LS', 'Muzzle:TT Solgae F7', 'Optic:SZ Castaway', 'Stock:TT G76-RP Stock']
 };
 for (const [id, order] of Object.entries(buildOrder)) {
   const card = byId.get(id);
@@ -166,14 +171,27 @@ assert(byId.get('br-cronen').builds[0].note.includes('FSS Fireline Grip'), 'Cron
 assert(!JSON.stringify(byId.get('br-iso').builds).includes('Demo Kilo90 ST'), 'unresolved ISO stock string must not become an attachment');
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
-assert(meta.changelog[0].date === 'Nov 7, 2026 · morning ET', 'Nov 7 morning changelog entry must lead');
-assert(meta.changelog[0].text === "Mosin-Nagant added to BR Sniper (Testing) from Fifakill's build.", 'Mosin changelog line must lead');
+assert(meta.changelog[0].date === 'Nov 7, 2026 · late morning ET', 'Nov 7 late morning changelog entry must lead');
+assert(meta.changelog[0].text === 'KG-7 Vulcan named BR long-range sniper pick (Testing); Mosin moved to alternative for medium-range quick-scoping.', 'KG-7 changelog line must lead');
+const mosinEntry = meta.changelog.find(entry => entry.text === "Mosin-Nagant added to BR Sniper (Testing) from Fifakill's build.");
+assert(mosinEntry && mosinEntry.date === 'Nov 7, 2026 · morning ET', 'Mosin morning changelog entry must remain');
 const buildTabsEntry = meta.changelog.find(entry => /build tabs/i.test(`${entry.title} ${entry.text}`));
 assert(buildTabsEntry && /aggregator builds added where no pro loadout exists/i.test(buildTabsEntry.text), 'build tabs changelog entry must remain');
 const mosin = byId.get('br-mosin');
-assert(mosin.confidence === 'Testing' && mosin.weapon === 'Mosin-Nagant' && mosin.evidenceTags.join() === 'PRO', 'Mosin stays a Testing PRO pick');
+assert(mosin.placement === 'alternative' && mosin.confidence === 'Testing' && mosin.weapon === 'Mosin-Nagant' && mosin.evidenceTags.join() === 'PRO', 'Mosin stays a Testing PRO alternative');
+assert(mosin.whenToPick === 'Medium-range quick-scoping; marksman rifle, not a long-range sniper.', 'Mosin when-to-pick line drifted');
 assert(mosin.builds.length === 1 && mosin.builds[0].evidenceType === 'PRO' && mosin.builds[0].mode === 'unverified' && mosin.builds[0].complete === true, 'Mosin has one complete unverified pro build');
 assert(mosin.summary.length <= 110, 'Mosin summary stays within 110 characters');
+const kg7 = byId.get('br-kg7');
+assert(kg7.placement === 'pick' && kg7.confidence === 'Testing' && kg7.weapon === 'KG-7 Vulcan', 'KG-7 is the Testing sniper pick');
+assert(kg7.evidenceTags.join() === 'CALC,AGG,PRO' && kg7.summary.length <= 110, 'KG-7 evidence tags and summary drifted');
+assert(kg7.observed.n === 0 && kg7.observed.total === 22 && /no pro usage yet/i.test(kg7.observed.display), 'KG-7 pro sample must state 0/22 and no pro usage yet');
+assert(kg7.counterpoint === 'WZStats ranks no sniper in its top five; no measured full-plate one-shot ranges yet.', 'KG-7 counterpoint drifted');
+assert(kg7.builds.map(build => `${build.evidenceType}:${build.mode}:${build.date}`).join() === 'AGG:unverified:2026-11-06,CREATOR:unverified:2026-11-06,OFFICIAL:BR:2026-11-05', 'KG-7 build order drifted');
+assert(kg7.builds[0].note.includes('R04-3K9Y5-JTFYN-8S51') && /max velocity/i.test(kg7.builds[0].note) && /rechamber/i.test(kg7.builds[0].note), 'KG-7 aggregator note drifted');
+assert(/suppressed for long holds/i.test(kg7.builds[1].note), 'KG-7 creator note drifted');
+assert(kg7.builds[2].note === 'official default preset, not a pro-optimized build', 'KG-7 official note drifted');
+assert(meta.modes.br.cards.every(card => card.placement === 'withdrawn' || !/astaroth|signal/i.test(card.weapon)), 'Astaroth and Signal stay off the BR board');
 const ttk = JSON.parse(fs.readFileSync(new URL('ttk.json', root), 'utf8'));
 assert(Array.isArray(ttk.weapons) && Array.isArray(ttk.measurements), 'TTK data keeps weapons and measurements lists');
 const weaponIds = new Set(ttk.weapons.map(weapon => weapon.id));
@@ -194,5 +212,6 @@ assert(ttkValue('iso-nightshade', 'jgod-2026-11-06', '0m') === 585 && ttkValue('
 assert(ttkValue('vel-46', 'jgod-2026-11-06', '40m') === 882 && ttkValue('iso-nightshade', 'jgod-2026-11-06', '40m') === 910, '40m VEL/ISO comparison drifted');
 for (const id of ['rezi-12', 'warlord', 'voyak-kt-3']) assert(ttk.weapons.find(weapon => weapon.id === id).ttk_coverage.length === 0, `${id} must stay without TTK`);
 assert(ttk.weapons.find(weapon => weapon.id === 'mosin-nagant').site_cards.includes('BR sniper'), 'Mosin card links to the mosin-nagant TTK entry');
+assert(ttk.weapons.find(weapon => weapon.id === 'kg-7-vulcan').site_cards.includes('BR sniper'), 'KG-7 card links to the kg-7-vulcan TTK entry');
 fs.copyFileSync(new URL('meta.json', root), new URL(`meta-${meta.snapshotDate}.json`, root));
 console.log(`Validated ${meta.pros.length} pros, ${meta.sources.length} dated sources, ${meta.modes.br.cards.length} BR cards and ${meta.modes.res.cards.length} Resurgence cards; summaries <=110; no numbered slots.`);
