@@ -1,5 +1,5 @@
 import raw from './meta.json';
-import type { GameMode, MetaCard, MetaData, RoleGroup, Source } from './types';
+import type { CompetitiveBuild, GameMode, MetaCard, MetaData, RoleGroup, Source } from './types';
 export const meta = raw as MetaData;
 export const sourceById = new Map<string, Source>(meta.sources.map(source => [source.id, source]));
 export const evidenceSourcesFor = (card: MetaCard) => sourcesFor([
@@ -29,14 +29,29 @@ export const rolesFor = (mode: GameMode): ResolvedRole[] => {
   }));
 };
 
+export const competitiveBuilds = (card: MetaCard) => card.builds ?? [];
+
+export const buildNote = (build: CompetitiveBuild) => {
+  const note = build.note.replace(/\s+/g, ' ').trim();
+  const variant = build.variant;
+  if (!variant) return note;
+  const variantName = variant.with?.name;
+  if ((variantName && note.includes(variantName)) || /variant/i.test(note)) return note;
+  const extra = variant.note.replace(/\s+/g, ' ').trim();
+  return extra ? `${note} ${extra}` : note;
+};
+
 export const caveatLine = (card: MetaCard) => {
   const parts: string[] = [];
   if (card.legacy) parts.push('Legacy preset');
   if (card.modeUnlabeled) parts.push('Mode unverified');
-  if (card.placement === 'alternative' && !card.build) parts.push('Build unverified');
-  const partial = card.build?.status.toLowerCase().includes('partial')
-    || card.build?.attachments.some(attachment => attachment.slot === 'Slot unverified');
-  if (partial) parts.push('Partial build');
+  const listed = competitiveBuilds(card);
+  if (card.placement === 'alternative' && !card.build && listed.length === 0) parts.push('Build unverified');
+  const partial = listed.length > 0
+    ? listed.some(build => !build.complete || build.attachments.some(attachment => attachment.status === 'unknown' || attachment.name == null))
+    : Boolean(card.build?.status.toLowerCase().includes('partial')
+      || card.build?.attachments.some(attachment => attachment.slot === 'Slot unverified'));
+  if (partial && !card.legacy) parts.push('Partial build');
   return parts.join(' · ');
 };
 

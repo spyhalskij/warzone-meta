@@ -525,6 +525,63 @@
             "PRO",
             "CALC",
             "AGG"
+          ],
+          "builds": [
+            {
+              "id": "cronen-spam",
+              "label": "Cronen Build 1",
+              "sourceName": "Kitted · Spam individual report (Adriann agrees)",
+              "url": "https://kitted.gg/streamer/spam/cronen-osprey",
+              "date": "2026-11-07",
+              "dateBasis": "source confirmation/update date",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": true,
+              "note": "Reported pro long-range suppressed/velocity set. CODMunity replaces ammunition with FSS Fireline Grip: one-part variant, not a second tab.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "IO-556 TAC 18\"",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "FSS IS300 Heavy Silencer",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": "Locus PX3 Canted Rifle Scope",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Magazine",
+                  "name": "60 Round Mag",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "5.56 NATO High Velocity",
+                  "status": "verified-current-catalog"
+                }
+              ],
+              "variant": {
+                "sourceName": "CODMunity · Warzone Long Range",
+                "url": "https://codmunity.gg/weapon/mw4/cronen-osprey",
+                "date": "2026-11-06",
+                "evidenceType": "AGG",
+                "note": "Control rather than bullet-velocity choice; same optic/muzzle/barrel/magazine, abbreviated catalog strings cross-checked.",
+                "replace": {
+                  "slot": "Ammunition",
+                  "name": "5.56 NATO High Velocity"
+                },
+                "with": {
+                  "slot": "Underbarrel",
+                  "name": "FSS Fireline Grip"
+                }
+              }
+            }
           ]
         },
         {
@@ -625,6 +682,128 @@
             "PRO",
             "CALC",
             "AGG"
+          ],
+          "builds": [
+            {
+              "id": "vel-hisoka-direct",
+              "label": "VEL Build 1",
+              "sourceName": "Hisoka · direct gunsmith (archived Nov 6 footage audit)",
+              "url": "https://www.twitch.tv/videos/2920543019?t=8h23m52s",
+              "date": "2026-11-06",
+              "dateBasis": "Footage time: Nov 6, 12:26:36 a.m. ET",
+              "evidenceType": "PRO",
+              "mode": "BR",
+              "complete": false,
+              "proUseReported": false,
+              "note": "Suppressed range/ADS-laser configuration in Hajin BR; fifth equipped attachment is hidden. Do not fill it from Kitted.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "VB-46 Series 11",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "FSS Crackdown",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Laser",
+                  "name": "Schlager VISIV-5",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "EXP U-Turn Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Unknown equipped slot",
+                  "name": null,
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "vel-spam",
+              "label": "VEL Build 2",
+              "sourceName": "Kitted · Spam individual report",
+              "url": "https://kitted.gg/streamer/spam/vel-46",
+              "date": "2026-11-07",
+              "dateBasis": "source confirmation/update date",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": true,
+              "note": "Reported pro build: balanced control/range set; mode not supplied. Apathy swaps only the rear grip to LM Combat Grip: variant, not another tab.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "VB-46 Series 11",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "212 LC40 Comp",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "EXP U-Turn Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Rear Grip",
+                  "name": "V46 R-Skel Grip",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "4.6x30mm High Velocity",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            },
+            {
+              "id": "vel-codmunity",
+              "label": "VEL Build 3",
+              "sourceName": "CODMunity · Warzone Close Range",
+              "url": "https://codmunity.gg/weapon/mw4/vel-46",
+              "date": "2026-11-07",
+              "dateBasis": "Seen Nov 7 on current Season 1 Warzone section; recipe update date not displayed",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": false,
+              "note": "Mobility barrel with recoil-control grip/comp; Warzone-specific recipe, but BR versus Resurgence unspecified.",
+              "attachments": [
+                {
+                  "slot": "Muzzle",
+                  "name": "TA TacPro-56",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Barrel",
+                  "name": "RV-B v2 Barrel",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Underbarrel",
+                  "name": "FSS Fireline Grip",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "EXP U-Turn Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "4.6x30mm High Velocity",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            }
           ]
         },
         {
@@ -687,7 +866,8 @@
           "evidenceTags": [
             "PRO",
             "AGG"
-          ]
+          ],
+          "builds": []
         },
         {
           "id": "br-kg7",
@@ -759,7 +939,7 @@
           "role": "Long support · partial MW4 watch",
           "weapon": "Han 86",
           "confidence": "Testing",
-          "summary": "Hisoka supplies four MW4 parts; exact shared-part fit and Hajin use remain unverified.",
+          "summary": "Hisoka lists four verified parts and one unknown slot; Hajin use is unverified.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
@@ -785,18 +965,18 @@
             "owner": "Hisoka",
             "kind": "Partial current MW4 record · compatibility caveat",
             "legacy": false,
-            "status": "4 MW4 parts · partial · at least two categories unverified",
+            "status": "4 verified parts · fifth slot unknown",
             "attachments": [
               {
                 "slot": "Barrel",
                 "name": "SA H86 465mm"
               },
               {
-                "slot": "Slot unverified",
+                "slot": "Muzzle",
                 "name": "TZL-110 V1"
               },
               {
-                "slot": "Slot unverified",
+                "slot": "Optic",
                 "name": "Slimline Elite"
               },
               {
@@ -804,7 +984,7 @@
                 "name": "FR4 Retractable Stock"
               }
             ],
-            "note": "Four parts only, not five. Catalog spelling for SA H86 is normalized; TZL-110 V1 and Slimline Elite are current shared MW4 parts unlocked by M4 (muzzle/optic respectively), but exact Han fit is not confirmed on the selective Han page. Only TZL-110 V1 and Slimline Elite remain Slot unverified in the displayed Han record. Current atlas confirms SA H86 as barrel, FR4 as stock; retain explicit junction when externally verified, not inferred.",
+            "note": "Hisoka’s report lists four catalog-verified parts. The fifth equipped slot was not listed and is not filled in. CODMunity’s separate complete recipe is another tab, not merged.",
             "sourceIds": [
               "kitted-hisoka",
               "han-types",
@@ -821,7 +1001,7 @@
               "jgod"
             ]
           },
-          "counterpoint": "Current launch-day use is not a completed optimal-Han prescription. Muzzle/optic shared-part unlocks exist in MW4 but exact Han-fit needs Gunsmith capture; one absent atlas entry could mean selective coverage rather than incompatibility.",
+          "counterpoint": "Hisoka’s dated report is four parts plus one unknown equipped slot. CODMunity’s complete fallback is an aggregator recipe with no direct pro-use claim. Neither is a Hajin-tagged result.",
           "sourceIds": [
             "official",
             "mw4-launch",
@@ -835,12 +1015,94 @@
             "slimline-current",
             "jgod"
           ],
-          "fullSummary": "Legitimate MW4 candidate with three launch-day reports. Partial only: current part names verified, exact roles/fits for shared parts remain visibly uncertain; no fourth/fifth category invented.",
+          "fullSummary": "Two current builds. Hisoka’s report lists four catalog-verified parts and one unknown equipped slot. CODMunity lists a complete suppressed long-range fallback. No unlisted attachment was filled in.",
           "roleKey": "support",
           "placement": "pick",
           "evidenceTags": [
             "PRO",
             "CALC"
+          ],
+          "builds": [
+            {
+              "id": "han-hisoka-partial",
+              "label": "Han Build 1",
+              "sourceName": "Kitted · Hisoka individual report",
+              "url": "https://kitted.gg/streamer/hisoka/han-86",
+              "date": "2026-11-06",
+              "dateBasis": "source confirmation/update date",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": false,
+              "proUseReported": true,
+              "note": "Long-barrel/handling-stock support watch; four reported parts only. Current Han catalog now verifies muzzle and optic fit.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "SA H86 465mm",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "TZL-110 V1",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": "Slimline Elite",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "FR4 Retractable Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Unknown equipped slot",
+                  "name": null,
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "han-codmunity",
+              "label": "Han Build 2",
+              "sourceName": "CODMunity · Warzone Long Range",
+              "url": "https://codmunity.gg/weapon/mw4/han-86",
+              "date": "2026-11-06",
+              "dateBasis": "source confirmation/update date",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": false,
+              "note": "Complete suppressed long-range fallback with velocity ammo and 45-round magazine; no direct pro-use claim.",
+              "attachments": [
+                {
+                  "slot": "Optic",
+                  "name": "Cronen R808",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "FSS IS300",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Barrel",
+                  "name": "Hanbit Lightning-7 465mm",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Magazine",
+                  "name": "45 Round Mag",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "5.56 NATO High Velocity",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            }
           ]
         },
         {
@@ -857,7 +1119,7 @@
           "confidence": "Testing",
           "summary": "JGOD calc favors ISO inside 15m; no pro loadout seen.",
           "modeUnlabeled": true,
-          "editable": "Build unverified",
+          "editable": "MW4 · current builds · mode unverified",
           "observed": {
             "n": 0,
             "total": 20,
@@ -888,7 +1150,89 @@
             "kitted-panel",
             "kitted-method"
           ],
-          "fullSummary": "Testing alternative for calculated close-range TTK inside 15m. Build unverified. No attachments added."
+          "fullSummary": "Testing alternative for calculated close-range TTK inside 15m. Current builds are shown; unknown slots stay unknown. No pro loadout was independently verified.",
+          "builds": [
+            {
+              "id": "iso-adriann-partial",
+              "label": "ISO Build 1",
+              "sourceName": "Kitted · Adriann individual report",
+              "url": "https://kitted.gg/streamer/adriann/iso-nightshade",
+              "date": "2026-11-07",
+              "dateBasis": "source confirmation/update date",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": false,
+              "proUseReported": true,
+              "note": "Range-oriented long-barrel alternative reported for Adriann; stock abbreviation and ammunition suffix unresolved. Not a full actionable recipe.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "ZLR Carbon-900",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": null,
+                  "status": "unknown"
+                },
+                {
+                  "slot": "Rear Grip",
+                  "name": "Demo STP-1",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": null,
+                  "status": "unknown"
+                },
+                {
+                  "slot": "Magazine",
+                  "name": "40 Round Mag",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            },
+            {
+              "id": "iso-codmunity",
+              "label": "ISO Build 2",
+              "sourceName": "CODMunity · Warzone Close Range",
+              "url": "https://codmunity.gg/weapon/mw4/iso-nightshade",
+              "date": "2026-11-06",
+              "dateBasis": "source confirmation/update date",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": false,
+              "note": "Handling-oriented short-barrel setup with high-velocity ammunition; no pro-use or BR/Resurgence claim.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "ZLR Mag-Z 9\"",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Magazine",
+                  "name": "40 Round Mag",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Rear Grip",
+                  "name": "Demo STP-1",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "EXP G2-44 Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "9mm Parabellum High Velocity",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "br-striga",
@@ -902,9 +1246,9 @@
           "whenToPick": "Aggressive close-range fights where raw speed matters more than handling.",
           "weapon": "Wz.55 Striga",
           "confidence": "Testing",
-          "summary": "Swagg calls it the fastest-killing SMG; build and mode unverified.",
+          "summary": "Swagg calls it the fastest-killing SMG; aggregator ADS build, mode unverified.",
           "modeUnlabeled": true,
-          "editable": "Build unverified · mode unverified",
+          "editable": "MW4 · aggregator ADS build · mode unverified",
           "observed": {
             "n": 0,
             "total": 20,
@@ -933,7 +1277,49 @@
             "jgod",
             "codmunity-ttk"
           ],
-          "fullSummary": "Testing alternative when raw close-range speed matters more than handling. Build unverified and mode unverified. No attachments added."
+          "fullSummary": "Testing alternative when raw close-range speed matters more than handling. One aggregator ADS build is shown; it is not Rampage/Akimbo. Mode unverified.",
+          "builds": [
+            {
+              "id": "striga-codmunity",
+              "label": "Striga Build 1",
+              "sourceName": "CODMunity · Warzone Close Range",
+              "url": "https://codmunity.gg/weapon/mw4/wz55-striga",
+              "date": "2026-11-07",
+              "dateBasis": "source confirmation/update date",
+              "evidenceType": "AGG",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": false,
+              "note": "Conventional ADS close-range setup with recoil control and a 50-round magazine; not the Rampage/Akimbo configuration.",
+              "attachments": [
+                {
+                  "slot": "Muzzle",
+                  "name": "Full Port Comp",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Barrel",
+                  "name": "GW Sender 500",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Magazine",
+                  "name": "50 Round Drum Mag",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Rear Grip",
+                  "name": "Matuzek 532-L Grip",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "Wire Stock",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            }
+          ]
         }
       ],
       "roles": [
@@ -1345,6 +1731,17 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 7, 2026 · morning ET",
+      "title": "Build tabs",
+      "text": "Build tabs; aggregator builds added where no pro loadout exists. Competitive recipes are tabbed on the card, pro evidence first. A slot the source does not list stays unknown.",
+      "sourceIds": [
+        "hisoka-vod-direct",
+        "kitted-spam",
+        "kitted-adriann",
+        "kitted-hisoka"
+      ]
+    },
     {
       "date": "Nov 7, 2026 · morning ET",
       "title": "Multi-gun role cards, TTK section, Mineral Ledger redesign",

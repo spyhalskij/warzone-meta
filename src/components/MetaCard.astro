@@ -1,6 +1,6 @@
 ---
-import type { MetaCard, Attachment, BaselineCandidate } from '../data/types';
-import { caveatLine, formatDate, latestSourceDate, evidenceSourcesFor, meta } from '../data/meta';
+import type { BaselineCandidate, BuildAttachment, CompetitiveBuild, MetaCard } from '../data/types';
+import { buildNote, caveatLine, competitiveBuilds, formatDate, latestSourceDate, evidenceSourcesFor, meta } from '../data/meta';
 import SourceLinks from './SourceLinks.astro';
 interface Props { card: MetaCard; }
 const { card } = Astro.props;
@@ -8,9 +8,14 @@ const sources = evidenceSourcesFor(card);
 const captureDate = card.observed.date ? formatDate(card.observed.date) : 'No capture';
 const caveats = caveatLine(card);
 const sample = card.observed.display ?? `${card.observed.n}/${card.observed.total}`;
-const hasUnknownSlots = card.build?.attachments.some((attachment: Attachment) => attachment.slot === 'Slot unverified');
+const builds = competitiveBuilds(card);
+const hasBuildList = Array.isArray(card.builds);
+const tabbed = builds.length > 1;
 const isPick = card.placement === 'pick';
 const isAlternative = card.placement === 'alternative';
+const partName = (attachment: BuildAttachment) => attachment.status === 'unknown' || attachment.name == null ? 'unknown' : attachment.name;
+const tabId = (build: CompetitiveBuild) => `${card.id}-${build.id}-tab`;
+const panelId = (build: CompetitiveBuild) => `${card.id}-${build.id}-panel`;
 ---
 <article
   class:list={['meta-card', { 'pick-card': isPick, 'alt-row': isAlternative, 'empty-card': card.placement === 'empty', 'legacy-card': card.legacy }]}
@@ -32,18 +37,72 @@ const isAlternative = card.placement === 'alternative';
   )}
   {caveats && <p class="caveat-line">{caveats}</p>}
   <p class="sample-line">{sample}{card.observed.date ? ` · ${captureDate}` : ''}</p>
-  {isPick && card.build && (
+  {hasBuildList && (
+    <section class="build-section" aria-label={builds.length ? `${card.weapon} ${builds.length === 1 ? 'build' : 'builds'}` : `${card.weapon} build`}>
+      {builds.length === 0 ? (
+        <p class="unavailable-build">{card.legacy ? 'No verified current build. Current legacy preset only. No editable attachment list.' : 'No verified current build. No attachments listed.'}</p>
+      ) : (
+        <>
+          {tabbed && (
+            <div class="build-tabs" role="tablist" aria-label={`${card.weapon} builds`} data-build-tabs>
+              {builds.map((build, index) => (
+                <button
+                  type="button"
+                  class="build-tab"
+                  role="tab"
+                  id={tabId(build)}
+                  aria-controls={panelId(build)}
+                  aria-selected={index === 0 ? 'true' : 'false'}
+                  tabindex={index === 0 ? 0 : -1}
+                >{build.label}</button>
+              ))}
+            </div>
+          )}
+          <div class="build-panels">
+            {builds.map((build, index) => {
+              const unknown = build.attachments.some(attachment => partName(attachment) === 'unknown');
+              return (
+                <div
+                  class:list={['build-panel', { 'is-selected': index === 0 }]}
+                  role={tabbed ? 'tabpanel' : undefined}
+                  id={panelId(build)}
+                  aria-labelledby={tabbed ? tabId(build) : undefined}
+                  aria-hidden={tabbed ? (index === 0 ? 'false' : 'true') : undefined}
+                  inert={tabbed && index !== 0 ? true : undefined}
+                >
+                  <div class="build-meta">
+                    <a class="build-source" href={build.url} target="_blank" rel="noopener noreferrer">{build.sourceName}<span class="sr-only"> (opens in a new tab)</span></a>
+                    <span class={`tag tag-${build.evidenceType.toLowerCase()}`}>{build.evidenceType}</span>
+                  </div>
+                  <p class="build-facts"><time datetime={build.date} title={build.dateBasis}>{formatDate(build.date)}</time> <span>· Mode {build.mode}</span></p>
+                  <ol class="attachment-list">
+                    {build.attachments.map(attachment => {
+                      const name = partName(attachment);
+                      return <li><span>{attachment.slot}</span><strong class:list={{ 'is-unknown': name === 'unknown' }}>{name}</strong></li>;
+                    })}
+                  </ol>
+                  {unknown && <p class="slot-note">unknown = the source did not list this slot. It was not filled in.</p>}
+                  <p class="build-note">{buildNote(build)}</p>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
+    </section>
+  )}
+  {!hasBuildList && isPick && card.build && (
     <section class="build-section" aria-label={`${card.weapon} build`}>
       <p class="build-owner"><span>{card.build.owner}</span><small>{card.build.status}</small></p>
       {card.build.attachments.length > 0 ? (
         <ol class="attachment-list">
-          {card.build.attachments.map((attachment: Attachment) => <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>)}
+          {card.build.attachments.map(attachment => <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>)}
         </ol>
-      ) : <p class="unavailable-build">Current legacy preset only. No editable attachment list.</p>}
-      {hasUnknownSlots && <p class="slot-note">Slot unverified = the part exists in MW4, but exact weapon fit / category needs a new Gunsmith check.</p>}
+      ) : <p class="unavailable-build">No verified current build. Current legacy preset only. No editable attachment list.</p>}
+      {card.build.attachments.some(attachment => attachment.slot === 'Slot unverified') && <p class="slot-note">Slot unverified = the part exists in MW4, but exact weapon fit / category needs a new Gunsmith check.</p>}
     </section>
   )}
-  {isAlternative && !card.build && <p class="build-unverified">Build unverified. No attachments listed.</p>}
+  {!hasBuildList && isAlternative && !card.build && <p class="build-unverified">Build unverified. No attachments listed.</p>}
   {card.test && (
     <p class="calc-line"><span class={`tag tag-${card.test.kind.toLowerCase()}`}>{card.test.kind}</span> <span class="calc-value">{card.test.value}</span></p>
   )}
@@ -59,8 +118,16 @@ const isAlternative = card.placement === 'alternative';
       </dl>
       {card.fullSummary && <p>{card.fullSummary}</p>}
       <p>{card.observed.caveat}</p>
+      {builds.length > 0 && (
+        <>
+          <h4>Build tabs</h4>
+          {builds.map(build => (
+            <p><span class={`tag tag-${build.evidenceType.toLowerCase()}`}>{build.evidenceType}</span> <a href={build.url} target="_blank" rel="noopener noreferrer">{build.sourceName}<span class="sr-only"> (opens in a new tab)</span></a> · {formatDate(build.date)} · Mode {build.mode}. {buildNote(build)}</p>
+          ))}
+        </>
+      )}
       {card.build && <><h4>Build provenance</h4><p>{card.build.kind} · {card.build.owner} · {card.build.status}. {card.build.note}</p></>}
-      {isAlternative && !card.build && <><h4>Build</h4><p>Build unverified. No attachment was added for this alternative.</p></>}
+      {isAlternative && !card.build && builds.length === 0 && <><h4>Build</h4><p>Build unverified. No attachment was added for this alternative.</p></>}
       {card.placement === 'empty' && !card.build && <p class="unavailable-build">No verified current build. Nothing was invented to fill this role.</p>}
       {card.candidates?.map((candidate: BaselineCandidate) => (
         <section class="baseline-candidate">

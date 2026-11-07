@@ -19,7 +19,7 @@ npm test
 ## Update the content, not the components
 
 - **`src/data/meta.json` is the structured evidence source for picks.** Its `sources` array defines each dated claim URL and stable ID. Each mode has `roles`: one meta pick plus up to three alternatives, or an empty state. BR is never inferred to equal Resurgence.
-- Each gun card has its own `confidence`, `evidenceTags` (`PRO`, `MEAS`, `AGG`, `CALC`; at most three), sample, sources, and build. A missing build stays `null` and renders as “build unverified.” Alternatives carry a one-line `whenToPick`. `src/data/ttk.json` keeps a separate `weapons` list and `measurements` list for the TTK page.
+- Each gun card has its own `confidence`, `evidenceTags` (`PRO`, `MEAS`, `AGG`, `CALC`; at most three), sample, sources, and `builds[]`. A build’s evidence tag is `PRO`, `AGG`, or `CREATOR`. Multiple competitive builds render as tabs, pro evidence first; one build has no tab bar. Slots a source does not list stay `unknown`. Voyak keeps an empty `builds` list. Alternatives carry a one-line `whenToPick`. `src/data/ttk.json` keeps a separate `weapons` list and `measurements` list for the TTK page.
 - Only the included launch-day tables support calculated values: `test.kind` is `CALC`, with an explicitly incomplete protocol. `MEAS` must only be used when a current measured result actually exists and includes its test limits. No values are derived by the front end.
 - `pros` contains the full 20-player performance roster, qualification and direct channel links, plus either a dated `last` report with its pre-reset state or `last: null` for an honest no-capture state. `officialChanges`, `changelog`, `sample` and global `updatedLabel` / `patch` are edited in the same file.
 - `src/data/types.ts` documents the data contract. `src/data/meta.ts` resolves source IDs and fails on an unknown ID. Components render the resolved records; they do not contain weapon facts or attachment recipes.
@@ -40,4 +40,4 @@ The interface uses the Mineral Ledger palette (#101311 / #181C19 / #20251F / #E9
 
 ## R2 presentation
 
-Cards keep the sourced build visible while detailed caveats and sources remain in closed native `<details>` evidence panels. Summaries are capped at 110 characters. Slot labels must come from cited records; unknown individual slots read `Slot`, never numbered attachments. Empty roles stay empty. The changelog is one disclosure after the official-changes list.
+Cards keep the sourced build visible while detailed caveats and sources remain in closed native `<details>` evidence panels. Summaries are capped at 110 characters. Slot labels must come from cited records; a slot the source does not list reads `unknown`, never a guessed part or a numbered attachment. Empty roles stay empty. The changelog is one disclosure after the official-changes list.
