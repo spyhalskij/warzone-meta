@@ -368,6 +368,22 @@
       "date": "last confirmed Oct 2",
       "url": "https://kitted.gg/streamer/lenun",
       "note": "Archived pre-launch pair, not current meta usage."
+    },
+    {
+      "id": "hisoka-vod-direct",
+      "label": "Hisoka · direct VEL gunsmith / Hajin BR",
+      "kind": "PRO",
+      "date": "Nov 6, 2026 · 12:26 a.m. ET",
+      "url": "https://www.twitch.tv/videos/2920543019?t=8h23m52s",
+      "note": "Four readable parts: VB-46 Series 11; FSS Crackdown; Schlager VISIV-5; EXP U-Turn Stock. Fifth equipped part obscured, unverified. No merged build."
+    },
+    {
+      "id": "swagg-vel-comfort",
+      "label": "Swagg · VEL comfort / movement rationale",
+      "kind": "PRO",
+      "date": "Nov 6, 2026 · 11:23 a.m. ET upload",
+      "url": "https://www.youtube.com/watch?v=hbRb9ZVdUmY&t=212s",
+      "note": "03:32 comfort; 03:43 movement versus Striga; 04:06 magazine/mobility tradeoff. Supplemental creator, not tournament-roster adoption vote; not a direct ISO comparison."
     }
   ],
   "sample": {
@@ -485,7 +501,7 @@
           "role": "Close range · candidate, not map-verified",
           "weapon": "VEL 46",
           "confidence": "Emerging",
-          "summary": "Five launch-day records; Spam’s current set replaces old-game VEL parts.",
+          "summary": "Usage-led candidate, not the fastest point-blank killer. VEL comfort/movement preference conflicts with ISO’s stronger close-range calculation.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
@@ -546,13 +562,13 @@
           },
           "test": {
             "kind": "CALC",
-            "value": "630 ms · close calculation",
-            "note": "Reference comparison only; not an in-game TTK measurement of this set.",
+            "value": "ISO faster at 0m / 15m · VEL faster at 40m (CALC)",
+            "note": "JGOD launch-day calculations: ISO Nightshade / VEL 46 = 585 / 630 ms at 0m, 650 / 693 ms at 15m, and 910 / 882 ms at 40m. Calculations with incompletely specified assumptions, not controlled live tests of these builds.",
             "sourceIds": [
               "jgod"
             ]
           },
-          "counterpoint": "A stale MW2 category source had validated the morning list incorrectly. Observed-use strength does not erase ISO 585 ms or Wz.55 553 ms close calculations; current MW4 VEL is distinct from an MW2 implementation.",
+          "counterpoint": "DISAGREEMENT · Kitted reports VEL 7/21 in its rolling panel (Nov 6, ~8:35 p.m. ET), not seven streams independently reviewed. Hisoka’s post-launch gunsmith confirms VEL in Hajin BR. Swagg describes comfort/movement, not a direct ISO comparison. JGOD’s calculations favor ISO at 0m (585 vs 630 ms) and 15m (650 vs 693 ms); VEL leads at 40m (882 vs 910 ms). Calculations, not controlled tests.",
           "sourceIds": [
             "official",
             "mw4-launch",
@@ -567,9 +583,11 @@
             "vel-full",
             "jgod",
             "wzstats",
-            "wzl"
+            "wzl",
+            "hisoka-vod-direct",
+            "swagg-vel-comfort"
           ],
-          "fullSummary": "Five launch-day player records make this the current MW4 close-range candidate. Exact map/mode remains unverified, not silently bought by URLs or dates."
+          "fullSummary": "Emerging, usage-led close-range candidate. A direct Hisoka VEL gunsmith is confirmed in Hajin BR, while broader rolling-panel records remain mixed-mode. Comfort/movement is Swagg’s subjective rationale; it is not evidence VEL beats ISO for raw close-range TTK."
         },
         {
           "id": "br-voyak",
@@ -1087,6 +1105,17 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 6, 2026 · evening ET",
+      "title": "VEL versus ISO: usage is not faster TTK",
+      "text": "Kept VEL Emerging but made the disagreement explicit: rolling-panel usage and direct Hisoka Hajin BR footage support VEL as a candidate; Swagg describes comfort/movement. JGOD’s launch-day calculations favor ISO at 0m and 15m, while VEL leads at 40m. These are calculations, not controlled tests. Hisoka’s readable four-part observation is separate from Spam’s build; fifth slot remains unverified.",
+      "sourceIds": [
+        "kitted-vel",
+        "hisoka-vod-direct",
+        "swagg-vel-comfort",
+        "jgod"
+      ]
+    },
     {
       "date": "Nov 6, 2026 · afternoon",
       "title": "Current-game-only cleanup",
