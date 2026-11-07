@@ -501,7 +501,7 @@
           "role": "Close range · candidate, not map-verified",
           "weapon": "VEL 46",
           "confidence": "Emerging",
-          "summary": "Usage-led candidate, not the fastest point-blank killer. VEL comfort/movement preference conflicts with ISO’s stronger close-range calculation.",
+          "summary": "Pros favor it for comfort and movement; ISO calculates faster up close.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
