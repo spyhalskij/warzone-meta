@@ -1,7 +1,7 @@
 export type ModeKey = "br" | "res";
 export type Confidence = "Established" | "Emerging" | "Testing" | "Historical";
 export type EvidenceTag = "PRO" | "MEAS" | "AGG" | "CALC";
-export type BuildEvidence = "PRO" | "AGG" | "CREATOR";
+export type BuildEvidence = "PRO" | "AGG" | "CREATOR" | "OFFICIAL";
 export type Placement = "pick" | "alternative" | "empty" | "withdrawn";
 export type RoleKey = "close" | "long" | "support" | "sniper" | "legacy";
 

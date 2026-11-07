@@ -397,7 +397,9 @@
       "game": "MW4",
       "legacy": false,
       "tags": [],
-      "site_cards": [],
+      "site_cards": [
+        "BR sniper"
+      ],
       "ttk_coverage": [
         "jgod-2026-11-06"
       ]
