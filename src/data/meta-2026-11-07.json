@@ -402,6 +402,14 @@
       "note": "Around 2:43 (t=163s) Swagg calls the Wz.55 Striga the fastest-killing SMG. Mode unverified. Not a captured attachment list."
     },
     {
+      "id": "fifakill-mosin",
+      "label": "Fifakill (AG Global Esports Warzone player) on X",
+      "kind": "PRO",
+      "date": "Nov 6, 2026 · 2:06 a.m. ET",
+      "url": "https://x.com/Fifakill_/status/2118600914126909625",
+      "note": "Launch-week Mosin-Nagant gunsmith. Five attachments. Mode unverified."
+    },
+    {
       "id": "codmunity-ttk",
       "label": "CODMunity · Warzone TTK rankings",
       "kind": "CALC",
@@ -935,6 +943,83 @@
           "evidenceTags": []
         },
         {
+          "id": "br-mosin",
+          "role": "Sniper · Marksman Rifle · MW4",
+          "roleKey": "sniper",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO"
+          ],
+          "weapon": "Mosin-Nagant",
+          "confidence": "Testing",
+          "summary": "AG pro Fifakill's launch-week Mosin; one source so far, mode unverified.",
+          "modeUnlabeled": true,
+          "editable": "MW4 · Marksman Rifle · mode unverified",
+          "observed": {
+            "n": 1,
+            "total": 20,
+            "names": [
+              "Fifakill (roster)"
+            ],
+            "date": "2026-11-06",
+            "dateLabel": "Launch-week post",
+            "caveat": "One pro source so far. Mode unverified.",
+            "sourceIds": [
+              "fifakill-mosin"
+            ],
+            "display": "1 pro source"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "One source only. The post leaves the mode unverified, so confidence stays Testing.",
+          "sourceIds": [
+            "fifakill-mosin"
+          ],
+          "fullSummary": "AG pro Fifakill's launch-week Mosin. One source so far, mode unverified. Long-range marksman setup; Fifakill compares it to the original Warzone Kar98k.",
+          "builds": [
+            {
+              "id": "mosin-fifakill",
+              "label": "Mosin Build 1",
+              "sourceName": "Fifakill (AG Global Esports Warzone player) on X",
+              "url": "https://x.com/Fifakill_/status/2118600914126909625",
+              "date": "2026-11-06",
+              "dateBasis": "posted 2:06 a.m. ET",
+              "evidenceType": "PRO",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": true,
+              "note": "Long-range marksman setup; Fifakill compares it to the original Warzone Kar98k.",
+              "attachments": [
+                {
+                  "slot": "Muzzle",
+                  "name": "FTAC Silent Recon (Heavy Silencer)",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Barrel",
+                  "name": "Mosin K025 Barrel (Long Barrel)",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Laser",
+                  "name": "XRK Clutch-LS (Dim ADS Laser)",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": "Expedite 308 DR2 (Marksman Scope)",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Ammunition",
+                  "name": "7.62x54mmR High Velocity",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": "br-han",
           "role": "Long support · partial MW4 watch",
           "weapon": "Han 86",
@@ -1351,10 +1436,8 @@
           "id": "br-sniper",
           "key": "sniper",
           "label": "Sniper",
-          "pickId": null,
-          "alternativeIds": [],
-          "emptyCardId": "br-kg7",
-          "revealEmptyCard": true
+          "pickId": "br-mosin",
+          "alternativeIds": []
         },
         {
           "id": "br-legacy",
@@ -1731,6 +1814,14 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 7, 2026 · morning ET",
+      "title": "Mosin-Nagant",
+      "text": "Mosin-Nagant added to BR Sniper (Testing) from Fifakill's build.",
+      "sourceIds": [
+        "fifakill-mosin"
+      ]
+    },
     {
       "date": "Nov 7, 2026 · morning ET",
       "title": "Build tabs",

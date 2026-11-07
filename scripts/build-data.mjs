@@ -118,7 +118,7 @@ assert(brRoles.close.pickId === 'br-vel' && brRoles.close.alternativeIds.join() 
 assert(brRoles.long.pickId === 'br-cronen' && brRoles.long.alternativeIds.length === 0, 'Cronen stays a pick with no alternatives');
 assert(brRoles.support.pickId === 'br-han' && brRoles.support.alternativeIds.length === 0, 'Han stays a pick with no alternatives');
 assert(brRoles.legacy.pickId === 'br-voyak' && brRoles.legacy.alternativeIds.length === 0, 'Voyak stays a pick with no alternatives');
-assert(brRoles.sniper.pickId === null, 'Sniper stays empty');
+assert(brRoles.sniper.pickId === 'br-mosin' && brRoles.sniper.alternativeIds.length === 0, 'Mosin-Nagant is the BR sniper pick with no alternatives');
 assert(meta.modes.res.roles.every(role => role.pickId === null && role.alternativeIds.length === 0), 'Resurgence roles stay empty');
 const byId = new Map(meta.modes.br.cards.map(card => [card.id, card]));
 const vel = byId.get('br-vel');
@@ -135,7 +135,8 @@ const buildOrder = {
   'br-han': ['han-hisoka-partial', 'han-codmunity'],
   'br-striga': ['striga-codmunity'],
   'br-cronen': ['cronen-spam'],
-  'br-voyak': []
+  'br-voyak': [],
+  'br-mosin': ['mosin-fifakill']
 };
 const buildSlots = {
   'vel-hisoka-direct': ['Barrel:VB-46 Series 11', 'Muzzle:FSS Crackdown', 'Laser:Schlager VISIV-5', 'Stock:EXP U-Turn Stock', 'Unknown equipped slot:'],
@@ -146,7 +147,8 @@ const buildSlots = {
   'han-hisoka-partial': ['Barrel:SA H86 465mm', 'Muzzle:TZL-110 V1', 'Optic:Slimline Elite', 'Stock:FR4 Retractable Stock', 'Unknown equipped slot:'],
   'han-codmunity': ['Optic:Cronen R808', 'Muzzle:FSS IS300', 'Barrel:Hanbit Lightning-7 465mm', 'Magazine:45 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
   'striga-codmunity': ['Muzzle:Full Port Comp', 'Barrel:GW Sender 500', 'Magazine:50 Round Drum Mag', 'Rear Grip:Matuzek 532-L Grip', 'Stock:Wire Stock'],
-  'cronen-spam': ['Barrel:IO-556 TAC 18"', 'Muzzle:FSS IS300 Heavy Silencer', 'Optic:Locus PX3 Canted Rifle Scope', 'Magazine:60 Round Mag', 'Ammunition:5.56 NATO High Velocity']
+  'cronen-spam': ['Barrel:IO-556 TAC 18"', 'Muzzle:FSS IS300 Heavy Silencer', 'Optic:Locus PX3 Canted Rifle Scope', 'Magazine:60 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
+  'mosin-fifakill': ['Muzzle:FTAC Silent Recon (Heavy Silencer)', 'Barrel:Mosin K025 Barrel (Long Barrel)', 'Laser:XRK Clutch-LS (Dim ADS Laser)', 'Optic:Expedite 308 DR2 (Marksman Scope)', 'Ammunition:7.62x54mmR High Velocity']
 };
 for (const [id, order] of Object.entries(buildOrder)) {
   const card = byId.get(id);
@@ -165,8 +167,13 @@ assert(!JSON.stringify(byId.get('br-iso').builds).includes('Demo Kilo90 ST'), 'u
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
 assert(meta.changelog[0].date === 'Nov 7, 2026 · morning ET', 'Nov 7 morning changelog entry must lead');
-assert(/build tabs/i.test(`${meta.changelog[0].title} ${meta.changelog[0].text}`), 'build tabs changelog entry must lead');
-assert(/aggregator builds added where no pro loadout exists/i.test(meta.changelog[0].text), 'aggregator changelog sentence must lead');
+assert(meta.changelog[0].text === "Mosin-Nagant added to BR Sniper (Testing) from Fifakill's build.", 'Mosin changelog line must lead');
+const buildTabsEntry = meta.changelog.find(entry => /build tabs/i.test(`${entry.title} ${entry.text}`));
+assert(buildTabsEntry && /aggregator builds added where no pro loadout exists/i.test(buildTabsEntry.text), 'build tabs changelog entry must remain');
+const mosin = byId.get('br-mosin');
+assert(mosin.confidence === 'Testing' && mosin.weapon === 'Mosin-Nagant' && mosin.evidenceTags.join() === 'PRO', 'Mosin stays a Testing PRO pick');
+assert(mosin.builds.length === 1 && mosin.builds[0].evidenceType === 'PRO' && mosin.builds[0].mode === 'unverified' && mosin.builds[0].complete === true, 'Mosin has one complete unverified pro build');
+assert(mosin.summary.length <= 110, 'Mosin summary stays within 110 characters');
 const ttk = JSON.parse(fs.readFileSync(new URL('ttk.json', root), 'utf8'));
 assert(Array.isArray(ttk.weapons) && Array.isArray(ttk.measurements), 'TTK data keeps weapons and measurements lists');
 const weaponIds = new Set(ttk.weapons.map(weapon => weapon.id));
@@ -186,5 +193,6 @@ assert(ttkValue('kastov-762', 'jgod-2026-11-06', '0m') === 600 && ttkValue('kast
 assert(ttkValue('iso-nightshade', 'jgod-2026-11-06', '0m') === 585 && ttkValue('iso-nightshade', 'jgod-2026-11-06', '15m') === 650, 'ISO close TTK drifted');
 assert(ttkValue('vel-46', 'jgod-2026-11-06', '40m') === 882 && ttkValue('iso-nightshade', 'jgod-2026-11-06', '40m') === 910, '40m VEL/ISO comparison drifted');
 for (const id of ['rezi-12', 'warlord', 'voyak-kt-3']) assert(ttk.weapons.find(weapon => weapon.id === id).ttk_coverage.length === 0, `${id} must stay without TTK`);
+assert(ttk.weapons.find(weapon => weapon.id === 'mosin-nagant').site_cards.includes('BR sniper'), 'Mosin card links to the mosin-nagant TTK entry');
 fs.copyFileSync(new URL('meta.json', root), new URL(`meta-${meta.snapshotDate}.json`, root));
 console.log(`Validated ${meta.pros.length} pros, ${meta.sources.length} dated sources, ${meta.modes.br.cards.length} BR cards and ${meta.modes.res.cards.length} Resurgence cards; summaries <=110; no numbered slots.`);
