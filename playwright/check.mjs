@@ -44,8 +44,19 @@ assert.doesNotMatch(await page.locator('#br-striga').innerText(), /No attachment
 assert.equal(await page.locator('#br-long .alt-row').count(), 0);
 assert.equal(await page.locator('#br-support .alt-row').count(), 0);
 assert.equal(await page.locator('#br-legacy .alt-row').count(), 0);
-assert.equal(await page.locator('#br-sniper .pick-card').count(), 0);
-assert.match(await page.locator('#br-kg7').innerText(), /Role left unfilled/);
+assert.equal(await page.locator('#br-sniper .pick-card').count(), 1);
+assert.equal(await page.locator('#br-sniper .alt-row').count(), 0);
+assert.equal(await page.locator('#br-mosin [role="tablist"]').count(), 0);
+assert.equal(await page.locator('#br-mosin .attachment-list li').count(), 5);
+assert.equal(await page.locator('#br-mosin .confidence').innerText(), 'Testing');
+assert.match(await page.locator('#br-mosin').innerText(), /FTAC Silent Recon \(Heavy Silencer\)/);
+assert.match(await page.locator('#br-mosin').innerText(), /Mosin K025 Barrel \(Long Barrel\)/);
+assert.match(await page.locator('#br-mosin').innerText(), /XRK Clutch-LS \(Dim ADS Laser\)/);
+assert.match(await page.locator('#br-mosin').innerText(), /Expedite 308 DR2 \(Marksman Scope\)/);
+assert.match(await page.locator('#br-mosin').innerText(), /7\.62x54mmR High Velocity/);
+assert.match(await page.locator('#br-mosin').innerText(), /Mode unverified/);
+assert.match(await page.locator('#br-mosin').innerText(), /Long-range marksman setup/);
+assert.equal(await page.locator('#br-kg7').count(), 0);
 assert.equal(await page.locator('#br-voyak .attachment-list').count(), 0);
 assert.match(await page.locator('#br-voyak').innerText(), /No verified current build/);
 assert.equal(await page.locator('#br-voyak [role="tablist"]').count(), 0);
@@ -88,6 +99,7 @@ assert.equal(await page.locator('.pro-record').count(), 20);
 assert.equal(await page.locator('.change-log').count(), 1);
 assert.match(await page.locator('.change-log').textContent(), /Nov 7, 2026 · morning ET/);
 assert.match(await page.locator('.change-log').textContent(), /aggregator builds added where no pro loadout exists/);
+assert.match(await page.locator('.change-log').textContent(), /Mosin-Nagant added to BR Sniper \(Testing\) from Fifakill's build/);
 for (const text of ['VLK LZR 7MW', 'Demo RXT Stock', '4.6mm Hollowpoint', 'Monolithic Suppressor']) {
   assert(!(await active().innerText()).includes(text), `stale ${text}`);
 }
@@ -156,6 +168,7 @@ await page.screenshot({ path: '/opt/cursor/artifacts/home_1280.png' });
 await page.locator('#br-close').screenshot({ path: '/opt/cursor/artifacts/role_alternatives_1280.png' });
 await page.locator('#br-vel').screenshot({ path: '/opt/cursor/artifacts/vel_tabs_1280.png' });
 await page.locator('#br-han').screenshot({ path: '/opt/cursor/artifacts/partial_unknown_slots_1280.png' });
+await page.locator('#br-mosin').screenshot({ path: '/opt/cursor/artifacts/mosin_card_1280.png' });
 await page.setViewportSize({ width: 390, height: 844 });
 await checkOverflow(390);
 await page.evaluate(() => scrollTo(0, 0));
@@ -169,6 +182,7 @@ assert.equal(velTabList.wrap, 'nowrap');
 assert(velTabList.scroll >= velTabList.client, 'tab list can scroll instead of wrapping');
 await page.locator('#br-iso').screenshot({ path: '/opt/cursor/artifacts/iso_card_390.png' });
 await page.locator('#br-han').screenshot({ path: '/opt/cursor/artifacts/partial_unknown_slots_390.png' });
+await page.locator('#br-mosin').screenshot({ path: '/opt/cursor/artifacts/mosin_card_390.png' });
 
 assert.deepEqual(errors, []);
 assert.deepEqual(consoleErrors, []);
