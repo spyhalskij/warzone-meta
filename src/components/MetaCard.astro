@@ -81,7 +81,7 @@ const panelId = (build: CompetitiveBuild) => `${card.id}-${build.id}-panel`;
                       return <li><span>{attachment.slot}</span><strong class:list={{ 'is-unknown': name === 'unknown' }}>{name}</strong></li>;
                     })}
                   </ol>
-                  {unknown && <p class="slot-note">unknown = the source did not list this slot. It was not filled in.</p>}
+                  {unknown && <p class="slot-note">unknown = the source did not list this slot.</p>}
                   <p class="build-note">{buildNote(build)}</p>
                 </div>
               );

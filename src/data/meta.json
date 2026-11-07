@@ -375,7 +375,7 @@
       "kind": "PRO",
       "date": "Nov 6, 2026 · 12:26 a.m. ET",
       "url": "https://www.twitch.tv/videos/2920543019?t=8h23m52s",
-      "note": "Four readable parts: VB-46 Series 11; FSS Crackdown; Schlager VISIV-5; EXP U-Turn Stock. Fifth equipped part obscured, unverified. No merged build."
+      "note": "Four readable parts: VB-46 Series 11; FSS Crackdown; Schlager VISIV-5; EXP U-Turn Stock. The fifth equipped part is not readable in the footage."
     },
     {
       "id": "swagg-vel-comfort",
@@ -538,7 +538,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": true,
-              "note": "Reported pro long-range suppressed/velocity set. CODMunity replaces ammunition with FSS Fireline Grip: one-part variant, not a second tab.",
+              "note": "Reported pro long-range build: suppressed, with high-velocity ammunition. CODMunity keeps the same optic, muzzle, barrel, and magazine, and uses an FSS Fireline Grip instead of the ammunition.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -571,7 +571,7 @@
                 "url": "https://codmunity.gg/weapon/mw4/cronen-osprey",
                 "date": "2026-11-06",
                 "evidenceType": "AGG",
-                "note": "Control rather than bullet-velocity choice; same optic/muzzle/barrel/magazine, abbreviated catalog strings cross-checked.",
+                "note": "A control choice instead of bullet velocity. Optic, muzzle, barrel, and magazine stay the same.",
                 "replace": {
                   "slot": "Ammunition",
                   "name": "5.56 NATO High Velocity"
@@ -641,7 +641,7 @@
                 "name": "4.6x30mm High Velocity"
               }
             ],
-            "note": "A complete Spam set with all parts under current MW4 slot types. Hisoka’s different five-part record is not blended. No old-game VEL value survives through name similarity.",
+            "note": "Spam’s five current MW4 parts. Hisoka’s gunsmith is a separate build.",
             "sourceIds": [
               "kitted-spam",
               "vel-types",
@@ -687,7 +687,7 @@
             {
               "id": "vel-hisoka-direct",
               "label": "VEL Build 1",
-              "sourceName": "Hisoka · direct gunsmith (archived Nov 6 footage audit)",
+              "sourceName": "Hisoka · direct gunsmith (Nov 6 footage)",
               "url": "https://www.twitch.tv/videos/2920543019?t=8h23m52s",
               "date": "2026-11-06",
               "dateBasis": "Footage time: Nov 6, 12:26:36 a.m. ET",
@@ -695,7 +695,7 @@
               "mode": "BR",
               "complete": false,
               "proUseReported": false,
-              "note": "Suppressed range/ADS-laser configuration in Hajin BR; fifth equipped attachment is hidden. Do not fill it from Kitted.",
+              "note": "Suppressed range and ADS-laser setup in Hajin BR. The fifth equipped attachment is hidden.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -735,7 +735,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": true,
-              "note": "Reported pro build: balanced control/range set; mode not supplied. Apathy swaps only the rear grip to LM Combat Grip: variant, not another tab.",
+              "note": "Reported pro build for balanced control and range. The mode is not stated. Apathy uses the same build with an LM Combat Grip in place of the rear grip.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -775,7 +775,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": false,
-              "note": "Mobility barrel with recoil-control grip/comp; Warzone-specific recipe, but BR versus Resurgence unspecified.",
+              "note": "Mobility barrel with a recoil-control grip and compensator. The Warzone recipe does not say whether it is for BR or Resurgence.",
               "attachments": [
                 {
                   "slot": "Muzzle",
@@ -840,7 +840,7 @@
             "legacy": true,
             "status": "No editable display · actual preset unverified",
             "attachments": [],
-            "note": "Legacy guns in S1 use current presets / blueprints; Gunsmith editing and sharing are locked. Old attachment lists are historical and misleading as editable instructions, so no recipe is shown for this card.",
+            "note": "Legacy guns in Season 1 use locked presets and blueprints. Older attachment lists are not the current preset, so none are shown.",
             "sourceIds": [
               "official"
             ]
@@ -860,7 +860,7 @@
           ],
           "preReset": false,
           "legacy": true,
-          "fullSummary": "Retained as a genuine legacy exception for two tournament-roster players’ current pair reports. All old attachments were purged from actionable rendering.",
+          "fullSummary": "Retained as a legacy exception for two tournament-roster players’ current pair reports. Older attachment lists are not shown.",
           "roleKey": "legacy",
           "placement": "pick",
           "evidenceTags": [
@@ -923,7 +923,7 @@
             {
               "arm": "Astaroth .57",
               "owner": "Testing-only candidate",
-              "note": "JGOD’s table says Unlimited but lacks full one-shot assumptions. Official notes remove knockdown from Astaroth .57. Do not claim one-shot everywhere or merge its watch into a KG-7 build.",
+              "note": "JGOD’s table says Unlimited but does not list the one-shot assumptions. Official notes remove knockdown from Astaroth .57. It stays a separate watch from KG-7.",
               "sourceIds": [
                 "jgod",
                 "official"
@@ -984,7 +984,7 @@
                 "name": "FR4 Retractable Stock"
               }
             ],
-            "note": "Hisoka’s report lists four catalog-verified parts. The fifth equipped slot was not listed and is not filled in. CODMunity’s separate complete recipe is another tab, not merged.",
+            "note": "Hisoka’s report lists four parts from the current catalog. The fifth slot is unknown. CODMunity lists a separate complete build.",
             "sourceIds": [
               "kitted-hisoka",
               "han-types",
@@ -1001,7 +1001,7 @@
               "jgod"
             ]
           },
-          "counterpoint": "Hisoka’s dated report is four parts plus one unknown equipped slot. CODMunity’s complete fallback is an aggregator recipe with no direct pro-use claim. Neither is a Hajin-tagged result.",
+          "counterpoint": "Hisoka’s report is four parts plus one unknown equipped slot. CODMunity’s complete build is an aggregator recipe and is not tied to a named pro. Neither is a Hajin-tagged result.",
           "sourceIds": [
             "official",
             "mw4-launch",
@@ -1015,7 +1015,7 @@
             "slimline-current",
             "jgod"
           ],
-          "fullSummary": "Two current builds. Hisoka’s report lists four catalog-verified parts and one unknown equipped slot. CODMunity lists a complete suppressed long-range fallback. No unlisted attachment was filled in.",
+          "fullSummary": "Two current builds. Hisoka’s report lists four parts from the current catalog and one unknown slot. CODMunity lists a complete suppressed long-range build.",
           "roleKey": "support",
           "placement": "pick",
           "evidenceTags": [
@@ -1034,7 +1034,7 @@
               "mode": "unverified",
               "complete": false,
               "proUseReported": true,
-              "note": "Long-barrel/handling-stock support watch; four reported parts only. Current Han catalog now verifies muzzle and optic fit.",
+              "note": "Long-barrel support build with a handling stock. Four parts are listed and the fifth is unknown. The muzzle and optic fit the current Han catalog.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1074,7 +1074,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": false,
-              "note": "Complete suppressed long-range fallback with velocity ammo and 45-round magazine; no direct pro-use claim.",
+              "note": "Suppressed long-range build with high-velocity ammunition and a 45-round magazine. No pro is named for this recipe.",
               "attachments": [
                 {
                   "slot": "Optic",
@@ -1138,7 +1138,7 @@
           "test": {
             "kind": "CALC",
             "value": "585 ms at 0m and 650 ms at 15m vs VEL 630/693; VEL faster at 40m (882 vs 910)",
-            "note": "JGOD calculated TTK, Nov 6 2026: ISO 585 ms at 0m and 650 ms at 15m versus VEL 630/693. VEL is faster at 40m (882 vs 910). Armor/HP is not stated by JGOD; a 300 HP reading is inferred from the STK counts, not published in the post. No attachments are listed because no pro loadout was seen.",
+            "note": "JGOD calculated TTK, Nov 6 2026: ISO 585 ms at 0m and 650 ms at 15m versus VEL 630/693. VEL is faster at 40m (882 vs 910). Armor and HP are not stated; a 300 HP reading is inferred from the shots-to-kill counts. These times are for the base guns, not the attachment lists on this card.",
             "sourceIds": [
               "jgod"
             ]
@@ -1150,7 +1150,7 @@
             "kitted-panel",
             "kitted-method"
           ],
-          "fullSummary": "Testing alternative for calculated close-range TTK inside 15m. Current builds are shown; unknown slots stay unknown. No pro loadout was independently verified.",
+          "fullSummary": "Testing alternative for calculated close-range TTK inside 15m. Stock and ammunition on Adriann’s report are unknown. No pro loadout was verified.",
           "builds": [
             {
               "id": "iso-adriann-partial",
@@ -1163,7 +1163,7 @@
               "mode": "unverified",
               "complete": false,
               "proUseReported": true,
-              "note": "Range-oriented long-barrel alternative reported for Adriann; stock abbreviation and ammunition suffix unresolved. Not a full actionable recipe.",
+              "note": "Range-oriented long-barrel build reported for Adriann. The stock and ammunition names are incomplete, so those slots are unknown.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1203,7 +1203,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": false,
-              "note": "Handling-oriented short-barrel setup with high-velocity ammunition; no pro-use or BR/Resurgence claim.",
+              "note": "Handling-oriented short barrel with high-velocity ammunition. No pro is named, and the source does not split BR from Resurgence.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1277,7 +1277,7 @@
             "jgod",
             "codmunity-ttk"
           ],
-          "fullSummary": "Testing alternative when raw close-range speed matters more than handling. One aggregator ADS build is shown; it is not Rampage/Akimbo. Mode unverified.",
+          "fullSummary": "Testing alternative when raw close-range speed matters more than handling. The listed build is a standard ADS setup, not Rampage or Akimbo. Mode unverified.",
           "builds": [
             {
               "id": "striga-codmunity",
@@ -1290,7 +1290,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": false,
-              "note": "Conventional ADS close-range setup with recoil control and a 50-round magazine; not the Rampage/Akimbo configuration.",
+              "note": "Close-range ADS build with recoil control and a 50-round magazine. This is the standard setup, not Rampage or Akimbo.",
               "attachments": [
                 {
                   "slot": "Muzzle",
