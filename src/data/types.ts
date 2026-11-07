@@ -1,6 +1,7 @@
 export type ModeKey = "br" | "res";
 export type Confidence = "Established" | "Emerging" | "Testing" | "Historical";
 export type EvidenceTag = "PRO" | "MEAS" | "AGG" | "CALC";
+export type BuildEvidence = "PRO" | "AGG" | "CREATOR";
 export type Placement = "pick" | "alternative" | "empty" | "withdrawn";
 export type RoleKey = "close" | "long" | "support" | "sniper" | "legacy";
 
@@ -15,6 +16,35 @@ export interface Source {
 export interface Attachment {
   slot: string;
   name: string;
+}
+export interface BuildAttachment {
+  slot: string;
+  name: string | null;
+  status: "verified-current-catalog" | "unknown";
+}
+export interface BuildVariant {
+  sourceName: string;
+  url: string;
+  date: string;
+  evidenceType: BuildEvidence;
+  note: string;
+  replace?: { slot: string; name: string };
+  with?: { slot: string; name: string };
+}
+export interface CompetitiveBuild {
+  id: string;
+  label: string;
+  sourceName: string;
+  url: string;
+  date: string;
+  dateBasis?: string;
+  evidenceType: BuildEvidence;
+  mode: string;
+  complete: boolean;
+  proUseReported?: boolean;
+  note: string;
+  attachments: BuildAttachment[];
+  variant?: BuildVariant;
 }
 export interface Observation {
   n: number;
@@ -64,6 +94,7 @@ export interface MetaCard {
   candidates?: BaselineCandidate[];
   observed: Observation;
   build: Build | null;
+  builds?: CompetitiveBuild[];
   augment?: string;
   test: TestResult | null;
   counterpoint: string;

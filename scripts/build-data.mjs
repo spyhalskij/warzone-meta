@@ -9,6 +9,8 @@ assert(meta.sources.every(source => source.url.startsWith('https://') && source.
 assert(meta.schemaVersion === 2, 'Schema version must be 2');
 assert(/^\d{4}-\d{2}-\d{2}$/.test(meta.snapshotDate) && !Number.isNaN(Date.parse(`${meta.snapshotDate}T00:00:00Z`)), 'Snapshot must have a real ISO date');
 const tags = ['PRO', 'MEAS', 'AGG', 'CALC'];
+const buildEvidence = ['PRO', 'AGG', 'CREATOR'];
+const buildRank = build => build.evidenceType === 'PRO' ? 0 : build.proUseReported ? 1 : build.evidenceType === 'CREATOR' ? 2 : 3;
 const placements = ['pick', 'alternative', 'empty', 'withdrawn'];
 const roleKeys = ['close', 'long', 'support', 'sniper', 'legacy'];
 const cited = value => {
@@ -49,6 +51,42 @@ for (const mode of ['br', 'res']) {
       assert(card.build.owner && card.build.kind && card.build.note && card.build.sourceIds.length, `${card.id}: incomplete build provenance`);
       assert(card.build.attachments.length > 0 || card.legacy === true, `${card.id}: empty attachment build requires explicit Legacy`);
     }
+    if (card.builds) {
+      assert(Array.isArray(card.builds) && card.builds.length <= 3, `${card.id}: builds must be an array of at most 3`);
+      const ids = new Set();
+      let previousRank = -1;
+      card.builds.forEach((build, index) => {
+        assert(build.id && !ids.has(build.id), `${card.id}: duplicate build id`);
+        ids.add(build.id);
+        assert(buildEvidence.includes(build.evidenceType), `${card.id}: build evidence must be PRO, AGG, or CREATOR`);
+        assert(typeof build.sourceName === 'string' && build.sourceName.length > 0, `${card.id}: build needs a source name`);
+        assert(typeof build.url === 'string' && build.url.startsWith('https://'), `${card.id}: build source must be HTTPS`);
+        assert(/^\d{4}-\d{2}-\d{2}$/.test(build.date) && !Number.isNaN(Date.parse(`${build.date}T00:00:00Z`)), `${card.id}: build date must be ISO`);
+        assert(build.date >= '2026-11-06' && build.date <= meta.snapshotDate, `${card.id}: build date is outside the current snapshot`);
+        assert(typeof build.mode === 'string' && build.mode.length > 0, `${card.id}: build mode must be the source mode`);
+        assert(typeof build.note === 'string' && build.note.trim() && !build.note.includes('\n'), `${card.id}: build note must be one line`);
+        assert(build.complete === true || build.complete === false, `${card.id}: build completeness must be explicit`);
+        const rank = buildRank(build);
+        assert(rank >= previousRank, `${card.id}: builds must be ordered pro first`);
+        previousRank = rank;
+        if (card.builds.length > 1) assert(build.label === `${build.label.split(' Build ')[0]} Build ${index + 1}`, `${card.id}: tab label must stay a short Build N label`);
+        assert(Array.isArray(build.attachments) && build.attachments.length > 0, `${card.id}: build needs its listed slots`);
+        for (const attachment of build.attachments) {
+          assert(attachment.slot && !/^Attachment\s*\d*/i.test(attachment.slot), `${card.id}: generic numbered slot`);
+          if (attachment.status === 'unknown') assert(attachment.name == null, `${card.id}: unknown slot was filled in`);
+          else {
+            assert(attachment.status === 'verified-current-catalog', `${card.id}: unknown attachment status`);
+            assert(typeof attachment.name === 'string' && attachment.name.trim() && attachment.name !== 'unknown', `${card.id}: listed part missing`);
+          }
+        }
+        const named = build.attachments.filter(attachment => attachment.name).length;
+        assert(build.complete === (named === build.attachments.length), `${card.id}: completeness does not match listed parts`);
+        if (build.variant) {
+          assert(build.variant.note && !build.variant.note.includes('\n'), `${card.id}: variant note must be one line`);
+          assert(build.note.toLowerCase().includes('variant') || (build.variant.with?.name && build.note.includes(build.variant.with.name)), `${card.id}: variant must be mentioned in the build note`);
+        }
+      });
+    }
     if (card.test) {
       assert(['CALC', 'MEAS'].includes(card.test.kind) && card.test.value && card.test.note, `${card.id}: incomplete test result`);
     }
@@ -87,12 +125,48 @@ const vel = byId.get('br-vel');
 assert(vel.counterpoint.startsWith('DISAGREEMENT') && vel.sourceIds.includes('hisoka-vod-direct') && vel.sourceIds.includes('swagg-vel-comfort'), 'VEL disagreement and Hisoka/Swagg sources must stay');
 for (const id of ['br-iso', 'br-striga']) {
   const card = byId.get(id);
-  assert(card.confidence === 'Testing' && card.build === null && card.modeUnlabeled === true, `${id}: testing alternative must stay build-unverified and mode-unverified`);
-  assert(!card.build, `${id}: do not attach a build`);
+  assert(card.confidence === 'Testing' && card.modeUnlabeled === true, `${id}: testing alternative stays mode-unverified`);
+  assert(Array.isArray(card.builds) && card.builds.length > 0, `${id}: show the sourced build`);
+  assert(card.builds.every(build => build.mode === 'unverified'), `${id}: do not assign a mode the source did not`);
 }
+const buildOrder = {
+  'br-vel': ['vel-hisoka-direct', 'vel-spam', 'vel-codmunity'],
+  'br-iso': ['iso-adriann-partial', 'iso-codmunity'],
+  'br-han': ['han-hisoka-partial', 'han-codmunity'],
+  'br-striga': ['striga-codmunity'],
+  'br-cronen': ['cronen-spam'],
+  'br-voyak': []
+};
+const buildSlots = {
+  'vel-hisoka-direct': ['Barrel:VB-46 Series 11', 'Muzzle:FSS Crackdown', 'Laser:Schlager VISIV-5', 'Stock:EXP U-Turn Stock', 'Unknown equipped slot:'],
+  'vel-spam': ['Barrel:VB-46 Series 11', 'Muzzle:212 LC40 Comp', 'Stock:EXP U-Turn Stock', 'Rear Grip:V46 R-Skel Grip', 'Ammunition:4.6x30mm High Velocity'],
+  'vel-codmunity': ['Muzzle:TA TacPro-56', 'Barrel:RV-B v2 Barrel', 'Underbarrel:FSS Fireline Grip', 'Stock:EXP U-Turn Stock', 'Ammunition:4.6x30mm High Velocity'],
+  'iso-adriann-partial': ['Barrel:ZLR Carbon-900', 'Stock:', 'Rear Grip:Demo STP-1', 'Ammunition:', 'Magazine:40 Round Mag'],
+  'iso-codmunity': ['Barrel:ZLR Mag-Z 9"', 'Magazine:40 Round Mag', 'Rear Grip:Demo STP-1', 'Stock:EXP G2-44 Stock', 'Ammunition:9mm Parabellum High Velocity'],
+  'han-hisoka-partial': ['Barrel:SA H86 465mm', 'Muzzle:TZL-110 V1', 'Optic:Slimline Elite', 'Stock:FR4 Retractable Stock', 'Unknown equipped slot:'],
+  'han-codmunity': ['Optic:Cronen R808', 'Muzzle:FSS IS300', 'Barrel:Hanbit Lightning-7 465mm', 'Magazine:45 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
+  'striga-codmunity': ['Muzzle:Full Port Comp', 'Barrel:GW Sender 500', 'Magazine:50 Round Drum Mag', 'Rear Grip:Matuzek 532-L Grip', 'Stock:Wire Stock'],
+  'cronen-spam': ['Barrel:IO-556 TAC 18"', 'Muzzle:FSS IS300 Heavy Silencer', 'Optic:Locus PX3 Canted Rifle Scope', 'Magazine:60 Round Mag', 'Ammunition:5.56 NATO High Velocity']
+};
+for (const [id, order] of Object.entries(buildOrder)) {
+  const card = byId.get(id);
+  assert(Array.isArray(card.builds), `${id}: builds[] required`);
+  assert(card.builds.map(build => build.id).join() === order.join(), `${id}: build tab order drifted`);
+  for (const build of card.builds) {
+    const actual = build.attachments.map(attachment => `${attachment.slot}:${attachment.name ?? ''}`);
+    assert(actual.join('|') === buildSlots[build.id].join('|'), `${id} ${build.id}: attachment not in the sourced build`);
+  }
+}
+assert(byId.get('br-vel').builds[0].evidenceType === 'PRO' && byId.get('br-vel').builds[0].mode === 'BR', 'VEL pro build stays first');
+assert(byId.get('br-voyak').builds.length === 0 && byId.get('br-voyak').build.attachments.length === 0, 'Voyak stays without a verified current build');
+assert(byId.get('br-vel').builds.find(build => build.id === 'vel-spam').note.includes('LM Combat Grip'), 'VEL rear-grip variant stays in the note');
+assert(byId.get('br-cronen').builds[0].note.includes('FSS Fireline Grip'), 'Cronen variant stays in the note');
+assert(!JSON.stringify(byId.get('br-iso').builds).includes('Demo Kilo90 ST'), 'unresolved ISO stock string must not become an attachment');
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
 assert(meta.changelog[0].date === 'Nov 7, 2026 · morning ET', 'Nov 7 morning changelog entry must lead');
+assert(/build tabs/i.test(`${meta.changelog[0].title} ${meta.changelog[0].text}`), 'build tabs changelog entry must lead');
+assert(/aggregator builds added where no pro loadout exists/i.test(meta.changelog[0].text), 'aggregator changelog sentence must lead');
 const ttk = JSON.parse(fs.readFileSync(new URL('ttk.json', root), 'utf8'));
 assert(Array.isArray(ttk.weapons) && Array.isArray(ttk.measurements), 'TTK data keeps weapons and measurements lists');
 const weaponIds = new Set(ttk.weapons.map(weapon => weapon.id));

@@ -31,6 +31,41 @@
     try { localStorage.setItem(KEY, mode); } catch (_) {}
     document.documentElement.dataset.appReady = 'true';
   }
+  document.querySelectorAll('[data-build-tabs]').forEach(list => {
+    const tabs = [...list.querySelectorAll('[role="tab"]')];
+    const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
+    function select(next) {
+      tabs.forEach((tab, index) => {
+        const on = tab === next;
+        const panel = panels[index];
+        if (!panel) return;
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.tabIndex = on ? 0 : -1;
+        panel.classList.toggle('is-selected', on);
+        panel.setAttribute('aria-hidden', on ? 'false' : 'true');
+        if (on) panel.removeAttribute('inert');
+        else panel.setAttribute('inert', '');
+      });
+    }
+    list.addEventListener('keydown', event => {
+      const current = tabs.indexOf(document.activeElement);
+      if (current < 0) return;
+      let next = null;
+      if (event.key === 'ArrowRight') next = tabs[(current + 1) % tabs.length];
+      else if (event.key === 'ArrowLeft') next = tabs[(current - 1 + tabs.length) % tabs.length];
+      else if (event.key === 'Home') next = tabs[0];
+      else if (event.key === 'End') next = tabs[tabs.length - 1];
+      else return;
+      event.preventDefault();
+      select(next);
+      next.focus();
+      next.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+    });
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      select(tab);
+      tab.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+    }));
+  });
   controls.forEach(control => control.addEventListener('click', event => {
     if (!views.length) return;
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
