@@ -1,40 +1,82 @@
 ---
 import type { MetaCard, Attachment, BaselineCandidate } from '../data/types';
-import { formatDate, latestSourceDate, evidenceSourcesFor, meta } from '../data/meta';
+import { caveatLine, formatDate, latestSourceDate, evidenceSourcesFor, meta } from '../data/meta';
 import SourceLinks from './SourceLinks.astro';
 interface Props { card: MetaCard; }
 const { card } = Astro.props;
 const sources = evidenceSourcesFor(card);
 const captureDate = card.observed.date ? formatDate(card.observed.date) : 'No capture';
-const flags = [card.legacy && 'LEGACY', card.modeUnlabeled && 'Mode-unlabeled', card.preReset && 'Pre-reset', card.archived && 'Withdrawn', card.editable, card.unlock].filter(Boolean) as string[];
-const visibleFlags = [card.legacy && 'LEGACY', card.modeUnlabeled && 'Mode-unlabeled', card.archived && 'Withdrawn'].filter(Boolean) as string[];
+const caveats = caveatLine(card);
+const sample = card.observed.display ?? `${card.observed.n}/${card.observed.total}`;
 const hasUnknownSlots = card.build?.attachments.some((attachment: Attachment) => attachment.slot === 'Slot unverified');
+const isPick = card.placement === 'pick';
+const isAlternative = card.placement === 'alternative';
 ---
-<article class:list={["meta-card", { "legacy-card": card.legacy }]} id={card.id} data-confidence={card.confidence}>
+<article
+  class:list={['meta-card', { 'pick-card': isPick, 'alt-row': isAlternative, 'empty-card': card.placement === 'empty', 'legacy-card': card.legacy }]}
+  id={card.id}
+  data-confidence={card.confidence}
+  data-placement={card.placement}
+>
+  {isPick && <p class="kicker">Meta pick</p>}
   <div class="card-heading">
-    <div class="weapon-heading"><p class="role-label">{card.role}</p><h3>{card.weapon}</h3></div>
-    <span class={`confidence confidence-${card.confidence.toLowerCase()}`}>{card.confidence} · {card.sourceIds.length} src</span>
+    <h3>{card.weapon}</h3>
+    {card.placement !== 'empty' && <p class={`confidence confidence-${card.confidence.toLowerCase()}`}>{card.confidence}</p>}
   </div>
-  <div class="visible-tags" aria-label="Evidence status">{visibleFlags.map(flag => <span class:list={['evidence-flag',{legacy:flag==='LEGACY'}]}>{flag}</span>)}</div>
-  <p class="card-summary">{card.summary}</p>
-  <section class="build-section" aria-label={`${card.weapon} current build and evidence`}>
-    {card.build ? <>
+  {isAlternative && card.whenToPick && <p class="when-line">{card.whenToPick}</p>}
+  <p class:list={['card-summary', { 'when-line': isPick }]}>{card.summary}</p>
+  {card.evidenceTags.length > 0 && (
+    <ul class="tag-row" aria-label="Evidence tags">
+      {card.evidenceTags.map(tag => <li><span class={`tag tag-${tag.toLowerCase()}`}>{tag}</span></li>)}
+    </ul>
+  )}
+  {caveats && <p class="caveat-line">{caveats}</p>}
+  <p class="sample-line">{sample}{card.observed.date ? ` · ${captureDate}` : ''}</p>
+  {isPick && card.build && (
+    <section class="build-section" aria-label={`${card.weapon} build`}>
       <p class="build-owner"><span>{card.build.owner}</span><small>{card.build.status}</small></p>
-      {card.build.attachments.length > 0 ? <ol class="attachment-list">{card.build.attachments.map((attachment: Attachment) => <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>)}</ol> : <p class="unavailable-build legacy-note">Current legacy preset only. No editable attachment list.</p>}
+      {card.build.attachments.length > 0 ? (
+        <ol class="attachment-list">
+          {card.build.attachments.map((attachment: Attachment) => <li><span>{attachment.slot}</span><strong>{attachment.name}</strong></li>)}
+        </ol>
+      ) : <p class="unavailable-build">Current legacy preset only. No editable attachment list.</p>}
       {hasUnknownSlots && <p class="slot-note">Slot unverified = the part exists in MW4, but exact weapon fit / category needs a new Gunsmith check.</p>}
-    </> : <p class="unavailable-build">{card.id === 'res-pending' ? 'No verified Zodiac pick — close, long, support and sniper remain empty.' : 'No verified current individual build captured. No invented attachment set.'}</p>}
-    <div class="meta-strip"><span>{card.observed.display ?? `${card.observed.n}/${card.observed.total}`} · {captureDate}</span>
-      {card.test && <span class="calculation"><span class={`measure measure-${card.test.kind.toLowerCase()}`}>{card.test.kind}</span> {card.test.value}</span>}
+    </section>
+  )}
+  {isAlternative && !card.build && <p class="build-unverified">Build unverified. No attachments listed.</p>}
+  {card.test && (
+    <p class="calc-line"><span class={`tag tag-${card.test.kind.toLowerCase()}`}>{card.test.kind}</span> <span class="calc-value">{card.test.value}</span></p>
+  )}
+  <details class="evidence">
+    <summary>Evidence · {sources.length} sources · latest {latestSourceDate(sources)}<span class="details-mark" aria-hidden="true">+</span></summary>
+    <div class="evidence-content">
+      <p>{card.editable}{card.unlock ? ` · Unlock: ${card.unlock}` : ''}</p>
+      <dl class="evidence-readout">
+        <div><dt>{card.observed.dateLabel}</dt><dd>{captureDate}</dd></div>
+        <div><dt>Sample</dt><dd>{sample}</dd></div>
+        {card.observed.names.length > 0 && <div><dt>Named users</dt><dd>{card.observed.names.join(' · ')}</dd></div>}
+        {card.placement !== 'empty' && <div><dt>Confidence</dt><dd>{card.confidence}</dd></div>}
+      </dl>
+      {card.fullSummary && <p>{card.fullSummary}</p>}
+      <p>{card.observed.caveat}</p>
+      {card.build && <><h4>Build provenance</h4><p>{card.build.kind} · {card.build.owner} · {card.build.status}. {card.build.note}</p></>}
+      {isAlternative && !card.build && <><h4>Build</h4><p>Build unverified. No attachment was added for this alternative.</p></>}
+      {card.placement === 'empty' && !card.build && <p class="unavailable-build">No verified current build. Nothing was invented to fill this role.</p>}
+      {card.candidates?.map((candidate: BaselineCandidate) => (
+        <section class="baseline-candidate">
+          <h4>{candidate.arm}</h4>
+          <p class="candidate-owner">{candidate.owner}</p>
+          <p>{candidate.note}</p>
+          <div class="candidate-source-links"><a href={sources.find(source => candidate.sourceIds.includes(source.id))?.url} target="_blank" rel="noopener noreferrer">Baseline source ↗<span class="sr-only"> · opens in a new tab</span></a></div>
+        </section>
+      ))}
+      <h4>Augment</h4>
+      <p>{card.augment || 'No current Weapon Augment selection verified. An in-match augment is not a Gunsmith attachment.'}</p>
+      <h4>Source disagreement</h4>
+      <p>{card.counterpoint}</p>
+      {card.test && <><h4>Calculation limits</h4><p>{card.test.note} {meta.calculationNote}</p></>}
+      <h4>Dated sources</h4>
+      <SourceLinks sources={sources} />
     </div>
-    <details class="evidence"><summary>Evidence · {sources.length} sources · latest {latestSourceDate(sources)}<span class="details-mark" aria-hidden="true">+</span></summary>
-      <div class="evidence-content"><div class="flag-row">{flags.map(flag => <span class="evidence-flag neutral">{flag}</span>)}</div>
-        <dl class="evidence-readout"><div><dt>{card.observed.dateLabel}</dt><dd>{captureDate}</dd></div><div><dt>Observed use</dt><dd>{card.observed.display ?? `${card.observed.n} / ${card.observed.total} panel`}</dd></div>{card.observed.names.length > 0 && <div><dt>Named users</dt><dd>{card.observed.names.join(' · ')}</dd></div>}</dl>{card.fullSummary && <p>{card.fullSummary}</p>}<p>{card.observed.caveat}</p>{card.build && <><h4>Build provenance</h4><p>{card.build.kind} · {card.build.owner} · {card.build.status}. {card.build.note}</p></>}
-        {card.candidates?.map((candidate: BaselineCandidate) => <section class="baseline-candidate"><h4>{candidate.arm}</h4><p class="candidate-owner">{candidate.owner}</p><p>{candidate.note}</p><div class="candidate-source-links"><a href={sources.find(source => candidate.sourceIds.includes(source.id))?.url} target="_blank" rel="noopener noreferrer">Baseline source ↗<span class="sr-only"> · opens in a new tab</span></a></div></section>)}
-        <h4>Augment</h4><p>{card.augment || 'No current Weapon Augment selection verified. An in-match augment is not a Gunsmith attachment.'}</p>
-        <h4>Source disagreement</h4><p>{card.counterpoint}</p>
-        {card.test && <><h4>Calculation limits</h4><p>{card.test.note} {meta.calculationNote}</p></>}
-        <h4>Dated sources</h4><SourceLinks sources={sources} />
-      </div>
-    </details>
-  </section>
+  </details>
 </article>

@@ -1,19 +1,45 @@
 ---
-import type { GameMode, MetaData, MetaCard as MetaCardRecord } from '../data/types';
-import { sourcesFor, latestSourceDate } from '../data/meta';
-import MetaCard from './MetaCard.astro';
+import type { GameMode, MetaData } from '../data/types';
+import { rolesFor, sourcesFor, latestSourceDate } from '../data/meta';
+import RoleGroup from './RoleGroup.astro';
 import SourceLinks from './SourceLinks.astro';
 interface Props { mode: GameMode; meta: MetaData; }
 const { mode, meta } = Astro.props;
-const currentCards = mode.cards.filter((card: MetaCardRecord) => !card.archived);
-const withdrawn = mode.cards.filter((card: MetaCardRecord) => card.archived);
+const groups = rolesFor(mode);
+const withdrawn = mode.cards.filter(card => card.archived);
+const base = import.meta.env.BASE_URL;
+const jumpLabel = (key: string) => key === 'legacy' ? 'Legacy' : key === 'close' ? 'Close' : key === 'long' ? 'Long' : key === 'support' ? 'Support' : 'Sniper';
 ---
 <section class="mode-content" data-mode-view={mode.id} aria-labelledby={`${mode.id}-title`}>
-  <div class="mode-heading"><div><p class="eyebrow">{mode.fullLabel} · {mode.map}</p><h1 id={`${mode.id}-title`}>Season 1 watchlist</h1></div><div class="map-readout"><span>Map</span><strong>{mode.map}</strong></div></div>
+  <div class="mode-heading">
+    <div>
+      <p class="eyebrow">{mode.fullLabel} · {mode.map}</p>
+      <h1 id={`${mode.id}-title`}>Season 1 watchlist</h1>
+    </div>
+    <div class="map-readout"><span>Map</span><strong>{mode.map}</strong></div>
+  </div>
   <p class="mode-note">{mode.headnote}</p>
+  <nav class="role-jump" aria-label={`${mode.label} roles`}>
+    {groups.map(group => <a href={`#${group.id}`}>{jumpLabel(group.key)}</a>)}
+    <a href={`${base}ttk/`}>TTK</a>
+  </nav>
   <div class="section-title" id={`${mode.id}-roles`}><h2>Current recommendations</h2></div>
-  <div class="meta-grid">{currentCards.map((card: MetaCardRecord) => <MetaCard card={card} />)}</div>
-  {withdrawn.length > 0 && <details class="withdrawn-section"><summary>Withdrawn from current picks · {withdrawn.length} dated audit records<span class="details-mark" aria-hidden="true">+</span></summary><div class="withdrawn-list">{withdrawn.map((card: MetaCardRecord) => <section><h3>{card.weapon}</h3><span class="evidence-flag">Withdrawn · Nov 6</span><p>{card.counterpoint}</p><div class="source-links">{card.sourceIds.slice(-2).map((id: string) => { const source = sourcesFor([id])[0]; return <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} · {source.date} ↗</a>; })}</div></section>)}</div></details>}
+  {groups.map(group => <RoleGroup role={group} />)}
+  {withdrawn.length > 0 && (
+    <details class="withdrawn-section">
+      <summary>Withdrawn from current picks · {withdrawn.length} dated audit records<span class="details-mark" aria-hidden="true">+</span></summary>
+      <div class="withdrawn-list">
+        {withdrawn.map(card => (
+          <section>
+            <h3>{card.weapon}</h3>
+            <p class="caveat-line">Withdrawn · Nov 6</p>
+            <p>{card.counterpoint}</p>
+            <SourceLinks sources={sourcesFor(card.sourceIds.slice(-2))} />
+          </section>
+        ))}
+      </div>
+    </details>
+  )}
   <details class="sample-section">
     <summary><span>{meta.sample.total}/{meta.sample.trackedTotal} rolling panel · not a pure S1 sample · {meta.sample.sourceIds.length} sources · latest {latestSourceDate(sourcesFor(meta.sample.sourceIds))}</span><span class="details-mark" aria-hidden="true">+</span></summary>
     <div class="evidence-content"><p>{meta.sample.note}</p><SourceLinks sources={sourcesFor(meta.sample.sourceIds)} /></div>

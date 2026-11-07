@@ -1,13 +1,13 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "project": "Warzone Meta",
-  "snapshotDate": "2026-11-06",
-  "updatedLabel": "Nov 6, 2026 · afternoon audit",
-  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; integrity rebuild followed",
+  "snapshotDate": "2026-11-07",
+  "updatedLabel": "Nov 7, 2026 · morning ET",
+  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET",
   "patch": "MW4 / Season 1",
   "season": "Hajin Conflict · Season 1",
   "launch": "Nov 6, 2026 · 12:00 a.m. ET",
-  "evidenceCutoff": "Nov 6, 2026 · 2:26 p.m. ET",
+  "evidenceCutoff": "Nov 7, 2026 · morning ET",
   "sources": [
     {
       "id": "official",
@@ -384,6 +384,30 @@
       "date": "Nov 6, 2026 · 11:23 a.m. ET upload",
       "url": "https://www.youtube.com/watch?v=hbRb9ZVdUmY&t=212s",
       "note": "03:32 comfort; 03:43 movement versus Striga; 04:06 magazine/mobility tradeoff. Supplemental creator, not tournament-roster adoption vote; not a direct ISO comparison."
+    },
+    {
+      "id": "wzstats-iso-close",
+      "label": "WZStats · ISO close-range rank",
+      "kind": "AGG",
+      "date": "Nov 7, 2026 · morning ET",
+      "url": "https://wzstats.gg/",
+      "note": "WZStats ranks ISO Nightshade #1 at close range. Aggregate editorial rank, not a counted pro sample and not a loadout."
+    },
+    {
+      "id": "swagg-striga",
+      "label": "Swagg · Striga fastest-killing SMG",
+      "kind": "PRO",
+      "date": "Nov 6, 2026 · 11:23 a.m. ET upload",
+      "url": "https://www.youtube.com/watch?v=hbRb9ZVdUmY&t=163s",
+      "note": "Around 2:43 (t=163s) Swagg calls the Wz.55 Striga the fastest-killing SMG. Mode unverified. Not a captured attachment list."
+    },
+    {
+      "id": "codmunity-ttk",
+      "label": "CODMunity · Warzone TTK rankings",
+      "kind": "CALC",
+      "date": "Updated Nov 6, 2026 · read Nov 7, 2026",
+      "url": "https://codmunity.gg/ttk/warzone",
+      "note": "Calculator from game data. Page config states 300 HP, 50 per plate, and 3 plates. Whether the default table is Meta Loadouts or Base Weapons was not confirmed. Values are band averages, not point samples."
     }
   ],
   "sample": {
@@ -494,7 +518,14 @@
             "wzl"
           ],
           "unlock": "Battle Pass tier 16",
-          "fullSummary": "Clears the current-gun registry and five-part MW4 compatibility gate. One roster pro plus one supplemental current report; Hajin/Zodiac proof remains absent."
+          "fullSummary": "Clears the current-gun registry and five-part MW4 compatibility gate. One roster pro plus one supplemental current report; Hajin/Zodiac proof remains absent.",
+          "roleKey": "long",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "CALC",
+            "AGG"
+          ]
         },
         {
           "id": "br-vel",
@@ -587,7 +618,14 @@
             "hisoka-vod-direct",
             "swagg-vel-comfort"
           ],
-          "fullSummary": "Emerging, usage-led close-range candidate. A direct Hisoka VEL gunsmith is confirmed in Hajin BR, while broader rolling-panel records remain mixed-mode. Comfort/movement is Swagg’s subjective rationale; it is not evidence VEL beats ISO for raw close-range TTK."
+          "fullSummary": "Emerging, usage-led close-range candidate. A direct Hisoka VEL gunsmith is confirmed in Hajin BR, while broader rolling-panel records remain mixed-mode. Comfort/movement is Swagg’s subjective rationale; it is not evidence VEL beats ISO for raw close-range TTK.",
+          "roleKey": "close",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "CALC",
+            "AGG"
+          ]
         },
         {
           "id": "br-voyak",
@@ -643,7 +681,13 @@
           ],
           "preReset": false,
           "legacy": true,
-          "fullSummary": "Retained as a genuine legacy exception for two tournament-roster players’ current pair reports. All old attachments were purged from actionable rendering."
+          "fullSummary": "Retained as a genuine legacy exception for two tournament-roster players’ current pair reports. All old attachments were purged from actionable rendering.",
+          "roleKey": "legacy",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "AGG"
+          ]
         },
         {
           "id": "br-kg7",
@@ -705,7 +749,10 @@
                 "official"
               ]
             }
-          ]
+          ],
+          "roleKey": "sniper",
+          "placement": "empty",
+          "evidenceTags": []
         },
         {
           "id": "br-han",
@@ -788,7 +835,147 @@
             "slimline-current",
             "jgod"
           ],
-          "fullSummary": "Legitimate MW4 candidate with three launch-day reports. Partial only: current part names verified, exact roles/fits for shared parts remain visibly uncertain; no fourth/fifth category invented."
+          "fullSummary": "Legitimate MW4 candidate with three launch-day reports. Partial only: current part names verified, exact roles/fits for shared parts remain visibly uncertain; no fourth/fifth category invented.",
+          "roleKey": "support",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "CALC"
+          ]
+        },
+        {
+          "id": "br-iso",
+          "role": "Close range · alternative",
+          "roleKey": "close",
+          "placement": "alternative",
+          "evidenceTags": [
+            "CALC",
+            "AGG"
+          ],
+          "whenToPick": "When you want the fastest calculated close-range kill and play inside 15m.",
+          "weapon": "ISO Nightshade",
+          "confidence": "Testing",
+          "summary": "JGOD calc favors ISO inside 15m; no pro loadout seen.",
+          "modeUnlabeled": true,
+          "editable": "Build unverified",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No pro loadout",
+            "caveat": "No pro loadout seen. WZStats ranks ISO #1 at close range. That is an aggregate editorial rank, not a counted pro sample.",
+            "sourceIds": [
+              "wzstats-iso-close",
+              "kitted-panel",
+              "kitted-method"
+            ],
+            "display": "No pro loadout seen"
+          },
+          "build": null,
+          "test": {
+            "kind": "CALC",
+            "value": "585 ms at 0m and 650 ms at 15m vs VEL 630/693; VEL faster at 40m (882 vs 910)",
+            "note": "JGOD calculated TTK, Nov 6 2026: ISO 585 ms at 0m and 650 ms at 15m versus VEL 630/693. VEL is faster at 40m (882 vs 910). Armor/HP is not stated by JGOD; a 300 HP reading is inferred from the STK counts, not published in the post. No attachments are listed because no pro loadout was seen.",
+            "sourceIds": [
+              "jgod"
+            ]
+          },
+          "counterpoint": "VEL remains the meta pick on reported pro use. JGOD’s calculation favors ISO only inside 15m; VEL leads at 40m (882 vs 910 ms). No pro loadout for ISO was captured.",
+          "sourceIds": [
+            "jgod",
+            "wzstats-iso-close",
+            "kitted-panel",
+            "kitted-method"
+          ],
+          "fullSummary": "Testing alternative for calculated close-range TTK inside 15m. Build unverified. No attachments added."
+        },
+        {
+          "id": "br-striga",
+          "role": "Close range · alternative",
+          "roleKey": "close",
+          "placement": "alternative",
+          "evidenceTags": [
+            "PRO",
+            "CALC"
+          ],
+          "whenToPick": "Aggressive close-range fights where raw speed matters more than handling.",
+          "weapon": "Wz.55 Striga",
+          "confidence": "Testing",
+          "summary": "Swagg calls it the fastest-killing SMG; build and mode unverified.",
+          "modeUnlabeled": true,
+          "editable": "Build unverified · mode unverified",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No pro loadout",
+            "caveat": "Mode unverified. Swagg’s Nov 6 video calls Striga the fastest-killing SMG around 2:43. That is a creator claim, not a captured pro loadout.",
+            "sourceIds": [
+              "swagg-striga"
+            ],
+            "display": "No pro loadout · mode unverified"
+          },
+          "build": null,
+          "test": {
+            "kind": "CALC",
+            "value": "JGOD 553 ms at 0m · CODMunity 617 ms at 0–10m",
+            "note": "Calculator TTK, kept as separate sources. JGOD base gun: 553/645/829/829 ms at 0m/15m/40m/far (STK 7/8/10/10). CODMunity band averages: 617/788/952/1025 ms at 0–10/10–40/40–80/80–120m, with a 64 ms open-bolt delay shown. Buckets are not merged. JGOD armor is inferred, not stated. CODMunity states 300 HP and 3 plates. The CODMunity default build is unconfirmed.",
+            "sourceIds": [
+              "jgod",
+              "codmunity-ttk"
+            ]
+          },
+          "counterpoint": "Swagg’s fastest-killing claim and the two calculators disagree on the close-range number (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m). Neither value is a captured pro build. VEL stays the meta pick.",
+          "sourceIds": [
+            "swagg-striga",
+            "jgod",
+            "codmunity-ttk"
+          ],
+          "fullSummary": "Testing alternative when raw close-range speed matters more than handling. Build unverified and mode unverified. No attachments added."
+        }
+      ],
+      "roles": [
+        {
+          "id": "br-close",
+          "key": "close",
+          "label": "Close range",
+          "pickId": "br-vel",
+          "alternativeIds": [
+            "br-iso",
+            "br-striga"
+          ]
+        },
+        {
+          "id": "br-long",
+          "key": "long",
+          "label": "Long range",
+          "pickId": "br-cronen",
+          "alternativeIds": []
+        },
+        {
+          "id": "br-support",
+          "key": "support",
+          "label": "Support",
+          "pickId": "br-han",
+          "alternativeIds": []
+        },
+        {
+          "id": "br-sniper",
+          "key": "sniper",
+          "label": "Sniper",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "br-kg7",
+          "revealEmptyCard": true
+        },
+        {
+          "id": "br-legacy",
+          "key": "legacy",
+          "label": "Legacy exception",
+          "pickId": "br-voyak",
+          "alternativeIds": []
         }
       ]
     },
@@ -831,7 +1018,9 @@
             "kitted-method",
             "newbz-stream"
           ],
-          "fullSummary": "No current Zodiac pick assigned for close range, long range, support or sniper. Newbz’s afternoon WZ 2v2 stream is a next-pass observation lead without a verified gunsmith. Mixed-mode usage is not a Zodiac denominator."
+          "fullSummary": "No current Zodiac pick assigned for close range, long range, support or sniper. Newbz’s afternoon WZ 2v2 stream is a next-pass observation lead without a verified gunsmith. Mixed-mode usage is not a Zodiac denominator.",
+          "placement": "empty",
+          "evidenceTags": []
         },
         {
           "id": "res-withdrawn-1",
@@ -869,7 +1058,9 @@
           ],
           "archived": true,
           "withdrawnOn": "2026-11-06",
-          "fullSummary": "Current MW4 candidate under mixed-mode BR watch, but no direct Zodiac use. Morning and 10 a.m. VEL lists were sourced from an old MW2 category citation and are removed instead of renamed."
+          "fullSummary": "Current MW4 candidate under mixed-mode BR watch, but no direct Zodiac use. Morning and 10 a.m. VEL lists were sourced from an old MW2 category citation and are removed instead of renamed.",
+          "placement": "withdrawn",
+          "evidenceTags": []
         },
         {
           "id": "res-withdrawn-2",
@@ -907,7 +1098,9 @@
           ],
           "archived": true,
           "withdrawnOn": "2026-11-06",
-          "fullSummary": "FLS’s actual weapon-page date is Nov 3, not Nov 6. It fails the current/data compatibility gate. Adriann’s current MW4 ISO does not verify Zodiac-specific usage; no replacement recipe is inferred."
+          "fullSummary": "FLS’s actual weapon-page date is Nov 3, not Nov 6. It fails the current/data compatibility gate. Adriann’s current MW4 ISO does not verify Zodiac-specific usage; no replacement recipe is inferred.",
+          "placement": "withdrawn",
+          "evidenceTags": []
         },
         {
           "id": "res-withdrawn-3",
@@ -942,7 +1135,9 @@
           ],
           "archived": true,
           "withdrawnOn": "2026-11-06",
-          "fullSummary": "Wz.55’s 553 ms calculation remains a test-only lead. No complete current player build exists here, and Zodiac-specific use is not demonstrated. Its calculation-only card was withdrawn from the current pick list."
+          "fullSummary": "Wz.55’s 553 ms calculation remains a test-only lead. No complete current player build exists here, and Zodiac-specific use is not demonstrated. Its calculation-only card was withdrawn from the current pick list.",
+          "placement": "withdrawn",
+          "evidenceTags": []
         },
         {
           "id": "res-withdrawn-4",
@@ -979,7 +1174,9 @@
           ],
           "archived": true,
           "withdrawnOn": "2026-11-06",
-          "fullSummary": "Hisoka’s launch-day mixed-mode report is not tied to Zodiac and its exact Han build is incomplete. Withdrawn rather than copied into both modes with invented certainty."
+          "fullSummary": "Hisoka’s launch-day mixed-mode report is not tied to Zodiac and its exact Han build is incomplete. Withdrawn rather than copied into both modes with invented certainty.",
+          "placement": "withdrawn",
+          "evidenceTags": []
         },
         {
           "id": "res-withdrawn-5",
@@ -1016,7 +1213,9 @@
           ],
           "archived": true,
           "withdrawnOn": "2026-11-06",
-          "fullSummary": "Spam and Adriann have matching current MW4 records, not a proven Zodiac pick. Retained only as a mixed-mode BR candidate rather than duplicate resurrection as a Resurgence primary."
+          "fullSummary": "Spam and Adriann have matching current MW4 records, not a proven Zodiac pick. Retained only as a mixed-mode BR candidate rather than duplicate resurrection as a Resurgence primary.",
+          "placement": "withdrawn",
+          "evidenceTags": []
         },
         {
           "id": "res-withdrawn-6",
@@ -1054,7 +1253,48 @@
           ],
           "archived": true,
           "withdrawnOn": "2026-11-06",
-          "fullSummary": "The old two-weapon editorial entry predated launch, mixed separate sniper watch candidates and lacked a current individual / controlled-test citation. Removed from Zodiac pending separate current pro builds."
+          "fullSummary": "The old two-weapon editorial entry predated launch, mixed separate sniper watch candidates and lacked a current individual / controlled-test citation. Removed from Zodiac pending separate current pro builds.",
+          "placement": "withdrawn",
+          "evidenceTags": []
+        }
+      ],
+      "roles": [
+        {
+          "id": "res-close",
+          "key": "close",
+          "label": "Close range",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for close range.",
+          "revealEmptyCard": true
+        },
+        {
+          "id": "res-long",
+          "key": "long",
+          "label": "Long range",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for long range."
+        },
+        {
+          "id": "res-support",
+          "key": "support",
+          "label": "Support",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for support."
+        },
+        {
+          "id": "res-sniper",
+          "key": "sniper",
+          "label": "Sniper",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for sniper."
         }
       ]
     }
@@ -1105,6 +1345,17 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 7, 2026 · morning ET",
+      "title": "Multi-gun role cards, TTK section, Mineral Ledger redesign",
+      "text": "Close range now groups a VEL 46 meta pick with ISO Nightshade and Wz.55 Striga as testing alternatives. ISO has no attachments: JGOD’s Nov 6 calculation is faster inside 15m and WZStats ranks it #1 close range, but no pro loadout was seen. Striga stays build-unverified and mode-unverified; Swagg calls it the fastest-killing SMG, and the JGOD and CODMunity calculators are charted separately. Cronen Osprey, Han 86, and Voyak stay single picks. Sniper and every Resurgence role stay empty. The TTK section labels calculator values CALC and does not merge the two sources’ buckets.",
+      "sourceIds": [
+        "jgod",
+        "wzstats-iso-close",
+        "swagg-striga",
+        "codmunity-ttk"
+      ]
+    },
     {
       "date": "Nov 6, 2026 · evening ET",
       "title": "VEL versus ISO: usage is not faster TTK",

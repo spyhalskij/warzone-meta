@@ -11,6 +11,10 @@
   const views = [...document.querySelectorAll('[data-mode-view]')];
   function draw() {
     document.documentElement.dataset.mode = mode;
+    if (!views.length) {
+      document.documentElement.dataset.appReady = 'true';
+      return;
+    }
     views.forEach(view => { view.hidden = view.dataset.modeView !== mode; });
     controls.forEach(control => {
       const active = control.dataset.modeTarget === mode;
@@ -18,8 +22,8 @@
       if (active) control.setAttribute('aria-current', 'page');
       else control.removeAttribute('aria-current');
     });
-    const activeHeadline = document.querySelector(`[data-mode-view="${mode}"] .eyebrow`)?.textContent || 'Season 1';
-    document.title = `${activeHeadline} · Warzone Meta`;
+    const activeHeadline = document.querySelector(`[data-mode-view="${mode}"] .eyebrow`)?.textContent;
+    if (activeHeadline) document.title = `${activeHeadline} · Warzone Meta`;
     const url = new URL(location.href);
     url.searchParams.set('mode', mode);
     // Query parameters survive GitHub Pages refreshes; no runtime route is required.
@@ -28,6 +32,7 @@
     document.documentElement.dataset.appReady = 'true';
   }
   controls.forEach(control => control.addEventListener('click', event => {
+    if (!views.length) return;
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     mode = control.dataset.modeTarget;

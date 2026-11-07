@@ -1,0 +1,2120 @@
+{
+  "schemaVersion": 2,
+  "project": "Warzone Meta",
+  "snapshotDate": "2026-11-07",
+  "updatedLabel": "Nov 7, 2026 · morning ET",
+  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET",
+  "patch": "MW4 / Season 1",
+  "season": "Hajin Conflict · Season 1",
+  "launch": "Nov 6, 2026 · 12:00 a.m. ET",
+  "evidenceCutoff": "Nov 7, 2026 · morning ET",
+  "sources": [
+    {
+      "id": "official",
+      "label": "Warzone S1 patch notes",
+      "kind": "OFFICIAL",
+      "date": "Nov 5 · read Nov 6",
+      "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-mw4-warzone-season-1-patch-notes",
+      "note": "Direct canonical read (HTTP 200) confirms Hajin/Zodiac, launch arsenal, official default loadouts and legacy rules."
+    },
+    {
+      "id": "mw4-launch",
+      "label": "MW4 launch weapons / Gunsmith guide",
+      "kind": "OFFICIAL",
+      "date": "Oct 19 · read Nov 6",
+      "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+      "note": "33 launch guns; nine standard slots; shared-attachment unlock rule. Recurring names are not old-build validation."
+    },
+    {
+      "id": "raven",
+      "label": "Raven · S1 launch",
+      "kind": "OFFICIAL",
+      "date": "Nov 6 · 12:37 a.m. ET",
+      "url": "https://x.com/RavenSoftware/status/2118578473123901908",
+      "note": "Season 1 live announcement."
+    },
+    {
+      "id": "codupdates",
+      "label": "CODUpdates · afternoon issues",
+      "kind": "OFFICIAL",
+      "date": "through Nov 6 · 12:19 p.m. ET",
+      "url": "https://x.com/CODUpdates/status/2118755165063008444",
+      "note": "Camo-unlock investigation; no weapon-balance hotfix found in the direct afternoon account read."
+    },
+    {
+      "id": "kitted-panel",
+      "label": "Kitted · rolling use panel",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 6 · 2:04 p.m. ET",
+      "url": "https://kitted.gg/meta/most-used-weapons",
+      "note": "20 of 50 tracked players eligible under rolling 14-day method. No mode split."
+    },
+    {
+      "id": "kitted-method",
+      "label": "Kitted · method",
+      "kind": "METHOD",
+      "date": "read Nov 6",
+      "url": "https://kitted.gg/methodology",
+      "note": "Individual weapon dates can differ from generic pair-page last updates; eligibility admits pre-launch records."
+    },
+    {
+      "id": "kitted-spam",
+      "label": "Spam · current reported pair",
+      "kind": "OBSERVED-USE",
+      "date": "last confirmed Nov 6",
+      "url": "https://kitted.gg/streamer/spam",
+      "note": "Cronen Osprey + VEL 46, with current MW4 individual records. Map/mode unverified."
+    },
+    {
+      "id": "kitted-cronen",
+      "label": "Cronen Osprey · individual reports",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 6 · 2:04 p.m. ET",
+      "url": "https://kitted.gg/loadout/cronen-osprey",
+      "note": "Spam and Adriann independently report the same five parts; not a merged modal recipe."
+    },
+    {
+      "id": "kitted-vel",
+      "label": "VEL 46 · individual reports",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 6 · 2:04 p.m. ET",
+      "url": "https://kitted.gg/loadout/vel-46",
+      "note": "Five post-launch players counted. ScummN has Nov 5 and is excluded from that numerator."
+    },
+    {
+      "id": "kitted-hisoka",
+      "label": "Hisoka · current reported pair",
+      "kind": "OBSERVED-USE",
+      "date": "last confirmed Nov 6",
+      "url": "https://kitted.gg/streamer/hisoka",
+      "note": "Han 86 + VEL 46; new MW4 VEL list differs materially from the morning’s stale record."
+    },
+    {
+      "id": "kitted-han",
+      "label": "Han 86 · individual reports",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 6 · 2:04 p.m. ET",
+      "url": "https://kitted.gg/loadout/han-86",
+      "note": "Hisoka, Apathy and Kenner reported for Nov 6; not automatically a complete verified Han build."
+    },
+    {
+      "id": "kitted-adriann",
+      "label": "Adriann · current reported pair",
+      "kind": "OBSERVED-USE · SUPPLEMENTAL",
+      "date": "last confirmed Nov 6",
+      "url": "https://kitted.gg/streamer/adriann",
+      "note": "Cronen + ISO. Supplemental streamer report; not substituted into the performance roster."
+    },
+    {
+      "id": "kitted-iso",
+      "label": "ISO · date-sensitive aggregate",
+      "kind": "OBSERVED-USE · MIXED FRESHNESS",
+      "date": "Nov 6 aggregate · FLS entry Nov 3",
+      "url": "https://kitted.gg/loadout/iso-nightshade",
+      "note": "FLS’s four-part ISO record retains Nov 3. Pair-page Nov 6 does not make that attachment set current."
+    },
+    {
+      "id": "kitted-fls",
+      "label": "FLS · pair-level legacy record",
+      "kind": "OBSERVED-USE · LEGACY",
+      "date": "pair last confirmed Nov 6",
+      "url": "https://kitted.gg/streamer/fls",
+      "note": "Voyak + ISO pair-level record. Supports Voyak preset presence; not the pre-launch ISO attachment array."
+    },
+    {
+      "id": "kitted-fifakill",
+      "label": "FifaKill · pair-level legacy record",
+      "kind": "OBSERVED-USE · LEGACY",
+      "date": "last confirmed Nov 6",
+      "url": "https://kitted.gg/streamer/fifakillvizualz",
+      "note": "Voyak + VMP. Preset-use evidence, not old custom-recipe proof."
+    },
+    {
+      "id": "kitted-kt3",
+      "label": "Voyak KT-3 · rolling legacy use",
+      "kind": "OBSERVED-USE · LEGACY",
+      "date": "Nov 6 · 2:04 p.m. ET",
+      "url": "https://kitted.gg/loadout/voyak-kt-3",
+      "note": "8/20 is rolling and mixed freshness, not eight post-launch users."
+    },
+    {
+      "id": "jgod",
+      "label": "JGOD · new MW4 base-gun calculations",
+      "kind": "CALC",
+      "date": "Nov 6 · 3:42 a.m. ET",
+      "url": "https://x.com/JGODYT/status/2118625064195359188",
+      "note": "Not an independently replicated live test; saved graphics lack full HP/hit distribution/travel/attachment protocol."
+    },
+    {
+      "id": "truegamedata",
+      "label": "TrueGameData · full WZ stats pending",
+      "kind": "STATUS",
+      "date": "Nov 6 · 1:46 p.m. ET",
+      "url": "https://x.com/TrueGameData/status/2118777127026012547",
+      "note": "Stats in progress; no finished afternoon S1 table used as numerical proof."
+    },
+    {
+      "id": "wzstats",
+      "label": "WZStats · editorial role board",
+      "kind": "EDITORIAL",
+      "date": "read Nov 6",
+      "url": "https://wzstats.gg/",
+      "note": "Cronen, VEL and KG-7 are role leaders; no independent denominator/ranking method found."
+    },
+    {
+      "id": "wzl",
+      "label": "WarzoneLoadout · editorial role board",
+      "kind": "EDITORIAL",
+      "date": "last modified Nov 6 · 11:27 a.m. ET",
+      "url": "https://warzoneloadout.games/",
+      "note": "The global VEL page references a separate MW2 catalog. Editorial role/build claims are not observed usage."
+    },
+    {
+      "id": "newbz-stream",
+      "label": "Newbz · afternoon WZ 2v2 stream",
+      "kind": "STATUS",
+      "date": "published Nov 6 · 1:27 p.m. ET",
+      "url": "https://www.youtube.com/watch?v=vZflv-oSJ9k",
+      "note": "Next-pass competitive observation lead; no readable full current gunsmith or mode/map claim obtained."
+    },
+    {
+      "id": "cronen-types",
+      "label": "Cronen Osprey · MW4 compatibility reference",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/cronen-osprey",
+      "note": "Cross-checks all five current part names / standard slot categories. Not usage evidence."
+    },
+    {
+      "id": "vel-types",
+      "label": "VEL 46 · MW4 compatibility reference",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/vel-46",
+      "note": "Excludes previous VLK LZR 7MW / Demo RXT / 4.6mm Hollowpoint / 50 Round array from MW4 compatibility."
+    },
+    {
+      "id": "vel-old",
+      "label": "VEL citation rejected as old-game",
+      "kind": "EXCLUDED OLD-GAME",
+      "date": "old-game record · read Nov 6",
+      "url": "https://codmunity.gg/loadout/warsz-vel-46-warzone-2-close-range",
+      "note": "Morning source explicitly belongs to the older game; retained only to explain the withdrawal."
+    },
+    {
+      "id": "han-types",
+      "label": "Han 86 · MW4 compatibility reference",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/han-86",
+      "note": "Barrel and stock names confirmed in the MW4 list; full exact-match compatibility for the other parts was not established on the Han page."
+    },
+    {
+      "id": "iso-types",
+      "label": "ISO Nightshade · MW4 compatibility reference",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/iso-nightshade",
+      "note": "FLS’s pre-launch record cannot be certified by copying a different player’s current MW4 ISO."
+    },
+    {
+      "id": "kg7-types",
+      "label": "KG-7 Vulcan · MW4 compatibility reference",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/kg-7-vulcan",
+      "note": "Gauge-12 Mono is missing from this editorial atlas but explicitly confirmed KG-7-compatible by CODMunity. Its recipe is instead withdrawn because it predates launch and has no current independent pro/controlled-test confirmation."
+    },
+    {
+      "id": "old-bo7",
+      "label": "Old BO7 attachment citation · excluded",
+      "kind": "EXCLUDED OLD-GAME",
+      "date": "BO7 record · read Nov 6",
+      "url": "https://codmunity.gg/attachment/bo7/7-62-soviet-fmj",
+      "note": "Old BO7 attachment category data does not validate a current MW4 preset recipe."
+    },
+    {
+      "id": "ewc",
+      "label": "EWC / WRS 2026 championship",
+      "kind": "TOURNAMENT",
+      "date": "Aug 2 · read Nov 6",
+      "url": "https://esportsworldcup.com/en/press-releases/g2-esports-warzone-resurgence-championship-win",
+      "note": "Player qualification, not current weapon proof."
+    },
+    {
+      "id": "wsow",
+      "label": "WSOW / WRS results",
+      "kind": "TOURNAMENT",
+      "date": "read Nov 6",
+      "url": "https://codmunity.gg/wsow",
+      "note": "Player qualification and placements."
+    },
+    {
+      "id": "placements",
+      "label": "WRS complete placements · secondary",
+      "kind": "TOURNAMENT",
+      "date": "Aug 5 · read Nov 6",
+      "url": "https://esportscentral.co.za/cod/warzone-resurgence-series-2026-results/",
+      "note": "Complete placements."
+    },
+    {
+      "id": "pullze",
+      "label": "PullzeCheck · game 4 result",
+      "kind": "TOURNAMENT",
+      "date": "Oct 7 · read Nov 6",
+      "url": "https://x.com/PullzeCheck/status/2107958435325022319",
+      "note": "One current-season-competitive qualification input, not new-game weapon evidence."
+    },
+    {
+      "id": "kg7-gauge",
+      "label": "Gauge-12 Mono · exact current MW4 record",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://codmunity.gg/attachment/mw4/gauge-12-mono",
+      "note": "Explicitly fits KG-7 Vulcan. Old-game atlas selection did not remain a reason for rejecting this muzzle."
+    },
+    {
+      "id": "jgod-striga",
+      "label": "JGOD · Striga calculation discussion",
+      "kind": "CALC",
+      "date": "Nov 6 · 6:44 a.m. ET",
+      "url": "https://x.com/JGODYT/status/2118670956227096972",
+      "note": "Discusses approximately 43 average damage at 300 effective HP for a seven-shot model; not universal match assumptions."
+    },
+    {
+      "id": "cronen-full",
+      "label": "Cronen Osprey · full current MW4 attachment table",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://codmunity.gg/weapon/mw4/cronen-osprey",
+      "note": "All five parts verified in the current MW4 table: Locus optic, FSS IS300 muzzle, IO-556 barrel, 60-round magazine and 5.56 NATO High Velocity ammo."
+    },
+    {
+      "id": "vel-full",
+      "label": "VEL 46 · full current MW4 attachment table",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://codmunity.gg/weapon/mw4/vel-46",
+      "note": "All five parts verified in the current MW4 table: VB-46 barrel, 212 LC40 muzzle, EXP U-Turn stock, V46 R-Skel rear grip and 4.6x30mm High Velocity ammo."
+    },
+    {
+      "id": "tzl-current",
+      "label": "TZL-110 V1 · current MW4 shared muzzle",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/attachments/tzl-110-v1",
+      "note": "Current MW4 muzzle unlocked by M4; selective atlas does not establish exact Han compatibility."
+    },
+    {
+      "id": "slimline-current",
+      "label": "Slimline Elite · current MW4 shared optic",
+      "kind": "ATTACHMENT-COMPATIBILITY",
+      "date": "read Nov 6",
+      "url": "https://warzoneloadout.games/mw4/attachments/slimline-elite",
+      "note": "Current MW4 optic unlocked by M4; selective atlas does not establish exact Han compatibility."
+    },
+    {
+      "id": "newbz-vod",
+      "label": "Newbz · launch-day stream",
+      "kind": "PRO DISCUSSION",
+      "date": "Nov 6 · 3:53 a.m. ET",
+      "url": "https://www.youtube.com/watch?v=NZlF9-aWCYM",
+      "note": "Creator discussion could point toward Cronen / CSG watch; no complete verified gunsmith assigned from transcript alone."
+    },
+    {
+      "id": "kitted-gromalok",
+      "label": "Gromalok · archived pair",
+      "kind": "HISTORICAL · PRE-RESET",
+      "date": "last confirmed Sep 24",
+      "url": "https://kitted.gg/streamer/gromalok",
+      "note": "Archived pre-launch pair, not current meta usage."
+    },
+    {
+      "id": "kitted-hallow",
+      "label": "HalloWFR · archived pair",
+      "kind": "HISTORICAL · PRE-RESET",
+      "date": "last confirmed Oct 16",
+      "url": "https://kitted.gg/streamer/hallowfr",
+      "note": "Archived pre-launch pair, not current meta usage."
+    },
+    {
+      "id": "kitted-newbz",
+      "label": "Newbz · archived pair",
+      "kind": "HISTORICAL · PRE-RESET",
+      "date": "last confirmed Oct 24",
+      "url": "https://kitted.gg/streamer/newbz",
+      "note": "Archived pre-launch pair; a new stream without a Gunsmith does not refresh it."
+    },
+    {
+      "id": "kitted-dongy",
+      "label": "Dongy · archived pair",
+      "kind": "HISTORICAL · PRE-RESET",
+      "date": "last confirmed Oct 31",
+      "url": "https://kitted.gg/streamer/dongy",
+      "note": "Archived pre-launch pair, not current meta usage."
+    },
+    {
+      "id": "kitted-shifty",
+      "label": "Shifty · archived pair",
+      "kind": "HISTORICAL · PRE-RESET",
+      "date": "last confirmed Oct 15",
+      "url": "https://kitted.gg/streamer/shiftytv",
+      "note": "Archived pre-launch pair, not current meta usage."
+    },
+    {
+      "id": "kitted-lenun",
+      "label": "Lenun · archived pair",
+      "kind": "HISTORICAL · PRE-RESET",
+      "date": "last confirmed Oct 2",
+      "url": "https://kitted.gg/streamer/lenun",
+      "note": "Archived pre-launch pair, not current meta usage."
+    },
+    {
+      "id": "hisoka-vod-direct",
+      "label": "Hisoka · direct VEL gunsmith / Hajin BR",
+      "kind": "PRO",
+      "date": "Nov 6, 2026 · 12:26 a.m. ET",
+      "url": "https://www.twitch.tv/videos/2920543019?t=8h23m52s",
+      "note": "Four readable parts: VB-46 Series 11; FSS Crackdown; Schlager VISIV-5; EXP U-Turn Stock. Fifth equipped part obscured, unverified. No merged build."
+    },
+    {
+      "id": "swagg-vel-comfort",
+      "label": "Swagg · VEL comfort / movement rationale",
+      "kind": "PRO",
+      "date": "Nov 6, 2026 · 11:23 a.m. ET upload",
+      "url": "https://www.youtube.com/watch?v=hbRb9ZVdUmY&t=212s",
+      "note": "03:32 comfort; 03:43 movement versus Striga; 04:06 magazine/mobility tradeoff. Supplemental creator, not tournament-roster adoption vote; not a direct ISO comparison."
+    },
+    {
+      "id": "wzstats-iso-close",
+      "label": "WZStats · ISO close-range rank",
+      "kind": "AGG",
+      "date": "Nov 7, 2026 · morning ET",
+      "url": "https://wzstats.gg/",
+      "note": "WZStats ranks ISO Nightshade #1 at close range. Aggregate editorial rank, not a counted pro sample and not a loadout."
+    },
+    {
+      "id": "swagg-striga",
+      "label": "Swagg · Striga fastest-killing SMG",
+      "kind": "PRO",
+      "date": "Nov 6, 2026 · 11:23 a.m. ET upload",
+      "url": "https://www.youtube.com/watch?v=hbRb9ZVdUmY&t=163s",
+      "note": "Around 2:43 (t=163s) Swagg calls the Wz.55 Striga the fastest-killing SMG. Mode unverified. Not a captured attachment list."
+    },
+    {
+      "id": "codmunity-ttk",
+      "label": "CODMunity · Warzone TTK rankings",
+      "kind": "CALC",
+      "date": "Updated Nov 6, 2026 · read Nov 7, 2026",
+      "url": "https://codmunity.gg/ttk/warzone",
+      "note": "Calculator from game data. Page config states 300 HP, 50 per plate, and 3 plates. Whether the default table is Meta Loadouts or Base Weapons was not confirmed. Values are band averages, not point samples."
+    }
+  ],
+  "sample": {
+    "label": "Kitted rolling panel · mixed freshness",
+    "n": 20,
+    "total": 20,
+    "trackedTotal": 50,
+    "note": "20 of 50 tracked streamers qualified under Kitted’s 14-day rule at 2:04 p.m. ET. This is not a pure post-launch or performance-roster denominator; individual Nov 6 reports are qualified card by card. No population pick rate or mode-specific share is inferred.",
+    "sourceIds": [
+      "kitted-panel",
+      "kitted-method"
+    ]
+  },
+  "calculationNote": "JGOD launch-day base-MW4 STK / TTK calculations. Exact HP, hit distribution, first-shot timing, bullet travel and attachment protocol are not fully supplied on saved graphics. CALC is not an independently replicated match test.",
+  "modes": {
+    "br": {
+      "id": "br",
+      "label": "BR",
+      "fullLabel": "Battle Royale",
+      "map": "Hajin",
+      "headnote": "Current MW4 candidates plus a clearly labeled legacy exception and official sniper baseline. Sources are mode-unlabeled; no match is constructed to fill a role.",
+      "cards": [
+        {
+          "id": "br-cronen",
+          "role": "Long range · candidate, not map-verified",
+          "weapon": "Cronen Osprey",
+          "confidence": "Emerging",
+          "summary": "Spam and Adriann agree on five current MW4 parts; Hajin-specific play is unverified.",
+          "modeUnlabeled": true,
+          "editable": "MW4 · current-game only",
+          "observed": {
+            "n": 2,
+            "total": 20,
+            "names": [
+              "Spam (roster)",
+              "Adriann (supplemental)"
+            ],
+            "date": "2026-11-06",
+            "dateLabel": "Launch-day reports",
+            "caveat": "Two separate Nov 6 reports share the set. The 20-player denominator includes a rolling 14-day window, so this is not a pure post-launch adoption rate or a tagged map winner.",
+            "sourceIds": [
+              "kitted-spam",
+              "kitted-cronen",
+              "kitted-adriann",
+              "kitted-panel",
+              "kitted-method"
+            ],
+            "display": "2 current reports · rolling panel n=20"
+          },
+          "build": {
+            "owner": "Spam",
+            "kind": "Individual reported MW4 build · Adriann agrees",
+            "legacy": false,
+            "status": "5 current MW4 parts · matching separate reports",
+            "attachments": [
+              {
+                "slot": "Barrel",
+                "name": "IO-556 TAC 18\""
+              },
+              {
+                "slot": "Muzzle",
+                "name": "FSS IS300 Heavy Silencer"
+              },
+              {
+                "slot": "Optic",
+                "name": "Locus PX3 Canted Rifle Scope"
+              },
+              {
+                "slot": "Magazine",
+                "name": "60 Round Mag"
+              },
+              {
+                "slot": "Ammunition",
+                "name": "5.56 NATO High Velocity"
+              }
+            ],
+            "note": "Two separate reports match on all five parts. Current MW4 slot mapping normalizes the former truncated cartridge label to the full current attachment name; it is not a new guessed choice. Map/mode remains unverified.",
+            "sourceIds": [
+              "kitted-spam",
+              "kitted-cronen",
+              "kitted-adriann",
+              "cronen-types",
+              "cronen-full"
+            ]
+          },
+          "test": {
+            "kind": "CALC",
+            "value": "748 ms · far calculation",
+            "note": "JGOD’s fastest listed base-gun far comparison, not Spam’s five attachments or an actual contest measurement.",
+            "sourceIds": [
+              "jgod"
+            ]
+          },
+          "counterpoint": "Far-range calculation and editorial ranks support an Emerging watch only. No map-tagged competitive result or official population statistic establishes a Hajin winner. Tier-16 unlock excludes some early users.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-spam",
+            "kitted-cronen",
+            "kitted-adriann",
+            "cronen-types",
+            "cronen-full",
+            "jgod",
+            "wzstats",
+            "wzl"
+          ],
+          "unlock": "Battle Pass tier 16",
+          "fullSummary": "Clears the current-gun registry and five-part MW4 compatibility gate. One roster pro plus one supplemental current report; Hajin/Zodiac proof remains absent.",
+          "roleKey": "long",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "CALC",
+            "AGG"
+          ]
+        },
+        {
+          "id": "br-vel",
+          "role": "Close range · candidate, not map-verified",
+          "weapon": "VEL 46",
+          "confidence": "Emerging",
+          "summary": "Pros favor it for comfort and movement; ISO calculates faster up close.",
+          "modeUnlabeled": true,
+          "editable": "MW4 · current-game only",
+          "observed": {
+            "n": 5,
+            "total": 20,
+            "names": [
+              "Spam (roster)",
+              "Hisoka (roster)",
+              "Apathy",
+              "HusKerrs",
+              "Swagg"
+            ],
+            "date": "2026-11-06",
+            "dateLabel": "Launch-day reports",
+            "caveat": "Five named post-launch observations; ScummN’s Nov 5 entry is excluded. Reports come from a rolling panel, not a pure all-pro launch denominator or map subgroup.",
+            "sourceIds": [
+              "kitted-vel",
+              "kitted-spam",
+              "kitted-hisoka",
+              "kitted-panel",
+              "kitted-method"
+            ],
+            "display": "5 / 20 launch-day records · rolling panel"
+          },
+          "build": {
+            "owner": "Spam",
+            "kind": "Individual reported MW4 build · replaces stale VEL array",
+            "legacy": false,
+            "status": "5 current MW4 parts · one individual set",
+            "attachments": [
+              {
+                "slot": "Barrel",
+                "name": "VB-46 Series 11"
+              },
+              {
+                "slot": "Muzzle",
+                "name": "212 LC40 Comp"
+              },
+              {
+                "slot": "Stock",
+                "name": "EXP U-Turn Stock"
+              },
+              {
+                "slot": "Rear Grip",
+                "name": "V46 R-Skel Grip"
+              },
+              {
+                "slot": "Ammunition",
+                "name": "4.6x30mm High Velocity"
+              }
+            ],
+            "note": "A complete Spam set with all parts under current MW4 slot types. Hisoka’s different five-part record is not blended. No old-game VEL value survives through name similarity.",
+            "sourceIds": [
+              "kitted-spam",
+              "vel-types",
+              "vel-full"
+            ]
+          },
+          "test": {
+            "kind": "CALC",
+            "value": "ISO faster at 0m / 15m · VEL faster at 40m (CALC)",
+            "note": "JGOD launch-day calculations: ISO Nightshade / VEL 46 = 585 / 630 ms at 0m, 650 / 693 ms at 15m, and 910 / 882 ms at 40m. Calculations with incompletely specified assumptions, not controlled live tests of these builds.",
+            "sourceIds": [
+              "jgod"
+            ]
+          },
+          "counterpoint": "DISAGREEMENT · Kitted reports VEL 7/21 in its rolling panel (Nov 6, ~8:35 p.m. ET), not seven streams independently reviewed. Hisoka’s post-launch gunsmith confirms VEL in Hajin BR. Swagg describes comfort/movement, not a direct ISO comparison. JGOD’s calculations favor ISO at 0m (585 vs 630 ms) and 15m (650 vs 693 ms); VEL leads at 40m (882 vs 910 ms). Calculations, not controlled tests.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-spam",
+            "kitted-vel",
+            "kitted-hisoka",
+            "vel-types",
+            "vel-old",
+            "vel-full",
+            "jgod",
+            "wzstats",
+            "wzl",
+            "hisoka-vod-direct",
+            "swagg-vel-comfort"
+          ],
+          "fullSummary": "Emerging, usage-led close-range candidate. A direct Hisoka VEL gunsmith is confirmed in Hajin BR, while broader rolling-panel records remain mixed-mode. Comfort/movement is Swagg’s subjective rationale; it is not evidence VEL beats ISO for raw close-range TTK.",
+          "roleKey": "close",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "CALC",
+            "AGG"
+          ]
+        },
+        {
+          "id": "br-voyak",
+          "role": "LEGACY exception · current preset watch",
+          "weapon": "Voyak KT-3",
+          "confidence": "Emerging",
+          "summary": "LEGACY · FifaKill and FLS pair records from Nov 6; old attachments removed.",
+          "modeUnlabeled": true,
+          "editable": "LEGACY · preset-only · Nov 6 use",
+          "observed": {
+            "n": 2,
+            "total": 20,
+            "names": [
+              "FifaKill / Fifakillvizualz (roster)",
+              "FLS (roster)"
+            ],
+            "date": "2026-11-06",
+            "dateLabel": "Launch-day reports",
+            "caveat": "Only these two roster pair observations directly support a Nov 6 current-use exception. Rolling 8/20 spans 14 days and remains separate context. Map/mode and actual preset identity are unverified.",
+            "sourceIds": [
+              "kitted-fls",
+              "kitted-fifakill",
+              "kitted-kt3",
+              "kitted-panel",
+              "kitted-method",
+              "official"
+            ],
+            "display": "2 roster pairs · 8/20 mixed-freshness total"
+          },
+          "build": {
+            "owner": "Current legacy preset · identity unverified",
+            "kind": "Preset only · no attachments displayed",
+            "legacy": true,
+            "status": "No editable display · actual preset unverified",
+            "attachments": [],
+            "note": "Legacy guns in S1 use current presets / blueprints; Gunsmith editing and sharing are locked. Old attachment lists are historical and misleading as editable instructions, so no recipe is shown for this card.",
+            "sourceIds": [
+              "official"
+            ]
+          },
+          "test": null,
+          "counterpoint": "The mixed rolling panel has the largest legacy-use signal, but not two comparable controlled S1 measurements or direct mode-tagged tournament proof. Current-use evidence does not validate its listed BO7 attachment recipes.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-fls",
+            "kitted-fifakill",
+            "kitted-kt3",
+            "old-bo7"
+          ],
+          "preReset": false,
+          "legacy": true,
+          "fullSummary": "Retained as a genuine legacy exception for two tournament-roster players’ current pair reports. All old attachments were purged from actionable rendering.",
+          "roleKey": "legacy",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "AGG"
+          ]
+        },
+        {
+          "id": "br-kg7",
+          "role": "Sniper · no verified current pro pick",
+          "weapon": "No verified sniper build",
+          "confidence": "Testing",
+          "summary": "Role left unfilled. KG-7 and Astaroth editorial entries were removed, not repaired from defaults.",
+          "modeUnlabeled": true,
+          "editable": "MW4 candidates only · no verified build",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "No direct Season 1 complete pro build captured in this audit. In the 20-eligible rolling panel that is an evidence gap, not zero population use.",
+            "sourceIds": [
+              "kitted-panel",
+              "kitted-method"
+            ],
+            "display": "No verified S1 pro build · rolling n=20"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "KG-7 remains a current MW4 gun and editorial watch; Astaroth .57 is a separate current gun. The former mixed gun/editorial entry predates launch and lacks a current individual or controlled-test source. Gauge-12 Mono was cleared by a second MW4 compatibility database rather than called fake. The official default is a baseline only—not a substitute for pro use or a meta winner.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kg7-types",
+            "kg7-gauge",
+            "wzstats",
+            "wzl",
+            "jgod"
+          ],
+          "fullSummary": "KG-7 remains a current MW4 gun and editorial watch; Astaroth .57 is a separate current gun. The former mixed gun/editorial entry predates launch and lacks a current individual or controlled-test source. Gauge-12 Mono was cleared by a second MW4 compatibility database rather than called fake. The official default is a baseline only—not a substitute for pro use or a meta winner.",
+          "reflectCandidates": true,
+          "noteTitle": "Candidate watching · no ranked winner",
+          "candidates": [
+            {
+              "arm": "KG-7 Vulcan",
+              "owner": "Official Warzone default loadout",
+              "note": "7.62x54mmR High Velocity / XRK Clutch-LS / TT Solgae F7 / SZ Castaway / TT G76-RP Stock. Official notes list five strings without explicit per-slot labels beyond the loadout set; this baseline is current MW4 but has no pro or controlled S1 win-established proof. Gauge-12 Mono is separately MW4-compatible with KG-7; the editorial set is nevertheless archived as pre-launch.",
+              "sourceIds": [
+                "official",
+                "kg7-gauge",
+                "kg7-types",
+                "wzl"
+              ]
+            },
+            {
+              "arm": "Astaroth .57",
+              "owner": "Testing-only candidate",
+              "note": "JGOD’s table says Unlimited but lacks full one-shot assumptions. Official notes remove knockdown from Astaroth .57. Do not claim one-shot everywhere or merge its watch into a KG-7 build.",
+              "sourceIds": [
+                "jgod",
+                "official"
+              ]
+            }
+          ],
+          "roleKey": "sniper",
+          "placement": "empty",
+          "evidenceTags": []
+        },
+        {
+          "id": "br-han",
+          "role": "Long support · partial MW4 watch",
+          "weapon": "Han 86",
+          "confidence": "Testing",
+          "summary": "Hisoka supplies four MW4 parts; exact shared-part fit and Hajin use remain unverified.",
+          "modeUnlabeled": true,
+          "editable": "MW4 · current-game only",
+          "observed": {
+            "n": 3,
+            "total": 20,
+            "names": [
+              "Hisoka (roster)",
+              "Apathy",
+              "Kenner"
+            ],
+            "date": "2026-11-06",
+            "dateLabel": "Launch-day reports",
+            "caveat": "Three individual Nov 6 reports, still inside the rolling 20-eligible panel. Current pair-level report is not a Hajin-tagged match or fully verified exact-fit recipe.",
+            "sourceIds": [
+              "kitted-hisoka",
+              "kitted-han",
+              "kitted-panel",
+              "kitted-method"
+            ],
+            "display": "3 / 20 launch-day reports · partial build"
+          },
+          "build": {
+            "owner": "Hisoka",
+            "kind": "Partial current MW4 record · compatibility caveat",
+            "legacy": false,
+            "status": "4 MW4 parts · partial · at least two categories unverified",
+            "attachments": [
+              {
+                "slot": "Barrel",
+                "name": "SA H86 465mm"
+              },
+              {
+                "slot": "Slot unverified",
+                "name": "TZL-110 V1"
+              },
+              {
+                "slot": "Slot unverified",
+                "name": "Slimline Elite"
+              },
+              {
+                "slot": "Stock",
+                "name": "FR4 Retractable Stock"
+              }
+            ],
+            "note": "Four parts only, not five. Catalog spelling for SA H86 is normalized; TZL-110 V1 and Slimline Elite are current shared MW4 parts unlocked by M4 (muzzle/optic respectively), but exact Han fit is not confirmed on the selective Han page. Only TZL-110 V1 and Slimline Elite remain Slot unverified in the displayed Han record. Current atlas confirms SA H86 as barrel, FR4 as stock; retain explicit junction when externally verified, not inferred.",
+            "sourceIds": [
+              "kitted-hisoka",
+              "han-types",
+              "tzl-current",
+              "slimline-current",
+              "mw4-launch"
+            ]
+          },
+          "test": {
+            "kind": "CALC",
+            "value": "810 ms · far calculation",
+            "note": "Current MW4 base comparison, not measured capture of Hisoka’s partial recipe or Hajin mode performance.",
+            "sourceIds": [
+              "jgod"
+            ]
+          },
+          "counterpoint": "Current launch-day use is not a completed optimal-Han prescription. Muzzle/optic shared-part unlocks exist in MW4 but exact Han-fit needs Gunsmith capture; one absent atlas entry could mean selective coverage rather than incompatibility.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-hisoka",
+            "kitted-han",
+            "han-types",
+            "tzl-current",
+            "slimline-current",
+            "jgod"
+          ],
+          "fullSummary": "Legitimate MW4 candidate with three launch-day reports. Partial only: current part names verified, exact roles/fits for shared parts remain visibly uncertain; no fourth/fifth category invented.",
+          "roleKey": "support",
+          "placement": "pick",
+          "evidenceTags": [
+            "PRO",
+            "CALC"
+          ]
+        },
+        {
+          "id": "br-iso",
+          "role": "Close range · alternative",
+          "roleKey": "close",
+          "placement": "alternative",
+          "evidenceTags": [
+            "CALC",
+            "AGG"
+          ],
+          "whenToPick": "When you want the fastest calculated close-range kill and play inside 15m.",
+          "weapon": "ISO Nightshade",
+          "confidence": "Testing",
+          "summary": "JGOD calc favors ISO inside 15m; no pro loadout seen.",
+          "modeUnlabeled": true,
+          "editable": "Build unverified",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No pro loadout",
+            "caveat": "No pro loadout seen. WZStats ranks ISO #1 at close range. That is an aggregate editorial rank, not a counted pro sample.",
+            "sourceIds": [
+              "wzstats-iso-close",
+              "kitted-panel",
+              "kitted-method"
+            ],
+            "display": "No pro loadout seen"
+          },
+          "build": null,
+          "test": {
+            "kind": "CALC",
+            "value": "585 ms at 0m and 650 ms at 15m vs VEL 630/693; VEL faster at 40m (882 vs 910)",
+            "note": "JGOD calculated TTK, Nov 6 2026: ISO 585 ms at 0m and 650 ms at 15m versus VEL 630/693. VEL is faster at 40m (882 vs 910). Armor/HP is not stated by JGOD; a 300 HP reading is inferred from the STK counts, not published in the post. No attachments are listed because no pro loadout was seen.",
+            "sourceIds": [
+              "jgod"
+            ]
+          },
+          "counterpoint": "VEL remains the meta pick on reported pro use. JGOD’s calculation favors ISO only inside 15m; VEL leads at 40m (882 vs 910 ms). No pro loadout for ISO was captured.",
+          "sourceIds": [
+            "jgod",
+            "wzstats-iso-close",
+            "kitted-panel",
+            "kitted-method"
+          ],
+          "fullSummary": "Testing alternative for calculated close-range TTK inside 15m. Build unverified. No attachments added."
+        },
+        {
+          "id": "br-striga",
+          "role": "Close range · alternative",
+          "roleKey": "close",
+          "placement": "alternative",
+          "evidenceTags": [
+            "PRO",
+            "CALC"
+          ],
+          "whenToPick": "Aggressive close-range fights where raw speed matters more than handling.",
+          "weapon": "Wz.55 Striga",
+          "confidence": "Testing",
+          "summary": "Swagg calls it the fastest-killing SMG; build and mode unverified.",
+          "modeUnlabeled": true,
+          "editable": "Build unverified · mode unverified",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No pro loadout",
+            "caveat": "Mode unverified. Swagg’s Nov 6 video calls Striga the fastest-killing SMG around 2:43. That is a creator claim, not a captured pro loadout.",
+            "sourceIds": [
+              "swagg-striga"
+            ],
+            "display": "No pro loadout · mode unverified"
+          },
+          "build": null,
+          "test": {
+            "kind": "CALC",
+            "value": "JGOD 553 ms at 0m · CODMunity 617 ms at 0–10m",
+            "note": "Calculator TTK, kept as separate sources. JGOD base gun: 553/645/829/829 ms at 0m/15m/40m/far (STK 7/8/10/10). CODMunity band averages: 617/788/952/1025 ms at 0–10/10–40/40–80/80–120m, with a 64 ms open-bolt delay shown. Buckets are not merged. JGOD armor is inferred, not stated. CODMunity states 300 HP and 3 plates. The CODMunity default build is unconfirmed.",
+            "sourceIds": [
+              "jgod",
+              "codmunity-ttk"
+            ]
+          },
+          "counterpoint": "Swagg’s fastest-killing claim and the two calculators disagree on the close-range number (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m). Neither value is a captured pro build. VEL stays the meta pick.",
+          "sourceIds": [
+            "swagg-striga",
+            "jgod",
+            "codmunity-ttk"
+          ],
+          "fullSummary": "Testing alternative when raw close-range speed matters more than handling. Build unverified and mode unverified. No attachments added."
+        }
+      ],
+      "roles": [
+        {
+          "id": "br-close",
+          "key": "close",
+          "label": "Close range",
+          "pickId": "br-vel",
+          "alternativeIds": [
+            "br-iso",
+            "br-striga"
+          ]
+        },
+        {
+          "id": "br-long",
+          "key": "long",
+          "label": "Long range",
+          "pickId": "br-cronen",
+          "alternativeIds": []
+        },
+        {
+          "id": "br-support",
+          "key": "support",
+          "label": "Support",
+          "pickId": "br-han",
+          "alternativeIds": []
+        },
+        {
+          "id": "br-sniper",
+          "key": "sniper",
+          "label": "Sniper",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "br-kg7",
+          "revealEmptyCard": true
+        },
+        {
+          "id": "br-legacy",
+          "key": "legacy",
+          "label": "Legacy exception",
+          "pickId": "br-voyak",
+          "alternativeIds": []
+        }
+      ]
+    },
+    "res": {
+      "id": "res",
+      "label": "Resurgence",
+      "fullLabel": "Resurgence",
+      "map": "Zodiac",
+      "headnote": "No verified Zodiac-specific pro pick was captured. This mode deliberately contains no usable build: mixed-mode entries are archived with their withdrawal reasons, not copied from BR.",
+      "cards": [
+        {
+          "id": "res-pending",
+          "role": "All Zodiac roles · evidence gap",
+          "weapon": "No verified Zodiac-specific picks",
+          "confidence": "Testing",
+          "summary": "No current pro build was tied directly to Zodiac; BR candidates are not copied into Resurgence.",
+          "modeUnlabeled": true,
+          "editable": "Zodiac-specific evidence required",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "No direct Season 1 complete pro build captured in this audit. In the 20-eligible rolling panel that is an evidence gap, not zero population use.",
+            "sourceIds": [
+              "kitted-panel",
+              "kitted-method"
+            ],
+            "display": "No verified S1 pro build · rolling n=20"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "No current Zodiac pick assigned for close range, long range, support or sniper. Newbz’s afternoon WZ 2v2 stream is a next-pass observation lead without a verified gunsmith. Mixed-mode usage is not a Zodiac denominator.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "newbz-stream"
+          ],
+          "fullSummary": "No current Zodiac pick assigned for close range, long range, support or sniper. Newbz’s afternoon WZ 2v2 stream is a next-pass observation lead without a verified gunsmith. Mixed-mode usage is not a Zodiac denominator.",
+          "placement": "empty",
+          "evidenceTags": []
+        },
+        {
+          "id": "res-withdrawn-1",
+          "role": "Withdrawn current/legacy audit entry",
+          "weapon": "VEL 46",
+          "confidence": "Historical",
+          "summary": "Withdrawn from current recommendations; open Evidence for the dated audit reason.",
+          "modeUnlabeled": true,
+          "editable": "No S1 display build retained",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "Withdrawn from current role rendering; no implication that nobody uses the weapon.",
+            "sourceIds": [
+              "kitted-method"
+            ],
+            "display": "No S1 display recommendation"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "Current MW4 candidate under mixed-mode BR watch, but no direct Zodiac use. Morning and 10 a.m. VEL lists were sourced from an old MW2 category citation and are removed instead of renamed.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-hisoka",
+            "kitted-vel",
+            "vel-types",
+            "vel-old"
+          ],
+          "archived": true,
+          "withdrawnOn": "2026-11-06",
+          "fullSummary": "Current MW4 candidate under mixed-mode BR watch, but no direct Zodiac use. Morning and 10 a.m. VEL lists were sourced from an old MW2 category citation and are removed instead of renamed.",
+          "placement": "withdrawn",
+          "evidenceTags": []
+        },
+        {
+          "id": "res-withdrawn-2",
+          "role": "Withdrawn current/legacy audit entry",
+          "weapon": "ISO Nightshade",
+          "confidence": "Historical",
+          "summary": "Withdrawn from current recommendations; open Evidence for the dated audit reason.",
+          "modeUnlabeled": true,
+          "editable": "No S1 display build retained",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "Withdrawn from current role rendering; no implication that nobody uses the weapon.",
+            "sourceIds": [
+              "kitted-method"
+            ],
+            "display": "No S1 display recommendation"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "FLS’s actual weapon-page date is Nov 3, not Nov 6. It fails the current/data compatibility gate. Adriann’s current MW4 ISO does not verify Zodiac-specific usage; no replacement recipe is inferred.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-iso",
+            "kitted-fls",
+            "kitted-adriann",
+            "iso-types"
+          ],
+          "archived": true,
+          "withdrawnOn": "2026-11-06",
+          "fullSummary": "FLS’s actual weapon-page date is Nov 3, not Nov 6. It fails the current/data compatibility gate. Adriann’s current MW4 ISO does not verify Zodiac-specific usage; no replacement recipe is inferred.",
+          "placement": "withdrawn",
+          "evidenceTags": []
+        },
+        {
+          "id": "res-withdrawn-3",
+          "role": "Withdrawn current/legacy audit entry",
+          "weapon": "Wz.55 Striga",
+          "confidence": "Historical",
+          "summary": "Withdrawn from current recommendations; open Evidence for the dated audit reason.",
+          "modeUnlabeled": true,
+          "editable": "No S1 display build retained",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "Withdrawn from current role rendering; no implication that nobody uses the weapon.",
+            "sourceIds": [
+              "kitted-method"
+            ],
+            "display": "No S1 display recommendation"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "Wz.55’s 553 ms calculation remains a test-only lead. No complete current player build exists here, and Zodiac-specific use is not demonstrated. Its calculation-only card was withdrawn from the current pick list.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "jgod"
+          ],
+          "archived": true,
+          "withdrawnOn": "2026-11-06",
+          "fullSummary": "Wz.55’s 553 ms calculation remains a test-only lead. No complete current player build exists here, and Zodiac-specific use is not demonstrated. Its calculation-only card was withdrawn from the current pick list.",
+          "placement": "withdrawn",
+          "evidenceTags": []
+        },
+        {
+          "id": "res-withdrawn-4",
+          "role": "Withdrawn current/legacy audit entry",
+          "weapon": "Han 86",
+          "confidence": "Historical",
+          "summary": "Withdrawn from current recommendations; open Evidence for the dated audit reason.",
+          "modeUnlabeled": true,
+          "editable": "No S1 display build retained",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "Withdrawn from current role rendering; no implication that nobody uses the weapon.",
+            "sourceIds": [
+              "kitted-method"
+            ],
+            "display": "No S1 display recommendation"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "Hisoka’s launch-day mixed-mode report is not tied to Zodiac and its exact Han build is incomplete. Withdrawn rather than copied into both modes with invented certainty.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-hisoka",
+            "kitted-han",
+            "han-types"
+          ],
+          "archived": true,
+          "withdrawnOn": "2026-11-06",
+          "fullSummary": "Hisoka’s launch-day mixed-mode report is not tied to Zodiac and its exact Han build is incomplete. Withdrawn rather than copied into both modes with invented certainty.",
+          "placement": "withdrawn",
+          "evidenceTags": []
+        },
+        {
+          "id": "res-withdrawn-5",
+          "role": "Withdrawn current/legacy audit entry",
+          "weapon": "Cronen Osprey",
+          "confidence": "Historical",
+          "summary": "Withdrawn from current recommendations; open Evidence for the dated audit reason.",
+          "modeUnlabeled": true,
+          "editable": "No S1 display build retained",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "Withdrawn from current role rendering; no implication that nobody uses the weapon.",
+            "sourceIds": [
+              "kitted-method"
+            ],
+            "display": "No S1 display recommendation"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "Spam and Adriann have matching current MW4 records, not a proven Zodiac pick. Retained only as a mixed-mode BR candidate rather than duplicate resurrection as a Resurgence primary.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kitted-spam",
+            "kitted-cronen",
+            "kitted-adriann"
+          ],
+          "archived": true,
+          "withdrawnOn": "2026-11-06",
+          "fullSummary": "Spam and Adriann have matching current MW4 records, not a proven Zodiac pick. Retained only as a mixed-mode BR candidate rather than duplicate resurrection as a Resurgence primary.",
+          "placement": "withdrawn",
+          "evidenceTags": []
+        },
+        {
+          "id": "res-withdrawn-6",
+          "role": "Withdrawn current/legacy audit entry",
+          "weapon": "KG-7 Vulcan + Astaroth .57",
+          "confidence": "Historical",
+          "summary": "Withdrawn from current recommendations; open Evidence for the dated audit reason.",
+          "modeUnlabeled": true,
+          "editable": "No S1 display build retained",
+          "observed": {
+            "n": 0,
+            "total": 20,
+            "names": [],
+            "date": null,
+            "dateLabel": "No current tagged pro build",
+            "caveat": "Withdrawn from current role rendering; no implication that nobody uses the weapon.",
+            "sourceIds": [
+              "kitted-method"
+            ],
+            "display": "No S1 display recommendation"
+          },
+          "build": null,
+          "test": null,
+          "counterpoint": "The old two-weapon editorial entry predated launch, mixed separate sniper watch candidates and lacked a current individual / controlled-test citation. Removed from Zodiac pending separate current pro builds.",
+          "sourceIds": [
+            "official",
+            "mw4-launch",
+            "raven",
+            "kitted-panel",
+            "kitted-method",
+            "kg7-types",
+            "wzl",
+            "wzstats",
+            "jgod"
+          ],
+          "archived": true,
+          "withdrawnOn": "2026-11-06",
+          "fullSummary": "The old two-weapon editorial entry predated launch, mixed separate sniper watch candidates and lacked a current individual / controlled-test citation. Removed from Zodiac pending separate current pro builds.",
+          "placement": "withdrawn",
+          "evidenceTags": []
+        }
+      ],
+      "roles": [
+        {
+          "id": "res-close",
+          "key": "close",
+          "label": "Close range",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for close range.",
+          "revealEmptyCard": true
+        },
+        {
+          "id": "res-long",
+          "key": "long",
+          "label": "Long range",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for long range."
+        },
+        {
+          "id": "res-support",
+          "key": "support",
+          "label": "Support",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for support."
+        },
+        {
+          "id": "res-sniper",
+          "key": "sniper",
+          "label": "Sniper",
+          "pickId": null,
+          "alternativeIds": [],
+          "emptyCardId": "res-pending",
+          "emptySummary": "No current Zodiac pick assigned for sniper."
+        }
+      ]
+    }
+  },
+  "officialChanges": [
+    {
+      "text": "Hajin is BR; Zodiac is Resurgence. Mixed-mode reports cannot become picks in both without actual map/mode evidence.",
+      "sourceIds": [
+        "official"
+      ]
+    },
+    {
+      "text": "Current registry: 33 MW4 launch guns plus Cronen Osprey and CSG-35 at S1 launch. Recurring names need current-MW4 compatibility validation.",
+      "sourceIds": [
+        "official",
+        "mw4-launch"
+      ]
+    },
+    {
+      "text": "Legacy guns are Gunsmith-locked presets / blueprints. Old attachments are historical, not editable Season 1 builds.",
+      "sourceIds": [
+        "official"
+      ]
+    },
+    {
+      "text": "Cronen Osprey is BP16 and CSG-35 BP36. Adoption is constrained by access and early lockout this launch day.",
+      "sourceIds": [
+        "official"
+      ]
+    },
+    {
+      "text": "Visible Combat Record / Leaderboards arrive in S2. No official population usage statistic supports a launch-day winner.",
+      "sourceIds": [
+        "official"
+      ]
+    },
+    {
+      "text": "TrueGameData said full WZ stats were in progress at 1:46 p.m. ET Nov 6. No finished dataset was found by this audit cutoff.",
+      "sourceIds": [
+        "truegamedata"
+      ]
+    },
+    {
+      "text": "Afternoon official-feed check found no weapon-balance hotfix. Current incidents concern camos/skins/DMZ transitions.",
+      "sourceIds": [
+        "codupdates"
+      ]
+    }
+  ],
+  "changelog": [
+    {
+      "date": "Nov 7, 2026 · morning ET",
+      "title": "Multi-gun role cards, TTK section, Mineral Ledger redesign",
+      "text": "Close range now groups a VEL 46 meta pick with ISO Nightshade and Wz.55 Striga as testing alternatives. ISO has no attachments: JGOD’s Nov 6 calculation is faster inside 15m and WZStats ranks it #1 close range, but no pro loadout was seen. Striga stays build-unverified and mode-unverified; Swagg calls it the fastest-killing SMG, and the JGOD and CODMunity calculators are charted separately. Cronen Osprey, Han 86, and Voyak stay single picks. Sniper and every Resurgence role stay empty. The TTK section labels calculator values CALC and does not merge the two sources’ buckets.",
+      "sourceIds": [
+        "jgod",
+        "wzstats-iso-close",
+        "swagg-striga",
+        "codmunity-ttk"
+      ]
+    },
+    {
+      "date": "Nov 6, 2026 · evening ET",
+      "title": "VEL versus ISO: usage is not faster TTK",
+      "text": "Kept VEL Emerging but made the disagreement explicit: rolling-panel usage and direct Hisoka Hajin BR footage support VEL as a candidate; Swagg describes comfort/movement. JGOD’s launch-day calculations favor ISO at 0m and 15m, while VEL leads at 40m. These are calculations, not controlled tests. Hisoka’s readable four-part observation is separate from Spam’s build; fifth slot remains unverified.",
+      "sourceIds": [
+        "kitted-vel",
+        "hisoka-vod-direct",
+        "swagg-vel-comfort",
+        "jgod"
+      ]
+    },
+    {
+      "date": "Nov 6, 2026 · afternoon",
+      "title": "Current-game-only cleanup",
+      "text": "10 of 11 prior role cards were removed from recommendation status; Cronen was the only current build retained after name/capture verification. Nine recommendations were withdrawn completely, while Voyak stays as one visible current-use Legacy exception without any attachment recipe. Prior 45 displayed rows across seven distinct recipes became 14 rows across three current MW4 recipes. An explicit sniper gap and Zodiac evidence gap are left empty. Historical values are retained in the local audit, not the recommendation table.",
+      "sourceIds": [
+        "official",
+        "mw4-launch",
+        "kitted-spam",
+        "kitted-vel",
+        "cronen-types",
+        "vel-types",
+        "kitted-method"
+      ]
+    },
+    {
+      "date": "Nov 6, 2026 · afternoon",
+      "title": "Dated-data and compatibility audit",
+      "text": "FLS’s four-part ISO remains Nov 3; Hisoka’s former VEL list has old-game strings; the former KG-7/Astaroth entry is a pre-launch editorial build, not current pro evidence. A partial Han record was not made complete merely because current MW4 shared parts exist. Four launch-day pair reports replace nine current-or-historical pro rows. Exact individual dates are preserved; no stream title creates a gunsmith finding.",
+      "sourceIds": [
+        "kitted-iso",
+        "kitted-hisoka",
+        "vel-old",
+        "vel-types",
+        "kg7-types",
+        "wzl",
+        "newbz-stream",
+        "kitted-method"
+      ]
+    }
+  ],
+  "rosterNote": "20-player performance roster with four current launch-day pair-level reports displayed with dates. Pre-reset pair records are separated in a dated historical-pair disclosure: tournament placements qualify players, never a gun. “No verified current pair” means none verified in this read, not non-use.",
+  "rosterRosterSourceIds": [
+    "ewc",
+    "wsow",
+    "placements",
+    "pullze"
+  ],
+  "pros": [
+    {
+      "id": "Anziety",
+      "order": 1,
+      "name": "Anziety",
+      "team": "G2",
+      "result": "Anthony “Anziety” Moran · 2026 EWC / WRS champion + Sony MVP",
+      "x": "https://x.com/anzietywz",
+      "twitch": "https://www.twitch.tv/anzietywz",
+      "youtube": "https://www.youtube.com/@anzietywz",
+      "season1Captured": false,
+      "sourceIds": [
+        "ewc",
+        "wsow"
+      ],
+      "last": null
+    },
+    {
+      "id": "Bigman",
+      "order": 2,
+      "name": "Bigman",
+      "team": "G2",
+      "result": "2026 EWC / WRS champion",
+      "x": "https://x.com/bigman_live",
+      "twitch": "https://www.twitch.tv/bigman_live",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "ewc",
+        "wsow"
+      ],
+      "last": null
+    },
+    {
+      "id": "Cythe",
+      "order": 3,
+      "name": "Cythe",
+      "team": "G2",
+      "result": "2026 EWC / WRS champion",
+      "x": "https://x.com/CytheTV",
+      "twitch": "https://www.twitch.tv/cythetv",
+      "youtube": "https://www.youtube.com/channel/UCvQHPq3EMPCzlUsS3Y5ziuw",
+      "season1Captured": false,
+      "sourceIds": [
+        "ewc",
+        "wsow"
+      ],
+      "last": null
+    },
+    {
+      "id": "Echo",
+      "order": 4,
+      "name": "Echo1867",
+      "team": "T1",
+      "result": "2026 EWC finalist · 2025 WSOW BR champion",
+      "x": "https://x.com/Echo1867",
+      "twitch": "https://www.twitch.tv/echo1867",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": null
+    },
+    {
+      "id": "Spam",
+      "order": 5,
+      "name": "Spam",
+      "team": "T1",
+      "result": "2026 EWC finalist · PullzeCheck Oct 7 most-kills prize",
+      "x": "https://x.com/Spamgola",
+      "twitch": "https://www.twitch.tv/spam",
+      "youtube": null,
+      "season1Captured": true,
+      "sourceIds": [
+        "wsow",
+        "pullze"
+      ],
+      "last": {
+        "date": "2026-11-06",
+        "pair": "Cronen Osprey + VEL 46",
+        "note": "Launch-day pair-level report. Current MW4 parts appear on mixed-mode BR candidates; no map/mode asserted.",
+        "preReset": false,
+        "sourceIds": [
+          "kitted-spam"
+        ]
+      },
+      "identityNote": "Kitted also identifies him as Logan; player handle retained on row."
+    },
+    {
+      "id": "Disrrpt",
+      "order": 6,
+      "name": "Disrrpt",
+      "team": "T1",
+      "result": "2026 EWC finalist",
+      "x": "https://x.com/Disrrpt8",
+      "twitch": "https://www.twitch.tv/disrrpt17",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": null
+    },
+    {
+      "id": "Melvn",
+      "order": 7,
+      "name": "Melvn",
+      "team": "JD Gaming",
+      "result": "2026 EWC third · group B winner + May LAN-open winner",
+      "x": "https://x.com/Meelvn",
+      "twitch": "https://www.twitch.tv/melvn",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": null
+    },
+    {
+      "id": "Slappy",
+      "order": 8,
+      "name": "Slappy",
+      "team": "JD Gaming",
+      "result": "2026 EWC third · group B winner + May LAN-open winner",
+      "x": "https://x.com/Slappywz",
+      "twitch": "https://www.twitch.tv/slappywz",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow"
+      ],
+      "identityNote": "Twitch identity still needs a direct player / team link before importing builds.",
+      "last": null
+    },
+    {
+      "id": "FLS",
+      "order": 9,
+      "name": "FLS",
+      "team": "JD Gaming",
+      "result": "2026 EWC third · 2025 WSOW BR third with BDS",
+      "x": "https://x.com/FLStv_",
+      "twitch": "https://www.twitch.tv/flstv",
+      "youtube": null,
+      "season1Captured": true,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": {
+        "date": "2026-11-06",
+        "pair": "Voyak KT-3 + ISO Nightshade",
+        "note": "Pair-level Nov 6 report supports the visible legacy Voyak exception. Separate FLS ISO attachments are dated Nov 3 and are excluded.",
+        "preReset": false,
+        "sourceIds": [
+          "kitted-fls",
+          "kitted-iso",
+          "official"
+        ]
+      },
+      "legacyLabel": "Legacy + MW4 pair"
+    },
+    {
+      "id": "Enkeo",
+      "order": 10,
+      "name": "Enkeo",
+      "team": "Gentle Mates",
+      "result": "2026 EWC fifth · 2025 WSOW BR second + 34-kill top slayer",
+      "x": "https://x.com/Enkeo_",
+      "twitch": "https://www.twitch.tv/enkeo_",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "ewc",
+        "wsow",
+        "placements",
+        "pullze"
+      ],
+      "last": null
+    },
+    {
+      "id": "Gromalok",
+      "order": 11,
+      "name": "Gromalok",
+      "team": "Gentle Mates",
+      "result": "2026 EWC fifth · 2025 WSOW BR second",
+      "x": "https://x.com/Gromalokk",
+      "twitch": "https://www.twitch.tv/gromalokk",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow",
+        "pullze"
+      ],
+      "last": null
+    },
+    {
+      "id": "HalloW",
+      "order": 12,
+      "name": "HalloWFR",
+      "team": "Gentle Mates",
+      "result": "2026 EWC fifth · 2025 WSOW BR second",
+      "x": "https://x.com/HalloWFR",
+      "twitch": "https://www.twitch.tv/hallowfr",
+      "youtube": null,
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": null
+    },
+    {
+      "id": "Hisoka",
+      "order": 13,
+      "name": "Hisoka",
+      "team": "Falcons",
+      "result": "2026 WRS Atlanta winner + EWC Survival winner · PullzeCheck Oct 7 winner",
+      "x": "https://x.com/HisokaT42",
+      "twitch": "https://www.twitch.tv/hisokat42",
+      "youtube": "https://www.youtube.com/@HisokaT42",
+      "season1Captured": true,
+      "sourceIds": [
+        "wsow",
+        "pullze"
+      ],
+      "last": {
+        "date": "2026-11-06",
+        "pair": "Han 86 + VEL 46",
+        "note": "Current pair-level report, not a mode tag. Old VEL strings fail current-game validation; Han is withheld pending exact part validation.",
+        "preReset": false,
+        "sourceIds": [
+          "kitted-hisoka",
+          "vel-types",
+          "han-types"
+        ]
+      }
+    },
+    {
+      "id": "Newbz",
+      "order": 14,
+      "name": "Newbz",
+      "team": "Falcons",
+      "result": "2026 WRS Atlanta winner + EWC Survival winner",
+      "x": "https://x.com/TBE_Newbzz",
+      "twitch": "https://www.twitch.tv/newbz",
+      "youtube": "https://www.youtube.com/channel/UCZY_DnDfoS5tSUgE5nIMwqQ",
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": null,
+      "streamNote": {
+        "text": "New Nov 6 WZ 2v2 stream · no verified current gunsmith captured in this audit.",
+        "sourceIds": [
+          "newbz-stream"
+        ]
+      }
+    },
+    {
+      "id": "Dongy",
+      "order": 15,
+      "name": "Dongy",
+      "team": "Falcons",
+      "result": "2026 WRS Atlanta winner + EWC Survival winner · PullzeCheck Oct 7 winner",
+      "x": "https://x.com/zDongyy",
+      "twitch": "https://www.twitch.tv/dongy",
+      "youtube": "https://www.youtube.com/channel/UC-vEDqvYibjnrVSDQ8WlykA",
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow",
+        "pullze"
+      ],
+      "last": null
+    },
+    {
+      "id": "Almond",
+      "order": 16,
+      "name": "Almond",
+      "team": "Twisted Minds",
+      "result": "2026 EWC fourth + group A winner · 2025 WSOW ninth",
+      "x": "https://x.com/AlmxndTV",
+      "twitch": "https://www.twitch.tv/almxnd",
+      "youtube": "https://www.youtube.com/@AlmondYT",
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow",
+        "placements"
+      ],
+      "last": null
+    },
+    {
+      "id": "Shifty",
+      "order": 17,
+      "name": "Shifty",
+      "team": "Twisted Minds",
+      "result": "2026 EWC fourth + group A winner · 2025 WSOW fifth with Falcons",
+      "x": "https://x.com/ShiftyTV_",
+      "twitch": "https://www.twitch.tv/shiftytv",
+      "youtube": "https://www.youtube.com/channel/UCgUPIk7cl_csU_z5NFl6_9A",
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow",
+        "placements"
+      ],
+      "last": null
+    },
+    {
+      "id": "Blazt",
+      "order": 18,
+      "name": "Blazt",
+      "team": "Twisted Minds",
+      "result": "2026 EWC fourth + group A winner · Vitality third at May 16 LAN open",
+      "x": "https://x.com/Blazt",
+      "twitch": "https://www.twitch.tv/blazt",
+      "youtube": "https://www.youtube.com/c/BLAZT",
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow",
+        "placements"
+      ],
+      "last": null
+    },
+    {
+      "id": "Fifakill",
+      "order": 19,
+      "name": "Fifakill",
+      "team": "Vision in cited 2025 event",
+      "result": "2025 WSOW BR champion",
+      "x": "https://x.com/FifaKill_",
+      "twitch": "https://www.twitch.tv/fifakillvizualz",
+      "youtube": "https://www.youtube.com/@FifakillVizualz",
+      "season1Captured": true,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": {
+        "date": "2026-11-06",
+        "pair": "Voyak KT-3 + VMP",
+        "note": "Nov 6 pair-level legacy-use report. Current preset identities not captured. Legacy VMP and older attachments remain only in the archival audit.",
+        "preReset": false,
+        "sourceIds": [
+          "kitted-fifakill",
+          "official"
+        ]
+      },
+      "legacyLabel": "Legacy pair"
+    },
+    {
+      "id": "Lenun",
+      "order": 20,
+      "name": "Lenun",
+      "team": "Vision*",
+      "result": "2025 WSOW BR champion",
+      "x": "https://x.com/LenunLH",
+      "twitch": "https://www.twitch.tv/lenun",
+      "youtube": "https://www.youtube.com/channel/UCkeIjdLsyxK32biEP0PIeaw",
+      "season1Captured": false,
+      "sourceIds": [
+        "wsow"
+      ],
+      "last": null,
+      "teamContext": "Vision in cited 2025 event; not asserted as current Nov 6 team."
+    }
+  ],
+  "auditStats": {
+    "oldRoleCards": 11,
+    "oldDisplayAttachmentRows": 45,
+    "oldUniqueWeaponRecipes": 7,
+    "oldUniqueSlotNames": 27,
+    "oldProCaptures": 9,
+    "newCurrentRoleCards": 6,
+    "newWithdrawnAuditCards": 6,
+    "newDisplayAttachmentRows": 14,
+    "newUniqueWeaponRecipes": 3,
+    "newUniqueSlotNames": 14,
+    "newProCaptures": 4,
+    "endingBuildsWithAttachments": 3,
+    "distinctRemovedSlotNameRows": 22,
+    "distinctSurvivingSlotNameRows": 5,
+    "removedOldSlotNames": [
+      {
+        "slot": "Ammunition",
+        "name": "4.6mm Hollowpoint"
+      },
+      {
+        "slot": "Ammunition",
+        "name": "5.56 NATO High"
+      },
+      {
+        "slot": "Ammunition",
+        "name": "7.62 Soviet FMJ"
+      },
+      {
+        "slot": "Ammunition",
+        "name": "7.62x54mmR High Velocity"
+      },
+      {
+        "slot": "Barrel",
+        "name": "17.6\" LTI Grav-4 Barrel"
+      },
+      {
+        "slot": "Barrel",
+        "name": "Haebang RMT762 29"
+      },
+      {
+        "slot": "Barrel",
+        "name": "SA H86 465MM"
+      },
+      {
+        "slot": "Bolt",
+        "name": "KT76 Light Bolt"
+      },
+      {
+        "slot": "Laser",
+        "name": "OFL-S4.5"
+      },
+      {
+        "slot": "Laser",
+        "name": "VLK LZR 7MW"
+      },
+      {
+        "slot": "Magazine",
+        "name": "40 Round Mag"
+      },
+      {
+        "slot": "Magazine",
+        "name": "50 Round Mag"
+      },
+      {
+        "slot": "Magazine",
+        "name": "Lineguard Casket Mag"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "Gauge-12 Mono"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "Monolithic Suppressor"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "TZL-110 V1"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "XRK Herder 40"
+      },
+      {
+        "slot": "Optic",
+        "name": "Redwell 30-S 2x"
+      },
+      {
+        "slot": "Optic",
+        "name": "Slimline Elite"
+      },
+      {
+        "slot": "Stock",
+        "name": "Demo RXT Stock"
+      },
+      {
+        "slot": "Stock",
+        "name": "EXP G2-44 Stock"
+      },
+      {
+        "slot": "Stock",
+        "name": "TT G76-RP Stock"
+      }
+    ],
+    "survivingOldSlotNames": [
+      {
+        "slot": "Barrel",
+        "name": "IO-556 TAC 18\""
+      },
+      {
+        "slot": "Magazine",
+        "name": "60 Round Mag"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "FSS IS300 Heavy Silencer"
+      },
+      {
+        "slot": "Optic",
+        "name": "Locus PX3 Canted Rifle Scope"
+      },
+      {
+        "slot": "Stock",
+        "name": "FR4 Retractable Stock"
+      }
+    ],
+    "note": "Counts cover recommended current recipes before normalization. Legacy presets contain no displayed attachment rows. Distinct slot+text pairs collapse identical old rows repeated across modes. A Cronen cartridge string was normalized to the full MW4 name; Han has normalized barrel casing and two Slot unverified entries. Historical pairs and past recipes stay only in the audit / local research artifacts."
+  },
+  "legacyPurge": {
+    "oldRoleCards": 11,
+    "oldDisplayAttachmentRows": 45,
+    "oldUniqueWeaponRecipes": 7,
+    "oldUniqueSlotNames": 27,
+    "oldProCaptures": 9,
+    "newCurrentRoleCards": 6,
+    "newWithdrawnAuditCards": 6,
+    "newDisplayAttachmentRows": 14,
+    "newUniqueWeaponRecipes": 3,
+    "newUniqueSlotNames": 14,
+    "newProCaptures": 4,
+    "endingBuildsWithAttachments": 3,
+    "distinctRemovedSlotNameRows": 22,
+    "distinctSurvivingSlotNameRows": 5,
+    "removedOldSlotNames": [
+      {
+        "slot": "Ammunition",
+        "name": "4.6mm Hollowpoint"
+      },
+      {
+        "slot": "Ammunition",
+        "name": "5.56 NATO High"
+      },
+      {
+        "slot": "Ammunition",
+        "name": "7.62 Soviet FMJ"
+      },
+      {
+        "slot": "Ammunition",
+        "name": "7.62x54mmR High Velocity"
+      },
+      {
+        "slot": "Barrel",
+        "name": "17.6\" LTI Grav-4 Barrel"
+      },
+      {
+        "slot": "Barrel",
+        "name": "Haebang RMT762 29"
+      },
+      {
+        "slot": "Barrel",
+        "name": "SA H86 465MM"
+      },
+      {
+        "slot": "Bolt",
+        "name": "KT76 Light Bolt"
+      },
+      {
+        "slot": "Laser",
+        "name": "OFL-S4.5"
+      },
+      {
+        "slot": "Laser",
+        "name": "VLK LZR 7MW"
+      },
+      {
+        "slot": "Magazine",
+        "name": "40 Round Mag"
+      },
+      {
+        "slot": "Magazine",
+        "name": "50 Round Mag"
+      },
+      {
+        "slot": "Magazine",
+        "name": "Lineguard Casket Mag"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "Gauge-12 Mono"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "Monolithic Suppressor"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "TZL-110 V1"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "XRK Herder 40"
+      },
+      {
+        "slot": "Optic",
+        "name": "Redwell 30-S 2x"
+      },
+      {
+        "slot": "Optic",
+        "name": "Slimline Elite"
+      },
+      {
+        "slot": "Stock",
+        "name": "Demo RXT Stock"
+      },
+      {
+        "slot": "Stock",
+        "name": "EXP G2-44 Stock"
+      },
+      {
+        "slot": "Stock",
+        "name": "TT G76-RP Stock"
+      }
+    ],
+    "survivingOldSlotNames": [
+      {
+        "slot": "Barrel",
+        "name": "IO-556 TAC 18\""
+      },
+      {
+        "slot": "Magazine",
+        "name": "60 Round Mag"
+      },
+      {
+        "slot": "Muzzle",
+        "name": "FSS IS300 Heavy Silencer"
+      },
+      {
+        "slot": "Optic",
+        "name": "Locus PX3 Canted Rifle Scope"
+      },
+      {
+        "slot": "Stock",
+        "name": "FR4 Retractable Stock"
+      }
+    ],
+    "note": "Counts cover recommended current recipes before normalization. Legacy presets contain no displayed attachment rows. Distinct slot+text pairs collapse identical old rows repeated across modes. A Cronen cartridge string was normalized to the full MW4 name; Han has normalized barrel casing and two Slot unverified entries. Historical pairs and past recipes stay only in the audit / local research artifacts."
+  },
+  "historicalPros": [
+    {
+      "id": "Gromalok",
+      "name": "Gromalok",
+      "team": "Gentle Mates",
+      "order": 11,
+      "last": {
+        "date": "2026-09-24",
+        "pair": "MXR-17 + CBRS-3",
+        "note": "Last confirmed Sep 24, 2026 · pre-reset; not current meta evidence.",
+        "preReset": true,
+        "sourceIds": [
+          "kitted-gromalok"
+        ]
+      }
+    },
+    {
+      "id": "HalloW",
+      "name": "HalloWFR",
+      "team": "Gentle Mates",
+      "order": 12,
+      "last": {
+        "date": "2026-10-16",
+        "pair": "Voyak KT-3 + MPC-25",
+        "note": "Last confirmed Oct 16, 2026 · pre-reset; not current meta evidence.",
+        "preReset": true,
+        "sourceIds": [
+          "kitted-hallow"
+        ]
+      }
+    },
+    {
+      "id": "Newbz",
+      "name": "Newbz",
+      "team": "Falcons",
+      "order": 14,
+      "last": {
+        "date": "2026-10-24",
+        "pair": "EGRT-17 + Carbon 57",
+        "note": "Last confirmed pair Oct 24, 2026 · pre-reset. A Nov 6 stream exists, but no complete current Gunsmith was captured.",
+        "preReset": true,
+        "sourceIds": [
+          "kitted-newbz"
+        ]
+      }
+    },
+    {
+      "id": "Dongy",
+      "name": "Dongy",
+      "team": "Falcons",
+      "order": 15,
+      "last": {
+        "date": "2026-10-31",
+        "pair": "Voyak KT-3 + MPC-25",
+        "note": "Last confirmed Oct 31, 2026 · pre-reset; four long-range attachments were reported.",
+        "preReset": true,
+        "sourceIds": [
+          "kitted-dongy"
+        ]
+      }
+    },
+    {
+      "id": "Shifty",
+      "name": "Shifty",
+      "team": "Twisted Minds",
+      "order": 17,
+      "last": {
+        "date": "2026-10-15",
+        "pair": "XM4 + Carbon 57",
+        "note": "Last confirmed Oct 15, 2026 · pre-reset; not current meta evidence.",
+        "preReset": true,
+        "sourceIds": [
+          "kitted-shifty"
+        ]
+      }
+    },
+    {
+      "id": "Lenun",
+      "name": "Lenun",
+      "team": "Vision in cited 2025 event",
+      "order": 20,
+      "last": {
+        "date": "2026-10-02",
+        "pair": "AN-94 + VMP",
+        "note": "Last confirmed Oct 2, 2026 · pre-reset and outside Kitted’s current 14-day panel.",
+        "preReset": true,
+        "sourceIds": [
+          "kitted-lenun"
+        ]
+      }
+    }
+  ]
+}

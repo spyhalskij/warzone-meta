@@ -1,36 +1,47 @@
 ---
-import '@fontsource/ibm-plex-sans/latin-400.css';
-import '@fontsource/ibm-plex-sans/latin-600.css';
-import '@fontsource/ibm-plex-sans-condensed/latin-600.css';
-import '@fontsource/ibm-plex-mono/latin-400.css';
-import '@fontsource/ibm-plex-mono/latin-600.css';
+import '@fontsource/newsreader/latin-600.css';
+import '@fontsource/source-sans-3/latin-400.css';
+import '@fontsource/source-sans-3/latin-400-italic.css';
+import '@fontsource/source-sans-3/latin-600.css';
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '@fontsource/jetbrains-mono/latin-500.css';
 import '../styles/site.css';
 import { meta } from '../data/meta';
+interface Props { title?: string; description?: string; }
+const { title = 'Warzone Meta · Season 1 watchlist', description = 'An evidence-first Warzone Season 1 watchlist for Battle Royale and Resurgence, with calculator TTK kept separate from the meta picks.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const canonical = new URL(base, Astro.site);
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const onTtk = Astro.url.pathname.includes('/ttk');
 ---
 <!doctype html>
 <html lang="en" data-mode="br">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0B0D10">
-  <meta name="description" content="An evidence-first, independently tracked Warzone Season 1 watchlist for Battle Royale and Resurgence.">
-  <title>Warzone Meta · Season 1 watchlist</title>
+  <meta name="theme-color" content="#101311">
+  <meta name="description" content={description}>
+  <title>{title}</title>
   <link rel="canonical" href={canonical}>
   <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml">
   <script src={`${base}app.js`} defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to meta</a>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="topbar">
     <nav aria-label="Warzone meta views">
       <div class="site-title">
-        <span class="brand-mark" aria-hidden="true">WM</span>
-        <div><span class="site-name">Warzone Meta</span><span class="site-patch">{meta.patch}</span></div>
+        <a class="brand-link" href={base}>
+          <span class="brand-mark" aria-hidden="true">WM</span>
+          <span class="site-name">Warzone Meta</span>
+        </a>
+        <span class="site-patch">{meta.patch}</span>
+      </div>
+      <div class="section-switch" role="group" aria-label="Section">
+        <a class="nav-link" href={base} aria-current={onTtk ? undefined : 'page'}>Meta</a>
+        <a class="nav-link" href={`${base}ttk/`} aria-current={onTtk ? 'page' : undefined}>TTK</a>
       </div>
       <div class="mode-switch segment" role="group" aria-label="Game mode">
-        <a id="mode-br" class="segment-option switch-option" href={`${base}?mode=br`} data-mode-target="br" aria-current="page">BR<span class="mode-map"> · Hajin</span></a>
+        <a id="mode-br" class="segment-option switch-option" href={`${base}?mode=br`} data-mode-target="br" aria-current={onTtk ? undefined : 'page'}>BR<span class="mode-map"> · Hajin</span></a>
         <a id="mode-res" class="segment-option switch-option" href={`${base}?mode=res`} data-mode-target="res" aria-label="Resurgence, Zodiac"><span class="mode-label-full">Resurgence</span><span class="mode-label-short">Res</span><span class="mode-map"> · Zodiac</span></a>
       </div>
     </nav>
@@ -41,6 +52,6 @@ const canonical = new URL(base, Astro.site);
     </header>
     <slot />
   </main>
-  <footer>Sources: Raven / official notes, Kitted, JGOD, WZStats, WarzoneLoadout, Dexerto · Researched {meta.researchedWindow} · Unofficial; not affiliated with Activision.</footer>
+  <footer>Sources: Raven / official notes, Kitted, JGOD, CODMunity, WZStats, WarzoneLoadout · Researched {meta.researchedWindow} · Unofficial; not affiliated with Activision.</footer>
 </body>
 </html>

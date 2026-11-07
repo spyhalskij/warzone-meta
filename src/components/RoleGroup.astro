@@ -1,0 +1,30 @@
+---
+import type { ResolvedRole } from '../data/meta';
+import MetaCard from './MetaCard.astro';
+interface Props { role: ResolvedRole; }
+const { role } = Astro.props;
+const alternatives = role.alternatives;
+---
+<section class="role-group" id={role.id} aria-labelledby={`${role.id}-title`}>
+  <h2 class="role-heading" id={`${role.id}-title`}>{role.label}</h2>
+  {role.pick ? (
+    <div class:list={['role-layout', { 'has-alts': alternatives.length > 0 }]}>
+      <MetaCard card={role.pick} />
+      {alternatives.length > 0 && (
+        <div class="alt-column">
+          <h3 class="alt-kicker">Alternatives</h3>
+          <div class="alt-list">
+            {alternatives.map(card => <MetaCard card={card} />)}
+          </div>
+        </div>
+      )}
+    </div>
+  ) : (
+    <>
+      {!role.revealEmptyCard && role.emptySummary && (
+        <p class="empty-role">{role.emptySummary} {role.emptyCardId && <a class="evidence-jump" href={`#${role.emptyCardId}`}>Evidence for this gap</a>}</p>
+      )}
+      {role.revealEmptyCard && role.emptyCard && <MetaCard card={role.emptyCard} />}
+    </>
+  )}
+</section>

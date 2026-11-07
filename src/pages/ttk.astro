@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import TtkChart from '../components/TtkChart.astro';
+import { TYPE_FILTERS, TYPE_ORDER, chartsFor, gapsFor, closeDisagreements, ttk } from '../data/ttk';
+const initialFilter = { type: 'all', weaponId: null };
+---
+<Base title="TTK · Warzone Meta" description="Calculator TTK for MW4 Season 1 Warzone. JGOD and CODMunity are charted separately and labeled CALC.">
+  <section class="ttk-page" aria-labelledby="ttk-title" data-filter-state={JSON.stringify(initialFilter)}>
+    <p class="eyebrow">Calculator TTK · not a meta rank</p>
+    <h1 id="ttk-title">Time to kill</h1>
+    <p class="mode-note">Each source keeps its own buckets. JGOD is point values at 0m, 15m, 40m, and far. CODMunity is averaged bands. Nothing is merged or interpolated. Every value is CALC.</p>
+    <div class="filter-row" role="group" aria-label="Weapon type">
+      {TYPE_FILTERS.map(filter => (
+        <button type="button" class="filter-chip" data-filter-type={filter.id} aria-pressed={filter.id === 'all' ? 'true' : 'false'}>{filter.label}</button>
+      ))}
+    </div>
+    <p class="filter-note">Showing every weapon in the selected type. A single-weapon filter can be added in this row later.</p>
+    {TYPE_ORDER.map(type => {
+      const charts = chartsFor(type);
+      const gaps = gapsFor(type);
+      const disagreements = closeDisagreements(type);
+      const empty = charts.length === 0;
+      return (
+        <section class="ttk-type" data-ttk-type={type} aria-labelledby={`type-${type}`}>
+          <h2 id={`type-${type}`}>{type}</h2>
+          {empty && <p class="empty-role">No measured TTK yet for {gaps.map(weapon => weapon.name).join(' or ') || type}.</p>}
+          {!empty && gaps.length > 0 && <p class="empty-role">No measured TTK yet for {gaps.map(weapon => weapon.name).join(' or ')}.</p>}
+          {disagreements.length > 0 && (
+            <section class="disagreements" aria-label={`${type} source disagreements`}>
+              <h3>Source disagreements</h3>
+              <ul>
+                {disagreements.map(row => <li><strong>{row.name}.</strong> {row.detail}</li>)}
+              </ul>
+            </section>
+          )}
+          {charts.map(chart => <TtkChart chart={chart} />)}
+        </section>
+      );
+    })}
+    <details class="evidence dataset-gaps">
+      <summary>Dataset gaps<span class="details-mark" aria-hidden="true">+</span></summary>
+      <div class="evidence-content">
+        <ul>{ttk.known_gaps.map(gap => <li>{gap}</li>)}</ul>
+      </div>
+    </details>
+  </section>
+  <script is:inline src={`${import.meta.env.BASE_URL}ttk.js`} defer></script>
+</Base>
