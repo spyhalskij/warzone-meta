@@ -1,0 +1,91 @@
+---
+import type { ChartModel } from '../data/ttk';
+import { xForBucket } from '../data/ttk';
+interface Props { chart: ChartModel; }
+const { chart } = Astro.props;
+const selected = chart.series.filter(series => series.selected);
+const slotOf = new Map(selected.map((series, index) => [series.weaponId, String(index)]));
+const slot = (weaponId: string) => slotOf.get(weaponId);
+const jgod = chart.source.id.startsWith('jgod');
+---
+<article class="ttk-chart" id={chart.id} data-chart={chart.id}>
+  <header class="chart-heading">
+    <h3>{chart.source.name}</h3>
+    <p class="calc-line"><span class="tag tag-calc">CALC</span> <span class="calc-value">{chart.dateLabel}</span></p>
+    <p class="caveat-line">{chart.armor.inferred ? 'Armor assumption inferred. ' : 'Armor assumption stated. '}{chart.armor.short}</p>
+    <p class="chart-link"><a href={chart.source.url} target="_blank" rel="noopener noreferrer">Source<span class="sr-only"> (opens in a new tab)</span> ↗</a></p>
+  </header>
+  <div class="series-controls" role="group" aria-label={`Series on the ${chart.source.name} chart`}>
+    {chart.series.map(series => (
+      <button type="button" class="series-toggle" data-weapon-id={series.weaponId} aria-pressed={series.selected ? 'true' : 'false'}>{series.name}</button>
+    ))}
+  </div>
+  <p class="series-limit" aria-live="polite"></p>
+  <p class="axis-title"><span>{chart.yTitle}</span><span>{chart.xTitle}</span></p>
+  <svg class="ttk-svg" viewBox={`0 0 ${chart.width} ${chart.height}`} role="img" aria-labelledby={`${chart.id}-title ${chart.id}-desc`}>
+    <title id={`${chart.id}-title`}>{chart.source.name} {chart.type} TTK</title>
+    <desc id={`${chart.id}-desc`}>{chart.caption}</desc>
+    {chart.yTicks.map(tick => (
+      <g class="grid-tick">
+        <line x1={chart.plotLeft} x2={chart.plotRight} y1={tick.y} y2={tick.y} />
+        <text x={chart.plotLeft - 6} y={tick.y + 4} text-anchor="end">{tick.value}</text>
+      </g>
+    ))}
+    {chart.buckets.map((bucket, index) => (
+      <text class="x-label" x={xForBucket(chart, index)} y={chart.height - 8} text-anchor="middle">{bucket}</text>
+    ))}
+    {chart.series.map(series => {
+      const active = slot(series.weaponId);
+      return (
+        <g class="series-mark" data-weapon-id={series.weaponId} data-slot={active}>
+          {jgod && series.points.length > 1 && (
+            <polyline fill="none" points={series.points.map(point => `${point.x},${point.y}`).join(' ')} />
+          )}
+          {!jgod && series.points.map((point, index) => (
+            <line x1={point.x - 18} x2={index === series.points.length - 1 ? point.x : point.x + 14} y1={point.y} y2={point.y} />
+          ))}
+          {series.points.map(point => <circle cx={point.x} cy={point.y} r="3.5" />)}
+          <text class="end-label" x={series.labelX} y={series.labelY}>{series.endLabel}</text>
+        </g>
+      );
+    })}
+  </svg>
+  <p class="chart-caption">{chart.caption}</p>
+  {chart.showOneShot && (
+    <div class="oneshot-notes">
+      {chart.series.filter(series => series.oneShot).map(series => <p><strong>{series.name}.</strong> {series.oneShot} Shots-to-kill in the table are separate from this note.</p>)}
+    </div>
+  )}
+  <table class="ttk-table">
+    <caption>CALC · {chart.source.name} · {chart.dateLabel}. {chart.armor.short} Same values as the chart.</caption>
+    <thead>
+      <tr>
+        <th scope="col">Weapon</th>
+        {chart.buckets.map(bucket => <th scope="col">{bucket}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {chart.series.map(series => (
+        <tr class="series-mark" data-weapon-id={series.weaponId} data-slot={slot(series.weaponId)}>
+          <th scope="row">{series.name}</th>
+          {chart.buckets.map(bucket => {
+            const point = series.points.find(item => item.bucket === bucket);
+            const text = !point ? '—' : point.stk === null ? `${point.ttk} ms` : `${point.ttk} ms · ${point.stk} stk`;
+            return <td data-label={bucket}>{text}</td>;
+          })}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <details class="evidence protocol">
+    <summary>Protocol and assumptions<span class="details-mark" aria-hidden="true">+</span></summary>
+    <div class="evidence-content">
+      <p>{chart.source.method}</p>
+      <p>{chart.armor.full}</p>
+      {chart.source.build && <p>Build note: {chart.source.build}</p>}
+      {chart.source.far_definition && <p>far: {chart.source.far_definition}.</p>}
+      {chart.source.coverage_limit && <p>{chart.source.coverage_limit}</p>}
+      <p>Retrieved: {chart.source.retrieved ?? chart.dateLabel}.</p>
+    </div>
+  </details>
+</article>

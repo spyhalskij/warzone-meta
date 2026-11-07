@@ -1,13 +1,44 @@
 import raw from './meta.json';
-import type { MetaData, Source } from './types';
+import type { GameMode, MetaCard, MetaData, RoleGroup, Source } from './types';
 export const meta = raw as MetaData;
 export const sourceById = new Map<string, Source>(meta.sources.map(source => [source.id, source]));
-export const evidenceSourcesFor = (card: import('./types').MetaCard) => sourcesFor([
+export const evidenceSourcesFor = (card: MetaCard) => sourcesFor([
   ...card.sourceIds,
   ...card.observed.sourceIds,
   ...(card.build?.sourceIds ?? []),
   ...(card.test?.sourceIds ?? []),
 ]);
+
+export interface ResolvedRole extends RoleGroup {
+  pick: MetaCard | null;
+  alternatives: MetaCard[];
+  emptyCard: MetaCard | null;
+}
+
+export const rolesFor = (mode: GameMode): ResolvedRole[] => {
+  const byId = new Map(mode.cards.map(card => [card.id, card]));
+  return mode.roles.map(role => ({
+    ...role,
+    pick: role.pickId ? byId.get(role.pickId) ?? null : null,
+    alternatives: role.alternativeIds.map(id => {
+      const card = byId.get(id);
+      if (!card) throw new Error(`Missing alternative ${id} on ${role.id}`);
+      return card;
+    }),
+    emptyCard: role.emptyCardId ? byId.get(role.emptyCardId) ?? null : null
+  }));
+};
+
+export const caveatLine = (card: MetaCard) => {
+  const parts: string[] = [];
+  if (card.legacy) parts.push('Legacy preset');
+  if (card.modeUnlabeled) parts.push('Mode unverified');
+  if (card.placement === 'alternative' && !card.build) parts.push('Build unverified');
+  const partial = card.build?.status.toLowerCase().includes('partial')
+    || card.build?.attachments.some(attachment => attachment.slot === 'Slot unverified');
+  if (partial) parts.push('Partial build');
+  return parts.join(' · ');
+};
 
 export const sourcesFor = (ids: string[]) => [...new Set(ids)].map(id => {
   const source = sourceById.get(id);

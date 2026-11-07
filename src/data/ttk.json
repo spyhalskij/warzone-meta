@@ -1,0 +1,1464 @@
+{
+  "schema_version": 1,
+  "generated": "2026-11-07T08:30:00-05:00",
+  "game": "Warzone (MW4 Season 1 integration, live Nov 6 2026 12:00 a.m. ET)",
+  "units": {
+    "ttk": "ms",
+    "range": "m",
+    "fire_rate": "rpm"
+  },
+  "how_to_filter": "Filter weapons[] by type (weapon-type filter) or by id (individual-weapon filter later); join measurements[] on weapon_id. Range buckets differ by source — never merge buckets across sources; chart per source.",
+  "sources": [
+    {
+      "id": "jgod-2026-11-06",
+      "name": "JGOD — 'Warzone TTKs for New MW4 Weapons'",
+      "url": "https://x.com/JGODYT/status/2118625064195359188",
+      "image_urls": [
+        "https://pbs.twimg.com/media/HWbd9m_b0AAZSTr.png?name=orig",
+        "https://pbs.twimg.com/media/HWbeBTjbgAADzvo.png?name=orig"
+      ],
+      "published": "2026-11-06T03:42:32-05:00",
+      "retrieved": "2026-11-07 ~08:20 ET (re-pulled via fxtwitter API; tables visually identical to archived Nov 6 copies)",
+      "evidence_type": "MEAS",
+      "method": "creator-calculated STK/TTK table (not in-match capture)",
+      "build": "base weapons (per stream-pass reading; post itself does not state attachments)",
+      "range_buckets": [
+        "0m",
+        "15m",
+        "40m",
+        "far"
+      ],
+      "far_definition": "not stated",
+      "armor_health_assumption": "Not stated in post or graphics. STK values are consistent with Warzone 300 HP (100 health + 3 plates) but JGOD does not say so; body part/hitbox, bullet travel and ADS time not stated."
+    },
+    {
+      "id": "codmunity-2026-11-06",
+      "name": "CODMunity — Warzone TTK Rankings",
+      "url": "https://codmunity.gg/ttk/warzone",
+      "published": "2026-11-06 (page shows 'Updated: 06/11/2026 - Season 1')",
+      "retrieved": "2026-11-07 ~08:15 ET",
+      "evidence_type": "MEAS",
+      "method": "calculator from game data (third-party site; not hand-tested); treat as calculated, below JGOD only for its undisclosed default build",
+      "range_buckets": [
+        "0-10m",
+        "10-40m",
+        "40-80m",
+        "80-120m"
+      ],
+      "armor_health_assumption": "CODMunity Warzone config in page source: health 300, healthPerPlate 50, defaultPlates 3, maxPlates 3 (full plates). Body location: page default (not stated in table); attachment mode toggle Meta Loadouts vs Base Weapons — which one rendered the default table is NOT confirmed (VEL 567 vs JGOD base 630 suggests attachments may be applied).",
+      "coverage_limit": "Default table only renders Assault Rifle, SMG, LMG (categoriesOnTtkRankings); no Marksman/Pistol/Sniper/Shotgun rows; CSG-35 absent from rows."
+    }
+  ],
+  "weapons": [
+    {
+      "id": "wz55-striga",
+      "name": "Wz.55 Striga",
+      "type": "SMG",
+      "type_short": "SMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [
+        "BR close (alternative)"
+      ],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "iso-nightshade",
+      "name": "ISO Nightshade",
+      "type": "SMG",
+      "type_short": "SMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [
+        "BR close (alternative)"
+      ],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "axion",
+      "name": "Axion",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "ppsh-41",
+      "name": "PPSh-41",
+      "type": "SMG",
+      "type_short": "SMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "kastov-762",
+      "name": "Kastov 762",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "csg-35",
+      "name": "CSG-35",
+      "type": "SMG",
+      "type_short": "SMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "cronen-osprey",
+      "name": "Cronen Osprey",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [
+        "BR long"
+      ],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "cronen-squall",
+      "name": "Cronen Squall",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "vel-46",
+      "name": "VEL 46",
+      "type": "SMG",
+      "type_short": "SMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [
+        "BR close (meta pick)"
+      ],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "han-86",
+      "name": "Han 86",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [
+        "BR long (support)"
+      ],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "apoc-338",
+      "name": "APOC 338",
+      "type": "LMG",
+      "type_short": "LMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "patriot-xmr",
+      "name": "Patriot XMR",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "type-73",
+      "name": "Type 73",
+      "type": "LMG",
+      "type_short": "LMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "M4",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "x-58-nyx",
+      "name": "X-58 Nyx",
+      "type": "SMG",
+      "type_short": "SMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "hyeon-burst",
+      "name": "Hyeon Burst",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "finn-lmg",
+      "name": "FiNN LMG",
+      "type": "LMG",
+      "type_short": "LMG",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "oden",
+      "name": "Oden",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "codmunity-2026-11-06",
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "sang-9mm",
+      "name": "SANG 9mm",
+      "type": "Pistol",
+      "type_short": "Pistol",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "mojave-357",
+      "name": "Mojave .357",
+      "type": "Pistol",
+      "type_short": "Pistol",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "50-gs",
+      "name": ".50 GS",
+      "type": "Pistol",
+      "type_short": "Pistol",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "krait-p68",
+      "name": "Krait P68",
+      "type": "Pistol",
+      "type_short": "Pistol",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "signal-50",
+      "name": "Signal .50",
+      "type": "Sniper Rifle",
+      "type_short": "Sniper",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "astaroth-57",
+      "name": "Astaroth .57",
+      "type": "Sniper Rifle",
+      "type_short": "Sniper",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "kg-7-vulcan",
+      "name": "KG-7 Vulcan",
+      "type": "Sniper Rifle",
+      "type_short": "Sniper",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "oris-86",
+      "name": "Oris 8.6",
+      "type": "Marksman Rifle",
+      "type_short": "Marksman",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "mar-9",
+      "name": "MAR-9",
+      "type": "Marksman Rifle",
+      "type_short": "Marksman",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "mosin-nagant",
+      "name": "Mosin-Nagant",
+      "type": "Marksman Rifle",
+      "type_short": "Marksman",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": [
+        "jgod-2026-11-06"
+      ]
+    },
+    {
+      "id": "voyak-kt-3",
+      "name": "Voyak KT-3",
+      "type": "Assault Rifle",
+      "type_short": "AR",
+      "game": "Legacy (pre-MW4)",
+      "legacy": true,
+      "tags": [
+        "LEGACY · preset-only"
+      ],
+      "site_cards": [
+        "BR legacy watch"
+      ],
+      "ttk_coverage": []
+    },
+    {
+      "id": "rezi-12",
+      "name": "Rezi 12",
+      "type": "Shotgun",
+      "type_short": "Shotgun",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": []
+    },
+    {
+      "id": "warlord",
+      "name": "Warlord",
+      "type": "Shotgun",
+      "type_short": "Shotgun",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": []
+    },
+    {
+      "id": "fss-carbon-edge-1095",
+      "name": "FSS Carbon Edge 1095",
+      "type": "Melee",
+      "type_short": "Melee",
+      "game": "MW4",
+      "legacy": false,
+      "tags": [],
+      "site_cards": [],
+      "ttk_coverage": []
+    }
+  ],
+  "measurements": [
+    {
+      "weapon_id": "wz55-striga",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 651,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 553,
+        "15m": 645,
+        "40m": 829,
+        "far": 829
+      },
+      "stk": {
+        "0m": 7,
+        "15m": 8,
+        "40m": 10,
+        "far": 10
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "wz55-striga",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          14.3,
+          25.3
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 617,
+        "10-40m": 788,
+        "40-80m": 952,
+        "80-120m": 1025
+      },
+      "stk": null,
+      "open_bolt_delay_ms": 64,
+      "notes": "Range-average TTK per bucket as shown on page. Open-bolt delay 64 ms shown."
+    },
+    {
+      "weapon_id": "iso-nightshade",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 923,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 585,
+        "15m": 650,
+        "40m": 910,
+        "far": 910
+      },
+      "stk": {
+        "0m": 10,
+        "15m": 11,
+        "40m": 15,
+        "far": 15
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "iso-nightshade",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          12.2,
+          20.9
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 585,
+        "10-40m": 774,
+        "40-80m": 902,
+        "80-120m": 974
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "axion",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 706,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 595,
+        "15m": 595,
+        "40m": 765,
+        "far": 850
+      },
+      "stk": {
+        "0m": 8,
+        "15m": 8,
+        "40m": 10,
+        "far": 11
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "axion",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          49.4,
+          71.5
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 595,
+        "10-40m": 595,
+        "40-80m": 684,
+        "80-120m": 803
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "ppsh-41",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 1110,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 595,
+        "15m": 649,
+        "40m": 865,
+        "far": 865
+      },
+      "stk": {
+        "0m": 12,
+        "15m": 13,
+        "40m": 17,
+        "far": 17
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "ppsh-41",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          11,
+          18
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 630,
+        "10-40m": 898,
+        "40-80m": 1009,
+        "80-120m": 1084
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "kastov-762",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 600,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 600,
+        "15m": 600,
+        "40m": 600,
+        "far": 800
+      },
+      "stk": {
+        "0m": 7,
+        "15m": 7,
+        "40m": 7,
+        "far": 9
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "kastov-762",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          52.7,
+          69.2
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 800,
+        "10-40m": 800,
+        "40-80m": 910,
+        "80-120m": 1058
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "csg-35",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 1200,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 600,
+        "15m": 650,
+        "40m": 800,
+        "far": 800
+      },
+      "stk": {
+        "0m": 13,
+        "15m": 14,
+        "40m": 17,
+        "far": 17
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "cronen-osprey",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 882,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 612,
+        "15m": 612,
+        "40m": 680,
+        "far": 748
+      },
+      "stk": {
+        "0m": 10,
+        "15m": 10,
+        "40m": 11,
+        "far": 12
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "cronen-osprey",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          44.7,
+          66.4
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 612,
+        "10-40m": 612,
+        "40-80m": 701,
+        "80-120m": 785
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "cronen-squall",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 674,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 623,
+        "15m": 623,
+        "40m": 623,
+        "far": 890
+      },
+      "stk": {
+        "0m": 8,
+        "15m": 8,
+        "40m": 8,
+        "far": 11
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "cronen-squall",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          40.7,
+          59.4
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 712,
+        "10-40m": 712,
+        "40-80m": 987,
+        "80-120m": 1115
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "vel-46",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 952,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 630,
+        "15m": 693,
+        "40m": 882,
+        "far": 882
+      },
+      "stk": {
+        "0m": 11,
+        "15m": 12,
+        "40m": 15,
+        "far": 15
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "vel-46",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          11.7,
+          20.8
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 567,
+        "10-40m": 809,
+        "40-80m": 925,
+        "80-120m": 987
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "han-86",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 741,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 648,
+        "15m": 648,
+        "40m": 729,
+        "far": 810
+      },
+      "stk": {
+        "0m": 9,
+        "15m": 9,
+        "40m": 10,
+        "far": 11
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "han-86",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          49.3,
+          64.1
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 648,
+        "10-40m": 648,
+        "40-80m": 742,
+        "80-120m": 835
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "apoc-338",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 555,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 649,
+        "15m": 649,
+        "40m": 649,
+        "far": 865
+      },
+      "stk": {
+        "0m": 7,
+        "15m": 7,
+        "40m": 7,
+        "far": 9
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "apoc-338",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          69.4,
+          82.9
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 724,
+        "10-40m": 724,
+        "40-80m": 759,
+        "80-120m": 870
+      },
+      "stk": null,
+      "open_bolt_delay_ms": 75,
+      "notes": "Range-average TTK per bucket as shown on page. Open-bolt delay 75 ms shown."
+    },
+    {
+      "weapon_id": "patriot-xmr",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 645,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 651,
+        "15m": 651,
+        "40m": 651,
+        "far": 837
+      },
+      "stk": {
+        "0m": 8,
+        "15m": 8,
+        "40m": 8,
+        "far": 10
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "patriot-xmr",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          40.7,
+          73.9
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 558,
+        "10-40m": 558,
+        "40-80m": 671,
+        "80-120m": 782
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "type-73",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 821,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 658,
+        "15m": 658,
+        "40m": 658,
+        "far": 804
+      },
+      "stk": {
+        "0m": 10,
+        "15m": 10,
+        "40m": 10,
+        "far": 12
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "type-73",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          58.9
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 715,
+        "10-40m": 715,
+        "40-80m": 798,
+        "80-120m": 895
+      },
+      "stk": null,
+      "open_bolt_delay_ms": 57,
+      "notes": "Range-average TTK per bucket as shown on page. Open-bolt delay 57 ms shown."
+    },
+    {
+      "weapon_id": "m4",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 811,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 666,
+        "15m": 666,
+        "40m": 666,
+        "far": 814
+      },
+      "stk": {
+        "0m": 10,
+        "15m": 10,
+        "40m": 10,
+        "far": 12
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "m4",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          51.3,
+          66.4
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 666,
+        "10-40m": 666,
+        "40-80m": 826,
+        "80-120m": 996
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "x-58-nyx",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 800,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 675,
+        "15m": 675,
+        "40m": 825,
+        "far": 825
+      },
+      "stk": {
+        "0m": 10,
+        "15m": 10,
+        "40m": 12,
+        "far": 12
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "x-58-nyx",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          12,
+          20
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 600,
+        "10-40m": 783,
+        "40-80m": 908,
+        "80-120m": 997
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "hyeon-burst",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 509,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 707,
+        "15m": 707,
+        "40m": 707,
+        "far": 943
+      },
+      "stk": {
+        "0m": 7,
+        "15m": 7,
+        "40m": 7,
+        "far": 9
+      },
+      "notes": "Burst RPM approximation"
+    },
+    {
+      "weapon_id": "hyeon-burst",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          54.4,
+          68
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 562,
+        "10-40m": 562,
+        "40-80m": 649,
+        "80-120m": 769
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "finn-lmg",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 588,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 714,
+        "15m": 714,
+        "40m": 714,
+        "far": 918
+      },
+      "stk": {
+        "0m": 8,
+        "15m": 8,
+        "40m": 8,
+        "far": 10
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "finn-lmg",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          61.6,
+          83.8
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 764,
+        "10-40m": 764,
+        "40-80m": 766,
+        "80-120m": 880
+      },
+      "stk": null,
+      "open_bolt_delay_ms": 50,
+      "notes": "Range-average TTK per bucket as shown on page. Open-bolt delay 50 ms shown."
+    },
+    {
+      "weapon_id": "oden",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 414,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 725,
+        "15m": 725,
+        "40m": 725,
+        "far": 870
+      },
+      "stk": {
+        "0m": 6,
+        "15m": 6,
+        "40m": 6,
+        "far": 7
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "oden",
+      "source_id": "codmunity-2026-11-06",
+      "build": "unconfirmed (page default: Meta Loadouts or Base Weapons)",
+      "attachments": null,
+      "fire_rate_rpm": null,
+      "damage_profile": {
+        "damage_drop_distances_m": [
+          52.8,
+          82.7
+        ]
+      },
+      "ttk_ms": {
+        "0-10m": 580,
+        "10-40m": 580,
+        "40-80m": 580,
+        "80-120m": 733
+      },
+      "stk": null,
+      "open_bolt_delay_ms": null,
+      "notes": "Range-average TTK per bucket as shown on page."
+    },
+    {
+      "weapon_id": "sang-9mm",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 370,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 811,
+        "15m": 811,
+        "40m": 1135,
+        "far": 1135
+      },
+      "stk": {
+        "0m": 6,
+        "15m": 6,
+        "40m": 8,
+        "far": 8
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "mojave-357",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 142,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 845,
+        "15m": 1268,
+        "40m": 1268,
+        "far": 1268
+      },
+      "stk": {
+        "0m": 3,
+        "15m": 4,
+        "40m": 4,
+        "far": 4
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "50-gs",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 166,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 1084,
+        "15m": 1446,
+        "40m": 1807,
+        "far": 1807
+      },
+      "stk": {
+        "0m": 4,
+        "15m": 5,
+        "40m": 6,
+        "far": 6
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "krait-p68",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 260,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 1154,
+        "15m": 1154,
+        "40m": 1846,
+        "far": 1846
+      },
+      "stk": {
+        "0m": 6,
+        "15m": 6,
+        "40m": 9,
+        "far": 9
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "signal-50",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 111,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 541,
+        "15m": 1081,
+        "40m": 1081,
+        "far": 1081
+      },
+      "stk": {
+        "0m": 2,
+        "15m": 3,
+        "40m": 3,
+        "far": 3
+      },
+      "notes": "One-shot note: 15m"
+    },
+    {
+      "weapon_id": "astaroth-57",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 35,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 1714,
+        "15m": 1714,
+        "40m": 1714,
+        "far": 1714
+      },
+      "stk": {
+        "0m": 2,
+        "15m": 2,
+        "40m": 2,
+        "far": 2
+      },
+      "notes": "One-shot note: Unlimited (hitbox not stated; official notes removed Astaroth knockdown ability — do not read as universal one-shot)"
+    },
+    {
+      "weapon_id": "kg-7-vulcan",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 41,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 1463,
+        "15m": 1463,
+        "40m": 1463,
+        "far": 1463
+      },
+      "stk": {
+        "0m": 2,
+        "15m": 2,
+        "40m": 2,
+        "far": 2
+      },
+      "notes": "One-shot note: 75m"
+    },
+    {
+      "weapon_id": "oris-86",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 90,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 1333,
+        "15m": 1333,
+        "40m": 2000,
+        "far": 2667
+      },
+      "stk": {
+        "0m": 3,
+        "15m": 3,
+        "40m": 4,
+        "far": 5
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "mar-9",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 316,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 759,
+        "15m": 759,
+        "40m": 949,
+        "far": 949
+      },
+      "stk": {
+        "0m": 5,
+        "15m": 5,
+        "40m": 6,
+        "far": 6
+      },
+      "notes": "No 1-Shot"
+    },
+    {
+      "weapon_id": "mosin-nagant",
+      "source_id": "jgod-2026-11-06",
+      "build": "base",
+      "attachments": [],
+      "fire_rate_rpm": 53,
+      "damage_profile": null,
+      "ttk_ms": {
+        "0m": 1132,
+        "15m": 1132,
+        "40m": 1132,
+        "far": 2264
+      },
+      "stk": {
+        "0m": 2,
+        "15m": 2,
+        "40m": 2,
+        "far": 3
+      },
+      "notes": "One-shot note: 70m"
+    }
+  ],
+  "known_gaps": [
+    "No TTK for shotguns (Rezi 12, Warlord) from any source",
+    "No TTK for Voyak KT-3 (Legacy) from a current-season source",
+    "No attachment-specific (pro build) TTK for any meta card",
+    "TrueGameData Warzone TTK not extractable (JS/captcha)",
+    "Sym.gg Warzone TTK chart is interactive-only; not extracted",
+    "Launchers/melee excluded (not TTK-comparable)"
+  ]
+}

@@ -1,5 +1,9 @@
 export type ModeKey = "br" | "res";
 export type Confidence = "Established" | "Emerging" | "Testing" | "Historical";
+export type EvidenceTag = "PRO" | "MEAS" | "AGG" | "CALC";
+export type Placement = "pick" | "alternative" | "empty" | "withdrawn";
+export type RoleKey = "close" | "long" | "support" | "sniper" | "legacy";
+
 export interface Source {
   id: string;
   label: string;
@@ -40,6 +44,10 @@ export interface TestResult {
 export interface MetaCard {
   id: string;
   role: string;
+  roleKey?: RoleKey;
+  placement: Placement;
+  evidenceTags: EvidenceTag[];
+  whenToPick?: string;
   weapon: string;
   confidence: Confidence;
   summary: string;
@@ -53,14 +61,23 @@ export interface MetaCard {
   withdrawnOn?: string;
   noteTitle?: string;
   reflectCandidates?: boolean;
-  augment?: string;
   candidates?: BaselineCandidate[];
   observed: Observation;
   build: Build | null;
-  augment: string;
+  augment?: string;
   test: TestResult | null;
   counterpoint: string;
   sourceIds: string[];
+}
+export interface RoleGroup {
+  id: string;
+  key: RoleKey;
+  label: string;
+  pickId: string | null;
+  alternativeIds: string[];
+  emptyCardId?: string | null;
+  emptySummary?: string;
+  revealEmptyCard?: boolean;
 }
 export interface GameMode {
   id: ModeKey;
@@ -68,6 +85,7 @@ export interface GameMode {
   fullLabel: string;
   map: string;
   headnote: string;
+  roles: RoleGroup[];
   cards: MetaCard[];
 }
 export interface ProCapture {
