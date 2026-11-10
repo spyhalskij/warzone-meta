@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
   "project": "Warzone Meta",
-  "snapshotDate": "2026-11-07",
-  "updatedLabel": "Nov 7, 2026 · late morning ET",
-  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET",
+  "snapshotDate": "2026-11-10",
+  "updatedLabel": "Nov 10, 2026 · morning ET",
+  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET",
   "patch": "MW4 / Season 1",
   "season": "Hajin Conflict · Season 1",
   "launch": "Nov 6, 2026 · 12:00 a.m. ET",
@@ -45,9 +45,9 @@
       "id": "kitted-panel",
       "label": "Kitted · rolling use panel",
       "kind": "OBSERVED-USE",
-      "date": "Nov 6 · 2:04 p.m. ET",
+      "date": "Nov 10 · 10:00 a.m. ET",
       "url": "https://kitted.gg/meta/most-used-weapons",
-      "note": "20 of 50 tracked players eligible under rolling 14-day method. No mode split."
+      "note": "29 tracked players eligible under rolling 14-day method (canonical CSV as_of 10:00 a.m. ET Nov 10). No mode split."
     },
     {
       "id": "kitted-method",
@@ -61,17 +61,17 @@
       "id": "kitted-spam",
       "label": "Spam · current reported pair",
       "kind": "OBSERVED-USE",
-      "date": "last confirmed Nov 6",
+      "date": "last confirmed Nov 8",
       "url": "https://kitted.gg/streamer/spam",
-      "note": "Cronen Osprey + VEL 46, with current MW4 individual records. Map/mode unverified."
+      "note": "Cronen Osprey + VEL 46, same five Osprey parts. Map/mode unverified."
     },
     {
       "id": "kitted-cronen",
       "label": "Cronen Osprey · individual reports",
       "kind": "OBSERVED-USE",
-      "date": "Nov 6 · 2:04 p.m. ET",
+      "date": "Nov 10 · 10:00 a.m. ET",
       "url": "https://kitted.gg/loadout/cronen-osprey",
-      "note": "Spam and Adriann independently report the same five parts; not a merged modal recipe."
+      "note": "Rolling panel CSV lists 11/29 Osprey runners on Nov 10 (weapon page, last updated Nov 9, lists 9/29). Muzzle 9/9, barrel 8/9, optic 8/9, 60 round mag 7/9, 5.56 NATO High Velocity 3/9."
     },
     {
       "id": "kitted-vel",
@@ -85,17 +85,17 @@
       "id": "kitted-hisoka",
       "label": "Hisoka · current reported pair",
       "kind": "OBSERVED-USE",
-      "date": "last confirmed Nov 6",
+      "date": "last confirmed Nov 10",
       "url": "https://kitted.gg/streamer/hisoka",
-      "note": "Han 86 + VEL 46; new MW4 VEL list differs materially from the morning’s stale record."
+      "note": "Cronen Osprey + VEL 46 as of Nov 10; switched off the Han 86 he ran at launch."
     },
     {
       "id": "kitted-han",
       "label": "Han 86 · individual reports",
       "kind": "OBSERVED-USE",
-      "date": "Nov 6 · 2:04 p.m. ET",
+      "date": "Nov 10 · 10:00 a.m. ET",
       "url": "https://kitted.gg/loadout/han-86",
-      "note": "Hisoka, Apathy and Kenner reported for Nov 6; not automatically a complete verified Han build."
+      "note": "No Han 86 row in the Nov 10 Kitted CSV (0/29); Hisoka, Apathy and Kenner were launch-day reports."
     },
     {
       "id": "kitted-adriann",
@@ -467,11 +467,11 @@
     }
   ],
   "sample": {
-    "label": "Kitted rolling panel · mixed freshness",
-    "n": 20,
-    "total": 20,
+    "label": "Kitted rolling panel · Nov 10",
+    "n": 29,
+    "total": 29,
     "trackedTotal": 50,
-    "note": "20 of 50 tracked streamers qualified under Kitted’s 14-day rule at 2:04 p.m. ET. This is not a pure post-launch or performance-roster denominator; individual Nov 6 reports are qualified card by card. No population pick rate or mode-specific share is inferred.",
+    "note": "29 tracked streamers qualified under Kitted’s 14-day rule as of 10:00 a.m. ET Nov 10. Not a performance-roster denominator; no population pick rate or mode-specific share is inferred.",
     "sourceIds": [
       "kitted-panel",
       "kitted-method"
@@ -491,19 +491,27 @@
           "role": "Long range · candidate, not map-verified",
           "weapon": "Cronen Osprey",
           "confidence": "Emerging",
-          "summary": "Spam and Adriann agree on five current MW4 parts; Hajin-specific play is unverified.",
+          "summary": "Now 11 of 29 tracked pros, incl. Hisoka and spam; same five MW4 parts. Hajin play unverified.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
-            "n": 2,
-            "total": 20,
+            "n": 11,
+            "total": 29,
             "names": [
               "Spam (roster)",
-              "Adriann (supplemental)"
+              "Hisoka (roster)",
+              "Lenun (roster)",
+              "Kenner",
+              "Symfuhny",
+              "Biffle",
+              "Metaphor",
+              "Braxtvn",
+              "HalloWFR",
+              "Adriann"
             ],
-            "date": "2026-11-06",
-            "dateLabel": "Launch-day reports",
-            "caveat": "Two separate Nov 6 reports share the set. The 20-player denominator includes a rolling 14-day window, so this is not a pure post-launch adoption rate or a tagged map winner.",
+            "date": "2026-11-10",
+            "dateLabel": "Kitted Nov 10",
+            "caveat": "Kitted CSV counts 11/29 at 10:00 a.m. ET Nov 10 (was 7/29 Nov 9); its weapon page, last updated Nov 9, lists 9/29. Names shown are runners Kitted identifies by name. Rolling 14-day panel, no map/mode tag.",
             "sourceIds": [
               "kitted-spam",
               "kitted-cronen",
@@ -511,7 +519,7 @@
               "kitted-panel",
               "kitted-method"
             ],
-            "display": "2 current reports · rolling panel n=20"
+            "display": "11 / 29 tracked pros · Kitted Nov 10"
           },
           "build": {
             "owner": "Spam",
@@ -540,7 +548,7 @@
                 "name": "5.56 NATO High Velocity"
               }
             ],
-            "note": "Two separate reports match on all five parts. Current MW4 slot mapping normalizes the former truncated cartridge label to the full current attachment name; it is not a new guessed choice. Map/mode remains unverified.",
+            "note": "Two separate reports match on all five parts. Current MW4 slot mapping normalizes the former truncated cartridge label to the full current attachment name; it is not a new guessed choice. Map/mode remains unverified. Nov 10 consensus among named runners: muzzle 9/9, barrel 8/9, optic 8/9, 60 round mag 7/9; high-velocity ammo is the weakest slot at 3/9.",
             "sourceIds": [
               "kitted-spam",
               "kitted-cronen",
@@ -588,13 +596,13 @@
               "label": "Cronen Build 1",
               "sourceName": "Kitted · Spam individual report (Adriann agrees)",
               "url": "https://kitted.gg/streamer/spam/cronen-osprey",
-              "date": "2026-11-07",
+              "date": "2026-11-08",
               "dateBasis": "source confirmation/update date",
               "evidenceType": "AGG",
               "mode": "unverified",
               "complete": true,
               "proUseReported": true,
-              "note": "Reported pro long-range build: suppressed, with high-velocity ammunition. CODMunity keeps the same optic, muzzle, barrel, and magazine, and uses an FSS Fireline Grip instead of the ammunition.",
+              "note": "Reported pro long-range build: suppressed, with high-velocity ammunition. CODMunity keeps the same optic, muzzle, barrel, and magazine, and uses an FSS Fireline Grip instead of the ammunition. Kitted Nov 10: ammunition is the least-agreed slot (3/9 named runners).",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -649,8 +657,8 @@
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
-            "n": 5,
-            "total": 20,
+            "n": 12,
+            "total": 29,
             "names": [
               "Spam (roster)",
               "Hisoka (roster)",
@@ -658,9 +666,9 @@
               "HusKerrs",
               "Swagg"
             ],
-            "date": "2026-11-06",
-            "dateLabel": "Launch-day reports",
-            "caveat": "Five named post-launch observations; ScummN’s Nov 5 entry is excluded. Reports come from a rolling panel, not a pure all-pro launch denominator or map subgroup.",
+            "date": "2026-11-10",
+            "dateLabel": "Kitted Nov 10",
+            "caveat": "Kitted CSV counts 12/29 at 10:00 a.m. ET Nov 10 (13/29 Nov 9). Names shown are the launch-day records; rolling panel, no map/mode tag.",
             "sourceIds": [
               "kitted-vel",
               "kitted-spam",
@@ -668,7 +676,7 @@
               "kitted-panel",
               "kitted-method"
             ],
-            "display": "5 / 20 launch-day records · rolling panel"
+            "display": "12 / 29 tracked pros · Kitted Nov 10"
           },
           "build": {
             "owner": "Spam",
@@ -1190,27 +1198,27 @@
           "role": "Long support · partial MW4 watch",
           "weapon": "Han 86",
           "confidence": "Testing",
-          "summary": "Hisoka lists four verified parts and one unknown slot; Hajin use is unverified.",
+          "summary": "No tracked pro runs it as of Nov 10; Hisoka moved to the Osprey. Kept as a watch, not a current pick.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
-            "n": 3,
-            "total": 20,
+            "n": 0,
+            "total": 29,
             "names": [
               "Hisoka (roster)",
               "Apathy",
               "Kenner"
             ],
-            "date": "2026-11-06",
-            "dateLabel": "Launch-day reports",
-            "caveat": "Three individual Nov 6 reports, still inside the rolling 20-eligible panel. Current pair-level report is not a Hajin-tagged match or fully verified exact-fit recipe.",
+            "date": "2026-11-10",
+            "dateLabel": "Kitted Nov 10",
+            "caveat": "Kitted’s Nov 10 CSV has no Han 86 row (was 3/29 on Nov 9). Hisoka’s current pair is Cronen Osprey + VEL 46. The builds below are launch-day records, not current pro use.",
             "sourceIds": [
               "kitted-hisoka",
               "kitted-han",
               "kitted-panel",
               "kitted-method"
             ],
-            "display": "3 / 20 launch-day reports · partial build"
+            "display": "0 / 29 tracked pros · Kitted Nov 10"
           },
           "build": {
             "owner": "Hisoka",
@@ -1252,7 +1260,7 @@
               "jgod"
             ]
           },
-          "counterpoint": "Hisoka’s report is four parts plus one unknown equipped slot. CODMunity’s complete build is an aggregator recipe and is not tied to a named pro. Neither is a Hajin-tagged result.",
+          "counterpoint": "No tracked pro runs it as of Nov 10. Hisoka’s report is four parts plus one unknown equipped slot. CODMunity’s complete build is an aggregator recipe and is not tied to a named pro. Neither is a Hajin-tagged result.",
           "sourceIds": [
             "official",
             "mw4-launch",
@@ -1285,7 +1293,7 @@
               "mode": "unverified",
               "complete": false,
               "proUseReported": true,
-              "note": "Long-barrel support build with a handling stock. Four parts are listed and the fifth is unknown. The muzzle and optic fit the current Han catalog.",
+              "note": "Historical: Hisoka’s launch-day build, no longer his current loadout as of Nov 10. Long-barrel support build with a handling stock. Four parts are listed and the fifth is unknown. The muzzle and optic fit the current Han catalog.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1983,6 +1991,17 @@
   ],
   "changelog": [
     {
+      "date": "Nov 10, 2026 · morning ET",
+      "title": "Cronen Osprey",
+      "text": "Cronen Osprey jumps to 11 of 29 tracked pros (from 7), including Hisoka, who dropped the Han 86. Han 86 now has no tracked pro and is marked a watch.",
+      "sourceIds": [
+        "kitted-panel",
+        "kitted-cronen",
+        "kitted-hisoka",
+        "kitted-han"
+      ]
+    },
+    {
       "date": "Nov 7, 2026 · late morning ET",
       "title": "KG-7 Vulcan",
       "text": "KG-7 Vulcan named BR long-range sniper pick (Testing); Mosin moved to alternative for medium-range quick-scoping.",
@@ -2152,7 +2171,7 @@
         "pullze"
       ],
       "last": {
-        "date": "2026-11-06",
+        "date": "2026-11-08",
         "pair": "Cronen Osprey + VEL 46",
         "note": "Launch-day pair-level report. Current MW4 parts appear on mixed-mode BR candidates; no map/mode asserted.",
         "preReset": false,
@@ -2298,14 +2317,13 @@
         "pullze"
       ],
       "last": {
-        "date": "2026-11-06",
-        "pair": "Han 86 + VEL 46",
-        "note": "Current pair-level report, not a mode tag. Old VEL strings fail current-game validation; Han is withheld pending exact part validation.",
+        "date": "2026-11-10",
+        "pair": "Cronen Osprey + VEL 46",
+        "note": "Kitted pair-level report Nov 10; switched from Han 86. No map/mode asserted.",
         "preReset": false,
         "sourceIds": [
           "kitted-hisoka",
-          "vel-types",
-          "han-types"
+          "kitted-cronen"
         ]
       }
     },
