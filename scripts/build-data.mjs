@@ -171,8 +171,8 @@ assert(byId.get('br-cronen').builds[0].note.includes('FSS Fireline Grip'), 'Cron
 assert(!JSON.stringify(byId.get('br-iso').builds).includes('Demo Kilo90 ST'), 'unresolved ISO stock string must not become an attachment');
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
-assert(meta.changelog[0].date === 'Nov 7, 2026 · late morning ET', 'Nov 7 late morning changelog entry must lead');
-assert(meta.changelog[0].text === 'KG-7 Vulcan named BR long-range sniper pick (Testing); Mosin moved to alternative for medium-range quick-scoping.', 'KG-7 changelog line must lead');
+assert(meta.changelog[0].date === 'Nov 10, 2026 · morning ET', 'Nov 10 changelog entry must lead');
+assert(meta.changelog.find(entry => entry.date === 'Nov 7, 2026 · late morning ET')?.text === 'KG-7 Vulcan named BR long-range sniper pick (Testing); Mosin moved to alternative for medium-range quick-scoping.', 'KG-7 changelog line must remain');
 const mosinEntry = meta.changelog.find(entry => entry.text === "Mosin-Nagant added to BR Sniper (Testing) from Fifakill's build.");
 assert(mosinEntry && mosinEntry.date === 'Nov 7, 2026 · morning ET', 'Mosin morning changelog entry must remain');
 const buildTabsEntry = meta.changelog.find(entry => /build tabs/i.test(`${entry.title} ${entry.text}`));
