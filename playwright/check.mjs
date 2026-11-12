@@ -33,13 +33,14 @@ assert.equal(await page.locator('#br-vel .card-summary').innerText(), meta.modes
 assert.equal(await page.locator('#br-vel .confidence').innerText(), 'Emerging');
 assert.equal(await page.locator('#br-iso [role="tab"]').count(), 2);
 assert.equal(await page.locator('#br-iso .build-panel.is-selected .attachment-list li').count(), 5);
-assert.equal(await page.locator('#br-striga [role="tablist"]').count(), 0);
-assert.equal(await page.locator('#br-striga .attachment-list li').count(), 5);
+assert.equal(await page.locator('#br-striga [role="tab"]').count(), 3);
+assert.equal(await page.locator('#br-striga .build-panel.is-selected .attachment-list li').count(), 5);
+assert.equal(await page.locator('#br-striga .confidence').innerText(), 'Emerging');
 assert.doesNotMatch(await page.locator('#br-iso').innerText(), /No attachments listed/);
 assert.match(await page.locator('#br-iso').innerText(), /When you want the fastest calculated close-range kill and play inside 15m/);
 assert.match(await page.locator('#br-iso').innerText(), /882 vs 910/);
 assert.match(await page.locator('#br-striga').innerText(), /Mode unverified/);
-assert.match(await page.locator('#br-striga').innerText(), /Full Port Comp/);
+assert.match(await page.locator('#br-striga').innerText(), /FTAC Silent Recon/);
 assert.doesNotMatch(await page.locator('#br-striga').innerText(), /No attachments listed/);
 assert.equal(await page.locator('#br-long .alt-row').count(), 0);
 assert.equal(await page.locator('#br-support .alt-row').count(), 0);

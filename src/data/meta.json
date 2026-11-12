@@ -2,8 +2,8 @@
   "schemaVersion": 2,
   "project": "Warzone Meta",
   "snapshotDate": "2026-11-12",
-  "updatedLabel": "Nov 12, 2026 · morning ET",
-  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET",
+  "updatedLabel": "Nov 12, 2026 · evening ET",
+  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET; Striga X posts and Kitted re-read Nov 12, ~6:40 p.m. ET",
   "patch": "MW4 / Season 1",
   "season": "Hajin Conflict · Season 1",
   "launch": "Nov 6, 2026 · 12:00 a.m. ET",
@@ -488,6 +488,38 @@
       "date": "Nov 11 · 3:53 p.m. ET",
       "url": "https://x.com/CODUpdates/status/2120620885866684555",
       "note": "Known issue under investigation: intermittent delays when firing semi-auto weapons in MW4 and Warzone. No fix announced as of Nov 12, ~10:00 a.m. ET."
+    },
+    {
+      "id": "almond-striga",
+      "label": "Almond (Twisted Minds Warzone player) on X · Season 1 Meta",
+      "kind": "PRO",
+      "date": "Nov 11, 2026 · 1:34 a.m. ET",
+      "url": "https://x.com/AlmxndTV/status/2120404744749633796",
+      "note": "Four gunsmith screenshots (Osprey, Striga, ISO, VEL). His 3:12 a.m. ET reply calls the Striga a pre-aim/strafe SMG whose TTK makes it worth it, with ISO or VEL for movement. Mode unverified."
+    },
+    {
+      "id": "shifty-striga",
+      "label": "Shifty (Twisted Minds Warzone player) on X · $50k loadout",
+      "kind": "PRO",
+      "date": "Nov 12, 2026 · 4:04 p.m. ET",
+      "url": "https://x.com/ShiftyTV_/status/2120986000638021712",
+      "note": "\"META Loadout that made me $50,000\": Cronen Osprey + Wz.55 Striga gunsmith screenshots, posted after winning the PullzeCheck $50k Fame & Firepower Zodiac Duos (Resurgence)."
+    },
+    {
+      "id": "pullze-ff-nov12",
+      "label": "PullzeCheck · $50k Fame & Firepower final standings",
+      "kind": "TOURNAMENT",
+      "date": "Nov 12, 2026 · 4:04 p.m. ET",
+      "url": "https://x.com/PullzeCheck/status/2120986053092016592",
+      "note": "First MW4 S1 Zodiac (Resurgence) duo event: Metaphor/Shifty 1st."
+    },
+    {
+      "id": "kitted-striga",
+      "label": "Wz.55 Striga · Kitted pro runners",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 12 · 6:17 p.m. ET",
+      "url": "https://kitted.gg/loadout/wz55-striga",
+      "note": "4 of 30 tracked pros: JoeWo, Jukeyz, bbreadman, Newbz (all confirmed Nov 12). Hisoka's Kitted entry labeled Cronen Squall lists Striga attachments; probable mislabel, unconfirmed and not counted."
     }
   ],
   "sample": {
@@ -1526,23 +1558,33 @@
             "PRO",
             "CALC"
           ],
-          "whenToPick": "Aggressive close-range fights where raw speed matters more than handling.",
+          "whenToPick": "Close-range fights you can pre-aim, where raw TTK matters more than handling.",
           "weapon": "Wz.55 Striga",
-          "confidence": "Testing",
-          "summary": "Swagg calls it the fastest-killing SMG; aggregator ADS build, mode unverified.",
+          "confidence": "Emerging",
+          "summary": "Six named pros moved to it by Nov 12, incl. Almond and Shifty; VEL stays the pick.",
           "modeUnlabeled": true,
-          "editable": "MW4 · aggregator ADS build · mode unverified",
+          "editable": "MW4 · current-game only · pro builds",
           "observed": {
-            "n": 0,
-            "total": 20,
-            "names": [],
-            "date": null,
-            "dateLabel": "No pro loadout",
-            "caveat": "Mode unverified. Swagg’s Nov 6 video calls Striga the fastest-killing SMG around 2:43. That is a creator claim, not a captured pro loadout.",
-            "sourceIds": [
-              "swagg-striga"
+            "n": 6,
+            "total": 32,
+            "names": [
+              "Almond (X)",
+              "Shifty (X)",
+              "JoeWo",
+              "Jukeyz",
+              "bbreadman",
+              "Newbz (roster)"
             ],
-            "display": "No pro loadout · mode unverified"
+            "date": "2026-11-12",
+            "dateLabel": "X posts + Kitted Nov 12",
+            "caveat": "Almond (Nov 11, 1:34 a.m. ET) and Shifty (Nov 12, 4:04 p.m. ET) posted Striga gunsmiths on X; Kitted counts 4/30 at 6:17 p.m. ET Nov 12. Denominator = Kitted's 30-pro panel + the 2 off-panel posters. Hisoka probable (Kitted shows his Striga attachments under a Cronen Squall label), not counted. Shifty's build won a Resurgence (Zodiac) event; Almond's mode unverified.",
+            "sourceIds": [
+              "almond-striga",
+              "shifty-striga",
+              "kitted-striga",
+              "kitted-panel"
+            ],
+            "display": "6 named pros · 4/30 Kitted + 2 X posts"
           },
           "build": null,
           "test": {
@@ -1554,17 +1596,102 @@
               "codmunity-ttk"
             ]
           },
-          "counterpoint": "Swagg’s fastest-killing claim and the two calculators disagree on the close-range number (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m). Neither value is a captured pro build. VEL stays the meta pick.",
+          "counterpoint": "Pick bar not met: VEL is still on 13/30 Kitted pros vs Striga 4/30. Almond calls the Striga a pre-aim/strafe gun and points to ISO or VEL for movement. Shifty's build is from a Resurgence event; BR use is not separately shown. Calculators still disagree (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m).",
           "sourceIds": [
+            "almond-striga",
+            "shifty-striga",
+            "pullze-ff-nov12",
+            "kitted-striga",
+            "kitted-panel",
             "swagg-striga",
             "jgod",
             "codmunity-ttk"
           ],
-          "fullSummary": "Testing alternative when raw close-range speed matters more than handling. The listed build is a standard ADS setup, not Rampage or Akimbo. Mode unverified.",
+          "fullSummary": "Emerging alternative: the fastest-growing SMG among pros on Nov 11–12. Pick it for raw close-range TTK when you can pre-aim; take the VEL or ISO if you need movement. Mode unverified.",
           "builds": [
             {
-              "id": "striga-codmunity",
+              "id": "striga-almond",
               "label": "Striga Build 1",
+              "sourceName": "Almond (Twisted Minds Warzone player) on X",
+              "url": "https://x.com/AlmxndTV/status/2120404744749633796",
+              "date": "2026-11-11",
+              "dateBasis": "posted 1:34 a.m. ET",
+              "evidenceType": "PRO",
+              "mode": "unverified",
+              "complete": true,
+              "proUseReported": true,
+              "note": "Silenced drum build with Wire Stock, read from Almond's gunsmith screenshot; he calls it a pre-aim and strafe SMG.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "GW Sender 500",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "FTAC Silent Recon",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": "Slimline Elite",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Stock",
+                  "name": "Wire Stock",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Magazine",
+                  "name": "50 Round Drum Mag",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            },
+            {
+              "id": "striga-shifty",
+              "label": "Striga Build 2",
+              "sourceName": "Shifty (Twisted Minds Warzone player) on X",
+              "url": "https://x.com/ShiftyTV_/status/2120986000638021712",
+              "date": "2026-11-12",
+              "dateBasis": "posted 4:04 p.m. ET",
+              "evidenceType": "PRO",
+              "mode": "Resurgence (Zodiac, $50k PullzeCheck win)",
+              "complete": true,
+              "proUseReported": true,
+              "note": "Same as Build 1 but Matuzek 532-L Grip instead of Wire Stock; the build Shifty posted after winning the $50k PullzeCheck event.",
+              "attachments": [
+                {
+                  "slot": "Barrel",
+                  "name": "GW Sender 500",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Muzzle",
+                  "name": "FTAC Silent Recon",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Optic",
+                  "name": "Slimline Elite",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Rear Grip",
+                  "name": "Matuzek 532-L Grip",
+                  "status": "verified-current-catalog"
+                },
+                {
+                  "slot": "Magazine",
+                  "name": "50 Round Drum Mag",
+                  "status": "verified-current-catalog"
+                }
+              ]
+            },
+            {
+              "id": "striga-codmunity",
+              "label": "Striga Build 3",
               "sourceName": "CODMunity · Warzone Close Range",
               "url": "https://codmunity.gg/weapon/mw4/wz55-striga",
               "date": "2026-11-07",
@@ -2027,6 +2154,17 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 12, 2026 · evening ET",
+      "title": "Wz.55 Striga Emerging",
+      "text": "Wz.55 Striga moves from Testing to Emerging in BR close range: Almond and Shifty posted Striga builds on X (Shifty's after winning the $50k PullzeCheck event), and Kitted counts 4 of 30 pros. Six named pros in all; Hisoka probable. VEL 46 stays the pick (13 of 30). Two pro builds added as tabs.",
+      "sourceIds": [
+        "almond-striga",
+        "shifty-striga",
+        "pullze-ff-nov12",
+        "kitted-striga"
+      ]
+    },
     {
       "date": "Nov 12, 2026 · morning ET",
       "title": "Hitscan and ballistics update",

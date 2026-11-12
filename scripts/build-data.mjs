@@ -124,17 +124,22 @@ assert(meta.modes.res.roles.every(role => role.pickId === null && role.alternati
 const byId = new Map(meta.modes.br.cards.map(card => [card.id, card]));
 const vel = byId.get('br-vel');
 assert(vel.counterpoint.startsWith('DISAGREEMENT') && vel.sourceIds.includes('hisoka-vod-direct') && vel.sourceIds.includes('swagg-vel-comfort'), 'VEL disagreement and Hisoka/Swagg sources must stay');
-for (const id of ['br-iso', 'br-striga']) {
+for (const id of ['br-iso']) {
   const card = byId.get(id);
   assert(card.confidence === 'Testing' && card.modeUnlabeled === true, `${id}: testing alternative stays mode-unverified`);
   assert(Array.isArray(card.builds) && card.builds.length > 0, `${id}: show the sourced build`);
   assert(card.builds.every(build => build.mode === 'unverified'), `${id}: do not assign a mode the source did not`);
 }
+const striga = byId.get('br-striga');
+assert(striga.confidence === 'Emerging' && striga.placement === 'alternative' && striga.modeUnlabeled === true, 'Striga is an Emerging, mode-flagged alternative (Nov 12 evening)');
+assert(striga.observed.n === 6 && striga.observed.names.length === 6, 'Striga sample is 6 named pros');
+assert(striga.builds.slice(0, 2).every(build => build.evidenceType === 'PRO' && build.complete === true), 'Striga pro builds lead the tabs');
+assert(striga.builds.find(build => build.id === 'striga-shifty').mode.startsWith('Resurgence'), 'Shifty build keeps its Resurgence event label');
 const buildOrder = {
   'br-vel': ['vel-hisoka-direct', 'vel-spam', 'vel-codmunity'],
   'br-iso': ['iso-adriann-partial', 'iso-codmunity'],
   'br-han': ['han-hisoka-partial', 'han-codmunity'],
-  'br-striga': ['striga-codmunity'],
+  'br-striga': ['striga-almond', 'striga-shifty', 'striga-codmunity'],
   'br-cronen': ['cronen-spam'],
   'br-voyak': [],
   'br-mosin': ['mosin-fifakill'],
@@ -148,6 +153,8 @@ const buildSlots = {
   'iso-codmunity': ['Barrel:ZLR Mag-Z 9"', 'Magazine:40 Round Mag', 'Rear Grip:Demo STP-1', 'Stock:EXP G2-44 Stock', 'Ammunition:9mm Parabellum High Velocity'],
   'han-hisoka-partial': ['Barrel:SA H86 465mm', 'Muzzle:TZL-110 V1', 'Optic:Slimline Elite', 'Stock:FR4 Retractable Stock', 'Unknown equipped slot:'],
   'han-codmunity': ['Optic:Cronen R808', 'Muzzle:FSS IS300', 'Barrel:Hanbit Lightning-7 465mm', 'Magazine:45 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
+  'striga-almond': ['Barrel:GW Sender 500', 'Muzzle:FTAC Silent Recon', 'Optic:Slimline Elite', 'Stock:Wire Stock', 'Magazine:50 Round Drum Mag'],
+  'striga-shifty': ['Barrel:GW Sender 500', 'Muzzle:FTAC Silent Recon', 'Optic:Slimline Elite', 'Rear Grip:Matuzek 532-L Grip', 'Magazine:50 Round Drum Mag'],
   'striga-codmunity': ['Muzzle:Full Port Comp', 'Barrel:GW Sender 500', 'Magazine:50 Round Drum Mag', 'Rear Grip:Matuzek 532-L Grip', 'Stock:Wire Stock'],
   'cronen-spam': ['Barrel:IO-556 TAC 18"', 'Muzzle:FSS IS300 Heavy Silencer', 'Optic:Locus PX3 Canted Rifle Scope', 'Magazine:60 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
   'mosin-fifakill': ['Muzzle:FTAC Silent Recon (Heavy Silencer)', 'Barrel:Mosin K025 Barrel (Long Barrel)', 'Laser:XRK Clutch-LS (Dim ADS Laser)', 'Optic:Expedite 308 DR2 (Marksman Scope)', 'Ammunition:7.62x54mmR High Velocity'],
@@ -171,7 +178,8 @@ assert(byId.get('br-cronen').builds[0].note.includes('FSS Fireline Grip'), 'Cron
 assert(!JSON.stringify(byId.get('br-iso').builds).includes('Demo Kilo90 ST'), 'unresolved ISO stock string must not become an attachment');
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
-assert(meta.changelog[0].date === 'Nov 12, 2026 · morning ET' && meta.changelog[0].title === 'Hitscan and ballistics update', 'Nov 12 changelog entry must lead');
+assert(meta.changelog[0].date === 'Nov 12, 2026 · evening ET' && meta.changelog[0].title === 'Wz.55 Striga Emerging', 'Nov 12 evening Striga changelog entry must lead');
+assert(meta.changelog.some(entry => entry.date === 'Nov 12, 2026 · morning ET' && entry.title === 'Hitscan and ballistics update'), 'Nov 12 morning changelog entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 10, 2026 · morning ET' && entry.title === 'Cronen Osprey'), 'Nov 10 changelog entry must remain');
 assert(meta.changelog.find(entry => entry.date === 'Nov 7, 2026 · late morning ET')?.text === 'KG-7 Vulcan named BR long-range sniper pick (Testing); Mosin moved to alternative for medium-range quick-scoping.', 'KG-7 changelog line must remain');
 const mosinEntry = meta.changelog.find(entry => entry.text === "Mosin-Nagant added to BR Sniper (Testing) from Fifakill's build.");
