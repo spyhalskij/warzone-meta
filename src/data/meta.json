@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "project": "Warzone Meta",
-  "snapshotDate": "2026-11-10",
-  "updatedLabel": "Nov 10, 2026 · morning ET",
+  "snapshotDate": "2026-11-12",
+  "updatedLabel": "Nov 12, 2026 · morning ET",
   "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET",
   "patch": "MW4 / Season 1",
   "season": "Hajin Conflict · Season 1",
@@ -464,6 +464,30 @@
       "date": "Updated Nov 6, 2026 · read Nov 7, 2026",
       "url": "https://codmunity.gg/ttk/warzone",
       "note": "Calculator from game data. Page config states 300 HP, 50 per plate, and 3 plates. Whether the default table is Meta Loadouts or Base Weapons was not confirmed. Values are band averages, not point samples."
+    },
+    {
+      "id": "official-nov11",
+      "label": "Warzone S1 patch notes · Wed Nov 11 update",
+      "kind": "OFFICIAL",
+      "date": "Nov 11 · read Nov 12",
+      "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-mw4-warzone-season-1-patch-notes",
+      "note": "Nov 11 section: true hitscan range of all ballistic weapons raised 288% from launch (about 35 m on average), and long-range ballistic bullets connect 34 ms sooner; global, applies to Warzone. No gun-specific tuning."
+    },
+    {
+      "id": "codupdates-nov11",
+      "label": "@CODUpdates · Nov 11 patch-notes post",
+      "kind": "OFFICIAL",
+      "date": "Nov 11 · 12:56 p.m. ET",
+      "url": "https://x.com/CODUpdates/status/2120576356375310408",
+      "note": "Announced the Nov 11 MW4 + Warzone update patch notes."
+    },
+    {
+      "id": "codupdates-semiauto",
+      "label": "@CODUpdates · semi-auto firing delay",
+      "kind": "OFFICIAL",
+      "date": "Nov 11 · 3:53 p.m. ET",
+      "url": "https://x.com/CODUpdates/status/2120620885866684555",
+      "note": "Known issue under investigation: intermittent delays when firing semi-auto weapons in MW4 and Warzone. No fix announced as of Nov 12, ~10:00 a.m. ET."
     }
   ],
   "sample": {
@@ -477,7 +501,7 @@
       "kitted-method"
     ]
   },
-  "calculationNote": "JGOD launch-day base-MW4 STK / TTK calculations. Exact HP, hit distribution, first-shot timing, bullet travel and attachment protocol are not fully supplied on saved graphics. CALC is not an independently replicated match test.",
+  "calculationNote": "JGOD launch-day base-MW4 STK / TTK calculations. Exact HP, hit distribution, first-shot timing, bullet travel and attachment protocol are not fully supplied on saved graphics. CALC is not an independently replicated match test. These calculations predate the Nov 11 hitscan and ballistics update (hitscan range up about 288%, long-range bullets 34 ms faster), so mid- and long-range figures are pre-patch until retested.",
   "modes": {
     "br": {
       "id": "br",
@@ -1987,9 +2011,33 @@
       "sourceIds": [
         "codupdates"
       ]
+    },
+    {
+      "text": "Nov 11 update: every ballistic gun's true hitscan range rose 288% from launch (about 35 m on average), and long-range bullets connect 34 ms sooner. This is global and applies to Warzone; no single gun was tuned.",
+      "sourceIds": [
+        "official-nov11",
+        "codupdates-nov11"
+      ]
+    },
+    {
+      "text": "Known issue since Nov 11, 3:53 p.m. ET: semi-auto weapons can intermittently delay firing. That affects the sniper and marksman picks (KG-7 Vulcan, Mosin-Nagant) until fixed.",
+      "sourceIds": [
+        "codupdates-semiauto"
+      ]
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 12, 2026 · morning ET",
+      "title": "Hitscan and ballistics update",
+      "text": "Nov 11 patch notes raise every gun's hitscan range (about 35 m on average) and make long-range bullets land 34 ms sooner. Picks are unchanged: no tracked pro switched because of it yet. The TTK numbers below were measured before this change, so treat mid- and long-range figures as pre-patch. A semi-auto firing delay bug is also open.",
+      "sourceIds": [
+        "official-nov11",
+        "codupdates-nov11",
+        "codupdates-semiauto",
+        "kitted-panel"
+      ]
+    },
     {
       "date": "Nov 10, 2026 · morning ET",
       "title": "Cronen Osprey",

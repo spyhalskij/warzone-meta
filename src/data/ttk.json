@@ -1458,6 +1458,7 @@
     }
   ],
   "known_gaps": [
+    "All TTK figures predate the Nov 11 hitscan/ballistics update (true hitscan ~35 m avg, long-range bullets 34 ms sooner); mid/long-range numbers need a retest",
     "No TTK for shotguns (Rezi 12, Warlord) from any source",
     "No TTK for Voyak KT-3 (Legacy) from a current-season source",
     "No attachment-specific (pro build) TTK for any meta card",
