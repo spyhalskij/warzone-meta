@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
   "project": "Warzone Meta",
-  "snapshotDate": "2026-11-12",
-  "updatedLabel": "Nov 12, 2026 · evening ET",
-  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET; Striga X posts and Kitted re-read Nov 12, ~6:40 p.m. ET",
+  "snapshotDate": "2026-11-13",
+  "updatedLabel": "Nov 13, 2026 · morning ET",
+  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET; Striga X posts and Kitted re-read Nov 12, ~6:40 p.m. ET; Kitted and top-50 X sweep re-read Nov 13, ~10:00 a.m. ET",
   "patch": "MW4 / Season 1",
   "season": "Hajin Conflict · Season 1",
   "launch": "Nov 6, 2026 · 12:00 a.m. ET",
@@ -45,9 +45,9 @@
       "id": "kitted-panel",
       "label": "Kitted · rolling use panel",
       "kind": "OBSERVED-USE",
-      "date": "Nov 10 · 10:00 a.m. ET",
+      "date": "Nov 13 · 9:38 a.m. ET",
       "url": "https://kitted.gg/meta/most-used-weapons",
-      "note": "29 tracked players eligible under rolling 14-day method (canonical CSV as_of 10:00 a.m. ET Nov 10). No mode split."
+      "note": "30 tracked players eligible under rolling 14-day method (canonical CSV as_of 9:38 a.m. ET Nov 13). No mode split."
     },
     {
       "id": "kitted-method",
@@ -517,17 +517,25 @@
       "id": "kitted-striga",
       "label": "Wz.55 Striga · Kitted pro runners",
       "kind": "OBSERVED-USE",
-      "date": "Nov 12 · 6:17 p.m. ET",
+      "date": "Nov 13 · 9:38 a.m. ET",
       "url": "https://kitted.gg/loadout/wz55-striga",
-      "note": "4 of 30 tracked pros: JoeWo, Jukeyz, bbreadman, Newbz (all confirmed Nov 12). Hisoka's Kitted entry labeled Cronen Squall lists Striga attachments; probable mislabel, unconfirmed and not counted."
+      "note": "6 of 30 tracked pros: JoeWo, Jukeyz, bbreadman, Newbz, Krinkz (Nov 12) and Kenner (Nov 13). Consensus: 50 Round Drum Mag 5/6, Wire Stock 4/6, GW Sender 500 3/6, FTAC Silent Recon 2/6, Slimline Elite 2/6. Hisoka's Kitted entry labeled Cronen Squall still lists Striga attachments; probable mislabel, unconfirmed and not counted."
+    },
+    {
+      "id": "kitted-vel-nov13",
+      "label": "VEL 46 · Kitted pro runners",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 13 · 9:38 a.m. ET",
+      "url": "https://kitted.gg/loadout/vel-46",
+      "note": "11 of 30 tracked pros. Previously ran it: Kenner (last Nov 13), JoeWo, Adriann, Krinkz (last Nov 12), Newbz (last Nov 10)."
     }
   ],
   "sample": {
-    "label": "Kitted rolling panel · Nov 10",
-    "n": 29,
-    "total": 29,
+    "label": "Kitted rolling panel · Nov 13",
+    "n": 30,
+    "total": 30,
     "trackedTotal": 50,
-    "note": "29 tracked streamers qualified under Kitted’s 14-day rule as of 10:00 a.m. ET Nov 10. Not a performance-roster denominator; no population pick rate or mode-specific share is inferred.",
+    "note": "30 tracked streamers qualified under Kitted’s 14-day rule as of 9:38 a.m. ET Nov 13. Not a performance-roster denominator; no population pick rate or mode-specific share is inferred.",
     "sourceIds": [
       "kitted-panel",
       "kitted-method"
@@ -713,8 +721,8 @@
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
-            "n": 12,
-            "total": 29,
+            "n": 11,
+            "total": 30,
             "names": [
               "Spam (roster)",
               "Hisoka (roster)",
@@ -722,17 +730,18 @@
               "HusKerrs",
               "Swagg"
             ],
-            "date": "2026-11-10",
-            "dateLabel": "Kitted Nov 10",
-            "caveat": "Kitted CSV counts 12/29 at 10:00 a.m. ET Nov 10 (13/29 Nov 9). Names shown are the launch-day records; rolling panel, no map/mode tag.",
+            "date": "2026-11-13",
+            "dateLabel": "Kitted Nov 13",
+            "caveat": "Kitted CSV counts 11/30 at 9:38 a.m. ET Nov 13 (13/30 Nov 12 evening, 14/30 Nov 12 morning). Kitted lists Kenner, JoeWo, Krinkz and Newbz as previous VEL runners now on the Striga. Names shown are the launch-day records; rolling panel, no map/mode tag.",
             "sourceIds": [
               "kitted-vel",
               "kitted-spam",
               "kitted-hisoka",
               "kitted-panel",
-              "kitted-method"
+              "kitted-method",
+              "kitted-vel-nov13"
             ],
-            "display": "12 / 29 tracked pros · Kitted Nov 10"
+            "display": "11 / 30 tracked pros · Kitted Nov 13"
           },
           "build": {
             "owner": "Spam",
@@ -793,7 +802,8 @@
             "wzstats",
             "wzl",
             "hisoka-vod-direct",
-            "swagg-vel-comfort"
+            "swagg-vel-comfort",
+            "kitted-vel-nov13"
           ],
           "fullSummary": "Emerging, usage-led close-range candidate. A direct Hisoka VEL gunsmith is confirmed in Hajin BR, while broader rolling-panel records remain mixed-mode. Comfort/movement is Swagg’s subjective rationale; it is not evidence VEL beats ISO for raw close-range TTK.",
           "roleKey": "close",
@@ -1561,11 +1571,11 @@
           "whenToPick": "Close-range fights you can pre-aim, where raw TTK matters more than handling.",
           "weapon": "Wz.55 Striga",
           "confidence": "Emerging",
-          "summary": "Six named pros moved to it by Nov 12, incl. Almond and Shifty; VEL stays the pick.",
+          "summary": "Eight named pros on it by Nov 13, incl. Almond, Shifty and Kenner; VEL stays the pick.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only · pro builds",
           "observed": {
-            "n": 6,
+            "n": 8,
             "total": 32,
             "names": [
               "Almond (X)",
@@ -1573,18 +1583,20 @@
               "JoeWo",
               "Jukeyz",
               "bbreadman",
-              "Newbz (roster)"
+              "Newbz (roster)",
+              "Krinkz",
+              "Kenner (roster)"
             ],
-            "date": "2026-11-12",
-            "dateLabel": "X posts + Kitted Nov 12",
-            "caveat": "Almond (Nov 11, 1:34 a.m. ET) and Shifty (Nov 12, 4:04 p.m. ET) posted Striga gunsmiths on X; Kitted counts 4/30 at 6:17 p.m. ET Nov 12. Denominator = Kitted's 30-pro panel + the 2 off-panel posters. Hisoka probable (Kitted shows his Striga attachments under a Cronen Squall label), not counted. Shifty's build won a Resurgence (Zodiac) event; Almond's mode unverified.",
+            "date": "2026-11-13",
+            "dateLabel": "X posts + Kitted Nov 13",
+            "caveat": "Almond (Nov 11, 1:34 a.m. ET) and Shifty (Nov 12, 4:04 p.m. ET) posted Striga gunsmiths on X; Kitted counts 6/30 at 9:38 a.m. ET Nov 13 (4/30 Nov 12 evening, 2/30 Nov 12 morning). New on Kitted: Kenner (moved off VEL, confirmed Nov 13) and Krinkz (moved off VEL, Nov 12). Denominator = Kitted's 30-pro panel + the 2 off-panel posters. Hisoka still probable (Kitted shows his Striga attachments under a Cronen Squall label), not counted. Shifty's build won a Resurgence (Zodiac) event; other modes unverified.",
             "sourceIds": [
               "almond-striga",
               "shifty-striga",
               "kitted-striga",
               "kitted-panel"
             ],
-            "display": "6 named pros · 4/30 Kitted + 2 X posts"
+            "display": "8 named pros · 6/30 Kitted + 2 X posts"
           },
           "build": null,
           "test": {
@@ -1596,7 +1608,7 @@
               "codmunity-ttk"
             ]
           },
-          "counterpoint": "Pick bar not met: VEL is still on 13/30 Kitted pros vs Striga 4/30. Almond calls the Striga a pre-aim/strafe gun and points to ISO or VEL for movement. Shifty's build is from a Resurgence event; BR use is not separately shown. Calculators still disagree (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m).",
+          "counterpoint": "Pick bar not met: VEL is still on 11/30 Kitted pros vs Striga 6/30 (Nov 13), though the gap shrank from 14 vs 2 on Nov 12 morning. Almond calls the Striga a pre-aim/strafe gun and points to ISO or VEL for movement. Shifty's build is from a Resurgence event; BR use is not separately shown. No post-hitscan TTK retest yet; calculators still disagree (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m).",
           "sourceIds": [
             "almond-striga",
             "shifty-striga",
@@ -1607,7 +1619,7 @@
             "jgod",
             "codmunity-ttk"
           ],
-          "fullSummary": "Emerging alternative: the fastest-growing SMG among pros on Nov 11–12. Pick it for raw close-range TTK when you can pre-aim; take the VEL or ISO if you need movement. Mode unverified.",
+          "fullSummary": "Emerging alternative: the fastest-growing SMG among pros on Nov 11–13. Kitted's 6-runner consensus (50 Round Drum Mag, Wire Stock, GW Sender 500, FTAC Silent Recon, Slimline Elite) now matches Almond's build tab. Pick it for raw close-range TTK when you can pre-aim; take the VEL or ISO if you need movement. Mode unverified.",
           "builds": [
             {
               "id": "striga-almond",
@@ -2154,6 +2166,17 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 13, 2026 · morning ET",
+      "title": "Wz.55 Striga gains ground",
+      "text": "Kitted now counts 6 of 30 pros on the Wz.55 Striga (4 last night, 2 yesterday morning); Kenner and Krinkz moved over from the VEL 46. Eight named pros in all with Almond and Shifty's X posts. VEL 46 stays the close-range pick at 11 of 30 (down from 14). Kitted's Striga consensus build now matches Almond's tab. No new patch.",
+      "sourceIds": [
+        "kitted-striga",
+        "kitted-vel-nov13",
+        "almond-striga",
+        "shifty-striga"
+      ]
+    },
     {
       "date": "Nov 12, 2026 · evening ET",
       "title": "Wz.55 Striga Emerging",
