@@ -132,7 +132,7 @@ for (const id of ['br-iso']) {
 }
 const striga = byId.get('br-striga');
 assert(striga.confidence === 'Emerging' && striga.placement === 'alternative' && striga.modeUnlabeled === true, 'Striga is an Emerging, mode-flagged alternative (Nov 12 evening)');
-assert(striga.observed.n === 8 && striga.observed.names.length === 8, 'Striga sample is 8 named pros (Nov 13)');
+assert(striga.observed.n === 10 && striga.observed.names.length === 10, 'Striga sample is 10 named pros (Nov 15)');
 assert(striga.builds.slice(0, 2).every(build => build.evidenceType === 'PRO' && build.complete === true), 'Striga pro builds lead the tabs');
 assert(striga.builds.find(build => build.id === 'striga-shifty').mode.startsWith('Resurgence'), 'Shifty build keeps its Resurgence event label');
 const buildOrder = {
@@ -178,7 +178,8 @@ assert(byId.get('br-cronen').builds[0].note.includes('FSS Fireline Grip'), 'Cron
 assert(!JSON.stringify(byId.get('br-iso').builds).includes('Demo Kilo90 ST'), 'unresolved ISO stock string must not become an attachment');
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
-assert(meta.changelog[0].date === 'Nov 13, 2026 · morning ET' && meta.changelog[0].title === 'Wz.55 Striga gains ground', 'Nov 13 morning Striga entry must lead');
+assert(meta.changelog[0].date === 'Nov 15, 2026 · morning ET' && meta.changelog[0].title === 'Striga one pro behind VEL', 'Nov 15 morning Striga entry must lead');
+assert(meta.changelog.some(entry => entry.date === 'Nov 13, 2026 · morning ET' && entry.title === 'Wz.55 Striga gains ground'), 'Nov 13 Striga entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 12, 2026 · evening ET' && entry.title === 'Wz.55 Striga Emerging'), 'Nov 12 evening Striga entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 12, 2026 · morning ET' && entry.title === 'Hitscan and ballistics update'), 'Nov 12 morning changelog entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 10, 2026 · morning ET' && entry.title === 'Cronen Osprey'), 'Nov 10 changelog entry must remain');
