@@ -116,7 +116,7 @@ for (const mode of ['br', 'res']) {
 }
 const brRoles = Object.fromEntries(meta.modes.br.roles.map(role => [role.key, role]));
 assert(brRoles.close.pickId === 'br-vel' && brRoles.close.alternativeIds.join() === 'br-iso,br-striga', 'BR close group must be VEL plus ISO and Striga');
-assert(brRoles.long.pickId === 'br-cronen' && brRoles.long.alternativeIds.length === 0, 'Cronen stays a pick with no alternatives');
+assert(brRoles.long.pickId === 'br-cronen' && brRoles.long.alternativeIds.join() === 'br-squall', 'Cronen Osprey stays the pick with the Cronen Squall as its alternative (Nov 19)');
 assert(brRoles.support.pickId === 'br-han' && brRoles.support.alternativeIds.length === 0, 'Han stays a pick with no alternatives');
 assert(brRoles.legacy.pickId === 'br-voyak' && brRoles.legacy.alternativeIds.length === 0, 'Voyak stays a pick with no alternatives');
 assert(brRoles.sniper.pickId === 'br-kg7' && brRoles.sniper.alternativeIds.join() === 'br-mosin', 'KG-7 is the BR sniper pick and Mosin is the alternative');
@@ -132,7 +132,7 @@ for (const id of ['br-iso']) {
 }
 const striga = byId.get('br-striga');
 assert(striga.confidence === 'Emerging' && striga.placement === 'alternative' && striga.modeUnlabeled === true, 'Striga is an Emerging, mode-flagged alternative (Nov 12 evening)');
-assert(striga.observed.n === 9 && striga.observed.names.length === 9, 'Striga sample is 9 named pros (Nov 16)');
+assert(striga.observed.n === 7 && striga.observed.names.length === 7, 'Striga sample is 7 named pros (Nov 19)');
 assert(striga.builds.slice(0, 2).every(build => build.evidenceType === 'PRO' && build.complete === true), 'Striga pro builds lead the tabs');
 assert(striga.builds.find(build => build.id === 'striga-shifty').mode.startsWith('Resurgence'), 'Shifty build keeps its Resurgence event label');
 const buildOrder = {
@@ -141,6 +141,7 @@ const buildOrder = {
   'br-han': ['han-hisoka-partial', 'han-codmunity'],
   'br-striga': ['striga-almond', 'striga-shifty', 'striga-codmunity'],
   'br-cronen': ['cronen-spam'],
+  'br-squall': ['squall-apathy'],
   'br-voyak': [],
   'br-mosin': ['mosin-fifakill'],
   'br-kg7': ['kg7-codmunity', 'kg7-cbass', 'kg7-official']
@@ -157,6 +158,7 @@ const buildSlots = {
   'striga-shifty': ['Barrel:GW Sender 500', 'Muzzle:FTAC Silent Recon', 'Optic:Slimline Elite', 'Rear Grip:Matuzek 532-L Grip', 'Magazine:50 Round Drum Mag'],
   'striga-codmunity': ['Muzzle:Full Port Comp', 'Barrel:GW Sender 500', 'Magazine:50 Round Drum Mag', 'Rear Grip:Matuzek 532-L Grip', 'Stock:Wire Stock'],
   'cronen-spam': ['Barrel:IO-556 TAC 18"', 'Muzzle:FSS IS300 Heavy Silencer', 'Optic:Locus PX3 Canted Rifle Scope', 'Magazine:60 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
+  'squall-apathy': ['Optic:Locus PX3 Canted Rifle Scope', 'Muzzle:FSS IS300 Heavy Silencer', 'Barrel:IO-556 TAC 18" Long Barrel', 'Magazine:60 Round Mag', 'Ammunition:5.56 NATO High Velocity'],
   'mosin-fifakill': ['Muzzle:FTAC Silent Recon (Heavy Silencer)', 'Barrel:Mosin K025 Barrel (Long Barrel)', 'Laser:XRK Clutch-LS (Dim ADS Laser)', 'Optic:Expedite 308 DR2 (Marksman Scope)', 'Ammunition:7.62x54mmR High Velocity'],
   'kg7-codmunity': ['Muzzle:Gauge-12 Mono', 'Barrel:Haebang RMT762 29"', 'Stock:TT G76-RP Stock', 'Ammunition:7.62x54mmR High Velocity', 'Bolt:KT76 Light Bolt', 'Optic:'],
   'kg7-cbass': ['Muzzle:TT Solgae F7', 'Barrel:Haebang RMT762 29"', 'Stock:TT G76-RP Stock', 'Ammunition:7.62x54mmR High Velocity', 'Bolt:KT76 Light Bolt', 'Optic:'],
@@ -178,7 +180,8 @@ assert(byId.get('br-cronen').builds[0].note.includes('FSS Fireline Grip'), 'Cron
 assert(!JSON.stringify(byId.get('br-iso').builds).includes('Demo Kilo90 ST'), 'unresolved ISO stock string must not become an attachment');
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
-assert(meta.changelog[0].date === 'Nov 16, 2026 · morning ET' && meta.changelog[0].title === 'Cronen Osprey pulls away', 'Nov 16 morning Osprey entry must lead');
+assert(meta.changelog[0].date === 'Nov 19, 2026 · morning ET' && meta.changelog[0].title === 'Cronen Squall added as long-range alternative', 'Nov 19 morning Squall entry must lead');
+assert(meta.changelog.some(entry => entry.date === 'Nov 16, 2026 · morning ET' && entry.title === 'Cronen Osprey pulls away'), 'Nov 16 Osprey entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 15, 2026 · morning ET' && entry.title === 'Striga one pro behind VEL'), 'Nov 15 Striga entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 13, 2026 · morning ET' && entry.title === 'Wz.55 Striga gains ground'), 'Nov 13 Striga entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 12, 2026 · evening ET' && entry.title === 'Wz.55 Striga Emerging'), 'Nov 12 evening Striga entry must remain');

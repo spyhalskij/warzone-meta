@@ -161,7 +161,9 @@
       "game": "MW4",
       "legacy": false,
       "tags": [],
-      "site_cards": [],
+      "site_cards": [
+        "BR long"
+      ],
       "ttk_coverage": [
         "codmunity-2026-11-06",
         "jgod-2026-11-06"
