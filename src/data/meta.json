@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
   "project": "Warzone Meta",
-  "snapshotDate": "2026-11-24",
-  "updatedLabel": "Nov 24, 2026 · morning ET",
-  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET; Striga X posts and Kitted re-read Nov 12, ~6:40 p.m. ET; Kitted and top-50 X sweep re-read Nov 13, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 15, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 16, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 19, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 24, ~10:00 a.m. ET",
+  "snapshotDate": "2026-11-27",
+  "updatedLabel": "Nov 27, 2026 · morning ET",
+  "researchedWindow": "Nov 6, 2026 · afternoon data audit · reads through ~2:26 p.m. ET; TTK tables re-read Nov 7, ~8:20 a.m. ET; sniper role read Nov 7, late morning ET; Kitted usage re-read Nov 10, ~10:00 a.m. ET; Striga X posts and Kitted re-read Nov 12, ~6:40 p.m. ET; Kitted and top-50 X sweep re-read Nov 13, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 15, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 16, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 19, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 24, ~10:00 a.m. ET; Kitted and top-50 X sweep re-read Nov 27, ~10:00 a.m. ET",
   "patch": "MW4 / Season 1",
   "season": "Hajin Conflict · Season 1",
   "launch": "Nov 6, 2026 · 12:00 a.m. ET",
@@ -45,9 +45,9 @@
       "id": "kitted-panel",
       "label": "Kitted · rolling use panel",
       "kind": "OBSERVED-USE",
-      "date": "Nov 24 · 10:01 a.m. ET",
+      "date": "Nov 27 · 8:46 a.m. ET",
       "url": "https://kitted.gg/meta/most-used-weapons",
-      "note": "25 tracked players eligible under rolling 14-day method (canonical CSV as_of 10:01 a.m. ET Nov 24). No mode split."
+      "note": "23 tracked players eligible under rolling 14-day method (canonical CSV as_of 8:46 a.m. ET Nov 27; 25 on Nov 24). No mode split."
     },
     {
       "id": "kitted-method",
@@ -69,9 +69,9 @@
       "id": "kitted-cronen",
       "label": "Cronen Osprey · individual reports",
       "kind": "OBSERVED-USE",
-      "date": "Nov 24 · 10:01 a.m. ET",
+      "date": "Nov 27 · 8:46 a.m. ET",
       "url": "https://kitted.gg/loadout/cronen-osprey",
-      "note": "11 of 25 tracked pros in the Nov 24 CSV; the page lists 10 (Aydan, FifaKill, Hisoka, Jukeyz, Dongy, Lenun, EmSage, HalloWFR, jboned, Kenner) and Apathy's own page (Nov 24) is the 11th. 60 round Mag and FSS IS300 10/10; IO-556 TAC 18\" 9/10; Locus PX3 8/10; 5.56 NATO High Velocity 4/10. Symfuhny and spam confirmed Nov 23–24 but not counted. Previously ran it: Newbz (Nov 18), GalaxyWZ, Adriann (Nov 17), Biffle (Nov 16)."
+      "note": "15 of 23 tracked pros: Aydan, Biffle, FifaKill, Apathy, GalaxyWZ, Adriann, Newbz, Lenun, EmSage, Krinkz, HalloWFR, jboned, Kenner, Melvn, FLS. IO-556 TAC 18\" and FSS IS300 15/15, 60 round Mag 14/15, Locus PX3 13/15, 5.56 NATO High Velocity 8/15. Symfuhny, spam, HusKerrs, Dongy and Jukeyz show the Osprey on their own pages (Nov 26–27) but are not counted. Previously ran it: Hisoka (Nov 26, now Striga + VEL)."
     },
     {
       "id": "kitted-vel",
@@ -517,9 +517,9 @@
       "id": "kitted-striga",
       "label": "Wz.55 Striga · Kitted pro runners",
       "kind": "OBSERVED-USE",
-      "date": "Nov 24 · 10:01 a.m. ET (page dated Nov 23)",
+      "date": "Nov 27 · 8:46 a.m. ET",
       "url": "https://kitted.gg/loadout/wz55-striga",
-      "note": "3 of 25 tracked pros: Aydan, Metaphor, Jukeyz. 50 Round Drum Mag and Wire Stock 3/3. Previously ran it: Apathy (last Nov 23), FifaKill (Nov 19), Kenner (Nov 17), JoeWo (Nov 16), Krinkz (Nov 15), Newbz (Nov 13). Melvn and bbreadman confirmed Nov 23 but not counted."
+      "note": "CSV 4 of 23; the page lists 3: Aydan, Metaphor, Melvn. 50 Round Drum Mag and FTAC Silent Recon 3/3. bbreadman and Hisoka show the Striga on their own pages (Nov 26)."
     },
     {
       "id": "kitted-vel-nov13",
@@ -565,9 +565,9 @@
       "id": "kitted-squall",
       "label": "Cronen Squall · Kitted pro runners",
       "kind": "OBSERVED-USE",
-      "date": "Nov 24 · 10:01 a.m. ET (page dated Nov 23)",
+      "date": "Nov 27 · 8:46 a.m. ET (page dated Nov 26)",
       "url": "https://kitted.gg/loadout/cronen-squall",
-      "note": "4 of 25 listed: Biffle, GalaxyWZ, ScummN, Newbz. HusKerrs' own page (Nov 23) shows Cronen Squall + VEL 46 but he is missing from the runner list, so 5 counted. Previously ran it: Hisoka, Apathy (Nov 22), TeePee (Nov 19), bbreadman (Nov 17). Destroy is listed as confirming Nov 23 while his own page is dated Oct 18."
+      "note": "1 of 23 tracked pros: ScummN. bbreadman’s own page (Nov 26) also shows the Squall but he is not counted (2 at most). Previously ran it: Hisoka (Nov 26), Newbz, GalaxyWZ (Nov 25), Biffle (Nov 24), Apathy (Nov 22). HusKerrs’ own page now shows Osprey + VEL (Nov 26)."
     },
     {
       "id": "kitted-apathy-squall",
@@ -640,14 +640,46 @@
       "date": "Nov 24 · 10:01 a.m. ET (page dated Nov 23)",
       "url": "https://kitted.gg/loadout/han-86",
       "note": "1 of 25 tracked pros: Metaphor (confirmed Nov 23). Kitted labels his barrel \"Hanbit Lightning-7 465mm\"; his Nov 22 gunsmith screenshot shows SA H86 465mm."
+    },
+    {
+      "id": "kitted-vel-nov27",
+      "label": "VEL 46 · Kitted pro runners",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 27 · 8:46 a.m. ET (page dated Nov 26)",
+      "url": "https://kitted.gg/loadout/vel-46",
+      "note": "10 of 23 tracked pros: Swagg, JoeWo, Repullze, GalaxyWZ, Hisoka, ScummN, Adriann, Newbz, HalloWFR, Kenner. VB-46 Series 11, 4.6x30mm High Velocity and EXP U-Turn Stock 4/10, Schlager Visiv-5 3/10, FSS Crackdown 2/10. Swagg’s listed VEL build shows Osprey parts (likely mislabeled). HusKerrs, spam and Symfuhny run the VEL on their own pages (Nov 26–27) but are not counted (12 at most)."
+    },
+    {
+      "id": "kitted-iso-nov27",
+      "label": "ISO Nightshade · Kitted pro runners",
+      "kind": "OBSERVED-USE",
+      "date": "Nov 27 · 8:46 a.m. ET",
+      "url": "https://kitted.gg/loadout/iso-nightshade",
+      "note": "8 of 23 tracked pros: Biffle, TeePee, FifaKill, Apathy, Lenun, EmSage, Krinkz, FLS. ZLR Carbon-900 8/8, 40 Round Mag 6/8, Demo STP-1 3/8, Demo Kilo90 Stock 3/8, 9mm Parabellum Overpressured 2/8. Previously ran it: Metaphor, Adriann (Nov 26), Kenner (Nov 24), jboned."
+    },
+    {
+      "id": "kitted-hisoka-vel-nov26",
+      "label": "Hisoka · VEL 46 build",
+      "kind": "OBSERVED-USE",
+      "date": "confirmed Nov 26",
+      "url": "https://kitted.gg/streamer/hisoka",
+      "note": "Schlager Visiv-5, VB-46 Series 11, EXP U-Turn Stock, FSS Crackdown, 4.6x30mm High Velocity; paired with the WZ.55 Striga. Matches Kitted’s most-run VEL part in every slot and the four parts on his Nov 6 Hajin BR gunsmith. Mode not stated."
+    },
+    {
+      "id": "kitted-switches-nov27",
+      "label": "Kitted · individual pro pages (switches)",
+      "kind": "OBSERVED-USE",
+      "date": "read Nov 27, 2026 · ~10:00 a.m. ET",
+      "url": "https://kitted.gg/streamers",
+      "note": "Own pages: Biffle Squall → Osprey (Nov 25); GalaxyWZ Squall + VMP → Osprey + VEL (Nov 25); Adriann Mosin + ISO → Osprey + VEL (Nov 26); Kenner ISO → Osprey + VEL (Nov 26); Krinkz Kilo 141 → Osprey + ISO (Nov 26); FLS Voyak → Osprey + ISO (Nov 27); Hisoka Osprey → Striga + VEL (Nov 26)."
     }
   ],
   "sample": {
-    "label": "Kitted rolling panel · Nov 24",
-    "n": 25,
-    "total": 25,
+    "label": "Kitted rolling panel · Nov 27",
+    "n": 23,
+    "total": 23,
     "trackedTotal": 50,
-    "note": "25 tracked streamers qualified under Kitted’s 14-day rule as of 10:01 a.m. ET Nov 24. Not a performance-roster denominator; no population pick rate or mode-specific share is inferred.",
+    "note": "23 tracked streamers qualified under Kitted’s 14-day rule as of 8:46 a.m. ET Nov 27. Not a performance-roster denominator; no population pick rate or mode-specific share is inferred.",
     "sourceIds": [
       "kitted-panel",
       "kitted-method"
@@ -667,36 +699,39 @@
           "role": "Long range · candidate, not map-verified",
           "weapon": "Cronen Osprey",
           "confidence": "Emerging",
-          "summary": "11 of 25 tracked pros on Kitted Nov 24; still the most-run gun, tied with the ISO.",
+          "summary": "15 of 23 tracked pros on Kitted Nov 27, the most-run gun by five; most Squall runners moved over.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only",
           "observed": {
-            "n": 11,
-            "total": 25,
+            "n": 15,
+            "total": 23,
             "names": [
               "Lenun (roster)",
               "FifaKill (roster)",
               "Aydan (roster)",
-              "Dongy (roster)",
               "HalloWFR (roster)",
               "Kenner (roster)",
-              "Hisoka (roster)",
-              "Jukeyz (roster)",
-              "EmSage",
-              "jboned",
-              "Apathy"
+              "EmSage (roster)",
+              "FLS (roster)",
+              "Newbz (roster)",
+              "Melvn (roster)",
+              "Biffle",
+              "GalaxyWZ",
+              "Adriann",
+              "Apathy",
+              "Krinkz",
+              "jboned"
             ],
-            "date": "2026-11-24",
-            "dateLabel": "Kitted Nov 24",
-            "caveat": "Kitted CSV counts 11/25 at 10:01 a.m. ET Nov 24 (12/32 Nov 19); the page lists 10 and Apathy’s own Nov 24 page is the 11th. Squall is 4/25 (5 counting HusKerrs). 60 round Mag and FSS IS300 10/10, IO-556 TAC 18\" 9/10, Locus PX3 8/10. Rolling 14-day panel, no map/mode tag.",
+            "date": "2026-11-27",
+            "dateLabel": "Kitted Nov 27",
+            "caveat": "Kitted CSV counts 15/23 at 8:46 a.m. ET Nov 27 (11/25 Nov 24). In on their own pages: Biffle and GalaxyWZ from the Squall (Nov 25), Adriann, Krinkz, Melvn (Nov 26), FLS (Nov 27). Symfuhny, spam, HusKerrs, Dongy and Jukeyz also show the Osprey on their own pages but are not counted. Hisoka left for the Striga + VEL. IO-556 TAC 18\" and FSS IS300 15/15, 60 round Mag 14/15, Locus PX3 13/15. Rolling 14-day panel, no map/mode tag.",
             "sourceIds": [
-              "kitted-spam",
               "kitted-cronen",
-              "kitted-adriann",
+              "kitted-switches-nov27",
               "kitted-panel",
               "kitted-method"
             ],
-            "display": "11 / 25 tracked pros · Kitted Nov 24"
+            "display": "15 / 23 tracked pros · Kitted Nov 27"
           },
           "build": {
             "owner": "Spam",
@@ -756,7 +791,8 @@
             "cronen-full",
             "jgod",
             "wzstats",
-            "wzl"
+            "wzl",
+            "kitted-switches-nov27"
           ],
           "unlock": "Battle Pass tier 16",
           "fullSummary": "Clears the current-gun registry and five-part MW4 compatibility gate. One roster pro plus one supplemental current report; Hajin/Zodiac proof remains absent.",
@@ -836,30 +872,26 @@
           ],
           "whenToPick": "Same Cronen parts as the Osprey at a slower fire rate; JGOD calcs it flat to 40m but slower far out.",
           "weapon": "Cronen Squall",
-          "confidence": "Emerging",
-          "summary": "5 of 25 tracked pros on Kitted Nov 24 (incl. HusKerrs, missing from its list); Osprey stays pick.",
+          "confidence": "Testing",
+          "summary": "1 of 23 tracked pros on Kitted Nov 27 (5/25 Nov 24); its runners moved to the Osprey.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only · pro builds",
           "observed": {
-            "n": 5,
-            "total": 25,
+            "n": 1,
+            "total": 23,
             "names": [
-              "Newbz (roster)",
-              "HusKerrs",
-              "Biffle",
-              "GalaxyWZ",
               "ScummN"
             ],
-            "date": "2026-11-24",
-            "dateLabel": "Kitted Nov 24",
-            "caveat": "Kitted lists 4/25 at 10:01 a.m. ET Nov 24 (7/32 Nov 19); HusKerrs’ own Nov 23 page shows the Squall but he is missing from the runner list, so 5 counted. Off it: Apathy (now Osprey + ISO), Hisoka (Osprey), TeePee, bbreadman. Rolling 14-day panel, no map/mode tag.",
+            "date": "2026-11-27",
+            "dateLabel": "Kitted Nov 27",
+            "caveat": "Kitted lists 1/23 at 8:46 a.m. ET Nov 27 (5/25 Nov 24). bbreadman’s own page (Nov 26) shows Squall + Striga but he is not counted (2 at most). Off it: Biffle, GalaxyWZ, Newbz, HusKerrs (now Osprey), Hisoka (Striga + VEL). Rolling 14-day panel, no map/mode tag.",
             "sourceIds": [
               "kitted-squall",
-              "kitted-huskerrs-squall",
+              "kitted-switches-nov27",
               "kitted-panel",
               "kitted-method"
             ],
-            "display": "5 / 25 tracked pros · Kitted Nov 24"
+            "display": "1 / 23 tracked pros · Kitted Nov 27"
           },
           "build": null,
           "test": {
@@ -871,7 +903,7 @@
               "codmunity-ttk"
             ]
           },
-          "counterpoint": "Below the pick bar: Osprey 11/25 vs Squall 5/25 on Kitted. Squall runners share the Osprey’s Cronen parts (IO-556 TAC 18\", FSS IS300, Locus PX3 3/4 listed). Apathy and Hisoka have left it. No X gunsmith post or tournament-tagged build yet.",
+          "counterpoint": "Well below the pick bar: Osprey 15/23 vs Squall 1/23 on Kitted (Nov 27). Biffle, GalaxyWZ, Newbz, HusKerrs and Hisoka have all left it since Nov 24. The HusKerrs build below is his Nov 23 record. No X gunsmith post or tournament-tagged build.",
           "sourceIds": [
             "kitted-squall",
             "kitted-apathy-squall",
@@ -879,9 +911,10 @@
             "kitted-panel",
             "kitted-method",
             "jgod",
-            "codmunity-ttk"
+            "codmunity-ttk",
+            "kitted-switches-nov27"
           ],
-          "fullSummary": "Emerging long-range alternative: Kitted’s #2 long-range gun. HusKerrs and Newbz run the same five parts. Mode unverified.",
+          "fullSummary": "Testing long-range alternative: still Kitted’s #2 long-range gun, but down to ScummN (plus bbreadman’s own page). The build tab is HusKerrs’ Nov 23 record. Mode unverified.",
           "builds": [
             {
               "id": "squall-huskerrs",
@@ -894,7 +927,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": true,
-              "note": "Suppressed long-range build read from HusKerrs’ gunsmith on stream (Nov 23); Newbz (Nov 23) runs the same five parts. Apathy, the earlier source, has moved to the Osprey.",
+              "note": "Suppressed long-range build read from HusKerrs’ gunsmith on stream (Nov 23); Newbz (Nov 23) ran the same five parts. Both have since moved to the Osprey (Nov 25–26).",
               "attachments": [
                 {
                   "slot": "Optic",
@@ -927,39 +960,42 @@
         },
         {
           "id": "br-vel",
-          "role": "Close range · alternative",
+          "role": "Close range · candidate, not map-verified",
           "weapon": "VEL 46",
           "confidence": "Emerging",
-          "summary": "7 of 25 tracked pros on Kitted Nov 24 (12/32 Nov 19); Kenner left for the ISO. Now the alternative.",
+          "summary": "10 of 23 tracked pros on Kitted Nov 27, #1 close again; GalaxyWZ, Adriann and Kenner switched in.",
           "modeUnlabeled": true,
-          "editable": "MW4 · current-game only",
+          "editable": "MW4 · current-game only · pro builds · mode unverified",
           "observed": {
-            "n": 7,
-            "total": 25,
+            "n": 10,
+            "total": 23,
             "names": [
               "Hisoka (roster)",
               "Newbz (roster)",
               "HalloWFR (roster)",
+              "Kenner (roster)",
+              "Adriann",
+              "GalaxyWZ",
               "Swagg",
               "JoeWo",
               "Repullze",
               "ScummN"
             ],
-            "date": "2026-11-24",
-            "dateLabel": "Kitted Nov 24",
-            "caveat": "Kitted CSV counts 7/25 at 10:01 a.m. ET Nov 24 (9/26 Nov 23, 12/32 Nov 19). Off it: Kenner (now ISO), Metaphor (Kitted now Han 86 + Striga). HusKerrs and Symfuhny show the VEL on their own pages but are not in Kitted’s count (9 at most). No VEL attachment is run by more than 2 of 7. Rolling panel, no map/mode tag.",
+            "date": "2026-11-27",
+            "dateLabel": "Kitted Nov 27",
+            "caveat": "Kitted CSV counts 10/23 at 8:46 a.m. ET Nov 27 (7/25 Nov 24). In since Nov 24 on their own pages: GalaxyWZ (Nov 25), Adriann and Kenner (Nov 26, both off the ISO). HusKerrs, spam and Symfuhny also show the VEL on their own pages but are not counted (12 at most); Swagg’s listed VEL build shows Osprey parts. ISO is 8/23. Rolling panel, no map/mode tag.",
             "sourceIds": [
-              "kitted-vel-nov24",
-              "kitted-vel",
-              "kitted-hisoka",
+              "kitted-vel-nov27",
+              "kitted-switches-nov27",
+              "kitted-hisoka-vel-nov26",
               "kitted-panel",
               "kitted-method"
             ],
-            "display": "7 / 25 tracked pros · Kitted Nov 24"
+            "display": "10 / 23 tracked pros · Kitted Nov 27"
           },
           "build": {
-            "owner": "Spam",
-            "kind": "Individual reported MW4 build · replaces stale VEL array",
+            "owner": "Hisoka",
+            "kind": "Individual reported MW4 build · matches Kitted VEL consensus 5/5",
             "legacy": false,
             "status": "5 current MW4 parts · one individual set",
             "attachments": [
@@ -969,26 +1005,26 @@
               },
               {
                 "slot": "Muzzle",
-                "name": "212 LC40 Comp"
+                "name": "FSS Crackdown"
+              },
+              {
+                "slot": "Laser",
+                "name": "Schlager VISIV-5"
               },
               {
                 "slot": "Stock",
                 "name": "EXP U-Turn Stock"
               },
               {
-                "slot": "Rear Grip",
-                "name": "V46 R-Skel Grip"
-              },
-              {
                 "slot": "Ammunition",
                 "name": "4.6x30mm High Velocity"
               }
             ],
-            "note": "Spam’s five current MW4 parts. Hisoka’s gunsmith is a separate build.",
+            "note": "Hisoka’s five current MW4 parts (confirmed Nov 26), which match Kitted’s most-run VEL part in every slot. Spam’s build is a separate tab.",
             "sourceIds": [
-              "kitted-spam",
-              "vel-types",
-              "vel-full"
+              "kitted-hisoka-vel-nov26",
+              "kitted-vel-nov27",
+              "hisoka-vod-direct"
             ]
           },
           "test": {
@@ -999,7 +1035,7 @@
               "jgod"
             ]
           },
-          "counterpoint": "DISAGREEMENT · Kitted reports VEL 7/21 in its rolling panel (Nov 6, ~8:35 p.m. ET), not seven streams independently reviewed. Hisoka’s post-launch gunsmith confirms VEL in Hajin BR. Swagg describes comfort/movement, not a direct ISO comparison. JGOD’s calculations favor ISO at 0m (585 vs 630 ms) and 15m (650 vs 693 ms); VEL leads at 40m (882 vs 910 ms). Calculations, not controlled tests.",
+          "counterpoint": "DISAGREEMENT · Pick rests on Kitted pro use, not TTK or aggregators. WZStats (Nov 27) still ranks the ISO #1 and Striga #2 close with the VEL #3; WarzoneLoadout has Striga #1, VEL #2. CODMunity’s calculator has the VEL slightly faster than the ISO in every band; JGOD’s launch calc favors the ISO inside 15m. No X gunsmith post this week; Kitted’s panel has no map/mode tag.",
           "sourceIds": [
             "official",
             "mw4-launch",
@@ -1021,11 +1057,14 @@
             "kitted-vel-nov15",
             "kitted-vel-nov16",
             "kitted-vel-nov19",
-            "kitted-vel-nov24"
+            "kitted-vel-nov24",
+            "kitted-vel-nov27",
+            "kitted-hisoka-vel-nov26",
+            "kitted-switches-nov27"
           ],
-          "fullSummary": "Emerging close-range alternative after leading pro use through Nov 19. A direct Hisoka VEL gunsmith is confirmed in Hajin BR, and Metaphor posted a VEL gunsmith from a 49-kill BR Solos match (Nov 22). Comfort/movement is Swagg’s subjective rationale.",
+          "fullSummary": "Emerging close-range pick on pro adoption: Kitted’s #1 close-range gun at 10/23 (Nov 27), two ahead of the ISO. Hisoka’s Nov 26 build matches the most-run part in every slot and the four parts on his Nov 6 Hajin BR gunsmith. Mode unverified.",
           "roleKey": "close",
-          "placement": "alternative",
+          "placement": "pick",
           "evidenceTags": [
             "PRO",
             "CALC",
@@ -1043,7 +1082,7 @@
               "mode": "BR",
               "complete": false,
               "proUseReported": false,
-              "note": "Suppressed range and ADS-laser setup in Hajin BR. The fifth equipped attachment is hidden.",
+              "note": "Suppressed range and ADS-laser setup in Hajin BR; the fifth equipped attachment is hidden. Hisoka’s Kitted report (Nov 26) shows these four parts plus 4.6x30mm High Velocity, Kitted’s most-run VEL part in every slot.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1077,13 +1116,13 @@
               "label": "VEL Build 2",
               "sourceName": "Kitted · Spam individual report",
               "url": "https://kitted.gg/streamer/spam/vel-46",
-              "date": "2026-11-07",
-              "dateBasis": "source confirmation/update date",
+              "date": "2026-11-26",
+              "dateBasis": "source confirmation date (spam’s own page, Nov 26)",
               "evidenceType": "AGG",
               "mode": "unverified",
               "complete": true,
               "proUseReported": true,
-              "note": "Reported pro build for balanced control and range. The mode is not stated. Apathy uses the same build with an LM Combat Grip in place of the rear grip.",
+              "note": "Balanced control and range build, re-confirmed on spam’s page Nov 26. Kenner (Nov 26) runs it with an FSS Crackdown in place of the 212 LC40 Comp; Apathy’s earlier report used an LM Combat Grip as the rear grip. Mode not stated.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1152,8 +1191,7 @@
                 }
               ]
             }
-          ],
-          "whenToPick": "When you want the VEL’s handling and movement; CODMunity calcs it a touch faster than the ISO at every range."
+          ]
         },
         {
           "id": "br-voyak",
@@ -1691,45 +1729,42 @@
         },
         {
           "id": "br-iso",
-          "role": "Close range · candidate, not map-verified",
+          "role": "Close range · alternative",
           "roleKey": "close",
-          "placement": "pick",
+          "placement": "alternative",
           "evidenceTags": [
             "CALC",
             "AGG"
           ],
           "weapon": "ISO Nightshade",
           "confidence": "Emerging",
-          "summary": "11 of 25 tracked pros on Kitted Nov 24, now the clear #1 close; Kenner and Apathy joined today.",
+          "summary": "8 of 23 tracked pros on Kitted Nov 27 (11/25 Nov 24); Adriann and Kenner moved to the VEL.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only · pro builds · mode unverified",
           "observed": {
-            "n": 11,
-            "total": 25,
+            "n": 8,
+            "total": 23,
             "names": [
               "FifaKill (roster)",
               "Lenun (roster)",
               "EmSage (roster)",
               "FLS (roster)",
-              "Kenner (roster)",
               "Biffle",
               "TeePee",
               "Apathy",
-              "Adriann",
-              "Krinkz",
-              "jboned"
+              "Krinkz"
             ],
-            "date": "2026-11-24",
-            "dateLabel": "Kitted Nov 24",
-            "caveat": "Kitted CSV counts 11/25 at 10:01 a.m. ET Nov 24 (9/26 Nov 23, 8/32 Nov 19). Kenner moved over from the VEL and Apathy from the Kastov 762/Striga on Nov 24. VEL is 7/25 (9 at most counting HusKerrs and Symfuhny). ZLR Carbon-900 11/11, 40 Round Mag 9/11. WZStats also ranks ISO #1 close (AGG). Rolling panel, no map/mode tag.",
+            "date": "2026-11-27",
+            "dateLabel": "Kitted Nov 27",
+            "caveat": "Kitted CSV counts 8/23 at 8:46 a.m. ET Nov 27 (11/25 Nov 24). Off it: Adriann and Kenner (now Osprey + VEL), Metaphor (Han 86 + Striga), jboned (Osprey + PP-919). ZLR Carbon-900 8/8, 40 Round Mag 6/8. Rolling panel, no map/mode tag.",
             "sourceIds": [
-              "kitted-iso-nov24",
-              "kitted-vel-nov24",
+              "kitted-iso-nov27",
+              "kitted-switches-nov27",
               "wzstats-iso-close",
               "kitted-panel",
               "kitted-method"
             ],
-            "display": "11 / 25 tracked pros · Kitted Nov 24"
+            "display": "8 / 23 tracked pros · Kitted Nov 27"
           },
           "build": {
             "owner": "Biffle",
@@ -1773,7 +1808,7 @@
               "jgod"
             ]
           },
-          "counterpoint": "DISAGREEMENT · Pick rests on Kitted pro use, not TTK. CODMunity’s calculator has the VEL slightly faster in every band (567 vs 585 ms at 0–10m), while JGOD’s launch calc favors ISO inside 15m (585/650 vs 630/693 ms) and VEL at 40m (882 vs 910). No X gunsmith post or tournament-tagged ISO build yet; Kitted’s panel has no map/mode tag.",
+          "counterpoint": "Below the pick bar: VEL 10/23 vs ISO 8/23 on Kitted (Nov 27). Aggregators disagree: WZStats (Nov 27) keeps the ISO #1 close; WarzoneLoadout has it #3. CODMunity’s calculator has the VEL slightly faster in every band (567 vs 585 ms at 0–10m); JGOD’s launch calc favors the ISO inside 15m.",
           "sourceIds": [
             "jgod",
             "wzstats-iso-close",
@@ -1784,9 +1819,11 @@
             "kitted-vel-nov24",
             "kitted-biffle-iso",
             "kitted-kenner-iso",
-            "codmunity-iso-catalog"
+            "codmunity-iso-catalog",
+            "kitted-iso-nov27",
+            "kitted-switches-nov27"
           ],
-          "fullSummary": "Emerging close-range pick on pro adoption: Kitted’s #1 close-range gun at 11/25 (Nov 24), four ahead of the VEL. Every counted runner uses the ZLR Carbon-900. Mode unverified.",
+          "fullSummary": "Emerging close-range alternative after leading pro use Nov 24–26. Every counted runner uses the ZLR Carbon-900; Biffle’s build still matches the most-run part in every slot. Mode unverified.",
           "builds": [
             {
               "id": "iso-biffle",
@@ -1799,7 +1836,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": true,
-              "note": "Range-and-control build that matches Kitted’s most-run part in all five slots; read from Biffle’s gunsmith on stream.",
+              "note": "Range-and-control build that matches Kitted’s most-run part in all five slots; read from Biffle’s gunsmith on stream (still his ISO build on his Nov 25 page).",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1839,7 +1876,7 @@
               "mode": "unverified",
               "complete": true,
               "proUseReported": true,
-              "note": "Kenner’s build after leaving the VEL on Nov 24: same barrel, mag and ammo, with an FSS Crackdown muzzle and EXP G2-44 Stock. Apathy runs a similar Crackdown/G2-44 set with an FSS Fireline Grip.",
+              "note": "Kenner’s Nov 24 ISO build (he moved to the VEL Nov 26): same barrel, mag and ammo, with an FSS Crackdown muzzle and EXP G2-44 Stock. Apathy (Nov 27) and FLS (Nov 27) run similar G2-44 sets.",
               "attachments": [
                 {
                   "slot": "Barrel",
@@ -1908,7 +1945,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "whenToPick": "When you want the Carbon-900 range build; every counted ISO runner uses that barrel, and WZStats still ranks it #1 close."
         },
         {
           "id": "br-striga",
@@ -1922,29 +1960,30 @@
           "whenToPick": "Close-range fights you can pre-aim, where raw TTK matters more than handling.",
           "weapon": "Wz.55 Striga",
           "confidence": "Emerging",
-          "summary": "Five named pros on Nov 24 (3/25 on Kitted + 2 X posts); ISO is now the close pick.",
+          "summary": "Six named pros on Nov 27 (4/23 on Kitted + 2 X posts); VEL is the close pick.",
           "modeUnlabeled": true,
           "editable": "MW4 · current-game only · pro builds",
           "observed": {
-            "n": 5,
-            "total": 27,
+            "n": 6,
+            "total": 25,
             "names": [
               "Almond (X)",
               "Shifty (X)",
               "Aydan (roster)",
-              "Jukeyz (roster)",
-              "Metaphor (roster)"
+              "Metaphor (roster)",
+              "Melvn (roster)",
+              "Hisoka (roster)"
             ],
-            "date": "2026-11-24",
-            "dateLabel": "X posts + Kitted Nov 24",
-            "caveat": "Almond (Nov 11, 1:34 a.m. ET) and Shifty (Nov 12, 4:04 p.m. ET) posted Striga gunsmiths on X; Kitted counts 3/25 at 10:01 a.m. ET Nov 24 (5/32 Nov 19). Off it since Nov 19: Apathy (now ISO), Kenner, bbreadman. Metaphor now listed. Denominator = Kitted’s 25-pro panel + the 2 off-panel posters. Shifty’s build won a Resurgence (Zodiac) event.",
+            "date": "2026-11-27",
+            "dateLabel": "X posts + Kitted Nov 27",
+            "caveat": "Almond (Nov 11, 1:34 a.m. ET) and Shifty (Nov 12, 4:04 p.m. ET) posted Striga gunsmiths on X; Kitted’s CSV counts 4/23 at 8:46 a.m. ET Nov 27 (3/25 Nov 24). The page names Aydan, Metaphor and Melvn; Hisoka’s own page (Nov 26) is the fourth. bbreadman’s own page also shows it. Denominator = Kitted’s 23-pro panel + the 2 off-panel posters.",
             "sourceIds": [
               "almond-striga",
               "shifty-striga",
               "kitted-striga",
               "kitted-panel"
             ],
-            "display": "5 named pros · 3/25 Kitted + 2 X posts"
+            "display": "6 named pros · 4/23 Kitted + 2 X posts"
           },
           "build": null,
           "test": {
@@ -1956,7 +1995,7 @@
               "codmunity-ttk"
             ]
           },
-          "counterpoint": "Pick bar not met: on Kitted’s panel ISO leads 11/25 and VEL 7/25 vs Striga 3/25 (Nov 24). Almond calls the Striga a pre-aim/strafe gun and points to ISO or VEL for movement. Shifty’s build is from a Resurgence event; BR use is not separately shown. Calculators still disagree (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m).",
+          "counterpoint": "Pick bar not met: on Kitted’s panel VEL leads 10/23 and ISO 8/23 vs Striga 4/23 (Nov 27). Almond calls the Striga a pre-aim/strafe gun and points to ISO or VEL for movement. Shifty’s build is from a Resurgence event; BR use is not separately shown. Calculators still disagree (JGOD 553 ms at 0m, CODMunity 617 ms at 0–10m).",
           "sourceIds": [
             "almond-striga",
             "shifty-striga",
@@ -2097,9 +2136,9 @@
           "id": "br-close",
           "key": "close",
           "label": "Close range",
-          "pickId": "br-iso",
+          "pickId": "br-vel",
           "alternativeIds": [
-            "br-vel",
+            "br-iso",
             "br-striga"
           ]
         },
@@ -2516,6 +2555,21 @@
     }
   ],
   "changelog": [
+    {
+      "date": "Nov 27, 2026 · morning ET",
+      "title": "VEL 46 retakes the close-range pick; Squall users move to the Osprey",
+      "text": "Kitted now counts the VEL 46 on 10 of 23 tracked pros (7/25 on Nov 24), with GalaxyWZ, Adriann and Kenner switching to it on Nov 25–26. The ISO drops to 8/23, so the VEL becomes the BR close-range pick again and the ISO an alternative. Hisoka’s Nov 26 VEL build (VB-46 Series 11, FSS Crackdown, Schlager Visiv-5, EXP U-Turn Stock, 4.6x30mm High Velocity) is now Build 1. The Osprey jumps to 15/23 as Biffle and GalaxyWZ leave the Squall, which falls to 1/23 (now Testing). Striga 4/23. No new Warzone patch and no loadout posts from the top-50 roster on X.",
+      "sourceIds": [
+        "kitted-vel-nov27",
+        "kitted-iso-nov27",
+        "kitted-switches-nov27",
+        "kitted-hisoka-vel-nov26",
+        "kitted-cronen",
+        "kitted-squall",
+        "kitted-striga",
+        "kitted-panel"
+      ]
+    },
     {
       "date": "Nov 24, 2026 · morning ET",
       "title": "ISO Nightshade takes the close-range pick",

@@ -115,7 +115,7 @@ for (const mode of ['br', 'res']) {
   }
 }
 const brRoles = Object.fromEntries(meta.modes.br.roles.map(role => [role.key, role]));
-assert(brRoles.close.pickId === 'br-iso' && brRoles.close.alternativeIds.join() === 'br-vel,br-striga', 'BR close group must be ISO (pick, Nov 24) plus VEL and Striga');
+assert(brRoles.close.pickId === 'br-vel' && brRoles.close.alternativeIds.join() === 'br-iso,br-striga', 'BR close group must be VEL (pick, Nov 27) plus ISO and Striga');
 assert(brRoles.long.pickId === 'br-cronen' && brRoles.long.alternativeIds.join() === 'br-squall', 'Cronen Osprey stays the pick with the Cronen Squall as its alternative (Nov 19)');
 assert(brRoles.support.pickId === 'br-han' && brRoles.support.alternativeIds.length === 0, 'Han stays a pick with no alternatives');
 assert(brRoles.legacy.pickId === 'br-voyak' && brRoles.legacy.alternativeIds.length === 0, 'Voyak stays a pick with no alternatives');
@@ -126,14 +126,16 @@ const vel = byId.get('br-vel');
 assert(vel.counterpoint.startsWith('DISAGREEMENT') && vel.sourceIds.includes('hisoka-vod-direct') && vel.sourceIds.includes('swagg-vel-comfort'), 'VEL disagreement and Hisoka/Swagg sources must stay');
 for (const id of ['br-iso']) {
   const card = byId.get(id);
-  assert(card.confidence === 'Emerging' && card.placement === 'pick' && card.modeUnlabeled === true, `${id}: Emerging pick stays mode-unverified (Nov 24)`);
-  assert(card.observed.n === 11 && card.observed.total === 25 && card.observed.names.length === 11, `${id}: ISO sample is 11/25 named pros (Nov 24)`);
+  assert(card.confidence === 'Emerging' && card.placement === 'alternative' && card.modeUnlabeled === true, `${id}: Emerging alternative stays mode-unverified (Nov 27)`);
+  assert(card.observed.n === 8 && card.observed.total === 23 && card.observed.names.length === 8, `${id}: ISO sample is 8/23 named pros (Nov 27)`);
   assert(Array.isArray(card.builds) && card.builds.length > 0, `${id}: show the sourced build`);
   assert(card.builds.every(build => build.mode === 'unverified'), `${id}: do not assign a mode the source did not`);
 }
 const striga = byId.get('br-striga');
 assert(striga.confidence === 'Emerging' && striga.placement === 'alternative' && striga.modeUnlabeled === true, 'Striga is an Emerging, mode-flagged alternative (Nov 12 evening)');
-assert(striga.observed.n === 5 && striga.observed.names.length === 5, 'Striga sample is 5 named pros (Nov 24)');
+assert(striga.observed.n === 6 && striga.observed.names.length === 6, 'Striga sample is 6 named pros (Nov 27)');
+assert(vel.confidence === 'Emerging' && vel.placement === 'pick' && vel.modeUnlabeled === true && vel.observed.n === 10 && vel.observed.total === 23 && vel.observed.names.length === 10, 'VEL is the Emerging, mode-unverified close pick at 10/23 (Nov 27)');
+assert(byId.get('br-squall').confidence === 'Testing' && byId.get('br-squall').observed.n === 1 && byId.get('br-cronen').observed.n === 15, 'Squall Testing 1/23, Osprey 15/23 (Nov 27)');
 assert(striga.builds.slice(0, 2).every(build => build.evidenceType === 'PRO' && build.complete === true), 'Striga pro builds lead the tabs');
 assert(striga.builds.find(build => build.id === 'striga-shifty').mode.startsWith('Resurgence'), 'Shifty build keeps its Resurgence event label');
 const buildOrder = {
@@ -185,7 +187,8 @@ assert(byId.get('br-iso').sourceIds.includes('codmunity-iso-catalog'), 'Demo Kil
 assert(byId.get('br-han').builds[0].evidenceType === 'PRO' && byId.get('br-han').builds[0].mode.startsWith('BR'), 'Metaphor Han 86 pro build leads (Nov 24)');
 assert(byId.get('br-iso').evidenceTags.includes('CALC') && byId.get('br-iso').evidenceTags.includes('AGG'), 'ISO needs CALC and AGG');
 assert(byId.get('br-striga').evidenceTags.includes('CALC'), 'Striga needs CALC');
-assert(meta.changelog[0].date === 'Nov 24, 2026 · morning ET' && meta.changelog[0].title === 'ISO Nightshade takes the close-range pick', 'Nov 24 morning ISO entry must lead');
+assert(meta.changelog[0].date === 'Nov 27, 2026 · morning ET' && meta.changelog[0].title === 'VEL 46 retakes the close-range pick; Squall users move to the Osprey', 'Nov 27 morning VEL entry must lead');
+assert(meta.changelog.some(entry => entry.date === 'Nov 24, 2026 · morning ET' && entry.title === 'ISO Nightshade takes the close-range pick'), 'Nov 24 ISO entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 19, 2026 · morning ET' && entry.title === 'Cronen Squall added as long-range alternative'), 'Nov 19 Squall entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 16, 2026 · morning ET' && entry.title === 'Cronen Osprey pulls away'), 'Nov 16 Osprey entry must remain');
 assert(meta.changelog.some(entry => entry.date === 'Nov 15, 2026 · morning ET' && entry.title === 'Striga one pro behind VEL'), 'Nov 15 Striga entry must remain');
